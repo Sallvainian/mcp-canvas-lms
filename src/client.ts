@@ -1,8 +1,8 @@
 // src/client.ts
 
 import axios, { AxiosInstance, AxiosError } from 'axios';
-import { 
-  CanvasCourse, 
+import {
+  CanvasCourse,
   CanvasAssignment,
   CanvasSubmission,
   CanvasUser,
@@ -38,7 +38,15 @@ import {
   CanvasAccountReport,
   CreateReportArgs,
   ListAccountCoursesArgs,
-  ListAccountUsersArgs
+  ListAccountUsersArgs,
+  ListStudentsArgs,
+  ListSubmissionsArgs,
+  UpdateSubmissionGradeArgs,
+  BulkUpdateGradesArgs,
+  DuplicateAssignmentArgs,
+  CanvasSection,
+  ListSectionsArgs,
+  CrossListSectionArgs
 } from './types.js';
 
 export class CanvasClient {
@@ -240,10 +248,15 @@ export class CanvasClient {
   }
 
   async updateCourse(args: UpdateCourseArgs): Promise<CanvasCourse> {
-    const { course_id, ...courseData } = args;
-    const response = await this.client.put(`/courses/${course_id}`, {
-      course: courseData
-    });
+    const { course_id, published, ...courseData } = args;
+    const data: any = { course: courseData };
+
+    // Canvas API uses course[event] to publish/unpublish
+    if (published !== undefined) {
+      data.course.event = published ? 'offer' : 'claim';
+    }
+
+    const response = await this.client.put(`/courses/${course_id}`, data);
     return response.data;
   }
 
@@ -797,6 +810,118 @@ export class CanvasClient {
 
   async getAccountReport(accountId: number, reportType: string, reportId: number): Promise<CanvasAccountReport> {
     const response = await this.client.get(`/accounts/${accountId}/reports/${reportType}/${reportId}`);
+    return response.data;
+  }
+
+  // ---------------------
+  // STUDENTS/ROSTER (New)
+  // ---------------------
+  async listStudents(args: ListStudentsArgs): Promise<CanvasUser[]> {
+    const { course_id, include } = args;
+    const params: any = {
+      enrollment_type: ['student']
+    };
+
+    if (include && include.length > 0) {
+      params.include = include;
+    }
+
+    const response = await this.client.get(`/courses/${course_id}/users`, { params });
+    return response.data;
+  }
+
+  // ---------------------
+  // GRADING TOOLS (New)
+  // ---------------------
+  async listSubmissions(args: ListSubmissionsArgs): Promise<CanvasSubmission[]> {
+    const { course_id, student_ids, assignment_ids, grouped, workflow_state } = args;
+    const params: any = {};
+
+    if (student_ids && student_ids.length > 0) {
+      params.student_ids = student_ids;
+    }
+    if (assignment_ids && assignment_ids.length > 0) {
+      params.assignment_ids = assignment_ids;
+    }
+    if (grouped !== undefined) {
+      params.grouped = grouped;
+    }
+    if (workflow_state) {
+      params.workflow_state = workflow_state;
+    }
+
+    const response = await this.client.get(`/courses/${course_id}/students/submissions`, { params });
+    return response.data;
+  }
+
+  async updateSubmissionGrade(args: UpdateSubmissionGradeArgs): Promise<CanvasSubmission> {
+    const { course_id, assignment_id, user_id, posted_grade, excuse, text_comment } = args;
+    const submission: any = {};
+
+    if (posted_grade !== undefined) submission.posted_grade = posted_grade;
+    if (excuse !== undefined) submission.excuse = excuse;
+    if (text_comment) {
+      submission.comment = { text_comment };
+    }
+
+    const response = await this.client.put(
+      `/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}`,
+      { submission }
+    );
+    return response.data;
+  }
+
+  async bulkUpdateGrades(args: BulkUpdateGradesArgs): Promise<any> {
+    const { course_id, grade_data } = args;
+    const response = await this.client.post(
+      `/courses/${course_id}/submissions/update_grades`,
+      { grade_data }
+    );
+    return response.data;
+  }
+
+  // ---------------------
+  // ASSIGNMENT MANAGEMENT (New)
+  // ---------------------
+  async duplicateAssignment(args: DuplicateAssignmentArgs): Promise<CanvasAssignment> {
+    const { course_id, assignment_id } = args;
+    const response = await this.client.post(`/courses/${course_id}/assignments/${assignment_id}/duplicate`);
+    return response.data;
+  }
+
+  // ---------------------
+  // SECTIONS/CROSS-LISTING (New)
+  // ---------------------
+  async listSections(args: ListSectionsArgs): Promise<CanvasSection[]> {
+    const { course_id, include } = args;
+    const params: any = {};
+
+    if (include && include.length > 0) {
+      params.include = include;
+    }
+
+    const response = await this.client.get(`/courses/${course_id}/sections`, { params });
+    return response.data;
+  }
+
+  async getSection(courseId: number, sectionId: number, include?: string[]): Promise<CanvasSection> {
+    const params: any = {};
+    if (include && include.length > 0) {
+      params.include = include;
+    }
+
+    const response = await this.client.get(`/courses/${courseId}/sections/${sectionId}`, { params });
+    return response.data;
+  }
+
+  async crossListSection(args: CrossListSectionArgs): Promise<CanvasSection> {
+    const { section_id, new_course_id } = args;
+    const response = await this.client.post(`/sections/${section_id}/crosslist/${new_course_id}`);
+    return response.data;
+  }
+
+  async uncrossListSection(sectionId: number): Promise<CanvasSection> {
+    const response = await this.client.delete(`/sections/${sectionId}/crosslist`);
     return response.data;
   }
 }
