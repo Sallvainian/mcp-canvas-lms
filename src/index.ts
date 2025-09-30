@@ -129,6 +129,7 @@ const TOOLS: Tool[] = [
         restrict_enrollments_to_course_dates: { type: "boolean", description: "Whether to restrict enrollments to course start/end dates" },
         hide_final_grades: { type: "boolean", description: "Whether to hide final grades" },
         apply_assignment_group_weights: { type: "boolean", description: "Whether to apply assignment group weights" },
+        published: { type: "boolean", description: "Whether the course is published" },
         time_zone: { type: "string", description: "Course time zone" },
         syllabus_body: { type: "string", description: "Updated syllabus content" }
       },

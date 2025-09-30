@@ -591,6 +591,7 @@ export interface UpdateCourseArgs {
   restrict_enrollments_to_course_dates?: boolean;
   hide_final_grades?: boolean;
   apply_assignment_group_weights?: boolean;
+  published?: boolean;
   time_zone?: string;
   syllabus_body?: string;
 }
@@ -805,4 +806,77 @@ export interface ListAccountUsersArgs {
   sort?: 'username' | 'email' | 'sis_id' | 'last_login';
   order?: 'asc' | 'desc';
   include?: string[];
+}
+
+// ---------------------
+// STUDENTS/ROSTER TOOLS
+// ---------------------
+export interface ListStudentsArgs {
+  course_id: number;
+  include?: ('avatar_url' | 'enrollments' | 'email' | 'bio')[];
+}
+
+// ---------------------
+// GRADING TOOLS
+// ---------------------
+export interface ListSubmissionsArgs {
+  course_id: number;
+  student_ids?: string[];
+  assignment_ids?: string[];
+  grouped?: boolean;
+  workflow_state?: 'submitted' | 'unsubmitted' | 'graded' | 'pending_review';
+}
+
+export interface UpdateSubmissionGradeArgs {
+  course_id: number;
+  assignment_id: number;
+  user_id: number;
+  posted_grade?: string | number;
+  excuse?: boolean;
+  text_comment?: string;
+}
+
+export interface BulkUpdateGradesArgs {
+  course_id: number;
+  grade_data: Record<string, {
+    posted_grade?: string | number;
+    excuse?: boolean;
+    text_comment?: string;
+  }>;
+}
+
+// ---------------------
+// ASSIGNMENT MANAGEMENT
+// ---------------------
+export interface DuplicateAssignmentArgs {
+  course_id: number;
+  assignment_id: number;
+}
+
+// ---------------------
+// SECTIONS/CROSS-LISTING
+// ---------------------
+export interface CanvasSection {
+  id: number;
+  name: string;
+  course_id: CourseId;
+  sis_section_id: string | null;
+  sis_course_id: string | null;
+  integration_id: string | null;
+  start_at: string | null;
+  end_at: string | null;
+  restrict_enrollments_to_section_dates: boolean;
+  nonxlist_course_id: number | null;
+  total_students?: number;
+  students?: CanvasUser[];
+}
+
+export interface ListSectionsArgs {
+  course_id: number;
+  include?: ('students' | 'enrollments' | 'total_students')[];
+}
+
+export interface CrossListSectionArgs {
+  section_id: number;
+  new_course_id: number;
 }
