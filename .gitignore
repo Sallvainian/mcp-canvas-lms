@@ -3,6 +3,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Runtime data
 pids
@@ -13,13 +14,19 @@ pids
 # Coverage directory used by tools like istanbul
 coverage/
 .nyc_output/
+*.lcov
+.coverage/
 
 # Build output
 build/
 dist/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
 
 # Environment files
 .env
+.env.*
+!.env.example
 .env.local
 .env.development.local
 .env.test.local
@@ -28,26 +35,80 @@ dist/
 # IDE files
 .vscode/
 .idea/
+.fleet/
+.nova/
 *.swp
 *.swo
 *~
+*.sublime-workspace
+*.sublime-project
 
 # OS generated files
 .DS_Store
 .DS_Store?
 ._*
+.AppleDouble
+.LSOverride
 .Spotlight-V100
 .Trashes
+Icon?
 ehthumbs.db
 Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+.directory
+.Trash-*
 
 # Logs
-logs
+logs/
 *.log
 
 # Temporary files
 temp.sh
+temp_*.js
+temp_*.ts
 tmp/
+*.tmp
+
+# Temporary scripts (development artifacts)
+*_fix.sh
+*-fix.sh
+*_test.sh
+test_*.sh
+debug_*.sh
+debug_*.js
+
+# Temporary documentation
+*_SUMMARY.md
+*_FIX.md
+FIX_*.md
 
 # Testing
 .vitest/
+.vitest-cache/
+test-results/
+test-output/
+
+# Development tool caches
+.eslintcache
+.prettiercache
+
+# Husky
+.husky/_/
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+*.save
+
+# Claude documentation (project-specific)
+claudedocs/
+
+# Docker development overrides
+docker-compose.override.yml
+
+# Debugging
+inspector-*.log
+v8-compile-cache-*

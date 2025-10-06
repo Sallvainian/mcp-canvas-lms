@@ -46,7 +46,22 @@ import {
   DuplicateAssignmentArgs,
   CanvasSection,
   ListSectionsArgs,
-  CrossListSectionArgs
+  CrossListSectionArgs,
+  CanvasAssignmentOverride,
+  CreateAssignmentOverrideArgs,
+  UpdateAssignmentOverrideArgs,
+  GradeWithRubricArgs,
+  AddSubmissionCommentArgs,
+  CreatePageArgs,
+  UpdatePageArgs,
+  CreateAnnouncementArgs,
+  UpdateAnnouncementArgs,
+  CreateDiscussionTopicArgs,
+  UpdateDiscussionTopicArgs,
+  CreateModuleArgs,
+  UpdateModuleArgs,
+  CreateModuleItemArgs,
+  UpdateModuleItemArgs
 } from './types.js';
 
 export class CanvasClient {
@@ -923,5 +938,237 @@ export class CanvasClient {
   async uncrossListSection(sectionId: number): Promise<CanvasSection> {
     const response = await this.client.delete(`/sections/${sectionId}/crosslist`);
     return response.data;
+  }
+
+  // ---------------------
+  // ASSIGNMENT OVERRIDES (Phase 1 - Critical)
+  // ---------------------
+  async createAssignmentOverride(args: CreateAssignmentOverrideArgs): Promise<CanvasAssignmentOverride> {
+    const { course_id, assignment_id, ...overrideData } = args;
+    const response = await this.client.post(
+      `/courses/${course_id}/assignments/${assignment_id}/overrides`,
+      { assignment_override: overrideData }
+    );
+    return response.data;
+  }
+
+  async listAssignmentOverrides(courseId: number, assignmentId: number): Promise<CanvasAssignmentOverride[]> {
+    const response = await this.client.get(`/courses/${courseId}/assignments/${assignmentId}/overrides`);
+    return response.data;
+  }
+
+  async getAssignmentOverride(courseId: number, assignmentId: number, overrideId: number): Promise<CanvasAssignmentOverride> {
+    const response = await this.client.get(
+      `/courses/${courseId}/assignments/${assignmentId}/overrides/${overrideId}`
+    );
+    return response.data;
+  }
+
+  async updateAssignmentOverride(args: UpdateAssignmentOverrideArgs): Promise<CanvasAssignmentOverride> {
+    const { course_id, assignment_id, override_id, ...overrideData } = args;
+    const response = await this.client.put(
+      `/courses/${course_id}/assignments/${assignment_id}/overrides/${override_id}`,
+      { assignment_override: overrideData }
+    );
+    return response.data;
+  }
+
+  async deleteAssignmentOverride(courseId: number, assignmentId: number, overrideId: number): Promise<void> {
+    await this.client.delete(`/courses/${courseId}/assignments/${assignmentId}/overrides/${overrideId}`);
+  }
+
+  // ---------------------
+  // RUBRIC GRADING (Phase 1 - Critical)
+  // ---------------------
+  async gradeSubmissionWithRubric(args: GradeWithRubricArgs): Promise<CanvasSubmission> {
+    const { course_id, assignment_id, user_id, rubric_assessment, posted_grade, text_comment } = args;
+
+    const submission: any = {
+      rubric_assessment
+    };
+
+    if (posted_grade !== undefined) {
+      submission.posted_grade = posted_grade;
+    }
+
+    if (text_comment) {
+      submission.comment = { text_comment };
+    }
+
+    const response = await this.client.put(
+      `/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}`,
+      { submission }
+    );
+    return response.data;
+  }
+
+  // ---------------------
+  // SUBMISSION COMMENTS (Phase 1 - High)
+  // ---------------------
+  async addSubmissionComment(args: AddSubmissionCommentArgs): Promise<CanvasSubmission> {
+    const { course_id, assignment_id, user_id, text_comment, file_ids, media_comment_id, media_comment_type } = args;
+
+    const comment: any = {};
+
+    if (text_comment) comment.text_comment = text_comment;
+    if (file_ids && file_ids.length > 0) comment.file_ids = file_ids;
+    if (media_comment_id) {
+      comment.media_comment_id = media_comment_id;
+      comment.media_comment_type = media_comment_type || 'audio';
+    }
+
+    const response = await this.client.put(
+      `/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}`,
+      { comment }
+    );
+    return response.data;
+  }
+
+  // ---------------------
+  // PAGE MANAGEMENT (Phase 2 - High Priority)
+  // ---------------------
+  async createPage(args: CreatePageArgs): Promise<CanvasPage> {
+    const { course_id, ...pageData } = args;
+    const response = await this.client.post(
+      `/courses/${course_id}/pages`,
+      { wiki_page: pageData }
+    );
+    return response.data;
+  }
+
+  async updatePage(args: UpdatePageArgs): Promise<CanvasPage> {
+    const { course_id, page_url, ...pageData } = args;
+    const response = await this.client.put(
+      `/courses/${course_id}/pages/${page_url}`,
+      { wiki_page: pageData }
+    );
+    return response.data;
+  }
+
+  async deletePage(courseId: number, pageUrl: string): Promise<void> {
+    await this.client.delete(`/courses/${courseId}/pages/${pageUrl}`);
+  }
+
+  // ---------------------
+  // ANNOUNCEMENT MANAGEMENT (Phase 2 - Critical)
+  // ---------------------
+  async createAnnouncement(args: CreateAnnouncementArgs): Promise<CanvasDiscussionTopic> {
+    const { course_id, ...announcementData } = args;
+    const response = await this.client.post(
+      `/courses/${course_id}/discussion_topics`,
+      {
+        ...announcementData,
+        is_announcement: true
+      }
+    );
+    return response.data;
+  }
+
+  async updateAnnouncement(args: UpdateAnnouncementArgs): Promise<CanvasDiscussionTopic> {
+    const { course_id, topic_id, ...announcementData } = args;
+    const response = await this.client.put(
+      `/courses/${course_id}/discussion_topics/${topic_id}`,
+      announcementData
+    );
+    return response.data;
+  }
+
+  // ---------------------
+  // DISCUSSION TOPIC MANAGEMENT (Phase 2 - High)
+  // ---------------------
+  async createDiscussionTopic(args: CreateDiscussionTopicArgs): Promise<CanvasDiscussionTopic> {
+    const { course_id, ...topicData } = args;
+    const response = await this.client.post(
+      `/courses/${course_id}/discussion_topics`,
+      topicData
+    );
+    return response.data;
+  }
+
+  async updateDiscussionTopic(args: UpdateDiscussionTopicArgs): Promise<CanvasDiscussionTopic> {
+    const { course_id, topic_id, ...topicData } = args;
+    const response = await this.client.put(
+      `/courses/${course_id}/discussion_topics/${topic_id}`,
+      topicData
+    );
+    return response.data;
+  }
+
+  async deleteDiscussionTopic(courseId: number, topicId: number): Promise<void> {
+    await this.client.delete(`/courses/${courseId}/discussion_topics/${topicId}`);
+  }
+
+  // ---------------------
+  // MODULE MANAGEMENT (Phase 2 - High)
+  // ---------------------
+  async createModule(args: CreateModuleArgs): Promise<CanvasModule> {
+    const { course_id, ...moduleData } = args;
+    const response = await this.client.post(
+      `/courses/${course_id}/modules`,
+      { module: moduleData }
+    );
+    return response.data;
+  }
+
+  async updateModule(args: UpdateModuleArgs): Promise<CanvasModule> {
+    const { course_id, module_id, published, ...moduleData } = args;
+
+    const data: any = { module: moduleData };
+
+    // Handle published status separately
+    if (published !== undefined) {
+      data.module.published = published;
+    }
+
+    const response = await this.client.put(
+      `/courses/${course_id}/modules/${module_id}`,
+      data
+    );
+    return response.data;
+  }
+
+  async deleteModule(courseId: number, moduleId: number): Promise<void> {
+    await this.client.delete(`/courses/${courseId}/modules/${moduleId}`);
+  }
+
+  async publishModule(courseId: number, moduleId: number): Promise<CanvasModule> {
+    const response = await this.client.put(
+      `/courses/${courseId}/modules/${moduleId}`,
+      { module: { published: true } }
+    );
+    return response.data;
+  }
+
+  async unpublishModule(courseId: number, moduleId: number): Promise<CanvasModule> {
+    const response = await this.client.put(
+      `/courses/${courseId}/modules/${moduleId}`,
+      { module: { published: false } }
+    );
+    return response.data;
+  }
+
+  // ---------------------
+  // MODULE ITEM MANAGEMENT (Phase 2 - High)
+  // ---------------------
+  async createModuleItem(args: CreateModuleItemArgs): Promise<CanvasModuleItem> {
+    const { course_id, module_id, ...itemData } = args;
+    const response = await this.client.post(
+      `/courses/${course_id}/modules/${module_id}/items`,
+      { module_item: itemData }
+    );
+    return response.data;
+  }
+
+  async updateModuleItem(args: UpdateModuleItemArgs): Promise<CanvasModuleItem> {
+    const { course_id, module_id, item_id, ...itemData } = args;
+    const response = await this.client.put(
+      `/courses/${course_id}/modules/${module_id}/items/${item_id}`,
+      { module_item: itemData }
+    );
+    return response.data;
+  }
+
+  async deleteModuleItem(courseId: number, moduleId: number, itemId: number): Promise<void> {
+    await this.client.delete(`/courses/${courseId}/modules/${moduleId}/items/${itemId}`);
   }
 }

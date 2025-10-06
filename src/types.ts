@@ -880,3 +880,193 @@ export interface CrossListSectionArgs {
   section_id: number;
   new_course_id: number;
 }
+
+// ---------------------
+// ASSIGNMENT OVERRIDES (Phase 1 - Critical)
+// ---------------------
+export interface CanvasAssignmentOverride {
+  id: number;
+  assignment_id: number;
+  student_ids?: number[];
+  group_id?: number;
+  course_section_id?: number;
+  title?: string;
+  due_at?: string | null;
+  unlock_at?: string | null;
+  lock_at?: string | null;
+  all_day?: boolean;
+  all_day_date?: string | null;
+}
+
+export interface CreateAssignmentOverrideArgs {
+  course_id: number;
+  assignment_id: number;
+  student_ids?: number[];
+  group_id?: number;
+  course_section_id?: number;
+  title?: string;
+  due_at?: string | null;
+  unlock_at?: string | null;
+  lock_at?: string | null;
+}
+
+export interface UpdateAssignmentOverrideArgs {
+  course_id: number;
+  assignment_id: number;
+  override_id: number;
+  student_ids?: number[];
+  group_id?: number;
+  course_section_id?: number;
+  title?: string;
+  due_at?: string | null;
+  unlock_at?: string | null;
+  lock_at?: string | null;
+}
+
+// ---------------------
+// RUBRIC GRADING (Phase 1 - Critical)
+// ---------------------
+export interface GradeWithRubricArgs {
+  course_id: number;
+  assignment_id: number;
+  user_id: number;
+  rubric_assessment: {
+    [criterion_id: string]: {
+      points?: number;
+      rating_id?: string;
+      comments?: string;
+    };
+  };
+  posted_grade?: string | number;
+  text_comment?: string;
+}
+
+// ---------------------
+// SUBMISSION COMMENTS (Phase 1 - High)
+// ---------------------
+export interface AddSubmissionCommentArgs {
+  course_id: number;
+  assignment_id: number;
+  user_id: number;
+  text_comment?: string;
+  file_ids?: number[];
+  media_comment_id?: string;
+  media_comment_type?: 'audio' | 'video';
+}
+
+// ---------------------
+// CONTENT CREATION (Phase 2 - High Priority)
+// ---------------------
+
+// Pages
+export interface CreatePageArgs {
+  course_id: number;
+  title: string;
+  body: string;
+  published?: boolean;
+  front_page?: boolean;
+  editing_roles?: 'teachers' | 'students' | 'members' | 'public';
+  notify_of_update?: boolean;
+}
+
+export interface UpdatePageArgs {
+  course_id: number;
+  page_url: string;
+  title?: string;
+  body?: string;
+  published?: boolean;
+  front_page?: boolean;
+  editing_roles?: 'teachers' | 'students' | 'members' | 'public';
+  notify_of_update?: boolean;
+}
+
+// Announcements & Discussions
+export interface CreateAnnouncementArgs {
+  course_id: number;
+  title: string;
+  message: string;
+  published?: boolean;
+  delayed_post_at?: string;
+  lock_at?: string;
+}
+
+export interface UpdateAnnouncementArgs {
+  course_id: number;
+  topic_id: number;
+  title?: string;
+  message?: string;
+  published?: boolean;
+  locked?: boolean;
+}
+
+export interface CreateDiscussionTopicArgs {
+  course_id: number;
+  title: string;
+  message: string;
+  discussion_type?: 'side_comment' | 'threaded';
+  published?: boolean;
+  delayed_post_at?: string;
+  lock_at?: string;
+  require_initial_post?: boolean;
+  assignment?: {
+    points_possible?: number;
+    due_at?: string;
+    grading_type?: CanvasGradingType;
+  };
+}
+
+export interface UpdateDiscussionTopicArgs {
+  course_id: number;
+  topic_id: number;
+  title?: string;
+  message?: string;
+  discussion_type?: 'side_comment' | 'threaded';
+  published?: boolean;
+  locked?: boolean;
+  pinned?: boolean;
+}
+
+// Modules
+export interface CreateModuleArgs {
+  course_id: number;
+  name: string;
+  unlock_at?: string;
+  position?: number;
+  require_sequential_progress?: boolean;
+  prerequisite_module_ids?: number[];
+  publish_final_grade?: boolean;
+}
+
+export interface UpdateModuleArgs {
+  course_id: number;
+  module_id: number;
+  name?: string;
+  unlock_at?: string;
+  position?: number;
+  require_sequential_progress?: boolean;
+  published?: boolean;
+  prerequisite_module_ids?: number[];
+}
+
+export interface CreateModuleItemArgs {
+  course_id: number;
+  module_id: number;
+  type: 'File' | 'Page' | 'Discussion' | 'Assignment' | 'Quiz' | 'SubHeader' | 'ExternalUrl' | 'ExternalTool';
+  content_id?: number;
+  title?: string;
+  position?: number;
+  indent?: number;
+  page_url?: string;
+  external_url?: string;
+  new_tab?: boolean;
+}
+
+export interface UpdateModuleItemArgs {
+  course_id: number;
+  module_id: number;
+  item_id: number;
+  title?: string;
+  position?: number;
+  indent?: number;
+  published?: boolean;
+}

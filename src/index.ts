@@ -28,7 +28,28 @@ import {
   CreateUserArgs,
   ListAccountCoursesArgs,
   ListAccountUsersArgs,
-  CreateReportArgs
+  CreateReportArgs,
+  ListStudentsArgs,
+  ListSubmissionsArgs,
+  UpdateSubmissionGradeArgs,
+  BulkUpdateGradesArgs,
+  DuplicateAssignmentArgs,
+  ListSectionsArgs,
+  CrossListSectionArgs,
+  CreateAssignmentOverrideArgs,
+  UpdateAssignmentOverrideArgs,
+  GradeWithRubricArgs,
+  AddSubmissionCommentArgs,
+  CreatePageArgs,
+  UpdatePageArgs,
+  CreateAnnouncementArgs,
+  UpdateAnnouncementArgs,
+  CreateDiscussionTopicArgs,
+  UpdateDiscussionTopicArgs,
+  CreateModuleArgs,
+  UpdateModuleArgs,
+  CreateModuleItemArgs,
+  UpdateModuleItemArgs
 } from "./types.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -818,6 +839,658 @@ const TOOLS: Tool[] = [
       },
       required: ["account_id", "report"]
     }
+  },
+
+  // ---------------------
+  // TEACHER TOOLS - Students/Roster
+  // ---------------------
+  {
+    name: "canvas_list_students",
+    description: "List all students enrolled in a course with optional profile data (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        include: {
+          type: "array",
+          items: {
+            type: "string",
+            enum: ["avatar_url", "enrollments", "email", "bio"]
+          },
+          description: "Additional user data to include (avatar_url, enrollments, email, bio)"
+        }
+      },
+      required: ["course_id"]
+    }
+  },
+
+  // ---------------------
+  // TEACHER TOOLS - Grading
+  // ---------------------
+  {
+    name: "canvas_list_submissions",
+    description: "List submissions for multiple assignments/students with filtering options (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        student_ids: {
+          type: "array",
+          items: { type: "string" },
+          description: "Filter by specific student IDs"
+        },
+        assignment_ids: {
+          type: "array",
+          items: { type: "string" },
+          description: "Filter by specific assignment IDs"
+        },
+        grouped: { type: "boolean", description: "Group submissions by student" },
+        workflow_state: {
+          type: "string",
+          enum: ["submitted", "unsubmitted", "graded", "pending_review"],
+          description: "Filter by submission state"
+        }
+      },
+      required: ["course_id"]
+    }
+  },
+  {
+    name: "canvas_update_submission_grade",
+    description: "Grade a single submission with optional comments (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        user_id: { type: "number", description: "ID of the student" },
+        posted_grade: {
+          oneOf: [
+            { type: "number" },
+            { type: "string" }
+          ],
+          description: "Grade to assign (number or letter grade)"
+        },
+        excuse: { type: "boolean", description: "Excuse the submission" },
+        text_comment: { type: "string", description: "Comment for the student" }
+      },
+      required: ["course_id", "assignment_id", "user_id"]
+    }
+  },
+  {
+    name: "canvas_bulk_update_grades",
+    description: "Update grades for multiple submissions at once (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        grade_data: {
+          type: "object",
+          description: "Object with student IDs as keys, grade data as values",
+          additionalProperties: {
+            type: "object",
+            properties: {
+              posted_grade: {
+                oneOf: [
+                  { type: "number" },
+                  { type: "string" }
+                ],
+                description: "Grade to assign"
+              },
+              excuse: { type: "boolean", description: "Excuse the submission" },
+              text_comment: { type: "string", description: "Comment for the student" }
+            }
+          }
+        }
+      },
+      required: ["course_id", "grade_data"]
+    }
+  },
+
+  // ---------------------
+  // TEACHER TOOLS - Assignment Management
+  // ---------------------
+  {
+    name: "canvas_duplicate_assignment",
+    description: "Duplicate an existing assignment (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment to duplicate" }
+      },
+      required: ["course_id", "assignment_id"]
+    }
+  },
+  {
+    name: "canvas_delete_assignment",
+    description: "Delete an assignment from a course (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment to delete" }
+      },
+      required: ["course_id", "assignment_id"]
+    }
+  },
+
+  // ---------------------
+  // TEACHER TOOLS - Sections/Cross-listing
+  // ---------------------
+  {
+    name: "canvas_list_sections",
+    description: "List all sections in a course with optional enrollment data (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        include: {
+          type: "array",
+          items: {
+            type: "string",
+            enum: ["students", "enrollments", "total_students"]
+          },
+          description: "Additional section data to include"
+        }
+      },
+      required: ["course_id"]
+    }
+  },
+  {
+    name: "canvas_get_section",
+    description: "Get detailed information about a specific section (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        section_id: { type: "number", description: "ID of the section" },
+        include: {
+          type: "array",
+          items: {
+            type: "string",
+            enum: ["students", "enrollments", "total_students"]
+          },
+          description: "Additional section data to include"
+        }
+      },
+      required: ["course_id", "section_id"]
+    }
+  },
+  {
+    name: "canvas_cross_list_section",
+    description: "Move a section into another course (merge courses) (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        section_id: { type: "number", description: "ID of the section to move" },
+        new_course_id: { type: "number", description: "ID of the destination course" }
+      },
+      required: ["section_id", "new_course_id"]
+    }
+  },
+  {
+    name: "canvas_uncross_list_section",
+    description: "Remove cross-listing from a section (unmerge) (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        section_id: { type: "number", description: "ID of the section to uncross-list" }
+      },
+      required: ["section_id"]
+    }
+  },
+
+  // ---------------------
+  // PHASE 1 TEACHER TOOLS - Assignment Overrides
+  // ---------------------
+  {
+    name: "canvas_create_assignment_override",
+    description: "Create an assignment override to provide extensions or different due dates for students, sections, or groups (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        student_ids: {
+          type: "array",
+          items: { type: "number" },
+          description: "Student IDs to override for (for individual student extensions)"
+        },
+        group_id: { type: "number", description: "Group ID to override for" },
+        course_section_id: { type: "number", description: "Section ID to override for" },
+        title: { type: "string", description: "Title for the override" },
+        due_at: { type: "string", description: "Override due date (ISO 8601 format)" },
+        unlock_at: { type: "string", description: "Override unlock date (ISO 8601 format)" },
+        lock_at: { type: "string", description: "Override lock date (ISO 8601 format)" }
+      },
+      required: ["course_id", "assignment_id"]
+    }
+  },
+  {
+    name: "canvas_list_assignment_overrides",
+    description: "List all overrides for an assignment to see who has extensions or special due dates (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" }
+      },
+      required: ["course_id", "assignment_id"]
+    }
+  },
+  {
+    name: "canvas_get_assignment_override",
+    description: "Get details of a specific assignment override (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        override_id: { type: "number", description: "ID of the override" }
+      },
+      required: ["course_id", "assignment_id", "override_id"]
+    }
+  },
+  {
+    name: "canvas_update_assignment_override",
+    description: "Update an existing assignment override to change extension dates or settings (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        override_id: { type: "number", description: "ID of the override to update" },
+        student_ids: {
+          type: "array",
+          items: { type: "number" },
+          description: "Updated student IDs"
+        },
+        group_id: { type: "number", description: "Updated group ID" },
+        course_section_id: { type: "number", description: "Updated section ID" },
+        title: { type: "string", description: "Updated title" },
+        due_at: { type: "string", description: "Updated due date (ISO 8601 format)" },
+        unlock_at: { type: "string", description: "Updated unlock date (ISO 8601 format)" },
+        lock_at: { type: "string", description: "Updated lock date (ISO 8601 format)" }
+      },
+      required: ["course_id", "assignment_id", "override_id"]
+    }
+  },
+  {
+    name: "canvas_delete_assignment_override",
+    description: "Remove an assignment override (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        override_id: { type: "number", description: "ID of the override to delete" }
+      },
+      required: ["course_id", "assignment_id", "override_id"]
+    }
+  },
+
+  // ---------------------
+  // PHASE 1 TEACHER TOOLS - Rubric Grading
+  // ---------------------
+  {
+    name: "canvas_grade_with_rubric",
+    description: "Grade a student submission using a rubric with criterion-specific points and comments (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        user_id: { type: "number", description: "ID of the student" },
+        rubric_assessment: {
+          type: "object",
+          description: "Rubric assessment with criterion IDs as keys",
+          additionalProperties: {
+            type: "object",
+            properties: {
+              points: { type: "number", description: "Points awarded for this criterion" },
+              rating_id: { type: "string", description: "ID of the rating selected" },
+              comments: { type: "string", description: "Comments for this criterion" }
+            }
+          }
+        },
+        posted_grade: {
+          oneOf: [
+            { type: "number" },
+            { type: "string" }
+          ],
+          description: "Overall grade (optional, will be calculated from rubric if not provided)"
+        },
+        text_comment: { type: "string", description: "General comment for the submission" }
+      },
+      required: ["course_id", "assignment_id", "user_id", "rubric_assessment"]
+    }
+  },
+
+  // ---------------------
+  // PHASE 1 TEACHER TOOLS - Submission Comments
+  // ---------------------
+  {
+    name: "canvas_add_submission_comment",
+    description: "Add a comment to a student submission with optional file attachments or media (teacher tool)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        user_id: { type: "number", description: "ID of the student" },
+        text_comment: { type: "string", description: "Text comment" },
+        file_ids: {
+          type: "array",
+          items: { type: "number" },
+          description: "File IDs to attach to comment (e.g., annotated PDFs)"
+        },
+        media_comment_id: { type: "string", description: "Media comment ID for audio/video feedback" },
+        media_comment_type: {
+          type: "string",
+          enum: ["audio", "video"],
+          description: "Type of media comment"
+        }
+      },
+      required: ["course_id", "assignment_id", "user_id"]
+    }
+  },
+
+  // Phase 2: Content Creation Tools
+
+  // Page Management
+  {
+    name: "canvas_create_page",
+    description: "Create a new page in a Canvas course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        title: { type: "string", description: "Title of the page" },
+        body: { type: "string", description: "HTML content of the page" },
+        published: { type: "boolean", description: "Whether to publish immediately" },
+        front_page: { type: "boolean", description: "Set as course front page" },
+        editing_roles: {
+          type: "string",
+          enum: ["teachers", "students", "members", "public"],
+          description: "Who can edit this page"
+        },
+        notify_of_update: { type: "boolean", description: "Send notification to students" }
+      },
+      required: ["course_id", "title", "body"]
+    }
+  },
+  {
+    name: "canvas_update_page",
+    description: "Update an existing page in a Canvas course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        page_url: { type: "string", description: "URL identifier of the page" },
+        title: { type: "string", description: "New title" },
+        body: { type: "string", description: "New HTML content" },
+        published: { type: "boolean", description: "Publication status" },
+        front_page: { type: "boolean", description: "Set as front page" },
+        notify_of_update: { type: "boolean", description: "Send notification to students" }
+      },
+      required: ["course_id", "page_url"]
+    }
+  },
+  {
+    name: "canvas_delete_page",
+    description: "Delete a page from a Canvas course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        page_url: { type: "string", description: "URL identifier of the page to delete" }
+      },
+      required: ["course_id", "page_url"]
+    }
+  },
+
+  // Announcements
+  {
+    name: "canvas_create_announcement",
+    description: "Create a new announcement in a Canvas course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        title: { type: "string", description: "Title of the announcement" },
+        message: { type: "string", description: "HTML content of the announcement" },
+        published: { type: "boolean", description: "Whether to publish immediately" },
+        delayed_post_at: { type: "string", description: "ISO 8601 datetime to post announcement" },
+        lock_at: { type: "string", description: "ISO 8601 datetime to lock comments" }
+      },
+      required: ["course_id", "title", "message"]
+    }
+  },
+  {
+    name: "canvas_update_announcement",
+    description: "Update an existing announcement",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        topic_id: { type: "number", description: "ID of the announcement" },
+        title: { type: "string", description: "New title" },
+        message: { type: "string", description: "New HTML content" },
+        published: { type: "boolean", description: "Publication status" },
+        delayed_post_at: { type: "string", description: "ISO 8601 datetime to post" },
+        lock_at: { type: "string", description: "ISO 8601 datetime to lock comments" }
+      },
+      required: ["course_id", "topic_id"]
+    }
+  },
+
+  // Discussion Topics
+  {
+    name: "canvas_create_discussion_topic",
+    description: "Create a new discussion topic in a Canvas course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        title: { type: "string", description: "Title of the discussion" },
+        message: { type: "string", description: "HTML content of the discussion" },
+        discussion_type: {
+          type: "string",
+          enum: ["side_comment", "threaded"],
+          description: "Type of discussion threading"
+        },
+        published: { type: "boolean", description: "Whether to publish immediately" },
+        delayed_post_at: { type: "string", description: "ISO 8601 datetime to post" },
+        lock_at: { type: "string", description: "ISO 8601 datetime to lock discussion" },
+        assignment: {
+          type: "object",
+          description: "Assignment settings if this is a graded discussion",
+          properties: {
+            points_possible: { type: "number" },
+            grading_type: { type: "string" },
+            due_at: { type: "string" }
+          }
+        }
+      },
+      required: ["course_id", "title", "message"]
+    }
+  },
+  {
+    name: "canvas_update_discussion_topic",
+    description: "Update an existing discussion topic",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        topic_id: { type: "number", description: "ID of the discussion topic" },
+        title: { type: "string", description: "New title" },
+        message: { type: "string", description: "New HTML content" },
+        discussion_type: {
+          type: "string",
+          enum: ["side_comment", "threaded"],
+          description: "Type of discussion threading"
+        },
+        published: { type: "boolean", description: "Publication status" },
+        delayed_post_at: { type: "string", description: "ISO 8601 datetime to post" },
+        lock_at: { type: "string", description: "ISO 8601 datetime to lock" }
+      },
+      required: ["course_id", "topic_id"]
+    }
+  },
+  {
+    name: "canvas_delete_discussion_topic",
+    description: "Delete a discussion topic from a Canvas course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        topic_id: { type: "number", description: "ID of the discussion topic to delete" }
+      },
+      required: ["course_id", "topic_id"]
+    }
+  },
+
+  // Module Management
+  {
+    name: "canvas_create_module",
+    description: "Create a new module in a Canvas course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        name: { type: "string", description: "Name of the module" },
+        unlock_at: { type: "string", description: "ISO 8601 datetime to unlock module" },
+        position: { type: "number", description: "Position in module list" },
+        require_sequential_progress: {
+          type: "boolean",
+          description: "Students must complete items in order"
+        },
+        prerequisite_module_ids: {
+          type: "array",
+          items: { type: "number" },
+          description: "Modules that must be completed first"
+        },
+        publish_final_grade: {
+          type: "boolean",
+          description: "Publish final grade when module completed"
+        }
+      },
+      required: ["course_id", "name"]
+    }
+  },
+  {
+    name: "canvas_update_module",
+    description: "Update an existing module",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        module_id: { type: "number", description: "ID of the module" },
+        name: { type: "string", description: "New name" },
+        unlock_at: { type: "string", description: "ISO 8601 datetime to unlock" },
+        position: { type: "number", description: "New position" },
+        require_sequential_progress: { type: "boolean" },
+        prerequisite_module_ids: {
+          type: "array",
+          items: { type: "number" }
+        },
+        publish_final_grade: { type: "boolean" },
+        published: { type: "boolean", description: "Publication status" }
+      },
+      required: ["course_id", "module_id"]
+    }
+  },
+  {
+    name: "canvas_delete_module",
+    description: "Delete a module from a Canvas course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        module_id: { type: "number", description: "ID of the module to delete" }
+      },
+      required: ["course_id", "module_id"]
+    }
+  },
+  {
+    name: "canvas_publish_module",
+    description: "Publish a module and all its items",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        module_id: { type: "number", description: "ID of the module to publish" }
+      },
+      required: ["course_id", "module_id"]
+    }
+  },
+  {
+    name: "canvas_unpublish_module",
+    description: "Unpublish a module and all its items",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        module_id: { type: "number", description: "ID of the module to unpublish" }
+      },
+      required: ["course_id", "module_id"]
+    }
+  },
+
+  // Module Items
+  {
+    name: "canvas_create_module_item",
+    description: "Add an item to a module (assignment, page, file, quiz, etc.)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        module_id: { type: "number", description: "ID of the module" },
+        title: { type: "string", description: "Title of the module item" },
+        type: {
+          type: "string",
+          enum: ["Assignment", "Quiz", "File", "Page", "Discussion", "SubHeader", "ExternalUrl", "ExternalTool"],
+          description: "Type of content"
+        },
+        content_id: { type: "number", description: "ID of the content (assignment_id, page_id, etc.)" },
+        external_url: { type: "string", description: "URL for ExternalUrl type" },
+        position: { type: "number", description: "Position in module" },
+        indent: { type: "number", description: "Indentation level (0-3)" },
+        page_url: { type: "string", description: "URL for Page type" },
+        new_tab: { type: "boolean", description: "Open in new tab for ExternalUrl" }
+      },
+      required: ["course_id", "module_id", "title", "type"]
+    }
+  },
+  {
+    name: "canvas_update_module_item",
+    description: "Update a module item",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        module_id: { type: "number", description: "ID of the module" },
+        item_id: { type: "number", description: "ID of the module item" },
+        title: { type: "string", description: "New title" },
+        position: { type: "number", description: "New position" },
+        indent: { type: "number", description: "New indentation (0-3)" },
+        published: { type: "boolean", description: "Publication status" }
+      },
+      required: ["course_id", "module_id", "item_id"]
+    }
+  },
+  {
+    name: "canvas_delete_module_item",
+    description: "Remove an item from a module",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        module_id: { type: "number", description: "ID of the module" },
+        item_id: { type: "number", description: "ID of the module item to delete" }
+      },
+      required: ["course_id", "module_id", "item_id"]
+    }
   }
 ];
 
@@ -1442,13 +2115,447 @@ class CanvasMCPServer {
             if (!createReportArgs.account_id || !createReportArgs.report) {
               throw new Error("Missing required fields: account_id and report");
             }
-            
+
             const report = await this.client.createAccountReport(createReportArgs);
             return {
               content: [{ type: "text", text: JSON.stringify(report, null, 2) }]
             };
           }
-          
+
+          // ---------------------
+          // TEACHER TOOLS - Students/Roster
+          // ---------------------
+          case "canvas_list_students": {
+            const { course_id, include } = args as {
+              course_id: number;
+              include?: ('avatar_url' | 'enrollments' | 'email' | 'bio')[]
+            };
+            if (!course_id) throw new Error("Missing required field: course_id");
+
+            const students = await this.client.listStudents({ course_id, include });
+            return {
+              content: [{ type: "text", text: JSON.stringify(students, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // TEACHER TOOLS - Grading
+          // ---------------------
+          case "canvas_list_submissions": {
+            const submissionsArgs = args as unknown as ListSubmissionsArgs;
+            if (!submissionsArgs.course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+
+            const submissions = await this.client.listSubmissions(submissionsArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(submissions, null, 2) }]
+            };
+          }
+
+          case "canvas_update_submission_grade": {
+            const updateGradeArgs = args as unknown as UpdateSubmissionGradeArgs;
+            if (!updateGradeArgs.course_id || !updateGradeArgs.assignment_id || !updateGradeArgs.user_id) {
+              throw new Error("Missing required fields: course_id, assignment_id, and user_id");
+            }
+
+            const submission = await this.client.updateSubmissionGrade(updateGradeArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(submission, null, 2) }]
+            };
+          }
+
+          case "canvas_bulk_update_grades": {
+            const bulkGradeArgs = args as unknown as BulkUpdateGradesArgs;
+            if (!bulkGradeArgs.course_id || !bulkGradeArgs.grade_data) {
+              throw new Error("Missing required fields: course_id and grade_data");
+            }
+
+            const result = await this.client.bulkUpdateGrades(bulkGradeArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(result, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // TEACHER TOOLS - Assignment Management
+          // ---------------------
+          case "canvas_duplicate_assignment": {
+            const duplicateArgs = args as unknown as DuplicateAssignmentArgs;
+            if (!duplicateArgs.course_id || !duplicateArgs.assignment_id) {
+              throw new Error("Missing required fields: course_id and assignment_id");
+            }
+
+            const duplicatedAssignment = await this.client.duplicateAssignment(duplicateArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(duplicatedAssignment, null, 2) }]
+            };
+          }
+
+          case "canvas_delete_assignment": {
+            const { course_id, assignment_id } = args as {
+              course_id: number;
+              assignment_id: number
+            };
+            if (!course_id || !assignment_id) {
+              throw new Error("Missing required fields: course_id and assignment_id");
+            }
+
+            await this.client.deleteAssignment(course_id, assignment_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify({ success: true, message: "Assignment deleted successfully" }, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // TEACHER TOOLS - Sections/Cross-listing
+          // ---------------------
+          case "canvas_list_sections": {
+            const listSectionsArgs = args as unknown as ListSectionsArgs;
+            if (!listSectionsArgs.course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+
+            const sections = await this.client.listSections(listSectionsArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(sections, null, 2) }]
+            };
+          }
+
+          case "canvas_get_section": {
+            const { course_id, section_id, include } = args as {
+              course_id: number;
+              section_id: number;
+              include?: ('students' | 'enrollments' | 'total_students')[]
+            };
+            if (!course_id || !section_id) {
+              throw new Error("Missing required fields: course_id and section_id");
+            }
+
+            const section = await this.client.getSection(course_id, section_id, include);
+            return {
+              content: [{ type: "text", text: JSON.stringify(section, null, 2) }]
+            };
+          }
+
+          case "canvas_cross_list_section": {
+            const crossListArgs = args as unknown as CrossListSectionArgs;
+            if (!crossListArgs.section_id || !crossListArgs.new_course_id) {
+              throw new Error("Missing required fields: section_id and new_course_id");
+            }
+
+            const crossListedSection = await this.client.crossListSection(crossListArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(crossListedSection, null, 2) }]
+            };
+          }
+
+          case "canvas_uncross_list_section": {
+            const { section_id } = args as { section_id: number };
+            if (!section_id) throw new Error("Missing required field: section_id");
+
+            const uncrossListedSection = await this.client.uncrossListSection(section_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(uncrossListedSection, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // PHASE 1 TOOLS - Assignment Overrides
+          // ---------------------
+          case "canvas_create_assignment_override": {
+            const overrideArgs = args as unknown as CreateAssignmentOverrideArgs;
+            if (!overrideArgs.course_id || !overrideArgs.assignment_id) {
+              throw new Error("Missing required fields: course_id and assignment_id");
+            }
+
+            const override = await this.client.createAssignmentOverride(overrideArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(override, null, 2) }]
+            };
+          }
+
+          case "canvas_list_assignment_overrides": {
+            const { course_id, assignment_id } = args as {
+              course_id: number;
+              assignment_id: number;
+            };
+            if (!course_id || !assignment_id) {
+              throw new Error("Missing required fields: course_id and assignment_id");
+            }
+
+            const overrides = await this.client.listAssignmentOverrides(course_id, assignment_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(overrides, null, 2) }]
+            };
+          }
+
+          case "canvas_get_assignment_override": {
+            const { course_id, assignment_id, override_id } = args as {
+              course_id: number;
+              assignment_id: number;
+              override_id: number;
+            };
+            if (!course_id || !assignment_id || !override_id) {
+              throw new Error("Missing required fields: course_id, assignment_id, and override_id");
+            }
+
+            const override = await this.client.getAssignmentOverride(course_id, assignment_id, override_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(override, null, 2) }]
+            };
+          }
+
+          case "canvas_update_assignment_override": {
+            const updateOverrideArgs = args as unknown as UpdateAssignmentOverrideArgs;
+            if (!updateOverrideArgs.course_id || !updateOverrideArgs.assignment_id || !updateOverrideArgs.override_id) {
+              throw new Error("Missing required fields: course_id, assignment_id, and override_id");
+            }
+
+            const updatedOverride = await this.client.updateAssignmentOverride(updateOverrideArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(updatedOverride, null, 2) }]
+            };
+          }
+
+          case "canvas_delete_assignment_override": {
+            const { course_id, assignment_id, override_id } = args as {
+              course_id: number;
+              assignment_id: number;
+              override_id: number;
+            };
+            if (!course_id || !assignment_id || !override_id) {
+              throw new Error("Missing required fields: course_id, assignment_id, and override_id");
+            }
+
+            await this.client.deleteAssignmentOverride(course_id, assignment_id, override_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify({ success: true, message: "Assignment override deleted successfully" }, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // PHASE 1 TOOLS - Rubric Grading
+          // ---------------------
+          case "canvas_grade_with_rubric": {
+            const gradeRubricArgs = args as unknown as GradeWithRubricArgs;
+            if (!gradeRubricArgs.course_id || !gradeRubricArgs.assignment_id ||
+                !gradeRubricArgs.user_id || !gradeRubricArgs.rubric_assessment) {
+              throw new Error("Missing required fields: course_id, assignment_id, user_id, and rubric_assessment");
+            }
+
+            const submission = await this.client.gradeSubmissionWithRubric(gradeRubricArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(submission, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // PHASE 1 TOOLS - Submission Comments
+          // ---------------------
+          case "canvas_add_submission_comment": {
+            const commentArgs = args as unknown as AddSubmissionCommentArgs;
+            if (!commentArgs.course_id || !commentArgs.assignment_id || !commentArgs.user_id) {
+              throw new Error("Missing required fields: course_id, assignment_id, and user_id");
+            }
+
+            const submission = await this.client.addSubmissionComment(commentArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(submission, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // PHASE 2 TOOLS - Page Management
+          // ---------------------
+          case "canvas_create_page": {
+            const pageArgs = args as unknown as CreatePageArgs;
+            if (!pageArgs.course_id || !pageArgs.title || !pageArgs.body) {
+              throw new Error("Missing required fields: course_id, title, and body");
+            }
+            const page = await this.client.createPage(pageArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(page, null, 2) }]
+            };
+          }
+
+          case "canvas_update_page": {
+            const updatePageArgs = args as unknown as UpdatePageArgs;
+            if (!updatePageArgs.course_id || !updatePageArgs.url) {
+              throw new Error("Missing required fields: course_id and url");
+            }
+            const page = await this.client.updatePage(updatePageArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(page, null, 2) }]
+            };
+          }
+
+          case "canvas_delete_page": {
+            const { course_id, url } = args as { course_id: number; url: string };
+            if (!course_id || !url) {
+              throw new Error("Missing required fields: course_id and url");
+            }
+            const page = await this.client.deletePage(course_id, url);
+            return {
+              content: [{ type: "text", text: JSON.stringify(page, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // PHASE 2 TOOLS - Announcements
+          // ---------------------
+          case "canvas_create_announcement": {
+            const announcementArgs = args as unknown as CreateAnnouncementArgs;
+            if (!announcementArgs.course_id || !announcementArgs.title || !announcementArgs.message) {
+              throw new Error("Missing required fields: course_id, title, and message");
+            }
+            const announcement = await this.client.createAnnouncement(announcementArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(announcement, null, 2) }]
+            };
+          }
+
+          case "canvas_update_announcement": {
+            const updateAnnouncementArgs = args as unknown as UpdateAnnouncementArgs;
+            if (!updateAnnouncementArgs.course_id || !updateAnnouncementArgs.topic_id) {
+              throw new Error("Missing required fields: course_id and topic_id");
+            }
+            const announcement = await this.client.updateAnnouncement(updateAnnouncementArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(announcement, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // PHASE 2 TOOLS - Discussion Topics
+          // ---------------------
+          case "canvas_create_discussion_topic": {
+            const discussionArgs = args as unknown as CreateDiscussionTopicArgs;
+            if (!discussionArgs.course_id || !discussionArgs.title || !discussionArgs.message) {
+              throw new Error("Missing required fields: course_id, title, and message");
+            }
+            const topic = await this.client.createDiscussionTopic(discussionArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(topic, null, 2) }]
+            };
+          }
+
+          case "canvas_update_discussion_topic": {
+            const updateDiscussionArgs = args as unknown as UpdateDiscussionTopicArgs;
+            if (!updateDiscussionArgs.course_id || !updateDiscussionArgs.topic_id) {
+              throw new Error("Missing required fields: course_id and topic_id");
+            }
+            const topic = await this.client.updateDiscussionTopic(updateDiscussionArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(topic, null, 2) }]
+            };
+          }
+
+          case "canvas_delete_discussion_topic": {
+            const { course_id, topic_id } = args as { course_id: number; topic_id: number };
+            if (!course_id || !topic_id) {
+              throw new Error("Missing required fields: course_id and topic_id");
+            }
+            const topic = await this.client.deleteDiscussionTopic(course_id, topic_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(topic, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // PHASE 2 TOOLS - Module Management
+          // ---------------------
+          case "canvas_create_module": {
+            const moduleArgs = args as unknown as CreateModuleArgs;
+            if (!moduleArgs.course_id || !moduleArgs.name) {
+              throw new Error("Missing required fields: course_id and name");
+            }
+            const module = await this.client.createModule(moduleArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(module, null, 2) }]
+            };
+          }
+
+          case "canvas_update_module": {
+            const updateModuleArgs = args as unknown as UpdateModuleArgs;
+            if (!updateModuleArgs.course_id || !updateModuleArgs.module_id) {
+              throw new Error("Missing required fields: course_id and module_id");
+            }
+            const module = await this.client.updateModule(updateModuleArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(module, null, 2) }]
+            };
+          }
+
+          case "canvas_delete_module": {
+            const { course_id, module_id } = args as { course_id: number; module_id: number };
+            if (!course_id || !module_id) {
+              throw new Error("Missing required fields: course_id and module_id");
+            }
+            const module = await this.client.deleteModule(course_id, module_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(module, null, 2) }]
+            };
+          }
+
+          case "canvas_publish_module": {
+            const { course_id, module_id } = args as { course_id: number; module_id: number };
+            if (!course_id || !module_id) {
+              throw new Error("Missing required fields: course_id and module_id");
+            }
+            const module = await this.client.publishModule(course_id, module_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(module, null, 2) }]
+            };
+          }
+
+          case "canvas_unpublish_module": {
+            const { course_id, module_id } = args as { course_id: number; module_id: number };
+            if (!course_id || !module_id) {
+              throw new Error("Missing required fields: course_id and module_id");
+            }
+            const module = await this.client.unpublishModule(course_id, module_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(module, null, 2) }]
+            };
+          }
+
+          // ---------------------
+          // PHASE 2 TOOLS - Module Items
+          // ---------------------
+          case "canvas_create_module_item": {
+            const itemArgs = args as unknown as CreateModuleItemArgs;
+            if (!itemArgs.course_id || !itemArgs.module_id || !itemArgs.title || !itemArgs.type) {
+              throw new Error("Missing required fields: course_id, module_id, title, and type");
+            }
+            const item = await this.client.createModuleItem(itemArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(item, null, 2) }]
+            };
+          }
+
+          case "canvas_update_module_item": {
+            const updateItemArgs = args as unknown as UpdateModuleItemArgs;
+            if (!updateItemArgs.course_id || !updateItemArgs.module_id || !updateItemArgs.item_id) {
+              throw new Error("Missing required fields: course_id, module_id, and item_id");
+            }
+            const item = await this.client.updateModuleItem(updateItemArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(item, null, 2) }]
+            };
+          }
+
+          case "canvas_delete_module_item": {
+            const { course_id, module_id, item_id } = args as { course_id: number; module_id: number; item_id: number };
+            if (!course_id || !module_id || !item_id) {
+              throw new Error("Missing required fields: course_id, module_id, and item_id");
+            }
+            const item = await this.client.deleteModuleItem(course_id, module_id, item_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(item, null, 2) }]
+            };
+          }
+
           default:
             throw new Error(`Unknown tool: ${toolName}`);
         }

@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2025-10-06
+
+### Added
+- **Teacher Tools Suite**: 11 new instructor-focused tools for comprehensive classroom management
+  - `canvas_list_students` - List all students in a course with enrollment details and optional profile data
+  - `canvas_list_submissions` - List all assignment submissions for a course with filtering capabilities
+  - `canvas_update_submission_grade` - Grade individual student submissions with comments
+  - `canvas_bulk_update_grades` - Grade multiple submissions efficiently in batch operations
+  - `canvas_duplicate_assignment` - Duplicate assignments within or across courses
+  - `canvas_delete_assignment` - Delete assignments from courses
+  - `canvas_list_sections` - List all sections in a course with student enrollment data
+  - `canvas_get_section` - Get detailed information about a specific section
+  - `canvas_cross_list_section` - Cross-list (merge) sections across courses
+  - `canvas_uncross_list_section` - Remove cross-listing and restore section to original course
+
+### Technical Details
+- Added 11 new tool definitions to MCP server (src/index.ts lines 823-1020)
+- Implemented corresponding handlers with proper type assertions (src/index.ts lines 1651-1787)
+- All tools leverage existing Canvas API client methods (src/client.ts lines 819-926)
+- Full TypeScript type safety with strict interface compliance
+- Comprehensive test suite added (tests/teacher-tools.test.ts)
+- Zero breaking changes - fully backward compatible with existing 61 tools
+
+### Impact
+- Total tool count increased from 61 to 72 tools
+- Complete teacher/instructor workflow support alongside existing student functionality
+- Enhanced grading capabilities with both individual and bulk operations
+- Full section management and cross-listing support for complex course structures
+- Production-ready with comprehensive error handling and type safety
+- Enables complete Canvas LMS administration through MCP interface
+
 ## [2.2.3] - 2025-06-27
 
 ### Fixed

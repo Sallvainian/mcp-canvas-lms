@@ -1,12 +1,19 @@
-# Canvas MCP Server v2.2.0
+# Canvas MCP Server v2.3.0
 
 > A comprehensive Model Context Protocol (MCP) server for Canvas LMS with complete student, instructor, and account administration functionality
 
-## 🚀 What's New in v2.2.0
+## 🚀 What's New in v2.3.0
 
+- **👨‍🏫 Teacher Tools (NEW!)**: 11 new tools for roster management, grading, and section administration
+- **📋 Student Roster**: List all students with detailed enrollment information
+- **✍️ Advanced Grading**: Individual and bulk grade updates with comments
+- **📚 Assignment Management**: Duplicate and delete assignments
+- **🏫 Section Tools**: View, merge, and manage course sections
+
+### Previous Updates (v2.2.0)
 - **🔧 FIXED**: Course creation "page not found" error (missing `account_id` parameter)
 - **👨‍💼 Account Management**: Complete account-level administration tools
-- **📊 Reports & Analytics**: Generate and access Canvas account reports  
+- **📊 Reports & Analytics**: Generate and access Canvas account reports
 - **👥 User Management**: Create and manage users at the account level
 - **🏢 Multi-Account Support**: Handle account hierarchies and sub-accounts
 - **✅ API Compliance**: All endpoints now follow proper Canvas API patterns
@@ -21,11 +28,17 @@
 - **Quizzes**: Take quizzes, view results and feedback
 - **File Access**: Browse and download course files and resources
 
-### 👨‍🏫 For Instructors
+### 👨‍🏫 For Teachers/Instructors
 - **Course Creation**: Create and manage course structure *(now with proper account support)*
-- **Grading**: Grade submissions, provide feedback, manage rubrics
-- **User Management**: Enroll students, manage permissions
-- **Content Management**: Create assignments, quizzes, discussions
+- **Student Roster**: View all enrolled students with detailed profile data
+- **Grading Tools**:
+  - List all submissions across assignments and students
+  - Grade individual submissions with comments
+  - Bulk grade multiple submissions at once
+- **Assignment Management**: Create, update, duplicate, and delete assignments
+- **Section Management**: View, create, merge (cross-list), and separate sections
+- **Content Management**: Create quizzes, discussions, and course materials
+- **User Management**: Enroll students and manage permissions
 
 ### 👨‍💼 For Account Administrators (NEW!)
 - **Account Management**: Manage institutional Canvas accounts
@@ -39,7 +52,7 @@
 - **Cloud Ready**: Docker containers, Kubernetes manifests, health checks
 - **Well Tested**: Unit tests, integration tests, mocking, coverage reports
 - **Type Safe**: Full TypeScript implementation with strict types
-- **50+ Tools**: Comprehensive coverage of Canvas LMS functionality
+- **72 Tools**: Comprehensive coverage of Canvas LMS functionality (61 existing + 11 new teacher tools)
 
 ## Quick Start
 
