@@ -1070,3 +1070,315 @@ export interface UpdateModuleItemArgs {
   indent?: number;
   published?: boolean;
 }
+
+// ==========================================
+// GRADE POSTING/HIDING (Phase 3 - Teacher Tools)
+// ==========================================
+
+/**
+ * Arguments for posting assignment grades to students
+ */
+export interface PostGradesArgs {
+  /** Course ID */
+  course_id: number;
+  /** Assignment ID */
+  assignment_id: number;
+  /** Optional array of specific user IDs to post grades for. If omitted, posts all graded submissions */
+  user_ids?: number[];
+  /** If true, only posts grades for submissions that have been graded */
+  graded_only?: boolean;
+}
+
+/**
+ * Arguments for hiding assignment grades from students
+ */
+export interface HideGradesArgs {
+  /** Course ID */
+  course_id: number;
+  /** Assignment ID */
+  assignment_id: number;
+  /** Optional array of specific user IDs to hide grades for. If omitted, hides all grades */
+  user_ids?: number[];
+}
+
+/**
+ * Assignment posting policy configuration
+ */
+export interface PostingPolicy {
+  /** If true, grades must be manually posted. If false, grades are automatically posted upon grading */
+  post_manually: boolean;
+}
+
+/**
+ * Response from posting grades operation
+ */
+export interface PostGradesResponse {
+  /** Number of submissions successfully posted */
+  posted_count: number;
+  /** Array of submission IDs that were posted */
+  submission_ids: number[];
+}
+
+/**
+ * Response from hiding grades operation
+ */
+export interface HideGradesResponse {
+  /** Number of submissions successfully hidden */
+  hidden_count: number;
+  /** Array of submission IDs that were hidden */
+  submission_ids: number[];
+}
+
+// ==========================================
+// QUIZ QUESTIONS (Phase 3 - Teacher Tools)
+// ==========================================
+
+export interface QuizQuestion {
+  id: number;
+  quiz_id: number;
+  question_name?: string;
+  question_text: string;
+  question_type: 'multiple_choice' | 'true_false' | 'short_answer' | 'essay' | 'matching' | 'numerical' | 'fill_in_multiple_blanks' | 'multiple_dropdowns' | 'multiple_answers' | 'text_only' | 'calculated_question' | 'file_upload_question';
+  points_possible?: number;
+  position?: number;
+  correct_comments?: string;
+  incorrect_comments?: string;
+  neutral_comments?: string;
+  answers?: QuizQuestionAnswer[];
+}
+
+export interface QuizQuestionAnswer {
+  id?: number;
+  answer_text: string;
+  answer_weight: number;
+  answer_comments?: string;
+  text_after_answers?: string;
+  answer_match_left?: string;
+  answer_match_right?: string;
+  matching_answer_incorrect_matches?: string;
+  numerical_answer_type?: 'exact_answer' | 'range_answer' | 'precision_answer';
+  exact?: number;
+  margin?: number;
+  approximate?: number;
+  precision?: number;
+  start?: number;
+  end?: number;
+  blank_id?: number;
+}
+
+export interface CreateQuizQuestionArgs {
+  course_id: number;
+  quiz_id: number;
+  question_name?: string;
+  question_text: string;
+  question_type: 'multiple_choice' | 'true_false' | 'short_answer' | 'essay' | 'matching' | 'numerical' | 'fill_in_multiple_blanks' | 'multiple_dropdowns' | 'multiple_answers' | 'text_only' | 'calculated_question' | 'file_upload_question';
+  points_possible?: number;
+  position?: number;
+  correct_comments?: string;
+  incorrect_comments?: string;
+  neutral_comments?: string;
+  answers?: QuizQuestionAnswer[];
+}
+
+export interface UpdateQuizQuestionArgs extends CreateQuizQuestionArgs {
+  question_id: number;
+}
+
+// ==========================================
+// ANALYTICS (Phase 3 - Teacher Tools)
+// ==========================================
+
+export interface CourseActivity {
+  page_views: Array<{ date: string; views: number }>;
+  participations: Array<{ date: string; participations: number }>;
+}
+
+export interface StudentSummary {
+  id: number;
+  page_views: number;
+  page_views_level: number; // 0=none, 1=low, 2=moderate, 3=high
+  participations: number;
+  participations_level: number;
+  tardiness_breakdown: {
+    total: number;
+    on_time: number;
+    late: number;
+    missing: number;
+  };
+}
+
+export interface StudentActivity {
+  page_views: Array<{ hour: string; views: number }>;
+  participations: Array<{ created_at: string; url: string }>;
+}
+
+export interface StudentAssignmentData {
+  title: string;
+  assignment_id: number;
+  due_at?: string;
+  status?: string;
+  score?: number;
+  points_possible?: number;
+}
+
+export interface GetCourseActivityArgs {
+  course_id: number;
+}
+
+export interface GetStudentSummariesArgs {
+  course_id: number;
+}
+
+export interface GetStudentActivityArgs {
+  course_id: number;
+  user_id: number;
+}
+
+export interface GetStudentAssignmentsArgs {
+  course_id: number;
+  user_id: number;
+}
+
+// ==========================================
+// GRADE EXPORT CSV (Phase 3 - Teacher Tools)
+// ==========================================
+
+export interface GradebookExportArgs {
+  course_id: number;
+  include_comments?: boolean;
+  include_missing?: boolean;
+}
+
+export interface GradebookEntry {
+  student_id: number;
+  student_name: string;
+  student_email: string;
+  grades: Map<number, number | null>;
+  comments?: Map<number, string>;
+  total_points: number;
+  possible_points: number;
+}
+
+// ==========================================
+// LATE POLICY (Phase 3 - Teacher Tools)
+// ==========================================
+
+export interface LatePolicy {
+  id?: number;
+  course_id?: number;
+  missing_submission_deduction_enabled?: boolean;
+  missing_submission_deduction?: number;
+  late_submission_deduction_enabled?: boolean;
+  late_submission_deduction?: number;
+  late_submission_interval?: 'day' | 'hour';
+  late_submission_minimum_percent_enabled?: boolean;
+  late_submission_minimum_percent?: number;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface CreateLatePolicyArgs {
+  course_id: number;
+  late_submission_deduction_enabled?: boolean;
+  late_submission_deduction?: number;
+  late_submission_interval?: 'day' | 'hour';
+  missing_submission_deduction_enabled?: boolean;
+  missing_submission_deduction?: number;
+  late_submission_minimum_percent_enabled?: boolean;
+  late_submission_minimum_percent?: number;
+}
+
+export interface UpdateLatePolicyArgs extends CreateLatePolicyArgs {
+  // All fields are optional for updates except course_id
+}
+
+// ==========================================
+// SPEEDGRADER NAVIGATION (Phase 3 - Teacher Tools)
+// ==========================================
+
+export interface SpeedGraderURLArgs {
+  domain: string; // e.g., "canvas.instructure.com"
+  course_id: number;
+  assignment_id: number;
+  student_id?: number;
+  anonymous_id?: string;
+}
+
+// ==========================================
+// OUTCOMES/STANDARDS (Phase 3 - Teacher Tools)
+// ==========================================
+
+export interface Outcome {
+  id: number;
+  title: string;
+  display_name?: string;
+  description?: string;
+  vendor_guid?: string; // External learning standard ID
+  points_possible?: number;
+  mastery_points?: number;
+  calculation_method?: string;
+  calculation_int?: number;
+  context_id?: number;
+  context_type?: string;
+  url?: string;
+  can_edit?: boolean;
+}
+
+export interface OutcomeAlignment {
+  id: string;
+  assignment_id?: number;
+  learning_outcome_id: number;
+  title?: string;
+  submission_types?: string;
+  url?: string;
+}
+
+export interface OutcomeResult {
+  id: string;
+  score?: number;
+  submitted_or_assessed_at?: string;
+  links: {
+    user: string;
+    learning_outcome: string;
+    alignment: string;
+  };
+  percent?: number;
+}
+
+export interface CreateOutcomeArgs {
+  course_id: number;
+  title: string;
+  display_name?: string;
+  description?: string;
+  vendor_guid?: string;
+  mastery_points?: number;
+  calculation_method?: string;
+  calculation_int?: number;
+}
+
+export interface UpdateOutcomeArgs extends CreateOutcomeArgs {
+  outcome_id: number;
+}
+
+export interface OutcomeAlignmentsArgs {
+  course_id: number;
+}
+
+export interface OutcomeResultsArgs {
+  course_id: number;
+  user_ids?: number[];
+  outcome_ids?: number[];
+  include?: string[];
+}
+
+// ==========================================
+// ATTENDANCE (Phase 3 - Teacher Tools)
+// ==========================================
+
+export interface AttendanceInfo {
+  tool_type: 'lti';
+  availability: string;
+  data_access_method: string;
+  example_workflow: string[];
+  documentation_url: string;
+}

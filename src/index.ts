@@ -49,7 +49,18 @@ import {
   CreateModuleArgs,
   UpdateModuleArgs,
   CreateModuleItemArgs,
-  UpdateModuleItemArgs
+  UpdateModuleItemArgs,
+  PostGradesArgs,
+  HideGradesArgs,
+  CreateQuizQuestionArgs,
+  UpdateQuizQuestionArgs,
+  GradebookExportArgs,
+  CreateLatePolicyArgs,
+  UpdateLatePolicyArgs,
+  SpeedGraderURLArgs,
+  CreateOutcomeArgs,
+  UpdateOutcomeArgs,
+  OutcomeResultsArgs
 } from "./types.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -1491,6 +1502,407 @@ const TOOLS: Tool[] = [
       },
       required: ["course_id", "module_id", "item_id"]
     }
+  },
+
+  // Grade Posting/Hiding
+  {
+    name: "canvas_post_assignment_grades",
+    description: "Post grades to make them visible to students for a specific assignment",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        user_ids: { type: "array", items: { type: "number" }, description: "Optional: specific student IDs to post grades for" },
+        graded_only: { type: "boolean", description: "Only post grades for students who have been graded" }
+      },
+      required: ["course_id", "assignment_id"]
+    }
+  },
+  {
+    name: "canvas_hide_assignment_grades",
+    description: "Hide grades from students for a specific assignment",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        user_ids: { type: "array", items: { type: "number" }, description: "Optional: specific student IDs to hide grades for" }
+      },
+      required: ["course_id", "assignment_id"]
+    }
+  },
+  {
+    name: "canvas_get_posting_policy",
+    description: "Get the current posting policy for an assignment",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" }
+      },
+      required: ["course_id", "assignment_id"]
+    }
+  },
+  {
+    name: "canvas_set_posting_policy",
+    description: "Set posting policy for an assignment (manual or automatic grade posting)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        post_manually: { type: "boolean", description: "If true, grades must be manually posted. If false, grades post automatically" }
+      },
+      required: ["course_id", "assignment_id", "post_manually"]
+    }
+  },
+
+  // Quiz Questions
+  {
+    name: "canvas_list_quiz_questions",
+    description: "List all questions for a quiz",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        quiz_id: { type: "number", description: "ID of the quiz" }
+      },
+      required: ["course_id", "quiz_id"]
+    }
+  },
+  {
+    name: "canvas_create_quiz_question",
+    description: "Create a new question in a quiz. Supports multiple question types including multiple_choice, true_false, short_answer_question, fill_in_multiple_blanks_question, multiple_answers_question, matching_question, numerical_question, calculated_question, essay_question, file_upload_question, text_only_question, and multiple_dropdowns_question",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        quiz_id: { type: "number", description: "ID of the quiz" },
+        question_name: { type: "string", description: "Name/title of the question" },
+        question_text: { type: "string", description: "The question text (HTML allowed)" },
+        question_type: {
+          type: "string",
+          enum: ["multiple_choice", "true_false", "short_answer_question", "fill_in_multiple_blanks_question", "multiple_answers_question", "matching_question", "numerical_question", "calculated_question", "essay_question", "file_upload_question", "text_only_question", "multiple_dropdowns_question"],
+          description: "Type of question"
+        },
+        points_possible: { type: "number", description: "Points this question is worth" },
+        answers: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              text: { type: "string" },
+              weight: { type: "number" },
+              comments: { type: "string" }
+            }
+          },
+          description: "Answer options (for multiple choice, matching, etc.)"
+        },
+        correct_comments: { type: "string", description: "Comment shown when answer is correct" },
+        incorrect_comments: { type: "string", description: "Comment shown when answer is incorrect" },
+        neutral_comments: { type: "string", description: "General comments shown regardless of correctness" }
+      },
+      required: ["course_id", "quiz_id", "question_text", "question_type"]
+    }
+  },
+  {
+    name: "canvas_update_quiz_question",
+    description: "Update an existing quiz question",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        quiz_id: { type: "number", description: "ID of the quiz" },
+        question_id: { type: "number", description: "ID of the question to update" },
+        question_name: { type: "string", description: "Name/title of the question" },
+        question_text: { type: "string", description: "The question text (HTML allowed)" },
+        question_type: {
+          type: "string",
+          enum: ["multiple_choice", "true_false", "short_answer_question", "fill_in_multiple_blanks_question", "multiple_answers_question", "matching_question", "numerical_question", "calculated_question", "essay_question", "file_upload_question", "text_only_question", "multiple_dropdowns_question"],
+          description: "Type of question"
+        },
+        points_possible: { type: "number", description: "Points this question is worth" },
+        answers: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              text: { type: "string" },
+              weight: { type: "number" },
+              comments: { type: "string" }
+            }
+          },
+          description: "Answer options"
+        }
+      },
+      required: ["course_id", "quiz_id", "question_id"]
+    }
+  },
+  {
+    name: "canvas_delete_quiz_question",
+    description: "Delete a question from a quiz",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        quiz_id: { type: "number", description: "ID of the quiz" },
+        question_id: { type: "number", description: "ID of the question to delete" }
+      },
+      required: ["course_id", "quiz_id", "question_id"]
+    }
+  },
+  {
+    name: "canvas_get_quiz_question",
+    description: "Get details of a specific quiz question",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        quiz_id: { type: "number", description: "ID of the quiz" },
+        question_id: { type: "number", description: "ID of the question" }
+      },
+      required: ["course_id", "quiz_id", "question_id"]
+    }
+  },
+
+  // Analytics
+  {
+    name: "canvas_get_course_activity",
+    description: "Get analytics data for a course including page views and participations over time",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" }
+      },
+      required: ["course_id"]
+    }
+  },
+  {
+    name: "canvas_get_student_summaries",
+    description: "Get summary analytics for all students in a course (page views, participation level, tardiness)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" }
+      },
+      required: ["course_id"]
+    }
+  },
+  {
+    name: "canvas_get_student_activity",
+    description: "Get detailed activity analytics for a specific student",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        user_id: { type: "number", description: "ID of the student" }
+      },
+      required: ["course_id", "user_id"]
+    }
+  },
+  {
+    name: "canvas_get_student_assignments",
+    description: "Get assignment-level analytics for a specific student including submission status and scores",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        user_id: { type: "number", description: "ID of the student" }
+      },
+      required: ["course_id", "user_id"]
+    }
+  },
+
+  // Grade Export
+  {
+    name: "canvas_export_gradebook_csv",
+    description: "Export gradebook data as CSV format for all students and assignments in a course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        include_comments: { type: "boolean", description: "Include grader comments in export" },
+        include_missing: { type: "boolean", description: "Include assignments with missing submissions" }
+      },
+      required: ["course_id"]
+    }
+  },
+
+  // Late Policy
+  {
+    name: "canvas_get_late_policy",
+    description: "Get the late submission policy for a course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" }
+      },
+      required: ["course_id"]
+    }
+  },
+  {
+    name: "canvas_create_late_policy",
+    description: "Create a late submission policy for a course with automatic deductions",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        late_submission_deduction: { type: "number", description: "Percentage to deduct per interval (0-100)" },
+        late_submission_interval: { type: "string", enum: ["day", "hour"], description: "Time interval for deductions" },
+        late_submission_minimum_percent: { type: "number", description: "Minimum grade percentage after deductions (0-100)" },
+        missing_submission_deduction: { type: "number", description: "Percentage deduction for missing submissions (0-100)" }
+      },
+      required: ["course_id"]
+    }
+  },
+  {
+    name: "canvas_update_late_policy",
+    description: "Update the late submission policy for a course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        late_submission_deduction: { type: "number", description: "Percentage to deduct per interval (0-100)" },
+        late_submission_interval: { type: "string", enum: ["day", "hour"], description: "Time interval for deductions" },
+        late_submission_minimum_percent: { type: "number", description: "Minimum grade percentage after deductions (0-100)" },
+        missing_submission_deduction: { type: "number", description: "Percentage deduction for missing submissions (0-100)" }
+      },
+      required: ["course_id"]
+    }
+  },
+
+  // SpeedGrader Navigation
+  {
+    name: "canvas_get_speedgrader_url",
+    description: "Generate a SpeedGrader URL for quick navigation to grade an assignment, optionally for a specific student",
+    inputSchema: {
+      type: "object",
+      properties: {
+        domain: { type: "string", description: "Canvas domain (e.g., 'school.instructure.com')" },
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_id: { type: "number", description: "ID of the assignment" },
+        student_id: { type: "number", description: "Optional: ID of the student to navigate to directly" },
+        anonymous_id: { type: "string", description: "Optional: Anonymous ID for anonymous grading" }
+      },
+      required: ["domain", "course_id", "assignment_id"]
+    }
+  },
+
+  // Outcomes/Standards
+  {
+    name: "canvas_list_outcomes",
+    description: "List learning outcomes/standards for a course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" }
+      },
+      required: ["course_id"]
+    }
+  },
+  {
+    name: "canvas_create_outcome",
+    description: "Create a new learning outcome/standard for a course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        title: { type: "string", description: "Title of the outcome" },
+        display_name: { type: "string", description: "Display name (optional, defaults to title)" },
+        description: { type: "string", description: "Description of what students should achieve" },
+        vendor_guid: { type: "string", description: "External learning standard identifier (e.g., Common Core)" },
+        mastery_points: { type: "number", description: "Points needed to achieve mastery" },
+        calculation_method: {
+          type: "string",
+          enum: ["decaying_average", "n_mastery", "latest", "highest", "average"],
+          description: "How to calculate mastery from multiple attempts"
+        },
+        calculation_int: { type: "number", description: "Parameter for calculation_method (e.g., number for n_mastery)" }
+      },
+      required: ["course_id", "title"]
+    }
+  },
+  {
+    name: "canvas_update_outcome",
+    description: "Update an existing learning outcome/standard",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        outcome_id: { type: "number", description: "ID of the outcome to update" },
+        title: { type: "string", description: "Title of the outcome" },
+        display_name: { type: "string", description: "Display name" },
+        description: { type: "string", description: "Description" },
+        mastery_points: { type: "number", description: "Points needed to achieve mastery" },
+        calculation_method: {
+          type: "string",
+          enum: ["decaying_average", "n_mastery", "latest", "highest", "average"],
+          description: "How to calculate mastery"
+        }
+      },
+      required: ["course_id", "outcome_id"]
+    }
+  },
+  {
+    name: "canvas_delete_outcome",
+    description: "Delete a learning outcome/standard from a course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        outcome_id: { type: "number", description: "ID of the outcome to delete" }
+      },
+      required: ["course_id", "outcome_id"]
+    }
+  },
+  {
+    name: "canvas_get_outcome",
+    description: "Get details of a specific learning outcome/standard",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        outcome_id: { type: "number", description: "ID of the outcome" }
+      },
+      required: ["course_id", "outcome_id"]
+    }
+  },
+  {
+    name: "canvas_get_outcome_alignments",
+    description: "Get all assignments/quizzes aligned to learning outcomes in a course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" }
+      },
+      required: ["course_id"]
+    }
+  },
+  {
+    name: "canvas_get_outcome_results",
+    description: "Get student results/scores for learning outcomes in a course",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        user_ids: { type: "array", items: { type: "number" }, description: "Filter by specific student IDs" },
+        outcome_ids: { type: "array", items: { type: "number" }, description: "Filter by specific outcome IDs" },
+        include_hidden: { type: "boolean", description: "Include results for muted assignments" }
+      },
+      required: ["course_id"]
+    }
+  },
+
+  // Attendance
+  {
+    name: "canvas_get_attendance_info",
+    description: "Get information about attendance tracking in Canvas. Canvas uses third-party LTI tools for attendance - this tool provides setup documentation and workflow guidance",
+    inputSchema: {
+      type: "object",
+      properties: {},
+      required: []
+    }
   }
 ];
 
@@ -2381,8 +2793,8 @@ class CanvasMCPServer {
 
           case "canvas_update_page": {
             const updatePageArgs = args as unknown as UpdatePageArgs;
-            if (!updatePageArgs.course_id || !updatePageArgs.url) {
-              throw new Error("Missing required fields: course_id and url");
+            if (!updatePageArgs.course_id || !updatePageArgs.page_url) {
+              throw new Error("Missing required fields: course_id and page_url");
             }
             const page = await this.client.updatePage(updatePageArgs);
             return {
@@ -2553,6 +2965,296 @@ class CanvasMCPServer {
             const item = await this.client.deleteModuleItem(course_id, module_id, item_id);
             return {
               content: [{ type: "text", text: JSON.stringify(item, null, 2) }]
+            };
+          }
+
+          // Grade Posting/Hiding handlers
+          case "canvas_post_assignment_grades": {
+            const postArgs = args as unknown as PostGradesArgs;
+            if (!postArgs.course_id || !postArgs.assignment_id) {
+              throw new Error("Missing required fields: course_id and assignment_id");
+            }
+            await this.client.postAssignmentGrades(postArgs);
+            return {
+              content: [{ type: "text", text: "Grades posted successfully" }]
+            };
+          }
+
+          case "canvas_hide_assignment_grades": {
+            const hideArgs = args as unknown as HideGradesArgs;
+            if (!hideArgs.course_id || !hideArgs.assignment_id) {
+              throw new Error("Missing required fields: course_id and assignment_id");
+            }
+            await this.client.hideAssignmentGrades(hideArgs);
+            return {
+              content: [{ type: "text", text: "Grades hidden successfully" }]
+            };
+          }
+
+          case "canvas_get_posting_policy": {
+            const { course_id, assignment_id } = args as { course_id: number; assignment_id: number };
+            if (!course_id || !assignment_id) {
+              throw new Error("Missing required fields: course_id and assignment_id");
+            }
+            const policy = await this.client.getPostingPolicy(course_id, assignment_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(policy, null, 2) }]
+            };
+          }
+
+          case "canvas_set_posting_policy": {
+            const { course_id, assignment_id, post_manually } = args as { course_id: number; assignment_id: number; post_manually: boolean };
+            if (!course_id || !assignment_id || post_manually === undefined) {
+              throw new Error("Missing required fields: course_id, assignment_id, and post_manually");
+            }
+            const policy = await this.client.setPostingPolicy(course_id, assignment_id, { post_manually });
+            return {
+              content: [{ type: "text", text: JSON.stringify(policy, null, 2) }]
+            };
+          }
+
+          // Quiz Questions handlers
+          case "canvas_list_quiz_questions": {
+            const { course_id, quiz_id } = args as { course_id: number; quiz_id: number };
+            if (!course_id || !quiz_id) {
+              throw new Error("Missing required fields: course_id and quiz_id");
+            }
+            const questions = await this.client.listQuizQuestions(course_id, quiz_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(questions, null, 2) }]
+            };
+          }
+
+          case "canvas_create_quiz_question": {
+            const createQuestionArgs = args as unknown as CreateQuizQuestionArgs;
+            if (!createQuestionArgs.course_id || !createQuestionArgs.quiz_id || !createQuestionArgs.question_text || !createQuestionArgs.question_type) {
+              throw new Error("Missing required fields: course_id, quiz_id, question_text, and question_type");
+            }
+            const question = await this.client.createQuizQuestion(createQuestionArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(question, null, 2) }]
+            };
+          }
+
+          case "canvas_update_quiz_question": {
+            const updateQuestionArgs = args as unknown as UpdateQuizQuestionArgs;
+            if (!updateQuestionArgs.course_id || !updateQuestionArgs.quiz_id || !updateQuestionArgs.question_id) {
+              throw new Error("Missing required fields: course_id, quiz_id, and question_id");
+            }
+            const question = await this.client.updateQuizQuestion(updateQuestionArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(question, null, 2) }]
+            };
+          }
+
+          case "canvas_delete_quiz_question": {
+            const { course_id, quiz_id, question_id } = args as { course_id: number; quiz_id: number; question_id: number };
+            if (!course_id || !quiz_id || !question_id) {
+              throw new Error("Missing required fields: course_id, quiz_id, and question_id");
+            }
+            await this.client.deleteQuizQuestion(course_id, quiz_id, question_id);
+            return {
+              content: [{ type: "text", text: "Quiz question deleted successfully" }]
+            };
+          }
+
+          case "canvas_get_quiz_question": {
+            const { course_id, quiz_id, question_id } = args as { course_id: number; quiz_id: number; question_id: number };
+            if (!course_id || !quiz_id || !question_id) {
+              throw new Error("Missing required fields: course_id, quiz_id, and question_id");
+            }
+            const question = await this.client.getQuizQuestion(course_id, quiz_id, question_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(question, null, 2) }]
+            };
+          }
+
+          // Analytics handlers
+          case "canvas_get_course_activity": {
+            const { course_id } = args as { course_id: number };
+            if (!course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+            const activity = await this.client.getCourseActivity(course_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(activity, null, 2) }]
+            };
+          }
+
+          case "canvas_get_student_summaries": {
+            const { course_id } = args as { course_id: number };
+            if (!course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+            const summaries = await this.client.getStudentSummaries(course_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(summaries, null, 2) }]
+            };
+          }
+
+          case "canvas_get_student_activity": {
+            const { course_id, user_id } = args as { course_id: number; user_id: number };
+            if (!course_id || !user_id) {
+              throw new Error("Missing required fields: course_id and user_id");
+            }
+            const activity = await this.client.getStudentActivity(course_id, user_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(activity, null, 2) }]
+            };
+          }
+
+          case "canvas_get_student_assignments": {
+            const { course_id, user_id } = args as { course_id: number; user_id: number };
+            if (!course_id || !user_id) {
+              throw new Error("Missing required fields: course_id and user_id");
+            }
+            const assignments = await this.client.getStudentAssignments(course_id, user_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(assignments, null, 2) }]
+            };
+          }
+
+          // Grade Export handler
+          case "canvas_export_gradebook_csv": {
+            const exportArgs = args as unknown as GradebookExportArgs;
+            if (!exportArgs.course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+            const csv = await this.client.exportGradebookCSV(exportArgs);
+            return {
+              content: [{ type: "text", text: csv }]
+            };
+          }
+
+          // Late Policy handlers
+          case "canvas_get_late_policy": {
+            const { course_id } = args as { course_id: number };
+            if (!course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+            const policy = await this.client.getLatePolicy(course_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(policy, null, 2) }]
+            };
+          }
+
+          case "canvas_create_late_policy": {
+            const createPolicyArgs = args as unknown as CreateLatePolicyArgs;
+            if (!createPolicyArgs.course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+            const policy = await this.client.createLatePolicy(createPolicyArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(policy, null, 2) }]
+            };
+          }
+
+          case "canvas_update_late_policy": {
+            const updatePolicyArgs = args as unknown as UpdateLatePolicyArgs;
+            if (!updatePolicyArgs.course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+            const policy = await this.client.updateLatePolicy(updatePolicyArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(policy, null, 2) }]
+            };
+          }
+
+          // SpeedGrader handler
+          case "canvas_get_speedgrader_url": {
+            const urlArgs = args as unknown as SpeedGraderURLArgs;
+            if (!urlArgs.domain || !urlArgs.course_id || !urlArgs.assignment_id) {
+              throw new Error("Missing required fields: domain, course_id, and assignment_id");
+            }
+            const url = this.client.getSpeedGraderURL(urlArgs);
+            return {
+              content: [{ type: "text", text: url }]
+            };
+          }
+
+          // Outcomes/Standards handlers
+          case "canvas_list_outcomes": {
+            const { course_id } = args as { course_id: number };
+            if (!course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+            const outcomes = await this.client.listOutcomes(course_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(outcomes, null, 2) }]
+            };
+          }
+
+          case "canvas_create_outcome": {
+            const createOutcomeArgs = args as unknown as CreateOutcomeArgs;
+            if (!createOutcomeArgs.course_id || !createOutcomeArgs.title) {
+              throw new Error("Missing required fields: course_id and title");
+            }
+            const outcome = await this.client.createOutcome(createOutcomeArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(outcome, null, 2) }]
+            };
+          }
+
+          case "canvas_update_outcome": {
+            const updateOutcomeArgs = args as unknown as UpdateOutcomeArgs;
+            if (!updateOutcomeArgs.course_id || !updateOutcomeArgs.outcome_id) {
+              throw new Error("Missing required fields: course_id and outcome_id");
+            }
+            const outcome = await this.client.updateOutcome(updateOutcomeArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(outcome, null, 2) }]
+            };
+          }
+
+          case "canvas_delete_outcome": {
+            const { course_id, outcome_id } = args as { course_id: number; outcome_id: number };
+            if (!course_id || !outcome_id) {
+              throw new Error("Missing required fields: course_id and outcome_id");
+            }
+            await this.client.deleteOutcome(course_id, outcome_id);
+            return {
+              content: [{ type: "text", text: "Outcome deleted successfully" }]
+            };
+          }
+
+          case "canvas_get_outcome": {
+            const { course_id, outcome_id } = args as { course_id: number; outcome_id: number };
+            if (!course_id || !outcome_id) {
+              throw new Error("Missing required fields: course_id and outcome_id");
+            }
+            const outcome = await this.client.getOutcome(course_id, outcome_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(outcome, null, 2) }]
+            };
+          }
+
+          case "canvas_get_outcome_alignments": {
+            const { course_id } = args as { course_id: number };
+            if (!course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+            const alignments = await this.client.getOutcomeAlignments(course_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(alignments, null, 2) }]
+            };
+          }
+
+          case "canvas_get_outcome_results": {
+            const resultsArgs = args as unknown as OutcomeResultsArgs;
+            if (!resultsArgs.course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+            const results = await this.client.getOutcomeResults(resultsArgs.course_id, resultsArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(results, null, 2) }]
+            };
+          }
+
+          // Attendance handler
+          case "canvas_get_attendance_info": {
+            const info = this.client.getAttendanceInfo();
+            return {
+              content: [{ type: "text", text: JSON.stringify(info, null, 2) }]
             };
           }
 

@@ -61,7 +61,30 @@ import {
   CreateModuleArgs,
   UpdateModuleArgs,
   CreateModuleItemArgs,
-  UpdateModuleItemArgs
+  UpdateModuleItemArgs,
+  PostGradesArgs,
+  HideGradesArgs,
+  PostingPolicy,
+  QuizQuestion,
+  CreateQuizQuestionArgs,
+  UpdateQuizQuestionArgs,
+  CourseActivity,
+  StudentSummary,
+  StudentActivity,
+  StudentAssignmentData,
+  GradebookExportArgs,
+  GradebookEntry,
+  LatePolicy,
+  CreateLatePolicyArgs,
+  UpdateLatePolicyArgs,
+  SpeedGraderURLArgs,
+  Outcome,
+  OutcomeAlignment,
+  OutcomeResult,
+  CreateOutcomeArgs,
+  UpdateOutcomeArgs,
+  OutcomeResultsArgs,
+  AttendanceInfo
 } from './types.js';
 
 export class CanvasClient {
@@ -1170,5 +1193,569 @@ export class CanvasClient {
 
   async deleteModuleItem(courseId: number, moduleId: number, itemId: number): Promise<void> {
     await this.client.delete(`/courses/${courseId}/modules/${moduleId}/items/${itemId}`);
+  }
+
+  // ---------------------
+  // GRADE POSTING/HIDING (Phase 3 - Teacher Tools)
+  // ---------------------
+
+  /**
+   * Post assignment grades to make them visible to students
+   */
+  async postAssignmentGrades(args: PostGradesArgs): Promise<void> {
+    const { course_id, assignment_id, user_ids, graded_only = true } = args;
+
+    if (user_ids && user_ids.length > 0) {
+      // Post grades for specific users
+      await this.client.post(
+        `/courses/${course_id}/assignments/${assignment_id}/submissions/update_grades`,
+        {
+          grade_data: user_ids.reduce((acc, user_id) => {
+            acc[user_id] = { posted_at: new Date().toISOString() };
+            return acc;
+          }, {} as any)
+        }
+      );
+    } else {
+      // Post all grades for the assignment
+      const endpoint = `/courses/${course_id}/assignments/${assignment_id}/submissions`;
+      const params: any = {};
+
+      if (graded_only) {
+        params.workflow_state = 'graded';
+      }
+
+      // Fetch submissions to post
+      const submissions = await this.client.get(endpoint, { params });
+
+      // Post each submission
+      const postPromises = submissions.data.map((submission: any) =>
+        this.client.put(
+          `/courses/${course_id}/assignments/${assignment_id}/submissions/${submission.user_id}`,
+          { submission: { posted_at: new Date().toISOString() } }
+        )
+      );
+
+      await Promise.all(postPromises);
+    }
+  }
+
+  /**
+   * Hide assignment grades from students
+   */
+  async hideAssignmentGrades(args: HideGradesArgs): Promise<void> {
+    const { course_id, assignment_id, user_ids } = args;
+
+    if (user_ids && user_ids.length > 0) {
+      // Hide grades for specific users
+      const hidePromises = user_ids.map((user_id) =>
+        this.client.put(
+          `/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}`,
+          { submission: { posted_at: null } }
+        )
+      );
+
+      await Promise.all(hidePromises);
+    } else {
+      // Hide all grades by fetching and updating all submissions
+      const submissions = await this.client.get(
+        `/courses/${course_id}/assignments/${assignment_id}/submissions`
+      );
+
+      const hidePromises = submissions.data.map((submission: any) =>
+        this.client.put(
+          `/courses/${course_id}/assignments/${assignment_id}/submissions/${submission.user_id}`,
+          { submission: { posted_at: null } }
+        )
+      );
+
+      await Promise.all(hidePromises);
+    }
+  }
+
+  /**
+   * Get the posting policy for an assignment
+   */
+  async getPostingPolicy(courseId: number, assignmentId: number): Promise<PostingPolicy> {
+    const response = await this.client.get(
+      `/courses/${courseId}/assignments/${assignmentId}`,
+      {
+        params: {
+          include: ['post_policy']
+        }
+      }
+    );
+
+    return {
+      post_manually: response.data.post_policy?.post_manually ?? false
+    };
+  }
+
+  /**
+   * Set the posting policy for an assignment
+   */
+  async setPostingPolicy(
+    courseId: number,
+    assignmentId: number,
+    policy: PostingPolicy
+  ): Promise<PostingPolicy> {
+    const response = await this.client.post(
+      `/courses/${courseId}/assignments/${assignmentId}/post_policy`,
+      {
+        post_policy: policy
+      }
+    );
+
+    return {
+      post_manually: response.data.post_manually ?? false
+    };
+  }
+
+  // ---------------------
+  // QUIZ QUESTIONS (Phase 3 - Teacher Tools)
+  // ---------------------
+
+  async listQuizQuestions(courseId: number, quizId: number): Promise<QuizQuestion[]> {
+    const response = await this.client.get(`/courses/${courseId}/quizzes/${quizId}/questions`);
+    return response.data;
+  }
+
+  async getQuizQuestion(courseId: number, quizId: number, questionId: number): Promise<QuizQuestion> {
+    const response = await this.client.get(
+      `/courses/${courseId}/quizzes/${quizId}/questions/${questionId}`
+    );
+    return response.data;
+  }
+
+  async createQuizQuestion(args: CreateQuizQuestionArgs): Promise<QuizQuestion> {
+    const { course_id, quiz_id, ...questionData } = args;
+
+    const response = await this.client.post(
+      `/courses/${course_id}/quizzes/${quiz_id}/questions`,
+      { question: questionData }
+    );
+    return response.data;
+  }
+
+  async updateQuizQuestion(args: UpdateQuizQuestionArgs): Promise<QuizQuestion> {
+    const { course_id, quiz_id, question_id, ...questionData } = args;
+
+    const response = await this.client.put(
+      `/courses/${course_id}/quizzes/${quiz_id}/questions/${question_id}`,
+      { question: questionData }
+    );
+    return response.data;
+  }
+
+  async deleteQuizQuestion(courseId: number, quizId: number, questionId: number): Promise<void> {
+    await this.client.delete(`/courses/${courseId}/quizzes/${quizId}/questions/${questionId}`);
+  }
+
+  // ---------------------
+  // ANALYTICS (Phase 3 - Teacher Tools)
+  // ---------------------
+
+  async getCourseActivity(courseId: number): Promise<CourseActivity> {
+    try {
+      const response = await this.client.get(`/courses/${courseId}/analytics/activity`);
+      return response.data;
+    } catch (error) {
+      if (error instanceof CanvasAPIError) {
+        throw new CanvasAPIError(
+          `Failed to retrieve course activity analytics: ${error.message}`,
+          error.statusCode,
+          error.response
+        );
+      }
+      throw error;
+    }
+  }
+
+  async getStudentSummaries(courseId: number): Promise<StudentSummary[]> {
+    try {
+      const response = await this.client.get(`/courses/${courseId}/analytics/student_summaries`);
+      return response.data;
+    } catch (error) {
+      if (error instanceof CanvasAPIError) {
+        throw new CanvasAPIError(
+          `Failed to retrieve student summaries: ${error.message}`,
+          error.statusCode,
+          error.response
+        );
+      }
+      throw error;
+    }
+  }
+
+  async getStudentActivity(courseId: number, userId: number): Promise<StudentActivity> {
+    try {
+      const response = await this.client.get(
+        `/courses/${courseId}/analytics/users/${userId}/activity`
+      );
+      return response.data;
+    } catch (error) {
+      if (error instanceof CanvasAPIError) {
+        throw new CanvasAPIError(
+          `Failed to retrieve student activity for user ${userId}: ${error.message}`,
+          error.statusCode,
+          error.response
+        );
+      }
+      throw error;
+    }
+  }
+
+  async getStudentAssignments(courseId: number, userId: number): Promise<StudentAssignmentData[]> {
+    try {
+      const response = await this.client.get(
+        `/courses/${courseId}/analytics/users/${userId}/assignments`
+      );
+      return response.data;
+    } catch (error) {
+      if (error instanceof CanvasAPIError) {
+        throw new CanvasAPIError(
+          `Failed to retrieve student assignment data for user ${userId}: ${error.message}`,
+          error.statusCode,
+          error.response
+        );
+      }
+      throw error;
+    }
+  }
+
+  // ---------------------
+  // GRADE EXPORT CSV (Phase 3 - Teacher Tools)
+  // ---------------------
+
+  async exportGradebookCSV(args: GradebookExportArgs): Promise<string> {
+    const { course_id, include_comments = false, include_missing = true } = args;
+
+    // Fetch all required data in parallel
+    const [assignments, students, submissions] = await Promise.all([
+      this.listAssignments(course_id),
+      this.listStudents({ course_id }),
+      this.listSubmissions({ course_id })
+    ]);
+
+    // Filter out assignments without points_possible
+    const gradedAssignments = assignments.filter(a =>
+      a.points_possible !== undefined && a.points_possible > 0
+    );
+
+    // Build gradebook structure
+    const gradebook = new Map<number, GradebookEntry>();
+
+    // Initialize gradebook entries for each student
+    students.forEach(student => {
+      gradebook.set(student.id, {
+        student_id: student.id,
+        student_name: student.name || 'Unknown',
+        student_email: student.email || '',
+        grades: new Map(),
+        comments: include_comments ? new Map() : undefined,
+        total_points: 0,
+        possible_points: 0
+      });
+    });
+
+    // Process submissions
+    submissions.forEach(submission => {
+      const entry = gradebook.get(submission.user_id);
+      if (!entry) return;
+
+      const assignment = gradedAssignments.find(a => a.id === submission.assignment_id);
+      if (!assignment) return;
+
+      // Set grade (null if not graded)
+      const grade = submission.score !== undefined && submission.score !== null
+        ? submission.score
+        : null;
+
+      entry.grades.set(assignment.id, grade);
+
+      // Add comment if requested
+      if (include_comments && submission.submission_comments) {
+        const comments = submission.submission_comments
+          .map(c => c.comment)
+          .filter(c => c)
+          .join(' | ');
+        if (comments) {
+          entry.comments?.set(assignment.id, comments);
+        }
+      }
+
+      // Calculate totals (only graded assignments)
+      if (grade !== null) {
+        entry.total_points += grade;
+        entry.possible_points += assignment.points_possible || 0;
+      }
+    });
+
+    // Generate CSV
+    const csvRows: string[] = [];
+
+    // Build header row
+    const headers = [
+      'Student Name',
+      'Student ID',
+      'Email',
+      ...gradedAssignments.map(a => this.escapeCSV(a.name || `Assignment ${a.id}`)),
+      'Total Points',
+      'Possible Points',
+      'Percentage'
+    ];
+
+    if (include_comments) {
+      gradedAssignments.forEach(a => {
+        headers.push(this.escapeCSV(`${a.name || `Assignment ${a.id}`} Comments`));
+      });
+    }
+
+    csvRows.push(headers.join(','));
+
+    // Build data rows
+    gradebook.forEach(entry => {
+      const row = [
+        this.escapeCSV(entry.student_name),
+        entry.student_id.toString(),
+        this.escapeCSV(entry.student_email),
+        ...gradedAssignments.map(a => {
+          const grade = entry.grades.get(a.id);
+          if (grade === null || grade === undefined) {
+            return include_missing ? 'Missing' : '';
+          }
+          return grade.toString();
+        }),
+        entry.total_points.toFixed(2),
+        entry.possible_points.toFixed(2),
+        entry.possible_points > 0
+          ? ((entry.total_points / entry.possible_points) * 100).toFixed(2) + '%'
+          : '0.00%'
+      ];
+
+      if (include_comments) {
+        gradedAssignments.forEach(a => {
+          const comment = entry.comments?.get(a.id);
+          row.push(comment ? this.escapeCSV(comment) : '');
+        });
+      }
+
+      csvRows.push(row.join(','));
+    });
+
+    return csvRows.join('\n');
+  }
+
+  private escapeCSV(value: string): string {
+    if (!value) return '';
+
+    // Escape double quotes by doubling them
+    const escaped = value.replace(/"/g, '""');
+
+    // Wrap in quotes if contains comma, newline, or double quote
+    if (escaped.includes(',') || escaped.includes('\n') || escaped.includes('"')) {
+      return `"${escaped}"`;
+    }
+
+    return escaped;
+  }
+
+  // ---------------------
+  // LATE POLICY (Phase 3 - Teacher Tools)
+  // ---------------------
+
+  async getLatePolicy(courseId: number): Promise<LatePolicy> {
+    try {
+      const response = await this.client.get(`/courses/${courseId}/late_policy`);
+      return response.data;
+    } catch (error: any) {
+      // Canvas returns 404 if no late policy exists
+      if (error.response?.status === 404) {
+        throw new CanvasAPIError(
+          `No late policy found for course ${courseId}. Create one first.`,
+          404,
+          null
+        );
+      }
+      throw error;
+    }
+  }
+
+  async createLatePolicy(args: CreateLatePolicyArgs): Promise<LatePolicy> {
+    const { course_id, ...policyData } = args;
+
+    // Build late_policy object with only enabled fields
+    const late_policy: any = {};
+
+    if (policyData.late_submission_deduction_enabled !== undefined) {
+      late_policy.late_submission_deduction_enabled = policyData.late_submission_deduction_enabled;
+    }
+    if (policyData.late_submission_deduction !== undefined) {
+      late_policy.late_submission_deduction = policyData.late_submission_deduction;
+    }
+    if (policyData.late_submission_interval !== undefined) {
+      late_policy.late_submission_interval = policyData.late_submission_interval;
+    }
+    if (policyData.missing_submission_deduction_enabled !== undefined) {
+      late_policy.missing_submission_deduction_enabled = policyData.missing_submission_deduction_enabled;
+    }
+    if (policyData.missing_submission_deduction !== undefined) {
+      late_policy.missing_submission_deduction = policyData.missing_submission_deduction;
+    }
+    if (policyData.late_submission_minimum_percent_enabled !== undefined) {
+      late_policy.late_submission_minimum_percent_enabled = policyData.late_submission_minimum_percent_enabled;
+    }
+    if (policyData.late_submission_minimum_percent !== undefined) {
+      late_policy.late_submission_minimum_percent = policyData.late_submission_minimum_percent;
+    }
+
+    const response = await this.client.post(`/courses/${course_id}/late_policy`, {
+      late_policy
+    });
+    return response.data;
+  }
+
+  async updateLatePolicy(args: UpdateLatePolicyArgs): Promise<LatePolicy> {
+    const { course_id, ...policyData } = args;
+
+    // Build late_policy object with only provided fields
+    const late_policy: any = {};
+
+    if (policyData.late_submission_deduction_enabled !== undefined) {
+      late_policy.late_submission_deduction_enabled = policyData.late_submission_deduction_enabled;
+    }
+    if (policyData.late_submission_deduction !== undefined) {
+      late_policy.late_submission_deduction = policyData.late_submission_deduction;
+    }
+    if (policyData.late_submission_interval !== undefined) {
+      late_policy.late_submission_interval = policyData.late_submission_interval;
+    }
+    if (policyData.missing_submission_deduction_enabled !== undefined) {
+      late_policy.missing_submission_deduction_enabled = policyData.missing_submission_deduction_enabled;
+    }
+    if (policyData.missing_submission_deduction !== undefined) {
+      late_policy.missing_submission_deduction = policyData.missing_submission_deduction;
+    }
+    if (policyData.late_submission_minimum_percent_enabled !== undefined) {
+      late_policy.late_submission_minimum_percent_enabled = policyData.late_submission_minimum_percent_enabled;
+    }
+    if (policyData.late_submission_minimum_percent !== undefined) {
+      late_policy.late_submission_minimum_percent = policyData.late_submission_minimum_percent;
+    }
+
+    const response = await this.client.patch(`/courses/${course_id}/late_policy`, {
+      late_policy
+    });
+    return response.data;
+  }
+
+  // ---------------------
+  // SPEEDGRADER NAVIGATION (Phase 3 - Teacher Tools)
+  // ---------------------
+
+  getSpeedGraderURL(args: SpeedGraderURLArgs): string {
+    const { domain, course_id, assignment_id, student_id, anonymous_id } = args;
+
+    // Validate that either student_id or anonymous_id is provided, but not both
+    if (student_id && anonymous_id) {
+      throw new Error('Cannot specify both student_id and anonymous_id');
+    }
+
+    if (!student_id && !anonymous_id) {
+      throw new Error('Must specify either student_id or anonymous_id');
+    }
+
+    // Build query parameters
+    const params = new URLSearchParams({
+      assignment_id: assignment_id.toString()
+    });
+
+    if (student_id !== undefined) {
+      params.append('student_id', student_id.toString());
+    } else if (anonymous_id) {
+      params.append('anonymous_id', anonymous_id);
+    }
+
+    return `https://${domain}/courses/${course_id}/gradebook/speed_grader?${params.toString()}`;
+  }
+
+  // ---------------------
+  // OUTCOMES/STANDARDS (Phase 3 - Teacher Tools)
+  // ---------------------
+
+  async listOutcomes(courseId: number): Promise<Outcome[]> {
+    const response = await this.client.get(`/courses/${courseId}/outcome_groups/0/outcomes`);
+    return response.data;
+  }
+
+  async getOutcome(courseId: number, outcomeId: number): Promise<Outcome> {
+    const response = await this.client.get(`/courses/${courseId}/outcomes/${outcomeId}`);
+    return response.data;
+  }
+
+  async createOutcome(args: CreateOutcomeArgs): Promise<Outcome> {
+    const { course_id, ...outcomeData } = args;
+
+    const response = await this.client.post(
+      `/courses/${course_id}/outcome_groups/0/outcomes`,
+      { outcome: outcomeData }
+    );
+    return response.data;
+  }
+
+  async updateOutcome(args: UpdateOutcomeArgs): Promise<Outcome> {
+    const { course_id, outcome_id, ...outcomeData } = args;
+
+    const response = await this.client.put(
+      `/courses/${course_id}/outcomes/${outcome_id}`,
+      { outcome: outcomeData }
+    );
+    return response.data;
+  }
+
+  async deleteOutcome(courseId: number, outcomeId: number): Promise<void> {
+    await this.client.delete(`/courses/${courseId}/outcomes/${outcomeId}`);
+  }
+
+  async getOutcomeAlignments(courseId: number): Promise<OutcomeAlignment[]> {
+    const response = await this.client.get(`/courses/${courseId}/outcome_alignments`);
+    return response.data;
+  }
+
+  async getOutcomeResults(courseId: number, options?: OutcomeResultsArgs): Promise<OutcomeResult[]> {
+    const params: any = {};
+
+    if (options?.user_ids) {
+      params['user_ids[]'] = options.user_ids;
+    }
+    if (options?.outcome_ids) {
+      params['outcome_ids[]'] = options.outcome_ids;
+    }
+    if (options?.include) {
+      params['include[]'] = options.include;
+    }
+
+    const response = await this.client.get(`/courses/${courseId}/outcome_results`, { params });
+    return response.data.outcome_results || [];
+  }
+
+  // ---------------------
+  // ATTENDANCE (Phase 3 - Teacher Tools)
+  // ---------------------
+
+  getAttendanceInfo(): AttendanceInfo {
+    return {
+      tool_type: 'lti',
+      availability: 'Must be enabled at account level by Canvas administrator',
+      data_access_method: 'Roll Call Attendance creates an assignment in the gradebook after first use. Access attendance data via the Assignment Grades API using the Roll Call assignment ID.',
+      example_workflow: [
+        '1. Ensure Roll Call Attendance is enabled by your Canvas administrator',
+        '2. Use Roll Call tool in your course (creates assignment automatically)',
+        '3. List course assignments to find Roll Call assignment: GET /api/v1/courses/:course_id/assignments',
+        '4. Get attendance data via grades: GET /api/v1/courses/:course_id/assignments/:assignment_id/submissions',
+        '5. Attendance status is stored in submission grades and comments'
+      ],
+      documentation_url: 'https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-use-the-Roll-Call-Attendance-tool-in-a-course/ta-p/1003'
+    };
   }
 }
