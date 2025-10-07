@@ -1,0 +1,39 @@
+template:
+  type: notebook-check
+  description: "Template for science notebook check assignments (completion-based)"
+
+defaults:
+  points_possible: 0
+  submission_types: ["online_text_entry", "online_upload"]
+  published: false
+  grading_type: "points"
+
+name_pattern: "Notebook {section}"
+# Example: "Notebook Table of Contents", "Notebook Lab Safety Rules"
+
+description_pattern: "Complete the {section} in your science notebook. {additional_instructions}"
+# Fallback if no specific description provided
+
+elicit:
+  required:
+    - section: "What notebook section? (e.g., 'Table of Contents', 'Lab Safety')"
+    - due_date: "Due date? (YYYY-MM-DD or 'next Friday')"
+  optional:
+    - additional_instructions: "Any additional instructions? (press enter to skip)"
+
+examples:
+  - name: "Notebook Table of Contents"
+    section: "Table of Contents"
+    description: "Complete the table of contents in your science notebook."
+    due_date: "2025-10-10"
+
+  - name: "Notebook Lab Safety Rules"
+    section: "Lab Safety Rules"
+    description: "Complete the Lab Safety Rules section in your science notebook. Include all 10 rules we discussed in class."
+    due_date: "2025-09-15"
+
+validation_rules:
+  - name_not_empty: true
+  - due_date_format: "ISO8601 or natural language"
+  - section_specified: true
+  - points_always_zero: true  # Notebook checks are always completion-based

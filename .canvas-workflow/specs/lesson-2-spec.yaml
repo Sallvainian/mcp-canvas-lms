@@ -1,0 +1,25 @@
+# Lesson 2 Assignment Specification
+# This file defines all assignments for Lesson 2
+
+lesson:
+  number: 2
+  title: "Horizontal Object Collisions and Motion Analysis"
+  due_date_default: "2025-10-17"
+
+assignments:
+  - type: lesson-handout
+    concept: "Horizontal Object Collisions"
+    lesson_number: 2
+    handout_sequence: 1
+    topic_context: ""
+    due_date: "2025-10-17"
+
+  # Add more assignments as needed
+  # - type: lesson-quiz
+  #   lesson_number: 2
+  #   ...
+
+deployment:
+  sandbox_first: true
+  target_courses: "all"
+  auto_publish: false

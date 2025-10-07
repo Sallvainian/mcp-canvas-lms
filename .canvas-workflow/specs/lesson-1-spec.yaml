@@ -1,0 +1,41 @@
+# Lesson 1 Assignment Specification
+# This file defines all assignments for Lesson 1
+# Used by assignment-designer agent for batch creation
+
+lesson:
+  number: 1
+  title: "Introduction to Collisions and Object Interactions"
+  due_date_default: "2025-10-10"  # Default for handouts
+
+assignments:
+  - type: notebook-check
+    section: "Table of Contents and Table of Progress"
+    due_date: "2025-10-10"
+    notes: "Combined notebook check for table of contents and progress tracking"
+
+  - type: lesson-handout
+    concept: "Initial Models Collisions"
+    lesson_number: 1
+    handout_sequence: 1
+    topic_context: "about our initial models on object collisions"
+    due_date: "2025-10-10"
+
+  - type: lesson-handout
+    concept: "Object Interactions"
+    lesson_number: 1
+    handout_sequence: 2
+    topic_context: ""  # No additional context
+    due_date: "2025-10-10"
+
+  - type: lesson-quiz
+    lesson_number: 1
+    question_count: 5
+    has_subquestions: true
+    points_possible: 25
+    due_date: "2025-10-03"  # Quiz due earlier than handouts
+    notes: "Quiz covers material from both handouts"
+
+deployment:
+  sandbox_first: true
+  target_courses: "all"  # Options: "all", ["P1-Science 8-Cottone", "P3-Science 8-Cottone"], or specific IDs
+  auto_publish: false  # Require manual publishing after review

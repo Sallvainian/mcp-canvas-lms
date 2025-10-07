@@ -1,0 +1,61 @@
+template:
+  type: lesson-handout
+  description: "Template for lesson handout assignments (completion-based)"
+
+defaults:
+  points_possible: 0
+  submission_types: ["online_text_entry", "online_upload"]
+  published: false
+  grading_type: "points"
+
+name_pattern: "{concept}"
+# Example: "Initial Models Collisions", "Object Interactions"
+
+description_pattern: "Complete the {ordinal} handout from Lesson {lesson_number}{topic_context}."
+# Example: "Complete the first handout from Lesson 1 about initial models on object collisions."
+
+elicit:
+  required:
+    - concept: "Assignment name/concept? (e.g., 'Initial Models Collisions')"
+    - lesson_number: "Lesson number? (1, 2, 3...)"
+    - due_date: "Due date? (YYYY-MM-DD or 'next Friday')"
+  optional:
+    - handout_sequence: "Which handout? (first, second, third... or press enter for 'first')"
+    - topic_context: "Topic context? (e.g., 'about initial models on object collisions') or press enter to skip"
+
+ordinal_mapping:
+  1: "first"
+  2: "second"
+  3: "third"
+  4: "fourth"
+  5: "fifth"
+
+examples:
+  - name: "Initial Models Collisions"
+    concept: "Initial Models Collisions"
+    lesson_number: 1
+    handout_sequence: 1
+    topic_context: "about our initial models on object collisions"
+    description: "Complete the first handout from Lesson 1 about our initial models on object collisions."
+    due_date: "2025-10-10"
+
+  - name: "Object Interactions"
+    concept: "Object Interactions"
+    lesson_number: 1
+    handout_sequence: 2
+    description: "Complete the second handout from Lesson 1."
+    due_date: "2025-10-10"
+
+  - name: "Horizontal Object Collisions"
+    concept: "Horizontal Object Collisions"
+    lesson_number: 2
+    handout_sequence: 1
+    description: "Complete the first handout from Lesson 2."
+    due_date: "2025-10-10"
+
+validation_rules:
+  - name_not_empty: true
+  - due_date_format: "ISO8601 or natural language"
+  - lesson_number_positive: true
+  - concept_specified: true
+  - points_always_zero: true  # Handouts are completion-based

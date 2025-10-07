@@ -1,0 +1,55 @@
+template:
+  type: lesson-quiz
+  description: "Template for lesson quiz assignments (graded)"
+
+defaults:
+  points_possible: 25  # Default for 5-question quiz (5 points per question)
+  submission_types: ["online_text_entry", "online_upload"]
+  published: false
+  grading_type: "points"
+
+name_pattern: "Lesson {lesson_number} Quiz"
+# Example: "Lesson 1 Quiz", "Lesson 2 Quiz"
+
+description_pattern: "Complete the Lesson {lesson_number} Quiz ({question_count} questions{subquestions})."
+# Example: "Complete the Lesson 1 Quiz (5 questions with sub-questions)."
+
+elicit:
+  required:
+    - lesson_number: "Lesson number? (1, 2, 3...)"
+    - due_date: "Due date? (YYYY-MM-DD or 'next Thursday')"
+  optional:
+    - points_possible: "Point value? (press enter for default 25 points)"
+    - question_count: "Number of questions? (press enter for 5)"
+    - has_subquestions: "Does it have sub-questions? (yes/no, press enter for yes)"
+
+point_calculation:
+  # Smart defaults based on question count
+  questions_5: 25  # 5 points per question
+  questions_10: 50  # 5 points per question
+  questions_20: 100  # 5 points per question
+  custom: "user_specified"
+
+examples:
+  - name: "Lesson 1 Quiz"
+    lesson_number: 1
+    question_count: 5
+    has_subquestions: true
+    points_possible: 25
+    description: "Complete the Lesson 1 Quiz (5 questions with sub-questions)."
+    due_date: "2025-10-03"
+
+  - name: "Lesson 2 Quiz"
+    lesson_number: 2
+    question_count: 10
+    has_subquestions: false
+    points_possible: 50
+    description: "Complete the Lesson 2 Quiz (10 questions)."
+    due_date: "2025-10-17"
+
+validation_rules:
+  - name_not_empty: true
+  - due_date_format: "ISO8601 or natural language"
+  - lesson_number_positive: true
+  - points_positive: true
+  - question_count_positive: true
