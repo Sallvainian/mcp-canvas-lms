@@ -1,10 +1,22 @@
-# Canvas MCP Server v2.3.0
+# Canvas MCP Server v2.4.0
 
 > A comprehensive Model Context Protocol (MCP) server for Canvas LMS with complete student, instructor, and account administration functionality
 
-## 🚀 What's New in v2.3.0
+## 🚀 What's New in v2.4.0
 
-- **👨‍🏫 Teacher Tools (NEW!)**: 11 new tools for roster management, grading, and section administration
+- **🎨 Rubric Management**: Create, update, and grade with rubrics (3 tools)
+- **📚 Module Management**: Create modules, add items, publish, reorder (4 tools)
+- **📄 Page Management**: Create, update, and delete course pages (3 tools)
+- **📢 Communication**: Create announcements and message students (2 tools)
+- **⚡ Assignment Controls**: Post/hide grades, create overrides, manage groups (4 tools)
+- **👥 Group Management**: Create group categories, assign members, delete groups (3 tools)
+- **📊 Analytics & Reporting**: Course analytics and gradebook history (2 tools)
+- **📋 Gradebook Admin**: Assignment group management (2 tools)
+
+**Total: 23 new teacher tools added!** (72 → 95 tools)
+
+### Previous Updates (v2.3.0)
+- **👨‍🏫 Teacher Tools**: 11 tools for roster management, grading, and section administration
 - **📋 Student Roster**: List all students with detailed enrollment information
 - **✍️ Advanced Grading**: Individual and bulk grade updates with comments
 - **📚 Assignment Management**: Duplicate and delete assignments
@@ -35,9 +47,22 @@
   - List all submissions across assignments and students
   - Grade individual submissions with comments
   - Bulk grade multiple submissions at once
-- **Assignment Management**: Create, update, duplicate, and delete assignments
+  - **NEW**: Create and manage rubrics for consistent grading
+  - **NEW**: Grade assignments using rubrics
+  - **NEW**: Post/hide grades with granular control
+- **Assignment Management**:
+  - Create, update, duplicate, and delete assignments
+  - **NEW**: Create assignment overrides for individual students/sections
+  - **NEW**: Manage assignment groups with weighting
+- **Content Management**:
+  - Create quizzes, discussions, and course materials
+  - **NEW**: Create and manage course pages
+  - **NEW**: Build and publish course modules
+  - **NEW**: Create and schedule announcements
 - **Section Management**: View, create, merge (cross-list), and separate sections
-- **Content Management**: Create quizzes, discussions, and course materials
+- **Group Management**: **NEW**: Create group categories, assign students to groups
+- **Analytics**: **NEW**: View course analytics, student engagement, and gradebook history
+- **Communication**: **NEW**: Message students individually or by criteria
 - **User Management**: Enroll students and manage permissions
 
 ### 👨‍💼 For Account Administrators (NEW!)
@@ -52,7 +77,7 @@
 - **Cloud Ready**: Docker containers, Kubernetes manifests, health checks
 - **Well Tested**: Unit tests, integration tests, mocking, coverage reports
 - **Type Safe**: Full TypeScript implementation with strict types
-- **72 Tools**: Comprehensive coverage of Canvas LMS functionality (61 existing + 11 new teacher tools)
+- **95 Tools**: Comprehensive coverage of Canvas LMS functionality
 
 ## Quick Start
 
@@ -260,19 +285,64 @@ npm run type-check
 <details>
 <summary><strong>👨‍🏫 Instructor Tools (Click to expand)</strong></summary>
 
+**Course Management:**
 - `canvas_create_course` - Create new courses *(FIXED: now requires account_id)*
 - `canvas_update_course` - Update course settings
+- `canvas_get_course_analytics` - **NEW**: Get course analytics and statistics
+
+**Assignment Management:**
 - `canvas_create_assignment` - Create assignments
 - `canvas_update_assignment` - Update assignments
 - `canvas_list_assignment_groups` - List assignment groups
+- `canvas_create_assignment_group` - **NEW**: Create assignment groups
+- `canvas_update_assignment_group` - **NEW**: Update assignment groups
+- `canvas_create_assignment_override` - **NEW**: Create assignment overrides
+- `canvas_update_assignment_override` - **NEW**: Update assignment overrides
+
+**Grading Tools:**
 - `canvas_submit_grade` - Grade submissions
+- `canvas_post_grades` - **NEW**: Post grades to students
+- `canvas_hide_grades` - **NEW**: Hide grades from students
+- `canvas_get_gradebook_history` - **NEW**: View gradebook change history
+
+**Rubric Management:**
+- `canvas_list_rubrics` - List course rubrics
+- `canvas_get_rubric` - Get rubric details
+- `canvas_create_rubric` - **NEW**: Create new rubrics
+- `canvas_update_rubric` - **NEW**: Update existing rubrics
+- `canvas_grade_with_rubric` - **NEW**: Grade using rubric criteria
+
+**Module Management:**
+- `canvas_create_module` - **NEW**: Create course modules
+- `canvas_update_module` - **NEW**: Update module settings
+- `canvas_publish_module` - **NEW**: Publish modules to students
+- `canvas_create_module_item` - **NEW**: Add items to modules
+
+**Page Management:**
+- `canvas_create_page` - **NEW**: Create course pages
+- `canvas_update_page` - **NEW**: Update page content
+- `canvas_delete_page` - **NEW**: Delete course pages
+
+**Communication:**
+- `canvas_create_announcement` - **NEW**: Create course announcements
+- `canvas_message_students` - **NEW**: Message students by criteria
+
+**Group Management:**
+- `canvas_create_group_category` - **NEW**: Create group categories
+- `canvas_assign_group_members` - **NEW**: Assign students to groups
+- `canvas_delete_group` - **NEW**: Delete student groups
+
+**Student Roster:**
 - `canvas_enroll_user` - Enroll students
+- `canvas_list_students` - **NEW**: List enrolled students
+- `canvas_list_sections` - **NEW**: List course sections
+- `canvas_get_section` - **NEW**: Get section details
+
+**Quiz Management:**
 - `canvas_list_quizzes` - List course quizzes
 - `canvas_get_quiz` - Get quiz details
 - `canvas_create_quiz` - Create quizzes
 - `canvas_start_quiz_attempt` - Start quiz attempts
-- `canvas_list_rubrics` - List course rubrics
-- `canvas_get_rubric` - Get rubric details
 
 </details>
 
@@ -372,8 +442,8 @@ npm run dev:watch
 
 ## 📈 Roadmap
 
-- **v2.3**: Enhanced reporting, bulk operations, advanced search
-- **v2.4**: Mobile support, offline capability, analytics dashboard  
+- **v2.5**: Outcome management, standards alignment, competency tracking
+- **v2.6**: Advanced analytics, prediction models, learning insights
 - **v3.0**: Multi-tenant, GraphQL API, AI-powered insights
 
 ## 🙋 Support & Community
@@ -389,8 +459,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ---
 
 <div align="center">
-  <strong>Canvas MCP Server v2.2.0</strong><br>
+  <strong>Canvas MCP Server v2.4.0</strong><br>
   <em>Empowering students, educators, and administrators with seamless Canvas integration</em><br><br>
-  
+
   ⭐ **Star this repo if it helps you!** ⭐
 </div>

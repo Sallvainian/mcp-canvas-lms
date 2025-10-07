@@ -112,3 +112,5 @@ docker-compose.override.yml
 # Debugging
 inspector-*.log
 v8-compile-cache-*
+.bmad-core/
+.claude/

@@ -948,8 +948,7 @@ export interface AddSubmissionCommentArgs {
   course_id: number;
   assignment_id: number;
   user_id: number;
-  text_comment?: string;
-  file_ids?: number[];
+  comment: string;
   media_comment_id?: string;
   media_comment_type?: 'audio' | 'video';
 }
@@ -1083,10 +1082,8 @@ export interface PostGradesArgs {
   course_id: number;
   /** Assignment ID */
   assignment_id: number;
-  /** Optional array of specific user IDs to post grades for. If omitted, posts all graded submissions */
-  user_ids?: number[];
-  /** If true, only posts grades for submissions that have been graded */
-  graded_only?: boolean;
+  /** Optional array of specific student IDs to post grades for. If omitted, posts all graded submissions */
+  student_ids?: number[];
 }
 
 /**
@@ -1097,8 +1094,8 @@ export interface HideGradesArgs {
   course_id: number;
   /** Assignment ID */
   assignment_id: number;
-  /** Optional array of specific user IDs to hide grades for. If omitted, hides all grades */
-  user_ids?: number[];
+  /** Optional array of specific student IDs to hide grades for. If omitted, hides all grades */
+  student_ids?: number[];
 }
 
 /**
@@ -1381,4 +1378,125 @@ export interface AttendanceInfo {
   data_access_method: string;
   example_workflow: string[];
   documentation_url: string;
+}
+
+// ==========================================
+// ASSIGNMENT GROUP MANAGEMENT (Gradebook Admin)
+// ==========================================
+
+export interface CreateAssignmentGroupArgs {
+  course_id: number;
+  name: string;
+  position?: number;
+  group_weight?: number;
+}
+
+export interface UpdateAssignmentGroupArgs {
+  course_id: number;
+  assignment_group_id: number;
+  name?: string;
+  position?: number;
+  group_weight?: number;
+  rules?: {
+    drop_lowest?: number;
+    drop_highest?: number;
+    never_drop?: number[];
+  };
+}
+
+// ==========================================
+// GROUP MANAGEMENT (Collaboration Groups)
+// ==========================================
+
+export interface CanvasGroupCategory {
+  id: number;
+  name: string;
+  role: string;
+  self_signup: string;
+  auto_leader: string;
+  group_limit: number;
+}
+
+export interface CanvasGroup {
+  id: number;
+  name: string;
+  description: string;
+  is_public: boolean;
+  followed_by_user: boolean;
+  members_count: number;
+  group_category_id: number;
+}
+
+export interface CreateGroupCategoryArgs {
+  course_id: number;
+  name: string;
+  self_signup?: 'enabled' | 'restricted';
+  auto_leader?: 'first' | 'random';
+  group_limit?: number;
+  create_group_count?: number;
+}
+
+export interface CreateGroupArgs {
+  group_category_id: number;
+  name: string;
+  description?: string;
+  is_public?: boolean;
+  max_membership?: number;
+}
+
+export interface AssignGroupMembersArgs {
+  group_id: number;
+  user_ids: number[];
+}
+
+// ==========================================
+// RUBRIC MANAGEMENT (Teacher Tools - Rubric Creation & Update)
+// ==========================================
+
+export interface CreateRubricArgs {
+  course_id: number;
+  title: string;
+  description?: string;
+  criteria: RubricCriterion[];
+  free_form_criterion_comments?: boolean;
+}
+
+export interface RubricCriterion {
+  description: string;
+  points: number;
+  long_description?: string;
+  criterion_use_range?: boolean;
+  ratings: RubricRating[];
+}
+
+export interface RubricRating {
+  description: string;
+  points: number;
+  long_description?: string;
+}
+
+export interface UpdateRubricArgs {
+  course_id: number;
+  rubric_id: number;
+  title?: string;
+  description?: string;
+  criteria?: RubricCriterion[];
+  free_form_criterion_comments?: boolean;
+}
+
+export interface GradeWithRubricArgsNew {
+  course_id: number;
+  assignment_id: number;
+  user_id: number;
+  rubric_assessment: RubricAssessment;
+  grade?: string | number;
+  comment?: string;
+}
+
+export interface RubricAssessment {
+  [criterion_id: string]: {
+    rating_id?: string;
+    points?: number;
+    comments?: string;
+  };
 }

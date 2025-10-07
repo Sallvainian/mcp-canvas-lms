@@ -84,7 +84,20 @@ import {
   CreateOutcomeArgs,
   UpdateOutcomeArgs,
   OutcomeResultsArgs,
-  AttendanceInfo
+  AttendanceInfo,
+  CreateAssignmentGroupArgs,
+  UpdateAssignmentGroupArgs,
+  CanvasGroupCategory,
+  CanvasGroup,
+  CreateGroupCategoryArgs,
+  CreateGroupArgs,
+  AssignGroupMembersArgs,
+  CreateRubricArgs,
+  UpdateRubricArgs,
+  GradeWithRubricArgsNew,
+  RubricCriterion,
+  RubricRating,
+  RubricAssessment
 } from './types.js';
 
 export class CanvasClient {
@@ -373,6 +386,24 @@ export class CanvasClient {
     return response.data;
   }
 
+  async createAssignmentGroup(args: CreateAssignmentGroupArgs): Promise<CanvasAssignmentGroup> {
+    const { course_id, ...groupData } = args;
+    const response = await this.client.post(
+      `/courses/${course_id}/assignment_groups`,
+      groupData
+    );
+    return response.data;
+  }
+
+  async updateAssignmentGroup(args: UpdateAssignmentGroupArgs): Promise<CanvasAssignmentGroup> {
+    const { course_id, assignment_group_id, ...groupData } = args;
+    const response = await this.client.put(
+      `/courses/${course_id}/assignment_groups/${assignment_group_id}`,
+      groupData
+    );
+    return response.data;
+  }
+
   // ---------------------
   // SUBMISSIONS (Enhanced for Students)
   // ---------------------
@@ -519,6 +550,37 @@ export class CanvasClient {
 
   async getRubric(courseId: number, rubricId: number): Promise<CanvasRubric> {
     const response = await this.client.get(`/courses/${courseId}/rubrics/${rubricId}`);
+    return response.data;
+  }
+
+  async createRubric(args: CreateRubricArgs): Promise<CanvasRubric> {
+    const { course_id, ...rubricData } = args;
+    const response = await this.client.post(
+      `/courses/${course_id}/rubrics`,
+      { rubric: rubricData }
+    );
+    return response.data;
+  }
+
+  async updateRubric(args: UpdateRubricArgs): Promise<CanvasRubric> {
+    const { course_id, rubric_id, ...rubricData } = args;
+    const response = await this.client.put(
+      `/courses/${course_id}/rubrics/${rubric_id}`,
+      { rubric: rubricData }
+    );
+    return response.data;
+  }
+
+  async gradeWithRubric(args: GradeWithRubricArgsNew): Promise<CanvasSubmission> {
+    const { course_id, assignment_id, user_id, rubric_assessment, grade, comment } = args;
+    const data: any = { rubric_assessment };
+    if (grade !== undefined) data.submission = { posted_grade: grade };
+    if (comment) data.comment = { text_comment: comment };
+
+    const response = await this.client.put(
+      `/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}`,
+      data
+    );
     return response.data;
   }
 
@@ -1029,20 +1091,20 @@ export class CanvasClient {
   // SUBMISSION COMMENTS (Phase 1 - High)
   // ---------------------
   async addSubmissionComment(args: AddSubmissionCommentArgs): Promise<CanvasSubmission> {
-    const { course_id, assignment_id, user_id, text_comment, file_ids, media_comment_id, media_comment_type } = args;
+    const { course_id, assignment_id, user_id, comment, media_comment_id, media_comment_type } = args;
 
-    const comment: any = {};
+    const data: any = {
+      comment: { text_comment: comment }
+    };
 
-    if (text_comment) comment.text_comment = text_comment;
-    if (file_ids && file_ids.length > 0) comment.file_ids = file_ids;
-    if (media_comment_id) {
-      comment.media_comment_id = media_comment_id;
-      comment.media_comment_type = media_comment_type || 'audio';
+    if (media_comment_id && media_comment_type) {
+      data.comment.media_comment_id = media_comment_id;
+      data.comment.media_comment_type = media_comment_type;
     }
 
     const response = await this.client.put(
       `/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}`,
-      { comment }
+      data
     );
     return response.data;
   }
@@ -1200,78 +1262,35 @@ export class CanvasClient {
   // ---------------------
 
   /**
-   * Post assignment grades to make them visible to students
+   * Post assignment grades to students (simple API)
    */
-  async postAssignmentGrades(args: PostGradesArgs): Promise<void> {
-    const { course_id, assignment_id, user_ids, graded_only = true } = args;
-
-    if (user_ids && user_ids.length > 0) {
-      // Post grades for specific users
-      await this.client.post(
-        `/courses/${course_id}/assignments/${assignment_id}/submissions/update_grades`,
-        {
-          grade_data: user_ids.reduce((acc, user_id) => {
-            acc[user_id] = { posted_at: new Date().toISOString() };
-            return acc;
-          }, {} as any)
-        }
-      );
-    } else {
-      // Post all grades for the assignment
-      const endpoint = `/courses/${course_id}/assignments/${assignment_id}/submissions`;
-      const params: any = {};
-
-      if (graded_only) {
-        params.workflow_state = 'graded';
-      }
-
-      // Fetch submissions to post
-      const submissions = await this.client.get(endpoint, { params });
-
-      // Post each submission
-      const postPromises = submissions.data.map((submission: any) =>
-        this.client.put(
-          `/courses/${course_id}/assignments/${assignment_id}/submissions/${submission.user_id}`,
-          { submission: { posted_at: new Date().toISOString() } }
-        )
-      );
-
-      await Promise.all(postPromises);
+  async postGrades(args: PostGradesArgs): Promise<void> {
+    const { course_id, assignment_id, student_ids } = args;
+    const data: any = { posted: true };
+    if (student_ids && student_ids.length > 0) {
+      data.student_ids = student_ids;
     }
+    await this.client.post(
+      `/courses/${course_id}/assignments/${assignment_id}/submissions/update_grades`,
+      data
+    );
   }
 
   /**
-   * Hide assignment grades from students
+   * Hide assignment grades from students (simple API)
    */
-  async hideAssignmentGrades(args: HideGradesArgs): Promise<void> {
-    const { course_id, assignment_id, user_ids } = args;
-
-    if (user_ids && user_ids.length > 0) {
-      // Hide grades for specific users
-      const hidePromises = user_ids.map((user_id) =>
-        this.client.put(
-          `/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}`,
-          { submission: { posted_at: null } }
-        )
-      );
-
-      await Promise.all(hidePromises);
-    } else {
-      // Hide all grades by fetching and updating all submissions
-      const submissions = await this.client.get(
-        `/courses/${course_id}/assignments/${assignment_id}/submissions`
-      );
-
-      const hidePromises = submissions.data.map((submission: any) =>
-        this.client.put(
-          `/courses/${course_id}/assignments/${assignment_id}/submissions/${submission.user_id}`,
-          { submission: { posted_at: null } }
-        )
-      );
-
-      await Promise.all(hidePromises);
+  async hideGrades(args: HideGradesArgs): Promise<void> {
+    const { course_id, assignment_id, student_ids } = args;
+    const data: any = { posted: false };
+    if (student_ids && student_ids.length > 0) {
+      data.student_ids = student_ids;
     }
+    await this.client.post(
+      `/courses/${course_id}/assignments/${assignment_id}/submissions/update_grades`,
+      data
+    );
   }
+
 
   /**
    * Get the posting policy for an assignment
@@ -1757,5 +1776,49 @@ export class CanvasClient {
       ],
       documentation_url: 'https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-use-the-Roll-Call-Attendance-tool-in-a-course/ta-p/1003'
     };
+  }
+
+  // ---------------------
+  // GROUP MANAGEMENT (Phase 3 - Teacher Tools)
+  // ---------------------
+
+  /**
+   * Create a group category (group set) for organizing different types of student groupings
+   */
+  async createGroupCategory(args: CreateGroupCategoryArgs): Promise<CanvasGroupCategory> {
+    const { course_id, ...categoryData } = args;
+    const response = await this.client.post(
+      `/courses/${course_id}/group_categories`,
+      categoryData
+    );
+    return response.data;
+  }
+
+  /**
+   * Create a student collaboration group within a group category
+   */
+  async createGroup(args: CreateGroupArgs): Promise<CanvasGroup> {
+    const { group_category_id, ...groupData } = args;
+    const response = await this.client.post(
+      `/group_categories/${group_category_id}/groups`,
+      groupData
+    );
+    return response.data;
+  }
+
+  /**
+   * Assign students to a specific group
+   * Canvas API requires individual membership creation calls
+   */
+  async assignGroupMembers(groupId: number, userIds: number[]): Promise<CanvasGroup> {
+    // Canvas API requires individual membership creation calls
+    for (const userId of userIds) {
+      await this.client.post(`/groups/${groupId}/memberships`, {
+        user_id: userId
+      });
+    }
+    // Return updated group info
+    const response = await this.client.get(`/groups/${groupId}`);
+    return response.data;
   }
 }

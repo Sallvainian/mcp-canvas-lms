@@ -60,7 +60,15 @@ import {
   SpeedGraderURLArgs,
   CreateOutcomeArgs,
   UpdateOutcomeArgs,
-  OutcomeResultsArgs
+  OutcomeResultsArgs,
+  CreateAssignmentGroupArgs,
+  UpdateAssignmentGroupArgs,
+  CreateGroupCategoryArgs,
+  CreateGroupArgs,
+  AssignGroupMembersArgs,
+  CreateRubricArgs,
+  UpdateRubricArgs,
+  GradeWithRubricArgsNew,
 } from "./types.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -249,6 +257,43 @@ const TOOLS: Tool[] = [
         course_id: { type: "number", description: "ID of the course" }
       },
       required: ["course_id"]
+    }
+  },
+  {
+    name: "canvas_create_assignment_group",
+    description: "Create gradebook category (e.g., 'Homework', 'Exams') to organize gradebook and set category weights. Teachers use this monthly for gradebook setup.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        name: { type: "string", description: "Group name (e.g., 'Exams', 'Homework')" },
+        position: { type: "number", description: "Display order" },
+        group_weight: { type: "number", description: "Weight percentage (0-100)" }
+      },
+      required: ["course_id", "name"]
+    }
+  },
+  {
+    name: "canvas_update_assignment_group",
+    description: "Edit assignment group name, weight, or drop rules to adjust grading weights and set drop lowest scores.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        assignment_group_id: { type: "number", description: "ID of the assignment group" },
+        name: { type: "string", description: "New group name" },
+        position: { type: "number", description: "New display order" },
+        group_weight: { type: "number", description: "New weight percentage (0-100)" },
+        rules: {
+          type: "object",
+          properties: {
+            drop_lowest: { type: "number", description: "Number of lowest scores to drop" },
+            drop_highest: { type: "number", description: "Number of highest scores to drop" },
+            never_drop: { type: "array", items: { type: "number" }, description: "Assignment IDs to never drop" }
+          }
+        }
+      },
+      required: ["course_id", "assignment_group_id"]
     }
   },
 
@@ -674,6 +719,58 @@ const TOOLS: Tool[] = [
       properties: {
         course_id: { type: "number", description: "ID of the course" },
         rubric_id: { type: "number", description: "ID of the rubric" }
+      },
+      required: ["course_id", "rubric_id"]
+    }
+  },
+  {
+    name: "canvas_create_rubric",
+    description: "Create a custom grading rubric with criteria and ratings for consistent, criteria-based assessment. Teachers use this daily when setting up assignments requiring detailed evaluation criteria.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        title: { type: "string", description: "Rubric title" },
+        description: { type: "string", description: "Rubric description" },
+        criteria: {
+          type: "array",
+          description: "Array of rubric criteria with ratings",
+          items: {
+            type: "object",
+            properties: {
+              description: { type: "string", description: "Criterion name" },
+              points: { type: "number", description: "Maximum points" },
+              long_description: { type: "string", description: "Detailed description" },
+              ratings: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    description: { type: "string" },
+                    points: { type: "number" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        free_form_criterion_comments: { type: "boolean", description: "Allow free-form comments" }
+      },
+      required: ["course_id", "title", "criteria"]
+    }
+  },
+  {
+    name: "canvas_update_rubric",
+    description: "Modify existing rubric criteria, points, or descriptions. Teachers use this weekly to refine rubrics based on student performance.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "ID of the course" },
+        rubric_id: { type: "number", description: "ID of the rubric to update" },
+        title: { type: "string", description: "New rubric title" },
+        description: { type: "string", description: "New description" },
+        criteria: { type: "array", description: "Updated criteria array" },
+        free_form_criterion_comments: { type: "boolean" }
       },
       required: ["course_id", "rubric_id"]
     }
@@ -1182,30 +1279,20 @@ const TOOLS: Tool[] = [
   // ---------------------
   {
     name: "canvas_add_submission_comment",
-    description: "Add a comment to a student submission with optional file attachments or media (teacher tool)",
+    description: "Add text, audio, or video comments to student submissions for detailed feedback. Teachers use this daily during grading.",
     inputSchema: {
       type: "object",
       properties: {
-        course_id: { type: "number", description: "ID of the course" },
-        assignment_id: { type: "number", description: "ID of the assignment" },
-        user_id: { type: "number", description: "ID of the student" },
-        text_comment: { type: "string", description: "Text comment" },
-        file_ids: {
-          type: "array",
-          items: { type: "number" },
-          description: "File IDs to attach to comment (e.g., annotated PDFs)"
-        },
-        media_comment_id: { type: "string", description: "Media comment ID for audio/video feedback" },
-        media_comment_type: {
-          type: "string",
-          enum: ["audio", "video"],
-          description: "Type of media comment"
-        }
+        course_id: { type: "number" },
+        assignment_id: { type: "number" },
+        user_id: { type: "number", description: "Student user ID" },
+        comment: { type: "string", description: "Feedback text" },
+        media_comment_id: { type: "string", description: "Canvas media ID for audio/video comment" },
+        media_comment_type: { type: "string", enum: ["audio", "video"], description: "Type of media comment" }
       },
-      required: ["course_id", "assignment_id", "user_id"]
+      required: ["course_id", "assignment_id", "user_id", "comment"]
     }
   },
-
   // Phase 2: Content Creation Tools
 
   // Page Management
@@ -1505,6 +1592,33 @@ const TOOLS: Tool[] = [
   },
 
   // Grade Posting/Hiding
+  // Grade Posting/Hiding
+  {
+    name: "canvas_post_grades",
+    description: "Release hidden grades to students for review. Teachers use this daily to control when students see grades, allowing review before release.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "Course ID" },
+        assignment_id: { type: "number", description: "Assignment ID" },
+        student_ids: { type: "array", items: { type: "number" }, description: "Specific students (omit for all)" }
+      },
+      required: ["course_id", "assignment_id"]
+    }
+  },
+  {
+    name: "canvas_hide_grades",
+    description: "Hide grades from student view after posting, for corrections or privacy.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "Course ID" },
+        assignment_id: { type: "number", description: "Assignment ID" },
+        student_ids: { type: "array", items: { type: "number" }, description: "Specific students (omit for all)" }
+      },
+      required: ["course_id", "assignment_id"]
+    }
+  },
   {
     name: "canvas_post_assignment_grades",
     description: "Post grades to make them visible to students for a specific assignment",
@@ -1904,6 +2018,64 @@ const TOOLS: Tool[] = [
       required: []
     }
   }
+,
+
+  // Group Management (Collaboration Groups)
+  {
+    name: "canvas_create_group_category",
+    description: "Create a group set (e.g., 'Project Teams', 'Lab Partners') to organize different types of student groupings.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        course_id: { type: "number", description: "Course ID" },
+        name: { type: "string", description: "Category name" },
+        self_signup: {
+          type: "string",
+          enum: ["enabled", "restricted"],
+          description: "Allow student self-signup"
+        },
+        auto_leader: {
+          type: "string",
+          enum: ["first", "random"],
+          description: "Auto-assign group leader"
+        },
+        group_limit: { type: "number", description: "Max students per group" },
+        create_group_count: { type: "number", description: "Auto-create N empty groups" }
+      },
+      required: ["course_id", "name"]
+    }
+  },
+  {
+    name: "canvas_create_group",
+    description: "Create a student collaboration group within a group category for project teams, study groups, or peer review pairs. Teachers use this weekly.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        group_category_id: { type: "number", description: "Group category ID" },
+        name: { type: "string", description: "Group name" },
+        description: { type: "string", description: "Group description" },
+        is_public: { type: "boolean", description: "Is group public" },
+        max_membership: { type: "number", description: "Maximum members" }
+      },
+      required: ["group_category_id", "name"]
+    }
+  },
+  {
+    name: "canvas_assign_group_members",
+    description: "Add students to a specific group to organize collaborative teams.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        group_id: { type: "number", description: "Group ID" },
+        user_ids: {
+          type: "array",
+          items: { type: "number" },
+          description: "Array of student user IDs"
+        }
+      },
+      required: ["group_id", "user_ids"]
+    }
+  }
 ];
 
 class CanvasMCPServer {
@@ -2275,6 +2447,50 @@ class CanvasMCPServer {
             const groups = await this.client.listAssignmentGroups(course_id);
             return {
               content: [{ type: "text", text: JSON.stringify(groups, null, 2) }]
+            };
+          }
+
+          case "canvas_create_assignment_group": {
+            const createArgs = args as unknown as CreateAssignmentGroupArgs;
+            if (!createArgs.course_id || !createArgs.name) {
+              throw new Error("Missing required fields: course_id and name");
+            }
+            if (createArgs.name.trim() === "") {
+              throw new Error("Validation error: name must be non-empty");
+            }
+            if (createArgs.group_weight !== undefined && (createArgs.group_weight < 0 || createArgs.group_weight > 100)) {
+              throw new Error("Validation error: group_weight must be between 0 and 100");
+            }
+
+            const result = await this.client.createAssignmentGroup(createArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(result, null, 2) }]
+            };
+          }
+
+          case "canvas_update_assignment_group": {
+            const updateArgs = args as unknown as UpdateAssignmentGroupArgs;
+            if (!updateArgs.course_id || !updateArgs.assignment_group_id) {
+              throw new Error("Missing required fields: course_id and assignment_group_id");
+            }
+            if (updateArgs.name !== undefined && updateArgs.name.trim() === "") {
+              throw new Error("Validation error: name must be non-empty");
+            }
+            if (updateArgs.group_weight !== undefined && (updateArgs.group_weight < 0 || updateArgs.group_weight > 100)) {
+              throw new Error("Validation error: group_weight must be between 0 and 100");
+            }
+            if (updateArgs.rules) {
+              if (updateArgs.rules.drop_lowest !== undefined && updateArgs.rules.drop_lowest < 0) {
+                throw new Error("Validation error: drop_lowest must be non-negative");
+              }
+              if (updateArgs.rules.drop_highest !== undefined && updateArgs.rules.drop_highest < 0) {
+                throw new Error("Validation error: drop_highest must be non-negative");
+              }
+            }
+
+            const result = await this.client.updateAssignmentGroup(updateArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(result, null, 2) }]
             };
           }
 
@@ -2749,14 +2965,36 @@ class CanvasMCPServer {
           // ---------------------
           // PHASE 1 TOOLS - Rubric Grading
           // ---------------------
+          case "canvas_create_rubric": {
+            const createRubricArgs = args as unknown as CreateRubricArgs;
+            if (!createRubricArgs.course_id || !createRubricArgs.title || !createRubricArgs.criteria) {
+              throw new Error("Missing required fields: course_id, title, and criteria");
+            }
+            const rubric = await this.client.createRubric(createRubricArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(rubric, null, 2) }]
+            };
+          }
+
+          case "canvas_update_rubric": {
+            const updateRubricArgs = args as unknown as UpdateRubricArgs;
+            if (!updateRubricArgs.course_id || !updateRubricArgs.rubric_id) {
+              throw new Error("Missing required fields: course_id and rubric_id");
+            }
+            const rubric = await this.client.updateRubric(updateRubricArgs);
+            return {
+              content: [{ type: "text", text: JSON.stringify(rubric, null, 2) }]
+            };
+          }
+
           case "canvas_grade_with_rubric": {
-            const gradeRubricArgs = args as unknown as GradeWithRubricArgs;
+            const gradeRubricArgs = args as unknown as GradeWithRubricArgsNew;
             if (!gradeRubricArgs.course_id || !gradeRubricArgs.assignment_id ||
                 !gradeRubricArgs.user_id || !gradeRubricArgs.rubric_assessment) {
               throw new Error("Missing required fields: course_id, assignment_id, user_id, and rubric_assessment");
             }
 
-            const submission = await this.client.gradeSubmissionWithRubric(gradeRubricArgs);
+            const submission = await this.client.gradeWithRubric(gradeRubricArgs);
             return {
               content: [{ type: "text", text: JSON.stringify(submission, null, 2) }]
             };
@@ -2969,12 +3207,24 @@ class CanvasMCPServer {
           }
 
           // Grade Posting/Hiding handlers
+          case "canvas_post_grades": {
+            const postGradesArgs = request.params.arguments as unknown as PostGradesArgs;
+            await this.client.postGrades(postGradesArgs);
+            return { content: [{ type: "text", text: "Grades posted successfully" }] };
+          }
+
+          case "canvas_hide_grades": {
+            const hideGradesArgs = request.params.arguments as unknown as HideGradesArgs;
+            await this.client.hideGrades(hideGradesArgs);
+            return { content: [{ type: "text", text: "Grades hidden successfully" }] };
+          }
+
           case "canvas_post_assignment_grades": {
             const postArgs = args as unknown as PostGradesArgs;
             if (!postArgs.course_id || !postArgs.assignment_id) {
               throw new Error("Missing required fields: course_id and assignment_id");
             }
-            await this.client.postAssignmentGrades(postArgs);
+            await this.client.postGrades(postArgs);
             return {
               content: [{ type: "text", text: "Grades posted successfully" }]
             };
@@ -2985,7 +3235,7 @@ class CanvasMCPServer {
             if (!hideArgs.course_id || !hideArgs.assignment_id) {
               throw new Error("Missing required fields: course_id and assignment_id");
             }
-            await this.client.hideAssignmentGrades(hideArgs);
+            await this.client.hideGrades(hideArgs);
             return {
               content: [{ type: "text", text: "Grades hidden successfully" }]
             };
@@ -3258,6 +3508,25 @@ class CanvasMCPServer {
             };
           }
 
+
+          // Group Management handlers
+          case "canvas_create_group_category": {
+            const args = request.params.arguments as unknown as CreateGroupCategoryArgs;
+            const result = await this.client.createGroupCategory(args);
+            return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+          }
+
+          case "canvas_create_group": {
+            const args = request.params.arguments as unknown as CreateGroupArgs;
+            const result = await this.client.createGroup(args);
+            return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+          }
+
+          case "canvas_assign_group_members": {
+            const { group_id, user_ids } = request.params.arguments as unknown as AssignGroupMembersArgs;
+            const result = await this.client.assignGroupMembers(group_id, user_ids);
+            return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+          }
           default:
             throw new Error(`Unknown tool: ${toolName}`);
         }
