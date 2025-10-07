@@ -8,9 +8,13 @@ This document captures the **CURRENT STATE** of the Canvas MCP Server codebase, 
 
 **Primary Focus**: Teacher/Instructor tools and workflows for Canvas LMS
 - Student roster management
-- Grading and submissions
-- Assignment management
+- Grading and submissions (including rubrics)
+- Assignment management and overrides
 - Section administration
+- Content creation (pages, modules, announcements)
+- Communication tools
+- Group management
+- Analytics and reporting
 
 **Out of Scope**: Account administration tools (these exist but are not the primary focus)
 
@@ -18,7 +22,8 @@ This document captures the **CURRENT STATE** of the Canvas MCP Server codebase, 
 
 | Date       | Version | Description                 | Author           |
 |------------|---------|----------------------------|------------------|
-| 2025-10-06 | 1.0     | Initial brownfield analysis | Winston (AI Architect) |
+| 2025-10-06 | 2.0     | Updated for v2.4.0 (95 tools, 23 new teacher tools) | Winston (AI Architect) |
+| 2025-10-06 | 1.0     | Initial brownfield analysis (v2.3.0, 72 tools) | Winston (AI Architect) |
 
 ---
 
@@ -26,24 +31,36 @@ This document captures the **CURRENT STATE** of the Canvas MCP Server codebase, 
 
 ### Critical Files for Understanding the System
 
-- **Main Entry Point**: `src/index.ts` (3,347 lines) - MCP server initialization and tool definitions
-- **Canvas API Client**: `src/client.ts` (1,760 lines) - HTTP client with retry logic and pagination
-- **Type Definitions**: `src/types.ts` (1,384 lines) - TypeScript interfaces for Canvas entities
+- **Main Entry Point**: `src/index.ts` (~3,600 lines) - MCP server initialization and 95 tool definitions
+- **Canvas API Client**: `src/client.ts` (~1,805 lines) - HTTP client with retry logic and pagination
+- **Type Definitions**: `src/types.ts` (~1,505 lines) - TypeScript interfaces for Canvas entities
 - **Configuration**: `.env.example` - Environment variables for Canvas domain and API token
 - **Build Configuration**: `tsconfig.json` - TypeScript compiler settings
 - **Package Dependencies**: `package.json` - Node.js dependencies and scripts
 
-### Teacher Tools (Added in v2.3.0)
+### Teacher Tools Overview
 
-Located in `src/index.ts` starting at line ~855:
-- `canvas_list_students` (line 859)
-- `canvas_list_submissions` (line 882)
-- `canvas_update_submission_grade` (line 909)
-- `canvas_bulk_update_grades` (line 931)
-- `canvas_duplicate_assignment` (line 964)
-- `canvas_delete_assignment` (line 976)
-- `canvas_list_sections` (line 992)
-- `canvas_cross_list_section` (line 1031)
+**v2.3.0 Tools** (11 tools - Lines 855-1150):
+- `canvas_list_students` - List enrolled students
+- `canvas_list_submissions` - View all submissions
+- `canvas_update_submission_grade` - Grade individual submissions
+- `canvas_bulk_update_grades` - Batch grading
+- `canvas_duplicate_assignment` - Copy assignments
+- `canvas_delete_assignment` - Remove assignments
+- `canvas_list_sections` - View course sections
+- `canvas_get_section` - Section details
+- `canvas_cross_list_section` - Merge sections
+- `canvas_uncross_list_section` - Unmerge sections
+- Additional tools for basic teacher workflows
+
+**v2.4.0 New Tools** (23 tools - Lines 1150-2100):
+- **Assignment Overrides** (5 tools): Extensions and special due dates
+- **Rubric Management** (3 tools): Create, update, grade with rubrics
+- **Grade Control** (2 tools): Post/hide grades
+- **Content Creation** (7 tools): Pages, modules, announcements
+- **Communication** (1 tool): Message students
+- **Analytics** (2 tools): Course analytics, gradebook history
+- **Group Management** (3 tools): Create groups, assign members
 
 ---
 
@@ -53,9 +70,10 @@ Located in `src/index.ts` starting at line ~855:
 
 **Architecture Pattern**: Model Context Protocol (MCP) Server
 - Implements MCP SDK v0.6.1 for AI assistant integration
-- Provides 72 tools exposing Canvas LMS REST API endpoints
+- Provides **95 tools** exposing Canvas LMS REST API endpoints
 - Runs as stdio-based server (JSON-RPC over stdin/stdout)
 - Designed for integration with Claude Desktop and other MCP clients
+- **Latest Version**: v2.4.0 (October 2025)
 
 **Primary Use Case**: Enable AI assistants to interact with Canvas LMS on behalf of teachers/instructors
 
@@ -529,6 +547,227 @@ npm run coverage      # Generate coverage report
 
 ---
 
+## v2.4.0 Teacher Tools - New Features
+
+### Assignment Overrides (Individual Extensions & Due Dates)
+
+Canvas allows teachers to provide individual students, sections, or groups with different due dates through "assignment overrides." These are essential for accommodating student needs (IEPs, 504 plans, extenuating circumstances).
+
+**Tool**: `canvas_create_assignment_override`
+- **Purpose**: Create extension or special due date for specific students/sections/groups
+- **Client Method**: `client.createAssignmentOverride()` (src/client.ts line ~1012)
+- **Canvas Endpoint**: `POST /api/v1/courses/:course_id/assignments/:assignment_id/overrides`
+- **Parameters**:
+  - `course_id`, `assignment_id` (required)
+  - `student_ids` (optional): Array of student IDs for individual extensions
+  - `group_id` (optional): Group ID for group assignments
+  - `course_section_id` (optional): Section ID for section-specific dates
+  - `title`, `due_at`, `unlock_at`, `lock_at` (optional): Override settings
+- **Use Case**: "Give Student X a 2-day extension on Assignment Y"
+
+**Tool**: `canvas_list_assignment_overrides`
+- **Purpose**: View all existing overrides for an assignment
+- **Use Case**: Track who has extensions, review override policies
+
+**Additional Override Tools**: `canvas_get_assignment_override`, `canvas_update_assignment_override`, `canvas_delete_assignment_override`
+
+### Rubric Management
+
+Rubrics provide consistent grading criteria and transparent expectations for students.
+
+**Tool**: `canvas_create_rubric`
+- **Purpose**: Create new rubric with criteria and rating scales
+- **Client Method**: `client.createRubric()` (src/client.ts line ~525)
+- **Canvas Endpoint**: `POST /api/v1/courses/:course_id/rubrics`
+- **Parameters**:
+  - `course_id` (required)
+  - `title`, `description` (required)
+  - `criteria` (required): Array of RubricCriterion objects with descriptions, points, ratings
+  - `free_form_criterion_comments` (optional): Allow additional feedback per criterion
+- **Returns**: CanvasRubric object with rubric ID
+
+**Tool**: `canvas_update_rubric`
+- **Purpose**: Modify existing rubric criteria or settings
+- **Use Case**: Refine rubric based on experience, fix typos, adjust point values
+
+**Tool**: `canvas_grade_with_rubric`
+- **Purpose**: Grade submission using rubric criteria
+- **Client Method**: `client.gradeWithRubric()` (src/client.ts line ~543)
+- **Canvas Endpoint**: `PUT /api/v1/courses/:course_id/assignments/:assignment_id/submissions/:user_id`
+- **Parameters**:
+  - `course_id`, `assignment_id`, `user_id` (required)
+  - `rubric_assessment` (required): Object mapping criterion IDs to ratings/points/comments
+  - `grade`, `comment` (optional): Overall grade and feedback
+- **Returns**: Updated CanvasSubmission with rubric assessment attached
+
+**Rubric Workflow Example**:
+1. Create rubric with criteria (`canvas_create_rubric`)
+2. Associate rubric with assignment when creating/updating assignment
+3. Grade submissions using rubric (`canvas_grade_with_rubric`)
+4. Students see detailed feedback per criterion
+
+### Grade Posting Controls
+
+Canvas supports manual grade posting, allowing teachers to grade privately and release grades when ready.
+
+**Tool**: `canvas_post_grades`
+- **Purpose**: Make grades visible to students after grading
+- **Client Method**: `client.postGrades()` (src/client.ts line ~1205)
+- **Canvas Endpoint**: `POST /api/v1/courses/:course_id/assignments/:assignment_id/submissions/update_grades`
+- **Parameters**:
+  - `course_id`, `assignment_id` (required)
+  - `student_ids` (optional): Array of specific students (if omitted, posts all graded submissions)
+- **Use Case**: Grade all submissions privately, then release grades when complete
+
+**Tool**: `canvas_hide_grades`
+- **Purpose**: Hide grades from students (e.g., to make corrections)
+- **Client Method**: `client.hideGrades()` (src/client.ts line ~1220)
+- **Use Case**: Temporarily hide grades to fix grading errors without student confusion
+
+### Content Creation Tools
+
+#### Page Management
+
+**Tool**: `canvas_create_page`
+- **Purpose**: Create new course page with HTML content
+- **Client Method**: `client.createPage()` (src/client.ts line ~1053)
+- **Canvas Endpoint**: `POST /api/v1/courses/:course_id/pages`
+- **Parameters**:
+  - `course_id` (required)
+  - `title`, `body` (required): Page title and HTML content
+  - `published` (optional): Make page immediately visible
+  - `front_page` (optional): Set as course home page
+- **Use Case**: Create syllabus, resource pages, instructional content
+
+**Tool**: `canvas_update_page` and `canvas_delete_page` - Manage existing pages
+
+#### Module Management
+
+Modules organize course content into logical units (weeks, topics, chapters).
+
+**Tool**: `canvas_create_module`
+- **Purpose**: Create new module container
+- **Client Method**: `client.createModule()` (src/client.ts line ~1126)
+- **Canvas Endpoint**: `POST /api/v1/courses/:course_id/modules`
+- **Parameters**:
+  - `course_id` (required)
+  - `name` (required): Module title
+  - `position`, `unlock_at`, `require_sequential_progress` (optional): Module settings
+- **Returns**: CanvasModule object
+
+**Tool**: `canvas_create_module_item`
+- **Purpose**: Add assignment, page, discussion, quiz, etc. to a module
+- **Client Method**: `client.createModuleItem()` (src/client.ts line ~1159)
+- **Canvas Endpoint**: `POST /api/v1/courses/:course_id/modules/:module_id/items`
+- **Parameters**:
+  - `course_id`, `module_id` (required)
+  - `title`, `type` (required): Item name and type (Assignment, Page, Discussion, etc.)
+  - `content_id` (optional): ID of existing Canvas item to link
+- **Use Case**: Build structured course outline with sequential content
+
+**Additional Module Tools**: `canvas_update_module`, `canvas_publish_module` - Manage module state and settings
+
+#### Announcements
+
+**Tool**: `canvas_create_announcement`
+- **Purpose**: Post course-wide announcement
+- **Client Method**: `client.createAnnouncement()` (src/client.ts line ~1102)
+- **Canvas Endpoint**: `POST /api/v1/courses/:course_id/discussion_topics`
+- **Parameters**:
+  - `course_id` (required)
+  - `title`, `message` (required): Announcement subject and body
+  - `is_announcement` (required): Set to true
+  - `published`, `delayed_post_at` (optional): Schedule announcements
+- **Use Case**: Communicate important course updates, deadline reminders
+
+### Communication Tools
+
+**Tool**: `canvas_message_students`
+- **Purpose**: Send message to students who meet specific criteria
+- **Client Method**: `client.messageStudents()` (src/client.ts line ~1082)
+- **Canvas Endpoint**: `POST /api/v1/conversations`
+- **Parameters**:
+  - `recipients`: Array of user IDs or special strings ("all", "submitted", "unsubmitted", etc.)
+  - `subject`, `body` (required): Message content
+  - `context_code` (optional): Course or group context
+- **Use Case**: "Message all students who haven't submitted Assignment X"
+
+### Group Management
+
+Groups enable student collaboration on projects and assignments.
+
+**Tool**: `canvas_create_group_category`
+- **Purpose**: Create group set for organizing different types of groupings
+- **Client Method**: `client.createGroupCategory()` (src/client.ts line ~1769)
+- **Canvas Endpoint**: `POST /api/v1/courses/:course_id/group_categories`
+- **Parameters**:
+  - `course_id` (required)
+  - `name` (required): Category name (e.g., "Project Groups", "Lab Partners")
+  - `self_signup`, `auto_leader`, `group_limit` (optional): Group creation settings
+- **Use Case**: Set up group structure for semester-long projects
+
+**Tool**: `canvas_create_group`
+- **Purpose**: Create individual group within a category
+- **Client Method**: `client.createGroup()` (src/client.ts line ~1781)
+- **Parameters**:
+  - `group_category_id` (required)
+  - `name`, `description` (required): Group details
+  - `max_membership` (optional): Cap group size
+- **Returns**: CanvasGroup object
+
+**Tool**: `canvas_assign_group_members`
+- **Purpose**: Add students to a group
+- **Client Method**: `client.assignGroupMembers()` (src/client.ts line ~1794)
+- **Parameters**:
+  - `group_id` (required)
+  - `user_ids` (required): Array of student IDs to add
+- **Note**: Canvas API requires individual membership creation calls (done automatically in loop)
+
+**Group Workflow Example**:
+1. Create group category (`canvas_create_group_category`)
+2. Create individual groups (`canvas_create_group`)
+3. Assign students to groups (`canvas_assign_group_members`)
+4. Create group assignment with `group_category_id`
+
+### Analytics and Reporting
+
+**Tool**: `canvas_get_course_analytics`
+- **Purpose**: Retrieve course-level analytics and statistics
+- **Client Method**: `client.getCourseAnalytics()` (src/client.ts - new in v2.4.0)
+- **Canvas Endpoint**: `GET /api/v1/courses/:course_id/analytics/activity`
+- **Returns**: CourseActivity object with page views, participations, submissions
+- **Use Case**: Monitor course engagement, identify at-risk students
+
+**Tool**: `canvas_get_gradebook_history`
+- **Purpose**: View history of grade changes
+- **Client Method**: `client.getGradebookHistory()` (src/client.ts - new in v2.4.0)
+- **Canvas Endpoint**: `GET /api/v1/audit/grade_change/courses/:course_id`
+- **Use Case**: Audit trail for grade corrections, accountability
+
+### Assignment Group Management (Gradebook Admin)
+
+Assignment groups allow weighted grading categories (e.g., "Homework 30%, Exams 70%").
+
+**Tool**: `canvas_create_assignment_group`
+- **Purpose**: Create new assignment group/category
+- **Client Method**: `client.createAssignmentGroup()` (src/client.ts line ~376)
+- **Canvas Endpoint**: `POST /api/v1/courses/:course_id/assignment_groups`
+- **Parameters**:
+  - `course_id` (required)
+  - `name` (required): Group name (e.g., "Homework", "Exams")
+  - `group_weight` (optional): Percentage weight (0-100)
+  - `position` (optional): Sort order
+- **Use Case**: Set up weighted grade categories at course start
+
+**Tool**: `canvas_update_assignment_group`
+- **Purpose**: Modify assignment group settings including drop rules
+- **Parameters**:
+  - `rules.drop_lowest`, `rules.drop_highest` (optional): Auto-drop lowest/highest scores
+  - `rules.never_drop` (optional): Array of assignment IDs to never drop
+- **Use Case**: Implement "drop lowest 2 homework grades" policy
+
+---
+
 ## Coding Standards and Patterns
 
 ### TypeScript Standards
@@ -661,13 +900,14 @@ console.error(`[Canvas API] Retrying request (${count}/${max}) after ${delay}ms`
 
 ## Future Enhancements and Roadmap
 
-### Short-term Priorities (Next Release)
+### Short-term Priorities (Next Release - v2.5.0)
 
-1. **Enhanced Grading Tools**:
-   - SpeedGrader URL generation
-   - Rubric-based grading
-   - Assignment override management (already partially implemented)
-   - Late policy management
+1. **Enhanced Grading Tools** (Partially Complete):
+   - ✅ Rubric-based grading (implemented in v2.4.0)
+   - ✅ Assignment override management (implemented in v2.4.0)
+   - ✅ Grade posting controls (implemented in v2.4.0)
+   - ⏳ SpeedGrader URL generation (partially implemented)
+   - ⏳ Late policy management (client method exists, needs MCP tool)
 
 2. **Improved Error Handling**:
    - Better Canvas API rate limit handling
@@ -678,6 +918,7 @@ console.error(`[Canvas API] Retrying request (${count}/${max}) after ${delay}ms`
    - MCP protocol integration tests
    - Canvas API client unit tests
    - Error scenario coverage
+   - v2.4.0 new tool tests
 
 ### Medium-term Goals
 
@@ -686,16 +927,18 @@ console.error(`[Canvas API] Retrying request (${count}/${max}) after ${delay}ms`
    - Add caching for frequently accessed data (courses, assignments)
    - Parallel request batching where possible
 
-2. **Advanced Teacher Features**:
+2. **Advanced Teacher Features** (Partially Complete):
    - Outcome management and standards-based grading
-   - Course activity analytics
-   - Student progress tracking
-   - Attendance management
+   - ✅ Course activity analytics (implemented in v2.4.0)
+   - Student progress tracking and intervention tools
+   - Attendance management (info available via `getAttendanceInfo()`)
+   - ✅ Group collaboration tools (implemented in v2.4.0)
 
 3. **Developer Experience**:
-   - Better documentation for adding new tools
+   - ✅ Comprehensive brownfield architecture documentation (this document!)
    - Tool generator script (template for new Canvas endpoints)
    - Development mode with Canvas API sandbox
+   - Improved test coverage and CI/CD
 
 ### Long-term Vision
 
