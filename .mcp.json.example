@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "canvas-mcp-server": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/mcp-canvas-lms/build/index.js"
+      ],
+      "env": {
+        "CANVAS_API_TOKEN": "your_canvas_api_token_here",
+        "CANVAS_DOMAIN": "your_school.instructure.com"
+      }
+    }
+  }
+}
