@@ -1,0 +1,36 @@
+{
+  "name": "@bmad/education",
+  "version": "1.0.0",
+  "description": "BMAD Education Pack - Comprehensive AI-powered educational design framework",
+  "bmad": {
+    "type": "expansion-pack",
+    "slashPrefix": "bmad-ed",
+    "agents": [
+      "curriculum-architect",
+      "instructional-designer",
+      "assessment-specialist",
+      "differentiation-expert",
+      "edtech-integrator"
+    ],
+    "install": {
+      "agents": "agents/*.md",
+      "tasks": "tasks/*.md",
+      "templates": "templates/*.yaml",
+      "checklists": "checklists/*.yaml",
+      "data": "data/*.md",
+      "workflows": "workflows/*.yaml",
+      "agent-teams": "agent-teams/*.yaml"
+    }
+  },
+  "keywords": [
+    "bmad",
+    "education",
+    "curriculum",
+    "instructional-design",
+    "assessment",
+    "udl",
+    "canvas-lms"
+  ],
+  "author": "Sallvainian",
+  "license": "MIT"
+}
