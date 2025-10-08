@@ -116,3 +116,14 @@ v8-compile-cache-*
 .claude/
 .mcp.json
 .ncp.json
+
+# Temporary/debugging files that should never be committed
+*_test.sh
+*_fix.sh
+test_*.sh
+debug_*.sh
+temp_*
+*_temp.*
+testing_suite.ts
+quick_*.sh
+deploy-*.sh
