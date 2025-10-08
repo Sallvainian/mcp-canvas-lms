@@ -115,3 +115,4 @@ v8-compile-cache-*
 .bmad-core/
 .claude/
 .mcp.json
+.ncp.json
