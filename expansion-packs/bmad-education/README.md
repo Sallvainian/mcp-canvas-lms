@@ -47,12 +47,17 @@
 
 2. **Install the Education Pack**:
    ```bash
-   # Run the installation script to register slash commands
+   # Option 1: Use the local installation script
    cd expansion-packs/bmad-education
    ./install.sh
+
+   # Option 2: (Future) Use BMAD's NPX installer when published
+   # npx bmad-method install --expansion-packs @bmad/education
    ```
 
 3. **Restart Claude Code** to load the new commands
+
+> **Note**: The expansion pack is registered in `.bmad-core/install-manifest.yaml` for future NPX installer integration. Once published to NPM, you'll be able to install with `npx bmad-method install --expansion-packs @bmad/education`.
 
 4. **Test with your first agent**:
    ```
