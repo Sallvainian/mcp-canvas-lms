@@ -45,18 +45,36 @@
    cd mcp-canvas-lms
    ```
 
-2. **Activate the Education Pack**:
+2. **Install the Education Pack**:
    ```bash
-   # The pack is ready to use in: expansion-packs/bmad-education/
+   # Run the installation script to register slash commands
+   cd expansion-packs/bmad-education
+   ./install.sh
    ```
 
-3. **Test with your first agent**:
+3. **Restart Claude Code** to load the new commands
+
+4. **Test with your first agent**:
    ```
-   User: "Activate the Lesson Planner agent"
-   Claude: *loads instructional-designer.md persona*
-   User: "*help"
-   Claude: [Displays 10 specialized lesson planning commands]
+   User: /bmad-ed:instructional-designer
+   Claude: *loads Instructional Designer persona*
+   Dr. Morgan Chen: "Hello! I'm Dr. Morgan Chen..."
+
+   User: *help
+   Claude: [Displays 11 specialized lesson planning commands]
    ```
+
+### Available Slash Commands
+
+After installation, the following commands will be available in Claude Code:
+
+- `/bmad-ed:curriculum-architect` - 🏗️ Dr. Elena Vasquez (13 commands)
+- `/bmad-ed:instructional-designer` - 🎨 Dr. Morgan Chen (11 commands)
+- `/bmad-ed:assessment-specialist` - 📊 Dr. Elena Rodriguez (9 commands)
+- `/bmad-ed:differentiation-expert` - 🎯 Dr. Morgan Chen (10 commands)
+- `/bmad-ed:edtech-integrator` - 💻 Alex (12 commands)
+
+**Total: 55 educational design commands**
 
 ### Your First Lesson in 5 Minutes
 
