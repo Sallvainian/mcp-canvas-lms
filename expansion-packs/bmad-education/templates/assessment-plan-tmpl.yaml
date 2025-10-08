@@ -1,0 +1,736 @@
+# Assessment Plan Template
+# Comprehensive assessment blueprint with formative/summative balance
+# Canvas Integration: Use with canvas_create_assignment, canvas_create_quiz
+
+metadata:
+  title: "Assessment Plan"
+  author: ""  # Teacher/Assessment designer
+  subject: ""
+  grade_level: ""
+  unit_or_course: ""
+  assessment_period: ""  # e.g., "Unit 1" or "Quarter 1"
+  date_created: ""  # YYYY-MM-DD
+  last_revised: ""  # YYYY-MM-DD
+
+# Assessment Philosophy
+philosophy:
+  assessment_purpose: ""
+  # What assessment means in your classroom
+
+  beliefs_about_assessment:
+    - belief: ""
+    # Example: "Assessment is for learning, not just of learning"
+
+  grading_philosophy: ""
+  # Your approach to grading and feedback
+
+# Standards and Learning Targets
+standards_and_targets:
+
+  # Standards Being Assessed
+  standards:
+    - standard_code: ""
+      standard_text: ""
+      priority_level: ""  # power standard, supporting standard
+      cognitive_level: ""  # Bloom's level
+
+  # Learning Targets
+  learning_targets:
+    - target_id: "LT1"
+      target_statement: ""  # "I can..." statement
+      standard_alignment: ""  # Which standard(s)
+      assessment_methods: []  # How this will be assessed
+      mastery_criteria: ""  # What proficiency looks like
+
+    - target_id: "LT2"
+      target_statement: ""
+      standard_alignment: ""
+      assessment_methods: []
+      mastery_criteria: ""
+
+# ====================================================================
+# ASSESSMENT FRAMEWORK
+# ====================================================================
+
+assessment_framework:
+
+  # Assessment Types Balance
+  assessment_balance:
+
+    formative_assessments:  # For Learning
+      percentage_of_focus: 0  # e.g., 60
+      purpose: "Monitor progress and guide instruction"
+
+      types:
+        - type: "Diagnostic"
+          purpose: "Identify prior knowledge and misconceptions"
+          frequency: "Beginning of unit"
+
+        - type: "Progress Monitoring"
+          purpose: "Track ongoing learning"
+          frequency: "Throughout unit"
+
+        - type: "Self-Assessment"
+          purpose: "Student reflection on learning"
+          frequency: "Regular intervals"
+
+    interim_assessments:  # Of Learning (Checkpoint)
+      percentage_of_focus: 0  # e.g., 20
+      purpose: "Evaluate progress toward standards"
+
+      types:
+        - type: "Common Assessments"
+          purpose: "Compare across classes/teachers"
+          frequency: "End of unit or mid-semester"
+
+        - type: "Benchmark Assessments"
+          purpose: "Predict performance on summative"
+          frequency: "Quarterly"
+
+    summative_assessments:  # Of Learning (Final)
+      percentage_of_focus: 0  # e.g., 20
+      purpose: "Evaluate mastery of standards"
+
+      types:
+        - type: "Unit Tests"
+          purpose: "Measure unit-level understanding"
+          frequency: "End of unit"
+
+        - type: "Performance Tasks"
+          purpose: "Authentic demonstration of learning"
+          frequency: "Major milestones"
+
+        - type: "Cumulative Exams"
+          purpose: "Comprehensive evaluation"
+          frequency: "End of semester/year"
+
+# ====================================================================
+# PRE-ASSESSMENT
+# ====================================================================
+
+pre_assessment:
+
+  # Diagnostic Assessment
+  diagnostic:
+    - assessment_name: ""
+      purpose: ""  # What you want to find out
+
+      format: ""  # quiz, survey, discussion, KWL, etc.
+
+      learning_targets_assessed: []
+
+      administration:
+        when: ""  # Before unit begins
+        duration: 0  # minutes
+        delivery_method: ""  # paper, digital, oral
+
+      data_use:
+        - finding: ""  # What result indicates
+          instructional_response: ""  # What you'll do
+
+      canvas_integration:
+        assignment_type: "quiz"  # or assignment
+        graded: false  # Usually not graded
+        points: 0
+
+  # Prior Knowledge Assessment
+  prior_knowledge_check:
+    method: ""
+    essential_prerequisites: []
+    gap_identification_strategy: ""
+    intervention_plan: ""
+
+# ====================================================================
+# FORMATIVE ASSESSMENT
+# ====================================================================
+
+formative_assessment:
+
+  # Daily/Frequent Checks
+  frequent_checks:
+    - method: "Exit Tickets"
+      frequency: "Daily or every other day"
+
+      format: ""  # 3-2-1, question prompts, problem solving
+
+      learning_targets_monitored: []
+
+      analysis_strategy: ""  # How you'll review results
+
+      action_based_on_results:
+        - if_most_students_struggle: ""
+        - if_some_students_struggle: ""
+        - if_all_students_succeed: ""
+
+      canvas_integration:
+        method: ""  # quiz, discussion, assignment
+        graded: false
+        feedback_type: ""
+
+    - method: "Formative Quizzes"
+      frequency: "Weekly"
+      format: ""
+      learning_targets_monitored: []
+      analysis_strategy: ""
+      action_based_on_results:
+        - if_most_students_struggle: ""
+        - if_some_students_struggle: ""
+        - if_all_students_succeed: ""
+      canvas_integration:
+        method: "quiz"
+        graded: false
+        feedback_type: ""
+
+  # Observations and Anecdotal Evidence
+  observational_assessment:
+    - focus: ""  # What you're observing
+      observation_schedule: ""
+      documentation_method: ""  # checklist, notes, rubric
+      learning_targets_observed: []
+
+  # Student Self and Peer Assessment
+  metacognitive_assessment:
+
+    self_assessment:
+      - tool: ""  # checklist, rubric, reflection
+        frequency: ""
+        learning_target_connection: []
+        student_action: ""  # What students do with results
+
+    peer_assessment:
+      - tool: ""  # peer review protocol, rubric
+        frequency: ""
+        structure: ""  # How peer feedback is organized
+        training_needed: ""  # How students learn to give feedback
+
+  # Conferencing
+  conferences:
+    - type: ""  # individual, small group
+      frequency: ""
+      focus: []  # What you discuss
+      documentation: ""
+      follow_up_actions: []
+
+# ====================================================================
+# INTERIM/BENCHMARK ASSESSMENT
+# ====================================================================
+
+interim_assessment:
+
+  # Common Assessments
+  common_assessments:
+    - assessment_name: ""
+      grade_level_or_course: ""
+
+      standards_assessed: []
+
+      format: ""  # selected response, constructed response, performance
+
+      administration:
+        when: ""  # End of unit, mid-quarter
+        duration: 0
+        delivery_method: ""
+
+      collaborative_design: ""  # Who created it
+      collaborative_analysis: ""  # How results are reviewed
+
+      data_use:
+        individual_student: ""  # How to support individual learners
+        class_level: ""  # Instructional adjustments
+        school_level: ""  # Curriculum decisions
+
+      canvas_integration:
+        assignment_type: "quiz"
+        points: 0
+        weight: 0  # percentage of grade
+
+  # Benchmark Assessments
+  benchmark:
+    - assessment_name: ""
+      purpose: ""  # e.g., "Predict readiness for state test"
+
+      standards_assessed: []
+
+      format: ""
+
+      administration:
+        when: ""  # Quarterly, trimester
+        duration: 0
+
+      score_interpretation:
+        proficiency_levels: []  # Cut scores
+        predictive_validity: ""  # How well it predicts final performance
+
+      intervention_triggers:
+        - score_range: ""
+          intervention: ""
+
+      canvas_integration:
+        external_tool: ""  # If using external benchmark system
+        sync_method: ""
+
+# ====================================================================
+# SUMMATIVE ASSESSMENT
+# ====================================================================
+
+summative_assessment:
+
+  # Unit Tests/Exams
+  unit_tests:
+    - test_name: ""
+      unit_or_topic: ""
+
+      standards_assessed: []
+      learning_targets_assessed: []
+
+      test_blueprint:
+        total_items: 0
+        item_types:
+          - type: ""  # multiple choice, short answer, essay
+            count: 0
+            points: 0
+
+        dok_distribution:
+          level_1_recall: 0  # percentage
+          level_2_skill_concept: 0
+          level_3_strategic_thinking: 0
+          level_4_extended_thinking: 0
+
+        blooms_distribution:
+          remember: 0
+          understand: 0
+          apply: 0
+          analyze: 0
+          evaluate: 0
+          create: 0
+
+      administration:
+        date: ""
+        duration: 0
+        accommodations: []
+
+      scoring:
+        point_value: 0
+        percentage_of_grade: 0
+        mastery_threshold: 0  # e.g., 80%
+
+      post_assessment_plan:
+        reteaching_strategy: ""
+        reassessment_policy: ""
+
+      canvas_integration:
+        assignment_type: "quiz"
+        question_bank: ""  # If using question banks
+        time_limit: 0
+        allowed_attempts: 0
+
+  # Performance Assessments
+  performance_assessments:
+    - task_name: ""
+      authentic_context: ""  # Real-world connection
+
+      standards_assessed: []
+
+      task_description: ""
+
+      success_criteria:
+        - criterion: ""
+          proficiency_descriptor: ""
+
+      rubric:
+        type: ""  # analytic, holistic
+        criteria_count: 0
+        performance_levels: []  # e.g., ["Beginning", "Developing", "Proficient", "Advanced"]
+
+      administration:
+        timeframe: ""
+        scaffolding_provided: []
+        resources_allowed: []
+
+      scoring:
+        points: 0
+        percentage_of_grade: 0
+        inter_rater_reliability: ""  # If multiple scorers
+
+      canvas_integration:
+        assignment_type: "assignment"
+        submission_types: []  # online_upload, online_text_entry, etc.
+        rubric_id: ""
+
+  # Portfolios
+  portfolio_assessment:
+    portfolio_type: ""  # showcase, growth, evaluation
+
+    contents:
+      required_items: []
+      student_choice_items: 0  # How many
+
+    selection_criteria: ""
+
+    reflection_requirements: []
+
+    evaluation:
+      rubric_focus: []
+      presentation_component: ""
+
+    canvas_integration:
+      implementation: ""  # How portfolios are managed in Canvas
+
+  # Projects
+  project_assessments:
+    - project_name: ""
+      standards_assessed: []
+
+      project_scope: ""
+
+      phases:
+        - phase: ""
+          duration: ""
+          deliverable: ""
+          checkpoints: []
+
+      collaboration: ""  # individual, pair, group
+
+      assessment_components:
+        - component: ""  # process, product, presentation
+          weight: 0  # percentage
+
+      canvas_integration:
+        assignment_type: "assignment"
+        milestone_submissions: []
+
+# ====================================================================
+# GRADING AND REPORTING
+# ====================================================================
+
+grading_and_reporting:
+
+  # Grading Scale
+  grading_scale:
+    type: ""  # traditional (A-F), standards-based (1-4), mastery-based
+
+    scale_definition:
+      - grade: ""
+        range: ""  # e.g., "90-100"
+        descriptor: ""  # What this grade means
+
+  # Grade Composition
+  grade_composition:
+    - category: ""  # e.g., "Formative Assessments"
+      percentage: 0
+      rationale: ""
+
+    - category: "Summative Assessments"
+      percentage: 0
+      rationale: ""
+
+    - category: "Performance Tasks"
+      percentage: 0
+      rationale: ""
+
+  # Reassessment Policy
+  reassessment:
+    policy: ""  # Your reassessment philosophy and rules
+
+    requirements:
+      - requirement: ""  # What students must do to reassess
+
+    limitations:
+      - limitation: ""  # Any restrictions
+
+    grade_calculation: ""  # How reassessment scores are handled
+
+  # Extra Credit Policy
+  extra_credit:
+    policy: ""  # Your stance on extra credit
+    if_allowed: []  # Conditions and types
+
+  # Late Work Policy
+  late_work:
+    policy: ""
+    consequences: ""
+    exceptions: []
+
+  # Academic Honesty
+  academic_integrity:
+    expectations: []
+    violations_consequences: []
+    prevention_strategies: []
+
+# ====================================================================
+# DATA ANALYSIS AND USE
+# ====================================================================
+
+data_analysis:
+
+  # Data Collection Points
+  collection_schedule:
+    - week_or_date: ""
+      data_source: ""  # Which assessment
+      data_type: ""  # quantitative, qualitative
+
+  # Analysis Methods
+  analysis_methods:
+    - method: ""  # item analysis, error analysis, rubric data
+      purpose: ""
+      frequency: ""
+
+  # Data-Driven Decisions
+  instructional_adjustments:
+    - trigger: ""  # What data point indicates need for change
+      adjustment: ""  # What instructional change to make
+
+  # Reporting to Stakeholders
+  reporting:
+
+    to_students:
+      - method: ""  # gradebook, conferences, feedback
+        frequency: ""
+        information_shared: []
+
+    to_parents:
+      - method: ""  # progress reports, parent portal
+        frequency: ""
+        information_shared: []
+
+    to_administration:
+      - method: ""
+        frequency: ""
+        information_shared: []
+
+# ====================================================================
+# FEEDBACK STRATEGIES
+# ====================================================================
+
+feedback:
+
+  # Effective Feedback Principles
+  feedback_principles:
+    - principle: "Timely"
+      implementation: ""
+
+    - principle: "Specific"
+      implementation: ""
+
+    - principle: "Actionable"
+      implementation: ""
+
+    - principle: "Growth-oriented"
+      implementation: ""
+
+  # Feedback Types and Methods
+  feedback_methods:
+    - type: "Written Feedback"
+      when_used: ""
+      format: ""
+
+    - type: "Verbal Feedback"
+      when_used: ""
+      format: ""
+
+    - type: "Peer Feedback"
+      when_used: ""
+      structure: ""
+
+    - type: "Self-Assessment Feedback"
+      when_used: ""
+      tool: ""
+
+  # Canvas Feedback Tools
+  canvas_feedback:
+    - tool: "SpeedGrader"
+      features_used: []
+
+    - tool: "Rubrics"
+      purpose: ""
+
+    - tool: "Comments"
+      approach: ""
+
+# ====================================================================
+# DIFFERENTIATION IN ASSESSMENT
+# ====================================================================
+
+assessment_differentiation:
+
+  # By Readiness
+  readiness:
+    - modification: ""  # How assessment is adjusted
+      student_group: ""
+
+  # By Interest
+  interest:
+    - choice_option: ""  # How students can show learning different ways
+      standards_still_assessed: []
+
+  # By Learning Profile
+  learning_profile:
+    - accommodation: ""
+      student_need: ""  # ELL, IEP, 504, etc.
+
+  # Universal Design for Assessment (UDA)
+  universal_design:
+    - principle: "Multiple means of representation"
+      implementation: []
+
+    - principle: "Multiple means of action and expression"
+      implementation: []
+
+    - principle: "Multiple means of engagement"
+      implementation: []
+
+# ====================================================================
+# ASSESSMENT CALENDAR
+# ====================================================================
+
+assessment_calendar:
+
+  # Weekly View
+  weekly_assessments:
+    - week: 1
+      formative: []
+      interim: []
+      summative: []
+
+    - week: 2
+      formative: []
+      interim: []
+      summative: []
+
+  # Unit/Quarter View
+  major_assessments:
+    - assessment_name: ""
+      type: ""  # formative, interim, summative
+      date: ""
+      standards_assessed: []
+      point_value: 0
+      preparation_needed: []
+
+# ====================================================================
+# CANVAS INTEGRATION
+# ====================================================================
+
+canvas_integration:
+
+  # Assignment Setup
+  assignments:
+    - canvas_assignment_name: ""
+      assessment_plan_reference: ""  # Links to assessment above
+
+      settings:
+        assignment_group: ""  # Which grade category
+        points_possible: 0
+        grading_type: ""  # points, letter_grade, percentage
+        submission_types: []
+        due_date: ""
+        available_from: ""
+        available_until: ""
+
+      rubric_attached: false
+      peer_review_enabled: false
+
+  # Gradebook Configuration
+  gradebook:
+    grading_scheme_enabled: true
+    assignment_groups:
+      - name: ""
+        weight: 0
+
+  # Analytics and Insights
+  analytics:
+    - feature: ""  # Student Analytics, New Analytics
+      how_used: ""
+
+# ====================================================================
+# ASSESSMENT QUALITY ASSURANCE
+# ====================================================================
+
+quality_assurance:
+
+  # Validity
+  validity:
+    content_validity: ""  # Does assessment measure the standards?
+    construct_validity: ""  # Does it measure what it claims to?
+    consequential_validity: ""  # Are the consequences appropriate?
+
+  # Reliability
+  reliability:
+    consistency: ""  # How you ensure consistent scoring
+    inter_rater_reliability: ""  # If multiple scorers
+
+  # Fairness
+  fairness:
+    bias_review: ""  # How you check for bias
+    accessibility: ""  # How all students can demonstrate learning
+    cultural_responsiveness: ""
+
+  # Alignment
+  alignment:
+    standards_alignment: ""  # How assessments match standards
+    instruction_alignment: ""  # How assessments match teaching
+    cognitive_level_alignment: ""  # Bloom's/DOK matching
+
+# ====================================================================
+# REFLECTION AND IMPROVEMENT
+# ====================================================================
+
+reflection:
+
+  # Ongoing Reflection
+  continuous_improvement:
+    - reflection_point: ""  # When you'll reflect
+      focus_questions: []
+      revision_process: ""
+
+  # Post-Unit/Course Reflection
+  summative_reflection:
+    assessment_effectiveness:
+      - assessment: ""
+        what_worked: []
+        what_to_improve: []
+
+    student_growth_evidence: []
+
+    revisions_for_next_time: []
+
+# ====================================================================
+# QUALITY CHECKLIST
+# ====================================================================
+
+quality_checklist:
+  - criterion: "Clear standards and learning targets identified"
+    met: false
+
+  - criterion: "Balance of formative, interim, and summative assessments"
+    met: false
+
+  - criterion: "Multiple assessment methods used"
+    met: false
+
+  - criterion: "Assessments aligned to instruction and standards"
+    met: false
+
+  - criterion: "Appropriate cognitive levels (DOK, Bloom's)"
+    met: false
+
+  - criterion: "Differentiation and accommodations planned"
+    met: false
+
+  - criterion: "Feedback strategies defined"
+    met: false
+
+  - criterion: "Data analysis plan in place"
+    met: false
+
+  - criterion: "Grading and reporting policies clear"
+    met: false
+
+  - criterion: "Quality assurance measures addressed (validity, reliability, fairness)"
+    met: false
+
+# ====================================================================
+# NOTES
+# ====================================================================
+
+notes: |
+  Additional considerations, special circumstances, or implementation guidance.

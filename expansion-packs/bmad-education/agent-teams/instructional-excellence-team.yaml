@@ -1,0 +1,291 @@
+# <!-- Powered by BMAD™ Education Pack -->
+name: Instructional Excellence Team
+icon: 🎯
+description: >
+  Expert team for lesson design, teaching strategies, and engagement optimization.
+  Specializes in active learning, differentiated instruction, and evidence-based
+  pedagogical practices that maximize student learning outcomes.
+
+lead_agent: instructional-designer
+supporting_agents:
+  - agent: differentiation-expert
+    role: Universal Design for Learning and multi-level instruction
+    expertise: >
+      Ensures lessons provide multiple means of representation, engagement, and
+      expression. Designs scaffolds, extensions, and accommodations for diverse
+      learners. Validates accessibility and inclusive design.
+
+  - agent: assessment-specialist
+    role: Formative assessment and feedback integration
+    expertise: >
+      Embeds assessment for learning into instructional flow, designs checks
+      for understanding, and creates feedback mechanisms that drive learning.
+      Ensures learning objectives guide instruction.
+
+coordination_protocol:
+  workflow: Iterative design with continuous refinement
+  decision_making: >
+    Instructional Designer leads on pedagogical strategy and learning activities.
+    Differentiation Expert ensures accessibility and multiple pathways.
+    Assessment Specialist validates alignment and learning evidence.
+  handoffs: >
+    Designer → Initial lesson plan → Differentiation adds UDL elements →
+    Assessment embeds formative checks → Designer synthesizes → Team refines
+
+use_cases:
+  - scenario: High-engagement lesson planning
+    example: >
+      "Design a 90-minute lesson on mitosis using active learning strategies,
+      including hands-on modeling and peer instruction."
+    expected_outcome: >
+      Complete lesson plan with timing, activity instructions, differentiation
+      strategies, formative assessments, and engagement hooks for diverse learners.
+
+  - scenario: Flipped classroom implementation
+    example: >
+      "Create flipped lesson for quadratic equations with pre-class video,
+      in-class problem-solving workshop, and mastery-based practice."
+    expected_outcome: >
+      Pre-class learning materials, in-class active learning plan, formative
+      assessment strategy, and differentiated practice pathways.
+
+  - scenario: Project-based learning unit
+    example: >
+      "Design 3-week PBL unit where students investigate local water quality
+      and present findings to city council."
+    expected_outcome: >
+      Project framework with driving question, milestones, scaffolds, rubrics,
+      formative checkpoints, and differentiation for varied skill levels.
+
+  - scenario: Inquiry-based science lesson
+    example: >
+      "Create lesson using 5E model (Engage-Explore-Explain-Elaborate-Evaluate)
+      for investigating chemical reactions."
+    expected_outcome: >
+      Structured 5E lesson with phenomenon introduction, student exploration
+      activity, conceptual explanation, real-world applications, and assessment.
+
+team_workflows:
+  - workflow: lesson-planning.yaml
+    team_role: >
+      Primary workflow for creating individual lessons or learning experiences
+      with pedagogical excellence and student engagement focus.
+
+  - workflow: active-learning-design.yaml
+    team_role: >
+      Specialized workflow for designing high-engagement activities including
+      think-pair-share, jigsaw, case studies, and problem-based learning.
+
+  - workflow: differentiation-implementation.yaml
+    team_role: >
+      Systematic application of UDL principles and differentiation strategies
+      to ensure all learners can access and succeed in learning experiences.
+
+typical_sequence:
+  - step: 1
+    agent: instructional-designer
+    action: Define learning objectives and select pedagogical approach
+    output: >
+      Clear learning objectives (SMART format), selected instructional model
+      (direct instruction, inquiry, PBL, etc.), lesson structure outline
+    handoff_to: assessment-specialist
+
+  - step: 2
+    agent: assessment-specialist
+    action: Design success criteria and formative assessment touchpoints
+    output: >
+      Success criteria for each objective, formative assessment plan (when/how
+      to check understanding), self-assessment tools for students
+    handoff_to: instructional-designer
+
+  - step: 3
+    agent: instructional-designer
+    action: Design core learning activities and instructional sequence
+    output: >
+      Detailed activity descriptions, timing allocations, instructional materials
+      list, student grouping strategies, engagement hooks
+    handoff_to: differentiation-expert
+
+  - step: 4
+    agent: differentiation-expert
+    action: Add UDL elements, scaffolds, and multiple pathways
+    output: >
+      UDL checkpoints applied (multiple representations/engagement/expression),
+      scaffolds for struggling learners, extensions for advanced students,
+      accessibility accommodations, choice boards or tiered activities
+    handoff_to: assessment-specialist
+
+  - step: 5
+    agent: assessment-specialist
+    action: Integrate formative assessment into activity flow
+    output: >
+      Embedded assessment strategies (exit tickets, polls, quick checks),
+      feedback mechanisms during activities, student self-monitoring tools,
+      data collection methods for instructor
+    handoff_to: instructional-designer
+
+  - step: 6
+    agent: instructional-designer
+    action: Refine lesson flow and create implementation materials
+    output: >
+      Polished lesson plan with smooth transitions, teacher notes/scripts,
+      student handouts, slide decks, discussion prompts, reflection activities
+    handoff_to: team-review
+
+  - step: 7
+    agent: all-agents
+    action: Collaborative lesson review and quality check
+    output: >
+      Final lesson plan validated for alignment (objectives-activities-assessments),
+      engagement quality, differentiation adequacy, and implementation clarity
+
+canvas_implementation:
+  division_of_labor:
+    - agent: instructional-designer
+      canvas_responsibilities:
+        - Canvas page creation with lesson content
+        - Discussion prompt design and setup
+        - Assignment instructions and submission settings
+        - Module organization and release conditions
+      mcp_tools:
+        - canvas_create_page
+        - canvas_update_page
+        - canvas_create_discussion_topic
+        - canvas_create_assignment
+        - canvas_create_module_item
+
+    - agent: differentiation-expert
+      canvas_responsibilities:
+        - Assignment differentiation options
+        - Accommodations and alternative formats
+        - Choice boards and tiered activities in Canvas
+        - Accessibility validation (WCAG compliance)
+      mcp_tools:
+        - canvas_create_assignment (multiple versions)
+        - canvas_create_assignment_override
+        - canvas_add_textbox (accessible formatting)
+        - canvas_create_page (with accessibility features)
+
+    - agent: assessment-specialist
+      canvas_responsibilities:
+        - Formative quiz creation
+        - Discussion rubric setup
+        - Self-assessment tools in Canvas
+        - Feedback mechanisms and comment banks
+      mcp_tools:
+        - canvas_create_quiz
+        - canvas_create_quiz_question
+        - canvas_create_rubric
+        - canvas_add_submission_comment
+        - canvas_create_discussion_topic
+
+quality_assurance:
+  validation_points:
+    - Alignment check (objectives → activities → assessments)
+    - Engagement quality (active vs. passive learning balance)
+    - UDL compliance (multiple means validated)
+    - Formative assessment adequacy (sufficient checkpoints)
+    - Time feasibility (realistic pacing for activities)
+    - Materials completeness (all resources ready to use)
+    - Accessibility validation (WCAG 2.1 AA compliance)
+
+  success_metrics:
+    - All learning objectives have aligned activities and assessments
+    - Minimum 60% class time in active learning (not lecture)
+    - UDL checkpoints present for representation, engagement, expression
+    - Formative assessment every 15-20 minutes of instruction
+    - Lesson plan rated "implementation-ready" by peer reviewer
+    - Student materials are clear without additional explanation
+    - Accessibility score >90% on Canvas accessibility checker
+
+communication_patterns:
+  synchronous:
+    - Lesson design kickoff (objectives and approach alignment)
+    - Activity brainstorming session (creative collaboration)
+    - UDL walkthrough (differentiation strategy review)
+    - Final lesson rehearsal (implementation dry-run)
+
+  asynchronous:
+    - Activity description drafts (feedback via comments)
+    - Differentiation strategy proposals (review cycles)
+    - Formative assessment design (async validation)
+    - Materials creation and refinement (iterative improvement)
+
+  decision_authority:
+    - Pedagogical approach: Instructional Designer (final say)
+    - UDL adequacy: Differentiation Expert (must approve)
+    - Assessment validity: Assessment Specialist (veto power)
+    - Overall lesson quality: Instructional Designer (synthesis owner)
+
+collaboration_tools:
+  documentation:
+    - Lesson plan templates (structured formats)
+    - Activity design worksheets (guided planning)
+    - UDL checklists (validation tools)
+    - Engagement strategy guides (best practice references)
+
+  review_processes:
+    - Alignment audit (objectives-activities-assessments match)
+    - UDL checkpoint review (validation against framework)
+    - Engagement scoring (active learning percentage calculation)
+    - Implementation clarity test (can substitute teacher execute?)
+
+edge_case_handling:
+  low_engagement_activities:
+    process: >
+      Instructional Designer identifies concern, team brainstorms alternatives,
+      Differentiation Expert ensures engagement options for all learners
+
+  insufficient_differentiation:
+    process: >
+      Differentiation Expert documents gaps, proposes UDL enhancements,
+      Instructional Designer integrates without disrupting flow
+
+  assessment_overload:
+    process: >
+      Assessment Specialist balances formative checks with instructional time,
+      team agrees on essential vs. optional assessment points
+
+  time_constraint_conflicts:
+    process: >
+      Instructional Designer facilitates prioritization, team consensus on
+      must-have vs. nice-to-have activities, pacing adjusted accordingly
+
+instructional_strategies:
+  active_learning:
+    - Think-Pair-Share and collaborative discussions
+    - Problem-based learning and case studies
+    - Hands-on investigations and experiments
+    - Peer instruction and student teaching
+    - Simulations and role-playing activities
+
+  engagement_techniques:
+    - Anticipatory sets and lesson hooks
+    - Storytelling and real-world connections
+    - Gamification and friendly competition
+    - Student choice and autonomy
+    - Technology-enhanced interaction
+
+  differentiation_approaches:
+    - Content differentiation (varied complexity levels)
+    - Process differentiation (varied activity types)
+    - Product differentiation (varied demonstration options)
+    - Learning environment modifications
+    - Readiness-based grouping strategies
+
+  formative_assessment:
+    - Exit tickets and quick writes
+    - Polling and real-time feedback tools
+    - Peer assessment and self-evaluation
+    - Observation and questioning strategies
+    - Diagnostic misconception checks
+
+integration_notes:
+  - Team excels when learning objectives are clearly defined upfront
+  - Benefits from understanding student population characteristics
+  - Requires clarity on time constraints and class structure (block vs. period)
+  - Canvas implementation should consider student technology access
+  - Materials should be culturally responsive and inclusive
+  - Lesson plans should be implementation-ready, not just conceptual outlines
+  - Consider cognitive load theory in activity sequencing and scaffolding
+  - Build in reflection opportunities for both students and instructors

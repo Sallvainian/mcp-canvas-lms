@@ -1,0 +1,398 @@
+# Scope and Sequence Planning Template
+# Comprehensive curriculum planning with pacing and alignment
+# Canvas Integration: Use with canvas_create_module, canvas_list_modules
+
+metadata:
+  title: "Scope & Sequence Plan"
+  author: ""  # Instructor/Curriculum Designer
+  academic_year: ""  # e.g., "2024-2025"
+  semester: ""  # Fall, Spring, Full Year
+  subject: ""  # Subject area
+  grade_level: ""  # Grade or course level
+  course_code: ""  # e.g., "ENG-101"
+  total_weeks: 0  # Total instructional weeks
+  total_hours: 0  # Total contact hours
+  last_updated: ""  # YYYY-MM-DD
+
+# Course Overview
+course_overview:
+  description: ""  # Brief course description
+  prerequisite_knowledge: []  # What students should know before starting
+  culminating_outcomes: []  # End-of-course expectations
+  essential_questions: []  # Overarching questions guiding the course
+  enduring_understandings: []  # Big ideas students should retain
+
+# Standards Framework
+standards:
+  primary_standards:
+    - standard_set: ""  # e.g., "Common Core ELA", "NGSS"
+      grade_level: ""
+      codes: []  # List of standard codes
+
+  supplementary_standards:
+    - standard_set: ""  # e.g., "21st Century Skills"
+      focus_areas: []
+
+  cross_curricular_standards:
+    - subject: ""  # Related subject
+      connections: []  # How subjects integrate
+
+# Scope: Content Coverage
+scope:
+
+  # Major Units/Themes
+  units:
+    - unit_id: "U1"
+      unit_number: 1
+      unit_title: ""  # e.g., "Introduction to Literary Analysis"
+      description: ""
+      duration_weeks: 0
+      duration_lessons: 0
+
+      big_ideas: []  # Core concepts/themes
+      essential_questions: []  # Unit-level questions
+
+      standards_addressed: []  # Standard codes
+
+      key_vocabulary: []  # Academic language
+
+      resources:
+        core_texts: []
+        supplementary_materials: []
+        technology_tools: []
+
+      assessment_overview:
+        formative: []
+        summative: []
+        performance_tasks: []
+
+    - unit_id: "U2"
+      unit_number: 2
+      unit_title: ""
+      description: ""
+      duration_weeks: 0
+      duration_lessons: 0
+      big_ideas: []
+      essential_questions: []
+      standards_addressed: []
+      key_vocabulary: []
+      resources:
+        core_texts: []
+        supplementary_materials: []
+        technology_tools: []
+      assessment_overview:
+        formative: []
+        summative: []
+        performance_tasks: []
+
+  # Skills Progression
+  skills_development:
+    - skill_category: ""  # e.g., "Reading Comprehension"
+      skills:
+        - skill: ""
+          introduced_unit: ""  # Unit ID where introduced
+          developed_units: []  # Units where practiced
+          mastered_unit: ""  # Unit where assessed for mastery
+
+    - skill_category: ""  # e.g., "Written Communication"
+      skills:
+        - skill: ""
+          introduced_unit: ""
+          developed_units: []
+          mastered_unit: ""
+
+# Sequence: Learning Progression
+sequence:
+
+  # Weekly Breakdown
+  weekly_plan:
+    - week_number: 1
+      dates: ""  # e.g., "Aug 28 - Sep 1"
+      unit_id: ""  # Reference to unit
+
+      focus: ""  # Weekly focus/theme
+
+      learning_objectives: []  # Specific objectives for the week
+
+      instructional_activities:
+        - day: ""  # Monday, Tuesday, etc.
+          topic: ""
+          activities: []
+          homework: ""
+
+      assessments:
+        - type: ""  # formative, quiz, etc.
+          description: ""
+
+      resources_needed: []
+
+      differentiation_notes: ""
+
+      pacing_notes: ""  # Flexibility, adjustments
+
+    - week_number: 2
+      dates: ""
+      unit_id: ""
+      focus: ""
+      learning_objectives: []
+      instructional_activities:
+        - day: ""
+          topic: ""
+          activities: []
+          homework: ""
+      assessments:
+        - type: ""
+          description: ""
+      resources_needed: []
+      differentiation_notes: ""
+      pacing_notes: ""
+
+  # Quarter/Grading Period Breakdown
+  grading_periods:
+    - period_name: "Quarter 1"
+      weeks: ""  # e.g., "1-9"
+      units_covered: []  # Unit IDs
+
+      major_assessments:
+        - assessment_name: ""
+          type: ""  # test, project, portfolio
+          week: 0
+          points: 0
+
+      progress_monitoring:
+        - checkpoint: ""
+          week: 0
+          focus: ""
+
+      parent_communication:
+        - event: ""  # conferences, reports
+          week: 0
+
+    - period_name: "Quarter 2"
+      weeks: ""
+      units_covered: []
+      major_assessments:
+        - assessment_name: ""
+          type: ""
+          week: 0
+          points: 0
+      progress_monitoring:
+        - checkpoint: ""
+          week: 0
+          focus: ""
+      parent_communication:
+        - event: ""
+          week: 0
+
+# Vertical Alignment
+vertical_alignment:
+  prior_grade_connections:
+    - grade_level: ""
+      concepts: []  # What students learned before
+      review_needed: []  # Concepts to review
+
+  next_grade_preparation:
+    - grade_level: ""
+      concepts: []  # What this prepares students for
+      emphasis_areas: []  # Areas to stress
+
+# Horizontal Alignment
+horizontal_alignment:
+  cross_curricular:
+    - subject: ""
+      unit_connections: []  # How units connect
+      collaborative_projects: []
+
+  school_wide_initiatives:
+    - initiative: ""  # e.g., "STEM Week"
+      integration_points: []
+
+# Pacing Strategies
+pacing:
+  flexibility_points:
+    - week: 0
+      reason: ""  # review, catch-up, enrichment
+      options: []  # What could be done
+
+  acceleration_opportunities:
+    - unit_id: ""
+      condition: ""  # When to accelerate
+      strategy: ""
+
+  intervention_windows:
+    - week: 0
+      focus: ""  # What skills/concepts
+      strategies: []
+
+  buffer_time:
+    - purpose: ""  # e.g., "State testing"
+      weeks: 0
+      notes: ""
+
+# Assessment Calendar
+assessment_calendar:
+  formative_assessments:
+    - week: 0
+      type: ""  # exit ticket, quiz, discussion
+      focus: ""
+      unit_id: ""
+
+  summative_assessments:
+    - week: 0
+      type: ""  # test, project, essay
+      scope: ""  # What content/skills
+      unit_id: ""
+      weight: 0  # Percentage of grade
+
+  performance_assessments:
+    - week: 0
+      task: ""
+      standards_assessed: []
+      unit_id: ""
+
+  benchmark_assessments:
+    - week: 0
+      scope: ""  # cumulative, unit-specific
+      purpose: ""  # data collection, intervention planning
+
+# Differentiation Framework
+differentiation:
+  by_readiness:
+    - unit_id: ""
+      below_level_supports: []
+      on_level_core: []
+      above_level_extensions: []
+
+  by_interest:
+    - unit_id: ""
+      choice_opportunities: []
+      interest_based_projects: []
+
+  by_learning_profile:
+    - unit_id: ""
+      modality_options: []  # visual, auditory, kinesthetic
+      grouping_strategies: []
+
+# Resource Planning
+resources:
+  core_materials:
+    - item: ""
+      units_used: []  # Unit IDs
+      quantity_needed: 0
+      procurement_status: ""
+
+  technology_integration:
+    - tool: ""
+      units_used: []
+      training_needed: ""
+      access_requirements: ""
+
+  guest_speakers_field_trips:
+    - event: ""
+      week: 0
+      unit_id: ""
+      preparation_needed: ""
+
+# Professional Development Needs
+professional_development:
+  - topic: ""
+    relevance: ""  # Which units/skills
+    priority: ""  # high, medium, low
+    timeline: ""
+
+# Canvas Integration
+canvas_integration:
+  module_structure:
+    - canvas_module_name: ""
+      unit_ids: []  # Maps to curriculum units
+      estimated_completion: ""  # weeks
+
+      module_items:
+        - type: ""  # assignment, quiz, page, discussion
+          name: ""
+          week: 0
+          points: 0
+
+  course_pacing:
+    publish_schedule:
+      - module: ""
+        publish_date: ""  # When to make available
+        due_dates:
+          - item: ""
+            due_date: ""
+
+  assignment_distribution:
+    by_week: []  # List of weeks with assignment counts
+    by_type: []  # Distribution of assignment types
+
+# Data Collection Points
+data_collection:
+  - week: 0
+    data_type: ""  # formative, benchmark, observational
+    purpose: ""  # instruction adjustment, grouping, intervention
+    analysis_deadline: ""
+
+# Contingency Planning
+contingency:
+  schedule_disruptions:
+    - scenario: ""  # e.g., "school closure", "assembly"
+      adjustment_strategy: ""
+
+  learning_gaps:
+    - indicator: ""  # How you'll know
+      response: ""  # What you'll do
+
+  acceleration_needs:
+    - indicator: ""
+      response: ""
+
+# Reflection and Revision
+reflection_points:
+  - week: 0
+    focus: ""  # What to evaluate
+    adjustments_if_needed: []
+
+  end_of_unit_review:
+    - unit_id: ""
+      effectiveness_criteria: []
+      revisions_for_next_year: []
+
+# Communication Plan
+communication:
+  student_facing:
+    - method: ""  # syllabus, weekly overviews
+      frequency: ""
+      content_focus: ""
+
+  parent_facing:
+    - method: ""  # newsletters, portal updates
+      frequency: ""
+      content_focus: ""
+
+  colleague_collaboration:
+    - purpose: ""  # PLC, co-teaching
+      frequency: ""
+      focus: []
+
+# Quality Assurance
+quality_checklist:
+  - criterion: "All standards addressed across units"
+    met: false
+  - criterion: "Logical progression of skills"
+    met: false
+  - criterion: "Balance of assessment types"
+    met: false
+  - criterion: "Realistic pacing with flexibility"
+    met: false
+  - criterion: "Differentiation strategies included"
+    met: false
+  - criterion: "Resources identified and available"
+    met: false
+  - criterion: "Cross-curricular connections mapped"
+    met: false
+  - criterion: "Vertical alignment verified"
+    met: false
+
+# Notes
+notes: |
+  Additional considerations, special circumstances, or important reminders for implementation.

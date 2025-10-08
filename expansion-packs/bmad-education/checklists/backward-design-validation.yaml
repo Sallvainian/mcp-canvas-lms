@@ -1,0 +1,245 @@
+name: Backward Design (UbD) Implementation Fidelity
+description: Validates Understanding by Design (UbD) framework implementation fidelity
+version: 1.0.0
+theory_base: [understanding_by_design, wiggins_mctighe, transfer_learning]
+
+categories:
+  - category: Stage 1 - Desired Results (Establish Goals)
+    criteria:
+      - id: stage1-standards-1
+        item: Relevant standards clearly identified and unpacked
+        required: true
+        resources: [standards-alignment.yaml]
+        passing_score: 100
+
+      - id: stage1-transfer-1
+        item: Transfer goals explicitly stated (what students will independently use)
+        required: true
+        resources: [transfer-goals.yaml]
+        passing_score: 95
+
+      - id: stage1-meaning-1
+        item: Meaning goals defined (big ideas and essential questions)
+        required: true
+        resources: [essential-questions.yaml]
+        passing_score: 95
+
+      - id: stage1-acquisition-1
+        item: Acquisition goals specified (knowledge and skills)
+        required: true
+        resources: [learning-objectives-quality.yaml]
+        passing_score: 95
+
+      - id: stage1-priority-1
+        item: Clear distinction between essential and nice-to-know
+        required: true
+        resources: [priority-standards.yaml]
+        passing_score: 90
+
+  - category: Essential Questions Quality
+    criteria:
+      - id: eq-open-1
+        item: Questions are genuinely open-ended (no single right answer)
+        required: true
+        resources: [essential-questions-guide.yaml]
+        passing_score: 95
+
+      - id: eq-thought-1
+        item: Questions provoke deep thought and inquiry
+        required: true
+        resources: [higher-order-thinking.yaml]
+        passing_score: 90
+
+      - id: eq-recur-1
+        item: Questions recur throughout unit (not just asked once)
+        required: true
+        resources: [inquiry-based-learning.yaml]
+        passing_score: 85
+
+      - id: eq-transfer-1
+        item: Questions point to transferable big ideas
+        required: true
+        resources: [transfer-learning.yaml]
+        passing_score: 90
+
+      - id: eq-student-1
+        item: Questions framed in student-accessible language
+        required: true
+        resources: [student-centered-design.md]
+        passing_score: 85
+
+  - category: Stage 2 - Assessment Evidence (Determine Acceptable Evidence)
+    criteria:
+      - id: stage2-performance-1
+        item: Performance task(s) require transfer in authentic context
+        required: true
+        resources: [authentic-assessment.yaml]
+        passing_score: 95
+
+      - id: stage2-performance-2
+        item: Performance task GRASPS elements clearly defined
+        required: true
+        resources: [grasps-framework.yaml]
+        passing_score: 90
+
+      - id: stage2-criteria-1
+        item: Evaluative criteria and rubrics align with goals
+        required: true
+        resources: [rubric-quality.yaml]
+        passing_score: 95
+
+      - id: stage2-other-1
+        item: Other evidence (tests, quizzes, observations) align with goals
+        required: true
+        resources: [assessment-validity.yaml]
+        passing_score: 90
+
+      - id: stage2-self-1
+        item: Self-assessment and reflection opportunities included
+        required: false
+        resources: [metacognition.yaml]
+        passing_score: 80
+
+  - category: Stage 3 - Learning Plan (Plan Learning Experiences)
+    criteria:
+      - id: stage3-whereto-1
+        item: WHERE elements address learning context and goals
+        required: true
+        resources: [whereto-framework.yaml]
+        passing_score: 90
+
+      - id: stage3-whereto-2
+        item: Instruction organized for progressive skill building
+        required: true
+        resources: [scaffolding-strategies.yaml]
+        passing_score: 85
+
+      - id: stage3-whereto-3
+        item: Instruction equips students for performance tasks
+        required: true
+        resources: [lesson-plan-quality.yaml]
+        passing_score: 90
+
+      - id: stage3-whereto-4
+        item: Opportunities for rethinking, revising, and reflecting included
+        required: true
+        resources: [formative-assessment.yaml]
+        passing_score: 85
+
+  - category: WHERETO Framework Implementation
+    criteria:
+      - id: w-where-1
+        item: "W: Students know WHERE they're going and WHY"
+        required: true
+        resources: [learning-goals-communication.yaml]
+        passing_score: 90
+
+      - id: h-hook-1
+        item: "H: Students are HOOKED and HELD by engaging introduction"
+        required: true
+        resources: [engagement-optimization.yaml]
+        passing_score: 85
+
+      - id: e-equip-1
+        item: "E: Students are EQUIPPED with needed knowledge/skills"
+        required: true
+        resources: [scaffolding-strategies.yaml]
+        passing_score: 90
+
+      - id: r-rethink-1
+        item: "R: Students RETHINK and REVISE their understanding"
+        required: true
+        resources: [formative-assessment.yaml]
+        passing_score: 85
+
+      - id: e-evaluate-1
+        item: "E: Students EVALUATE their work and progress"
+        required: true
+        resources: [self-assessment.yaml]
+        passing_score: 85
+
+      - id: t-tailored-1
+        item: "T: Instruction is TAILORED to individual needs"
+        required: true
+        resources: [differentiation-quality.yaml]
+        passing_score: 85
+
+      - id: o-organized-1
+        item: "O: Learning is ORGANIZED for maximum effectiveness"
+        required: true
+        resources: [learning-progression.yaml]
+        passing_score: 85
+
+  - category: Understanding vs. Awareness
+    criteria:
+      - id: understand-depth-1
+        item: Activities require explanation, not just recognition
+        required: true
+        resources: [depth-of-knowledge.yaml]
+        passing_score: 90
+
+      - id: understand-depth-2
+        item: Students must interpret, apply, and transfer (not just recall)
+        required: true
+        resources: [bloom-taxonomy.yaml]
+        passing_score: 90
+
+      - id: understand-depth-3
+        item: Students demonstrate perspective, empathy, self-knowledge
+        required: false
+        resources: [six-facets-understanding.yaml]
+        passing_score: 75
+
+  - category: Backward Design Coherence
+    criteria:
+      - id: coherence-1
+        item: Clear line of sight from standards → goals → assessment → instruction
+        required: true
+        resources: [curriculum-alignment.yaml]
+        passing_score: 95
+
+      - id: coherence-2
+        item: No activities that don't serve assessment or goals
+        required: true
+        resources: [instructional-efficiency.yaml]
+        passing_score: 85
+
+      - id: coherence-3
+        item: Assessment plan established BEFORE lesson planning
+        required: true
+        resources: [backward-design-sequence.yaml]
+        passing_score: 100
+
+      - id: coherence-4
+        item: Learning experiences logically build toward performance tasks
+        required: true
+        resources: [learning-progression.yaml]
+        passing_score: 90
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Verify Stage 1 - Desired results completely defined
+  - step: Check essential questions quality
+  - step: Validate Stage 2 - Assessment evidence before instruction
+  - step: Verify Stage 3 - Learning plan serves stages 1 & 2
+  - step: Validate WHERETO elements implementation
+  - step: Check understanding depth vs. surface coverage
+  - step: Verify backward design coherence
+  - step: Generate UbD fidelity report
+
+canvas_integration:
+  - location: module_design
+  - location: assignment_design
+  - location: learning_outcomes
+  - location: rubrics
+  - validation: backward_design_sequence
+  - validation: alignment_triangle
+  - reporting: ubd_fidelity_score
+  - tools: grasps_template
+  - tools: essential_questions_bank

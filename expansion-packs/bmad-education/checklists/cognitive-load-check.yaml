@@ -1,0 +1,328 @@
+name: Cognitive Load Optimization Check
+description: Validates instructional design for optimal cognitive load management (CLT principles)
+version: 1.0.0
+theory_base: [cognitive_load_theory, working_memory, sweller, schema_theory]
+
+categories:
+  - category: Intrinsic Load Management
+    criteria:
+      - id: intrinsic-complexity-1
+        item: Content complexity appropriate for learner expertise level
+        required: true
+        resources: [expertise-reversal.yaml]
+        passing_score: 90
+
+      - id: intrinsic-chunking-1
+        item: Complex content broken into manageable chunks
+        required: true
+        resources: [chunking-strategies.yaml]
+        passing_score: 90
+
+      - id: intrinsic-sequence-1
+        item: Simple-to-complex sequencing reduces intrinsic load
+        required: true
+        resources: [sequencing-principles.yaml]
+        passing_score: 85
+
+      - id: intrinsic-elements-1
+        item: Element interactivity managed (max 4-7 new elements)
+        required: true
+        resources: [element-interactivity.yaml]
+        passing_score: 85
+
+      - id: intrinsic-prereq-1
+        item: Prerequisites established before introducing complex concepts
+        required: true
+        resources: [curriculum-alignment.yaml]
+        passing_score: 90
+
+  - category: Extraneous Load Reduction
+    criteria:
+      - id: extraneous-distraction-1
+        item: Unnecessary information eliminated (seductive details removed)
+        required: true
+        resources: [coherence-principle.yaml]
+        passing_score: 90
+
+      - id: extraneous-split-1
+        item: Split-attention eliminated (integrate text and visuals)
+        required: true
+        resources: [spatial-contiguity.yaml]
+        passing_score: 85
+
+      - id: extraneous-redundancy-1
+        item: Redundancy eliminated (no identical dual-coding)
+        required: true
+        resources: [redundancy-principle.yaml]
+        passing_score: 85
+
+      - id: extraneous-modality-1
+        item: Modality effect optimized (visual + audio, not visual + visual text)
+        required: true
+        resources: [modality-principle.yaml]
+        passing_score: 80
+
+      - id: extraneous-signaling-1
+        item: Signaling used to highlight essential information
+        required: true
+        resources: [signaling-principle.yaml]
+        passing_score: 85
+
+  - category: Germane Load Optimization
+    criteria:
+      - id: germane-schema-1
+        item: Activities promote schema construction and automation
+        required: true
+        resources: [schema-building.yaml]
+        passing_score: 85
+
+      - id: germane-worked-1
+        item: Worked examples provided for complex procedures
+        required: true
+        resources: [worked-example-effect.yaml]
+        passing_score: 90
+
+      - id: germane-self-1
+        item: Self-explanation prompts encourage deep processing
+        required: false
+        resources: [self-explanation.yaml]
+        passing_score: 75
+
+      - id: germane-practice-1
+        item: Practice designed for schema automation
+        required: true
+        resources: [practice-design.yaml]
+        passing_score: 85
+
+      - id: germane-variation-1
+        item: Variability in examples promotes flexible schemas
+        required: true
+        resources: [variability-principle.yaml]
+        passing_score: 80
+
+  - category: Working Memory Considerations
+    criteria:
+      - id: wm-capacity-1
+        item: Information presented respects 4-7 item working memory limit
+        required: true
+        resources: [working-memory-limits.yaml]
+        passing_score: 90
+
+      - id: wm-duration-1
+        item: Time limits acknowledge 15-20 second working memory duration
+        required: true
+        resources: [cognitive-timing.yaml]
+        passing_score: 80
+
+      - id: wm-rehearsal-1
+        item: Opportunities for rehearsal and elaboration provided
+        required: true
+        resources: [memory-strategies.yaml]
+        passing_score: 85
+
+      - id: wm-external-1
+        item: External memory aids used appropriately (notes, organizers)
+        required: true
+        resources: [external-memory.yaml]
+        passing_score: 80
+
+  - category: Multimedia Design Principles (Mayer)
+    criteria:
+      - id: multi-coherence-1
+        item: Coherence Principle - extraneous material excluded
+        required: true
+        resources: [mayer-principles.yaml]
+        passing_score: 90
+
+      - id: multi-signaling-1
+        item: Signaling Principle - essential material highlighted
+        required: true
+        resources: [signaling-principle.yaml]
+        passing_score: 85
+
+      - id: multi-redundancy-1
+        item: Redundancy Principle - avoid identical narration + on-screen text
+        required: true
+        resources: [redundancy-principle.yaml]
+        passing_score: 85
+
+      - id: multi-spatial-1
+        item: Spatial Contiguity - related words and images close together
+        required: true
+        resources: [spatial-contiguity.yaml]
+        passing_score: 85
+
+      - id: multi-temporal-1
+        item: Temporal Contiguity - narration and animation synchronized
+        required: true
+        resources: [temporal-contiguity.yaml]
+        passing_score: 85
+
+      - id: multi-segmenting-1
+        item: Segmenting Principle - content in learner-paced segments
+        required: true
+        resources: [segmenting-principle.yaml]
+        passing_score: 80
+
+      - id: multi-pretraining-1
+        item: Pre-training Principle - key concepts introduced first
+        required: true
+        resources: [pretraining-principle.yaml]
+        passing_score: 85
+
+      - id: multi-modality-1
+        item: Modality Principle - graphics with narration > graphics with text
+        required: true
+        resources: [modality-principle.yaml]
+        passing_score: 80
+
+      - id: multi-personalization-1
+        item: Personalization Principle - conversational vs. formal style
+        required: false
+        resources: [personalization-principle.yaml]
+        passing_score: 75
+
+  - category: Scaffolding & Support
+    criteria:
+      - id: scaffold-fading-1
+        item: Scaffolds provided initially and faded appropriately
+        required: true
+        resources: [scaffolding-strategies.yaml]
+        passing_score: 85
+
+      - id: scaffold-completion-1
+        item: Completion problems used to reduce load
+        required: false
+        resources: [completion-principle.yaml]
+        passing_score: 75
+
+      - id: scaffold-guidance-1
+        item: Guidance fading aligns with increasing expertise
+        required: true
+        resources: [guidance-fading.yaml]
+        passing_score: 80
+
+      - id: scaffold-prompts-1
+        item: Process prompts guide cognitive processing
+        required: true
+        resources: [cognitive-prompts.yaml]
+        passing_score: 80
+
+  - category: Expertise Reversal Considerations
+    criteria:
+      - id: expertise-novice-1
+        item: High guidance for novices (worked examples, scaffolds)
+        required: true
+        resources: [expertise-reversal.yaml]
+        passing_score: 90
+
+      - id: expertise-advanced-1
+        item: Reduced guidance for advanced learners (problem-solving)
+        required: true
+        resources: [differentiation-quality.yaml]
+        passing_score: 85
+
+      - id: expertise-assess-1
+        item: Learner expertise assessed before instruction
+        required: true
+        resources: [pre-assessment.yaml]
+        passing_score: 85
+
+  - category: Pacing & Timing
+    criteria:
+      - id: pace-control-1
+        item: Learner control over pacing where appropriate
+        required: true
+        resources: [self-paced-learning.yaml]
+        passing_score: 80
+
+      - id: pace-breaks-1
+        item: Cognitive breaks scheduled to prevent overload
+        required: true
+        resources: [cognitive-breaks.yaml]
+        passing_score: 85
+
+      - id: pace-spaced-1
+        item: Spaced practice rather than massed practice
+        required: true
+        resources: [spaced-practice.yaml]
+        passing_score: 85
+
+      - id: pace-time-1
+        item: Sufficient time for processing complex information
+        required: true
+        resources: [processing-time.yaml]
+        passing_score: 85
+
+  - category: Visual Design for Cognitive Efficiency
+    criteria:
+      - id: visual-simplicity-1
+        item: Visual design simple and uncluttered
+        required: true
+        resources: [visual-design-principles.yaml]
+        passing_score: 85
+
+      - id: visual-hierarchy-1
+        item: Clear visual hierarchy guides attention
+        required: true
+        resources: [visual-hierarchy.yaml]
+        passing_score: 85
+
+      - id: visual-consistency-1
+        item: Consistent visual patterns reduce cognitive load
+        required: true
+        resources: [consistency-principle.yaml]
+        passing_score: 80
+
+      - id: visual-color-1
+        item: Color used meaningfully, not decoratively
+        required: true
+        resources: [color-theory-education.yaml]
+        passing_score: 80
+
+  - category: Load Monitoring & Adjustment
+    criteria:
+      - id: monitor-check-1
+        item: Frequent checks for cognitive overload signs
+        required: true
+        resources: [overload-indicators.yaml]
+        passing_score: 85
+
+      - id: monitor-adjust-1
+        item: Instruction adjusted when overload detected
+        required: true
+        resources: [responsive-teaching.yaml]
+        passing_score: 85
+
+      - id: monitor-self-1
+        item: Students taught to monitor their own cognitive load
+        required: false
+        resources: [metacognition.yaml]
+        passing_score: 70
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Assess intrinsic load appropriateness
+  - step: Identify and eliminate extraneous load
+  - step: Optimize germane load for schema building
+  - step: Validate multimedia design principles
+  - step: Check scaffolding and expertise alignment
+  - step: Review pacing and timing
+  - step: Evaluate visual design efficiency
+  - step: Generate cognitive load optimization report
+
+canvas_integration:
+  - location: page_design
+  - location: multimedia_content
+  - location: assignment_instructions
+  - location: quiz_design
+  - validation: content_complexity_analysis
+  - validation: multimedia_principle_check
+  - tools: cognitive_load_analyzer
+  - tools: readability_scorer

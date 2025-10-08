@@ -1,0 +1,347 @@
+name: Rubric Quality & Alignment Check
+description: Validates rubric design for clarity, alignment, and effective assessment guidance
+version: 1.0.0
+theory_base: [authentic_assessment, criterion_referenced, performance_assessment]
+
+categories:
+  - category: Alignment & Purpose
+    criteria:
+      - id: align-objectives-1
+        item: Criteria directly align with learning objectives
+        required: true
+        resources: [learning-objectives-quality.yaml]
+        passing_score: 100
+
+      - id: align-standards-1
+        item: Rubric reflects standards and expectations
+        required: true
+        resources: [standards-alignment.yaml]
+        passing_score: 95
+
+      - id: align-instruction-1
+        item: Criteria match what was taught
+        required: true
+        resources: [instructional-alignment.yaml]
+        passing_score: 95
+
+      - id: purpose-formative-1
+        item: Purpose appropriate (formative vs. summative)
+        required: true
+        resources: [assessment-validity.yaml]
+        passing_score: 90
+
+  - category: Criteria Quality
+    criteria:
+      - id: criteria-essential-1
+        item: Only essential criteria included (no fluff)
+        required: true
+        resources: [essential-criteria.yaml]
+        passing_score: 90
+
+      - id: criteria-distinct-1
+        item: Each criterion measures distinct aspect of performance
+        required: true
+        resources: [criterion-independence.yaml]
+        passing_score: 90
+
+      - id: criteria-observable-1
+        item: All criteria based on observable evidence
+        required: true
+        resources: [observable-behaviors.yaml]
+        passing_score: 95
+
+      - id: criteria-specific-1
+        item: Criteria specific, not vague or generic
+        required: true
+        resources: [specificity-guidelines.yaml]
+        passing_score: 95
+
+      - id: criteria-student-1
+        item: Criteria understandable to students
+        required: true
+        resources: [student-friendly-rubrics.yaml]
+        passing_score: 90
+
+  - category: Performance Level Descriptors
+    criteria:
+      - id: levels-distinct-1
+        item: Performance levels clearly distinguishable
+        required: true
+        resources: [performance-levels.yaml]
+        passing_score: 95
+
+      - id: levels-descriptive-1
+        item: Descriptors explain performance, not just label it
+        required: true
+        resources: [descriptor-writing.yaml]
+        passing_score: 95
+
+      - id: levels-parallel-1
+        item: Parallel language structure across levels
+        required: true
+        resources: [parallel-structure.yaml]
+        passing_score: 85
+
+      - id: levels-progression-1
+        item: Clear progression from level to level
+        required: true
+        resources: [progression-clarity.yaml]
+        passing_score: 90
+
+      - id: levels-no-neg-1
+        item: Avoid negative language (focus on what's present, not absent)
+        required: true
+        resources: [positive-language.yaml]
+        passing_score: 85
+
+  - category: Number & Quality of Levels
+    criteria:
+      - id: number-appropriate-1
+        item: Number of levels appropriate (typically 3-5)
+        required: true
+        resources: [level-count.yaml]
+        passing_score: 85
+
+      - id: number-distinguish-1
+        item: Enough levels to distinguish performance meaningfully
+        required: true
+        resources: [discrimination-quality.yaml]
+        passing_score: 85
+
+      - id: number-not-too-many-1
+        item: Not so many levels that distinctions become arbitrary
+        required: true
+        resources: [level-optimization.yaml]
+        passing_score: 85
+
+  - category: Analytic vs. Holistic Appropriateness
+    criteria:
+      - id: type-analytic-1
+        item: Analytic rubric when specific feedback on components needed
+        required: true
+        resources: [analytic-rubrics.yaml]
+        passing_score: 90
+
+      - id: type-holistic-1
+        item: Holistic rubric when overall quality judgment appropriate
+        required: false
+        resources: [holistic-rubrics.yaml]
+        passing_score: 85
+
+      - id: type-purpose-1
+        item: Rubric type matches assessment purpose
+        required: true
+        resources: [rubric-types.yaml]
+        passing_score: 90
+
+  - category: Scoring & Reliability
+    criteria:
+      - id: score-consistent-1
+        item: Rubric enables consistent scoring across raters
+        required: true
+        resources: [inter-rater-reliability.yaml]
+        passing_score: 90
+
+      - id: score-objective-1
+        item: Criteria minimize subjectivity where possible
+        required: true
+        resources: [objectivity-strategies.yaml]
+        passing_score: 85
+
+      - id: score-exemplars-1
+        item: Anchor papers/exemplars available for each level
+        required: true
+        resources: [exemplar-selection.yaml]
+        passing_score: 85
+
+      - id: score-training-1
+        item: Scorer training materials/process defined
+        required: false
+        resources: [scorer-training.yaml]
+        passing_score: 75
+
+  - category: Language & Clarity
+    criteria:
+      - id: language-clear-1
+        item: Language clear and unambiguous
+        required: true
+        resources: [clarity-guidelines.yaml]
+        passing_score: 95
+
+      - id: language-concrete-1
+        item: Concrete language (avoid "good", "adequate", "poor")
+        required: true
+        resources: [concrete-descriptors.yaml]
+        passing_score: 95
+
+      - id: language-level-1
+        item: Reading level appropriate for students
+        required: true
+        resources: [readability-standards.yaml]
+        passing_score: 90
+
+      - id: language-jargon-1
+        item: Avoids jargon or defines necessary terms
+        required: true
+        resources: [accessible-language.yaml]
+        passing_score: 90
+
+      - id: language-consistent-1
+        item: Consistent terminology throughout
+        required: true
+        resources: [terminology-consistency.yaml]
+        passing_score: 90
+
+  - category: Student Understanding & Use
+    criteria:
+      - id: student-access-1
+        item: Rubric shared with students before work begins
+        required: true
+        resources: [rubric-transparency.yaml]
+        passing_score: 100
+
+      - id: student-understand-1
+        item: Students can understand and apply rubric
+        required: true
+        resources: [student-friendly-rubrics.yaml]
+        passing_score: 90
+
+      - id: student-self-1
+        item: Rubric supports self-assessment
+        required: true
+        resources: [self-assessment.yaml]
+        passing_score: 85
+
+      - id: student-peer-1
+        item: Rubric enables meaningful peer feedback
+        required: false
+        resources: [peer-assessment.yaml]
+        passing_score: 80
+
+  - category: Instructional Value
+    criteria:
+      - id: instruct-guide-1
+        item: Rubric guides instruction and practice
+        required: true
+        resources: [backward-design-validation.yaml]
+        passing_score: 85
+
+      - id: instruct-feedback-1
+        item: Rubric enables specific, actionable feedback
+        required: true
+        resources: [feedback-quality.yaml]
+        passing_score: 95
+
+      - id: instruct-growth-1
+        item: Rubric shows pathway for improvement
+        required: true
+        resources: [growth-pathways.yaml]
+        passing_score: 90
+
+      - id: instruct-model-1
+        item: Rubric can be used to model quality work
+        required: true
+        resources: [modeling-strategies.yaml]
+        passing_score: 85
+
+  - category: Fairness & Bias
+    criteria:
+      - id: fair-bias-1
+        item: Free from cultural or demographic bias
+        required: true
+        resources: [bias-review.yaml]
+        passing_score: 95
+
+      - id: fair-access-1
+        item: All students can demonstrate proficiency
+        required: true
+        resources: [udl-checklist.yaml]
+        passing_score: 95
+
+      - id: fair-relevant-1
+        item: Only relevant performance aspects assessed
+        required: true
+        resources: [construct-validity.yaml]
+        passing_score: 90
+
+      - id: fair-accom-1
+        item: Accommodations possible without compromising criteria
+        required: true
+        resources: [accommodations-guide.yaml]
+        passing_score: 90
+
+  - category: Practicality & Usability
+    criteria:
+      - id: practical-efficient-1
+        item: Rubric efficient to use (not overly complex)
+        required: true
+        resources: [scoring-efficiency.yaml]
+        passing_score: 85
+
+      - id: practical-format-1
+        item: Format user-friendly and well-organized
+        required: true
+        resources: [rubric-design.yaml]
+        passing_score: 85
+
+      - id: practical-digital-1
+        item: Works well in digital format (Canvas)
+        required: true
+        resources: [canvas-rubrics.yaml]
+        passing_score: 85
+
+      - id: practical-reuse-1
+        item: Can be adapted/reused for similar tasks
+        required: false
+        resources: [rubric-templates.yaml]
+        passing_score: 75
+
+  - category: Continuous Improvement
+    criteria:
+      - id: improve-pilot-1
+        item: Rubric piloted and refined before high-stakes use
+        required: false
+        resources: [pilot-testing.yaml]
+        passing_score: 80
+
+      - id: improve-data-1
+        item: Scoring data analyzed for improvement
+        required: false
+        resources: [rubric-analysis.yaml]
+        passing_score: 75
+
+      - id: improve-feedback-1
+        item: Student/teacher feedback collected and used
+        required: false
+        resources: [feedback-collection.yaml]
+        passing_score: 75
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Verify alignment with objectives and standards
+  - step: Check criteria quality and specificity
+  - step: Evaluate performance level descriptors
+  - step: Validate scoring reliability
+  - step: Check language clarity
+  - step: Assess student usability
+  - step: Review instructional value
+  - step: Check fairness and bias
+  - step: Generate rubric quality report
+
+canvas_integration:
+  - location: assignment_rubrics
+  - location: discussion_rubrics
+  - location: speedgrader
+  - location: rubric_builder
+  - validation: criterion_alignment
+  - validation: descriptor_quality
+  - tools: rubric_templates
+  - tools: exemplar_library
+  - analytics: scoring_patterns
+  - analytics: inter_rater_reliability

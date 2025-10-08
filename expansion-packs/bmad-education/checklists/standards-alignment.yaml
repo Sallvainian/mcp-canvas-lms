@@ -1,0 +1,214 @@
+name: Standards Alignment Verification
+description: Validates comprehensive alignment with academic standards (Common Core, NGSS, state standards)
+version: 1.0.0
+theory_base: [standards_based_education, backward_design, assessment_alignment]
+
+categories:
+  - category: Standards Coverage
+    criteria:
+      - id: coverage-complete-1
+        item: All required standards for grade/subject explicitly addressed
+        required: true
+        resources: [standards-database.yaml]
+        passing_score: 100
+
+      - id: coverage-complete-2
+        item: Standards documented in course/unit planning documents
+        required: true
+        resources: [curriculum-alignment.yaml]
+        passing_score: 100
+
+      - id: coverage-depth-1
+        item: Each standard has multiple opportunities for mastery
+        required: true
+        resources: [mastery-learning.yaml]
+        passing_score: 90
+
+      - id: coverage-depth-2
+        item: Standards addressed at appropriate depth (not superficial)
+        required: true
+        resources: [backward-design-validation.yaml]
+        passing_score: 90
+
+      - id: coverage-balance-1
+        item: Time allocation proportional to standard importance/complexity
+        required: true
+        resources: [pacing-guide.yaml]
+        passing_score: 85
+
+  - category: Learning Objectives Alignment
+    criteria:
+      - id: obj-standards-1
+        item: Every learning objective maps to specific standard(s)
+        required: true
+        resources: [learning-objectives-quality.yaml]
+        passing_score: 100
+
+      - id: obj-standards-2
+        item: Objective language reflects standard language and intent
+        required: true
+        resources: [standards-unpacking.yaml]
+        passing_score: 95
+
+      - id: obj-standards-3
+        item: Objective cognitive level matches standard expectations
+        required: true
+        resources: [bloom-taxonomy.yaml]
+        passing_score: 95
+
+      - id: obj-standards-4
+        item: All components of multi-part standards addressed
+        required: true
+        resources: [standards-analysis.yaml]
+        passing_score: 100
+
+  - category: Assessment Alignment
+    criteria:
+      - id: assess-standards-1
+        item: Assessments directly measure standard performance
+        required: true
+        resources: [assessment-validity.yaml]
+        passing_score: 95
+
+      - id: assess-standards-2
+        item: Assessment format matches standard assessment recommendations
+        required: true
+        resources: [assessment-types.yaml]
+        passing_score: 90
+
+      - id: assess-standards-3
+        item: Rubrics align with standard proficiency descriptors
+        required: true
+        resources: [rubric-quality.yaml]
+        passing_score: 90
+
+      - id: assess-standards-4
+        item: Pre-assessment establishes baseline for standard mastery
+        required: false
+        resources: [formative-assessment.yaml]
+        passing_score: 80
+
+  - category: Instructional Alignment
+    criteria:
+      - id: inst-standards-1
+        item: Lesson activities explicitly teach standard skills/concepts
+        required: true
+        resources: [lesson-plan-quality.yaml]
+        passing_score: 95
+
+      - id: inst-standards-2
+        item: Resources and materials support standard mastery
+        required: true
+        resources: [resource-evaluation.yaml]
+        passing_score: 85
+
+      - id: inst-standards-3
+        item: Instructional strategies match standard cognitive demands
+        required: true
+        resources: [pedagogy-alignment.yaml]
+        passing_score: 85
+
+      - id: inst-standards-4
+        item: Scaffolding provided for complex standards
+        required: true
+        resources: [differentiation-quality.yaml]
+        passing_score: 80
+
+  - category: Standards Progression & Coherence
+    criteria:
+      - id: progression-1
+        item: Standards sequenced according to learning progressions
+        required: true
+        resources: [learning-progressions.yaml]
+        passing_score: 90
+
+      - id: progression-2
+        item: Foundational standards mastered before dependent standards
+        required: true
+        resources: [curriculum-alignment.yaml]
+        passing_score: 95
+
+      - id: coherence-1
+        item: Connections between related standards made explicit
+        required: true
+        resources: [conceptual-coherence.yaml]
+        passing_score: 85
+
+      - id: coherence-2
+        item: Cross-disciplinary standards integrated where appropriate
+        required: false
+        resources: [interdisciplinary-design.yaml]
+        passing_score: 75
+
+  - category: Standards Documentation & Communication
+    criteria:
+      - id: doc-clarity-1
+        item: Standards clearly identified in all planning documents
+        required: true
+        resources: [documentation-standards.yaml]
+        passing_score: 100
+
+      - id: doc-clarity-2
+        item: Standards communicated to students in student-friendly language
+        required: true
+        resources: [student-communication.yaml]
+        passing_score: 90
+
+      - id: doc-clarity-3
+        item: Standards visible in Canvas course structure
+        required: true
+        resources: [canvas-course-design.yaml]
+        passing_score: 90
+
+      - id: doc-reporting-1
+        item: Standards-based reporting/grading implemented
+        required: false
+        resources: [standards-based-grading.yaml]
+        passing_score: 80
+
+  - category: Multi-Standard Integration
+    criteria:
+      - id: integration-1
+        item: Related standards taught in integrated units where appropriate
+        required: false
+        resources: [integrated-curriculum.yaml]
+        passing_score: 75
+
+      - id: integration-2
+        item: Performance tasks assess multiple standards authentically
+        required: false
+        resources: [authentic-assessment.yaml]
+        passing_score: 80
+
+      - id: integration-3
+        item: Standards practices/processes integrated with content standards
+        required: true
+        resources: [practices-integration.yaml]
+        passing_score: 85
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Identify all required standards for course/grade
+  - step: Map each standard to objectives, assessments, instruction
+  - step: Verify coverage completeness
+  - step: Check alignment quality across triangle
+  - step: Validate progression and coherence
+  - step: Review documentation and communication
+  - step: Generate standards alignment report
+
+canvas_integration:
+  - location: course_outcomes
+  - location: assignment_outcomes
+  - location: learning_mastery_gradebook
+  - location: module_outcomes
+  - validation: outcome_alignment_check
+  - validation: mastery_path_prerequisites
+  - reporting: standards_coverage_matrix
+  - reporting: proficiency_tracking
+  - reporting: gap_analysis

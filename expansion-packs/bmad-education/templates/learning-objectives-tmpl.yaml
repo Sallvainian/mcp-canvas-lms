@@ -1,0 +1,208 @@
+# Learning Objectives Design Template
+# Based on Bloom's Taxonomy (Revised) and Webb's Depth of Knowledge (DOK)
+# Canvas Integration: Use with canvas_create_assignment, canvas_create_module
+
+metadata:
+  title: "Learning Objectives Template"
+  author: ""  # Instructor name
+  date: ""  # YYYY-MM-DD
+  subject: ""  # e.g., "Mathematics", "English Language Arts"
+  grade_level: ""  # e.g., "9-10", "11th Grade"
+  unit_title: ""  # Unit or module name
+  duration: ""  # e.g., "2 weeks", "6 lessons"
+  standards_alignment:
+    - standard_set: ""  # e.g., "Common Core", "NGSS", "State Standards"
+      codes: []  # e.g., ["CCSS.ELA-LITERACY.RL.9-10.1", "CCSS.ELA-LITERACY.RL.9-10.2"]
+
+# Learning Objectives Framework
+learning_objectives:
+
+  # Knowledge Objectives (Bloom's: Remember, Understand | DOK 1-2)
+  knowledge:
+    - objective_id: "K1"
+      statement: ""  # e.g., "Students will identify key literary devices in poetry"
+      bloom_level: ""  # remember | understand
+      dok_level: 1  # 1 (Recall) | 2 (Skill/Concept)
+      verb: ""  # list, describe, explain, identify, recall, recognize
+      content: ""  # What students need to know
+      context: ""  # Under what conditions
+      assessment_method: ""  # How you'll measure it
+      standards: []  # Related standard codes
+
+    - objective_id: "K2"
+      statement: ""
+      bloom_level: ""
+      dok_level: 1
+      verb: ""
+      content: ""
+      context: ""
+      assessment_method: ""
+      standards: []
+
+  # Application Objectives (Bloom's: Apply | DOK 2-3)
+  application:
+    - objective_id: "A1"
+      statement: ""  # e.g., "Students will apply literary analysis techniques to interpret symbolism"
+      bloom_level: "apply"
+      dok_level: 2  # 2 (Skill/Concept) | 3 (Strategic Thinking)
+      verb: ""  # apply, demonstrate, solve, use, execute, implement
+      content: ""
+      context: ""
+      assessment_method: ""
+      standards: []
+
+    - objective_id: "A2"
+      statement: ""
+      bloom_level: "apply"
+      dok_level: 2
+      verb: ""
+      content: ""
+      context: ""
+      assessment_method: ""
+      standards: []
+
+  # Analysis Objectives (Bloom's: Analyze | DOK 3)
+  analysis:
+    - objective_id: "AN1"
+      statement: ""  # e.g., "Students will analyze how author's choices create meaning and mood"
+      bloom_level: "analyze"
+      dok_level: 3  # Strategic Thinking
+      verb: ""  # analyze, compare, contrast, differentiate, examine, distinguish
+      content: ""
+      context: ""
+      assessment_method: ""
+      standards: []
+
+    - objective_id: "AN2"
+      statement: ""
+      bloom_level: "analyze"
+      dok_level: 3
+      verb: ""
+      content: ""
+      context: ""
+      assessment_method: ""
+      standards: []
+
+  # Evaluation Objectives (Bloom's: Evaluate | DOK 4)
+  evaluation:
+    - objective_id: "E1"
+      statement: ""  # e.g., "Students will evaluate the effectiveness of different literary techniques"
+      bloom_level: "evaluate"
+      dok_level: 4  # Extended Thinking
+      verb: ""  # evaluate, judge, critique, justify, assess, defend
+      content: ""
+      context: ""
+      assessment_method: ""
+      standards: []
+
+  # Creation Objectives (Bloom's: Create | DOK 4)
+  creation:
+    - objective_id: "C1"
+      statement: ""  # e.g., "Students will create an original poem demonstrating mastery of literary devices"
+      bloom_level: "create"
+      dok_level: 4  # Extended Thinking
+      verb: ""  # create, design, construct, develop, formulate, compose
+      content: ""
+      context: ""
+      assessment_method: ""
+      standards: []
+
+# Alignment and Coherence
+alignment:
+  vertical_alignment:
+    prerequisite_skills: []  # What students should already know
+    future_connections: []  # How this prepares for future learning
+
+  horizontal_alignment:
+    cross_curricular: []  # Connections to other subjects
+    real_world_applications: []  # Authentic contexts
+
+  assessment_alignment:
+    formative_assessments: []  # Check for understanding during learning
+    summative_assessments: []  # Evaluate mastery at end
+    performance_tasks: []  # Authentic demonstration of skills
+
+# Differentiation by Learning Level
+differentiation:
+  below_grade_level:
+    - objective_id: ""  # Reference to modified objective
+      modification: ""  # How objective is scaffolded/simplified
+      support_strategies: []
+
+  on_grade_level:
+    - objective_id: ""
+      enrichment: ""  # Optional extensions
+
+  above_grade_level:
+    - objective_id: ""
+      extension: ""  # How objective is deepened/expanded
+      challenge_strategies: []
+
+# Success Criteria (Student-Friendly)
+success_criteria:
+  - objective_id: ""  # Links to objective above
+    i_can_statement: ""  # Student-friendly version: "I can..."
+    look_fors: []  # Observable evidence of mastery
+    exemplars: ""  # Description or link to model work
+
+# Canvas Integration Notes
+canvas_integration:
+  module_setup:
+    - objective_ids: []  # Which objectives this module addresses
+      module_name: ""
+      module_items: []  # Assignments, pages, discussions
+
+  assignment_mapping:
+    - objective_ids: []  # Which objectives this assignment assesses
+      assignment_name: ""
+      assignment_type: ""  # quiz, discussion, project, etc.
+      points_possible: 0
+      rubric_criteria: []  # Link to rubric that assesses objective
+
+# Cognitive Complexity Analysis
+complexity_balance:
+  total_objectives: 0
+  by_bloom_level:
+    remember: 0
+    understand: 0
+    apply: 0
+    analyze: 0
+    evaluate: 0
+    create: 0
+  by_dok_level:
+    level_1_recall: 0
+    level_2_skill_concept: 0
+    level_3_strategic_thinking: 0
+    level_4_extended_thinking: 0
+  recommendation: ""  # Balance assessment and suggestions
+
+# References and Resources
+references:
+  blooms_taxonomy:
+    url: "https://cft.vanderbilt.edu/guides-sub-pages/blooms-taxonomy/"
+    verb_list: "https://tips.uark.edu/using-blooms-taxonomy/"
+  dok_framework:
+    url: "https://www.aps.edu/sapr/documents/resources/Webbs_DOK_Guide.pdf"
+    descriptors: "https://static.pdesas.org/content/documents/M1-Slide_22_DOK_Wheel_Slide.pdf"
+  writing_objectives:
+    abcd_model: "Audience, Behavior, Condition, Degree"
+    smart_criteria: "Specific, Measurable, Achievable, Relevant, Time-bound"
+
+# Quality Checklist
+quality_checklist:
+  - criterion: "Objectives use observable, measurable verbs"
+    met: false
+  - criterion: "Objectives align with standards"
+    met: false
+  - criterion: "Balance across cognitive levels (Bloom's)"
+    met: false
+  - criterion: "Progression from lower to higher DOK levels"
+    met: false
+  - criterion: "Clear assessment methods identified"
+    met: false
+  - criterion: "Student-friendly success criteria written"
+    met: false
+  - criterion: "Differentiation strategies included"
+    met: false
+  - criterion: "Real-world connections established"
+    met: false

@@ -1,0 +1,526 @@
+# Curriculum Mapping Template
+# Comprehensive curriculum alignment with standards and assessment
+# Canvas Integration: Use with canvas_list_courses, canvas_create_module
+
+metadata:
+  title: "Curriculum Map"
+  author: ""  # Curriculum designer/teacher
+  school_year: ""  # e.g., "2024-2025"
+  subject: ""
+  grade_level: ""
+  course_name: ""
+  course_code: ""
+  department: ""
+  revision_date: ""  # YYYY-MM-DD
+  approved_by: ""
+
+# Curriculum Overview
+overview:
+  course_description: ""
+
+  course_goals:
+    - goal: ""
+      rationale: ""
+
+  graduate_profile_alignment: []  # School's graduate competencies
+
+  program_of_studies_alignment: ""  # How course fits in department sequence
+
+# Standards Mapping
+standards:
+  primary_framework:
+    name: ""  # e.g., "Common Core State Standards"
+    grade_level: ""
+    subject_area: ""
+
+  standards_coverage:
+    - standard_code: ""  # e.g., "CCSS.ELA-LITERACY.RL.9-10.1"
+      standard_text: ""  # Full text of standard
+
+      cognitive_level: ""  # Bloom's level required
+
+      units_addressed: []  # Unit IDs where taught
+
+      instructional_strategies: []  # How it's taught
+
+      assessment_methods: []  # How it's assessed
+
+      mastery_level_expected: ""  # Beginning, developing, proficient, advanced
+
+    - standard_code: ""
+      standard_text: ""
+      cognitive_level: ""
+      units_addressed: []
+      instructional_strategies: []
+      assessment_methods: []
+      mastery_level_expected: ""
+
+  cross_curricular_standards:
+    - framework: ""  # e.g., "ISTE Standards", "21st Century Skills"
+      standards:
+        - code: ""
+          description: ""
+          integration_points: []  # Where in curriculum
+
+# Unit Mapping
+units:
+  - unit_id: "U1"
+    unit_number: 1
+    unit_title: ""
+    duration: ""  # e.g., "3 weeks"
+    timeframe: ""  # e.g., "September - October"
+
+    # Standards addressed in this unit
+    standards_focus:
+      - standard_code: ""
+        emphasis: ""  # introduce, develop, master
+
+    # Essential Questions
+    essential_questions: []
+
+    # Enduring Understandings
+    enduring_understandings: []
+
+    # Key Knowledge and Skills
+    knowledge:
+      - item: ""
+        bloom_level: ""
+
+    skills:
+      - skill: ""
+        proficiency_level: ""
+
+    # Academic Vocabulary
+    vocabulary:
+      tier_2_words: []  # General academic vocabulary
+      tier_3_words: []  # Domain-specific vocabulary
+
+    # Learning Experiences
+    learning_experiences:
+      - experience: ""
+        type: ""  # lecture, lab, discussion, project
+        duration: ""
+        standards_addressed: []
+
+    # Texts and Resources
+    resources:
+      core_texts:
+        - title: ""
+          author: ""
+          type: ""  # novel, article, video, etc.
+          lexile_level: ""
+          cultural_relevance: ""
+
+      supplementary_materials:
+        - resource: ""
+          purpose: ""
+
+      technology_tools:
+        - tool: ""
+          purpose: ""
+
+    # Assessments
+    assessments:
+      pre_assessment:
+        - type: ""
+          purpose: ""
+          standards_assessed: []
+
+      formative:
+        - assessment: ""
+          frequency: ""
+          feedback_method: ""
+          standards_assessed: []
+
+      summative:
+        - assessment: ""
+          weight: 0  # % of unit grade
+          standards_assessed: []
+          success_criteria: []
+
+      performance_task:
+        title: ""
+        description: ""
+        standards_assessed: []
+        rubric_criteria: []
+
+    # Differentiation
+    differentiation:
+      content:
+        - strategy: ""
+          student_group: ""  # ELL, IEP, gifted, etc.
+
+      process:
+        - strategy: ""
+          student_group: ""
+
+      product:
+        - strategy: ""
+          student_group: ""
+
+      environment:
+        - strategy: ""
+          purpose: ""
+
+    # Interdisciplinary Connections
+    connections:
+      - subject: ""
+        connection: ""
+        collaborative_opportunity: ""
+
+  - unit_id: "U2"
+    unit_number: 2
+    unit_title: ""
+    duration: ""
+    timeframe: ""
+    standards_focus:
+      - standard_code: ""
+        emphasis: ""
+    essential_questions: []
+    enduring_understandings: []
+    knowledge:
+      - item: ""
+        bloom_level: ""
+    skills:
+      - skill: ""
+        proficiency_level: ""
+    vocabulary:
+      tier_2_words: []
+      tier_3_words: []
+    learning_experiences:
+      - experience: ""
+        type: ""
+        duration: ""
+        standards_addressed: []
+    resources:
+      core_texts:
+        - title: ""
+          author: ""
+          type: ""
+          lexile_level: ""
+          cultural_relevance: ""
+      supplementary_materials:
+        - resource: ""
+          purpose: ""
+      technology_tools:
+        - tool: ""
+          purpose: ""
+    assessments:
+      pre_assessment:
+        - type: ""
+          purpose: ""
+          standards_assessed: []
+      formative:
+        - assessment: ""
+          frequency: ""
+          feedback_method: ""
+          standards_assessed: []
+      summative:
+        - assessment: ""
+          weight: 0
+          standards_assessed: []
+          success_criteria: []
+      performance_task:
+        title: ""
+        description: ""
+        standards_assessed: []
+        rubric_criteria: []
+    differentiation:
+      content:
+        - strategy: ""
+          student_group: ""
+      process:
+        - strategy: ""
+          student_group: ""
+      product:
+        - strategy: ""
+          student_group: ""
+      environment:
+        - strategy: ""
+          purpose: ""
+    connections:
+      - subject: ""
+        connection: ""
+        collaborative_opportunity: ""
+
+# Skills Progression Matrix
+skills_matrix:
+  - skill_category: ""  # e.g., "Critical Thinking"
+
+    skills:
+      - skill_name: ""
+
+        developmental_progression:
+          - unit: "U1"
+            level: ""  # introduce, develop, practice, master
+            evidence: ""  # How demonstrated
+
+          - unit: "U2"
+            level: ""
+            evidence: ""
+
+# Assessment Overview
+assessment_overview:
+
+  # Assessment Philosophy
+  philosophy: ""  # Your approach to assessment
+
+  # Grading Breakdown
+  grading_categories:
+    - category: ""  # e.g., "Formative Assessments"
+      percentage: 0
+      description: ""
+      examples: []
+
+  # Major Assessments by Quarter
+  quarterly_assessments:
+    - quarter: 1
+      weeks: ""
+
+      assessments:
+        - name: ""
+          type: ""
+          standards_assessed: []
+          unit_id: ""
+          points: 0
+
+  # Performance Tasks
+  performance_tasks:
+    - task_name: ""
+      quarter: 0
+      unit_id: ""
+      standards_assessed: []
+      authentic_audience: ""
+      transfer_goal: ""  # Real-world application
+
+# Alignment Analysis
+alignment:
+
+  # Vertical Alignment
+  vertical:
+    prerequisites:
+      - prior_course: ""
+        essential_knowledge: []
+        review_strategies: []
+
+    next_level:
+      - future_course: ""
+        preparation_provided: []
+        emphasis_areas: []
+
+  # Horizontal Alignment
+  horizontal:
+    same_course_sections:
+      common_assessments: []
+      shared_resources: []
+      collaboration_points: []
+
+    cross_departmental:
+      - department: ""
+        shared_skills: []
+        collaborative_units: []
+
+  # Program Alignment
+  program:
+    department_goals:
+      - goal: ""
+        units_addressing: []
+
+    school_priorities:
+      - priority: ""
+        integration_strategy: ""
+
+# Equity and Access
+equity:
+
+  # Cultural Responsiveness
+  cultural_responsiveness:
+    - unit_id: ""
+      diverse_perspectives: []
+      inclusive_materials: []
+      student_identity_connection: ""
+
+  # Universal Design for Learning (UDL)
+  udl_implementation:
+    multiple_means_of:
+      representation:
+        - strategy: ""
+          units_applied: []
+
+      action_expression:
+        - strategy: ""
+          units_applied: []
+
+      engagement:
+        - strategy: ""
+          units_applied: []
+
+  # Accessibility
+  accessibility:
+    - accommodation_type: ""
+      implementation: ""
+      units_affected: []
+
+# Technology Integration
+technology:
+
+  tools_by_unit:
+    - unit_id: ""
+      tools:
+        - tool_name: ""
+          purpose: ""  # creation, collaboration, assessment, etc.
+          iste_standard: ""
+          student_access: ""  # 1:1, shared, BYOD
+
+  digital_citizenship:
+    - topic: ""
+      unit_id: ""
+      lesson_focus: ""
+
+# Canvas Course Structure
+canvas_mapping:
+
+  # Module Organization
+  modules:
+    - module_name: ""
+      unit_ids: []  # Curriculum units in this Canvas module
+
+      module_items:
+        - item_type: ""  # page, assignment, quiz, discussion
+          item_name: ""
+          standards_addressed: []
+          learning_objective: ""
+          points: 0
+
+      prerequisites: []  # Prior modules required
+
+      published_date: ""
+
+  # Assignment Distribution
+  assignment_types:
+    - type: ""  # quiz, discussion, project, etc.
+      count: 0
+      total_points: 0
+      percentage_of_grade: 0
+
+  # Grading Scheme
+  grading_scheme:
+    type: ""  # points, percentage, letter grade
+    scale:
+      - grade: ""
+        range: ""
+        standard_met: ""
+
+# Data and Reflection
+data_collection:
+
+  # Formative Data Points
+  formative_checkpoints:
+    - week: 0
+      data_source: ""
+      purpose: ""  # grouping, reteaching, acceleration
+      analysis_method: ""
+
+  # Summative Data Analysis
+  summative_analysis:
+    - assessment: ""
+      standards_measured: []
+      data_use: ""
+      success_threshold: ""
+
+  # Unit Reflection
+  unit_reflection:
+    - unit_id: ""
+      reflection_prompts:
+        - prompt: ""
+          data_source: ""
+
+      revision_notes: ""
+
+# Professional Collaboration
+collaboration:
+
+  # Department Alignment
+  department:
+    common_planning_time: ""
+    shared_responsibilities: []
+    resource_sharing: []
+
+  # Interdisciplinary Teams
+  interdisciplinary:
+    - team_members: []
+      shared_units: []
+      meeting_schedule: ""
+
+  # Outside Resources
+  external_partners:
+    - organization: ""
+      contribution: ""
+      units_involved: []
+
+# Continuous Improvement
+improvement:
+
+  # Review Cycle
+  review_schedule:
+    - date: ""
+      focus: ""
+      participants: []
+
+  # Revision History
+  revisions:
+    - date: ""
+      changes_made: []
+      rationale: ""
+
+  # Future Considerations
+  future_planning:
+    - idea: ""
+      timeline: ""
+      resources_needed: []
+
+# Quality Indicators
+quality_checklist:
+  - criterion: "All standards addressed with appropriate depth"
+    met: false
+    evidence: ""
+
+  - criterion: "Clear progression of skills across units"
+    met: false
+    evidence: ""
+
+  - criterion: "Balance of formative and summative assessments"
+    met: false
+    evidence: ""
+
+  - criterion: "Culturally responsive materials included"
+    met: false
+    evidence: ""
+
+  - criterion: "UDL principles applied throughout"
+    met: false
+    evidence: ""
+
+  - criterion: "Vertical and horizontal alignment verified"
+    met: false
+    evidence: ""
+
+  - criterion: "Technology purposefully integrated"
+    met: false
+    evidence: ""
+
+  - criterion: "Differentiation strategies embedded"
+    met: false
+    evidence: ""
+
+# Appendices
+appendices:
+  pacing_guide: ""  # Link or reference
+  rubric_bank: ""  # Link or reference
+  resource_repository: ""  # Link or reference
+  assessment_bank: ""  # Link or reference
+  parent_syllabus: ""  # Student/parent-facing document
+
+# Notes
+notes: |
+  Additional important information, implementation guidance, or contextual notes.

@@ -1,0 +1,344 @@
+name: Feedback Quality & Effectiveness Check
+description: Validates feedback quality using evidence-based principles for learning improvement
+version: 1.0.0
+theory_base: [formative_assessment, hattie_feedback, dweck_mindset, wiliam_feedback]
+
+categories:
+  - category: Timeliness
+    criteria:
+      - id: time-immediate-1
+        item: Feedback provided while learning is still fresh
+        required: true
+        resources: [feedback-timing.yaml]
+        passing_score: 90
+
+      - id: time-actionable-1
+        item: Feedback delivered when students can still act on it
+        required: true
+        resources: [actionable-feedback.yaml]
+        passing_score: 95
+
+      - id: time-consistent-1
+        item: Feedback turnaround time consistent and predictable
+        required: true
+        resources: [feedback-routines.yaml]
+        passing_score: 85
+
+      - id: time-priority-1
+        item: Priority given to feedback on formative work
+        required: true
+        resources: [formative-assessment.yaml]
+        passing_score: 85
+
+  - category: Specificity & Clarity
+    criteria:
+      - id: specific-concrete-1
+        item: Feedback specific to student work (not generic)
+        required: true
+        resources: [specific-feedback.yaml]
+        passing_score: 95
+
+      - id: specific-examples-1
+        item: Specific examples from student work cited
+        required: true
+        resources: [evidence-based-feedback.yaml]
+        passing_score: 90
+
+      - id: specific-clear-1
+        item: Language clear and understandable to students
+        required: true
+        resources: [clarity-guidelines.yaml]
+        passing_score: 95
+
+      - id: specific-criteria-1
+        item: Feedback references specific criteria or standards
+        required: true
+        resources: [criteria-based-feedback.yaml]
+        passing_score: 90
+
+  - category: Focus on Learning (Task, Process, Self-Regulation)
+    criteria:
+      - id: focus-task-1
+        item: "Task Level: Addresses correctness and quality of work"
+        required: true
+        resources: [hattie-levels.yaml]
+        passing_score: 90
+
+      - id: focus-process-1
+        item: "Process Level: Addresses strategies and processes used"
+        required: true
+        resources: [process-feedback.yaml]
+        passing_score: 85
+
+      - id: focus-regulation-1
+        item: "Self-Regulation: Promotes monitoring and self-assessment"
+        required: false
+        resources: [metacognitive-feedback.yaml]
+        passing_score: 75
+
+      - id: focus-no-self-1
+        item: "Avoids Self Level: No personal praise unrelated to task"
+        required: true
+        resources: [feedback-mistakes.yaml]
+        passing_score: 90
+
+  - category: Growth Mindset Orientation
+    criteria:
+      - id: growth-effort-1
+        item: Acknowledges effort and strategies, not just ability
+        required: true
+        resources: [growth-mindset-feedback.yaml]
+        passing_score: 90
+
+      - id: growth-process-1
+        item: Emphasizes learning process over fixed traits
+        required: true
+        resources: [process-praise.yaml]
+        passing_score: 85
+
+      - id: growth-improvement-1
+        item: Focuses on improvement and progress
+        required: true
+        resources: [progress-feedback.yaml]
+        passing_score: 90
+
+      - id: growth-challenge-1
+        item: Frames challenges as opportunities to learn
+        required: true
+        resources: [challenge-feedback.yaml]
+        passing_score: 85
+
+  - category: Actionability (Feed Forward)
+    criteria:
+      - id: action-next-1
+        item: Clear next steps for improvement provided
+        required: true
+        resources: [feedforward.yaml]
+        passing_score: 95
+
+      - id: action-how-1
+        item: Guidance on HOW to improve (not just what needs improving)
+        required: true
+        resources: [improvement-strategies.yaml]
+        passing_score: 90
+
+      - id: action-specific-1
+        item: Suggestions specific and manageable (not overwhelming)
+        required: true
+        resources: [manageable-steps.yaml]
+        passing_score: 85
+
+      - id: action-resources-1
+        item: Resources or supports for improvement identified
+        required: false
+        resources: [support-resources.yaml]
+        passing_score: 75
+
+  - category: Balance (Strengths & Areas for Growth)
+    criteria:
+      - id: balance-strengths-1
+        item: Identifies specific strengths and what was done well
+        required: true
+        resources: [strength-based-feedback.yaml]
+        passing_score: 90
+
+      - id: balance-growth-1
+        item: Identifies priority areas for growth
+        required: true
+        resources: [growth-areas.yaml]
+        passing_score: 90
+
+      - id: balance-ratio-1
+        item: Appropriate balance of positive and constructive feedback
+        required: true
+        resources: [feedback-balance.yaml]
+        passing_score: 85
+
+      - id: balance-priority-1
+        item: Focuses on most important issues (not overwhelming with corrections)
+        required: true
+        resources: [feedback-prioritization.yaml]
+        passing_score: 85
+
+  - category: Alignment & Standards
+    criteria:
+      - id: align-objectives-1
+        item: Feedback aligns with learning objectives
+        required: true
+        resources: [learning-objectives-quality.yaml]
+        passing_score: 95
+
+      - id: align-rubric-1
+        item: Feedback references rubric criteria explicitly
+        required: true
+        resources: [rubric-quality.yaml]
+        passing_score: 90
+
+      - id: align-standards-1
+        item: Feedback relates to standards and expectations
+        required: true
+        resources: [standards-alignment.yaml]
+        passing_score: 85
+
+      - id: align-consistency-1
+        item: Feedback consistent with taught content and practice
+        required: true
+        resources: [instructional-alignment.yaml]
+        passing_score: 90
+
+  - category: Descriptive vs. Evaluative
+    criteria:
+      - id: descriptive-over-eval-1
+        item: Emphasis on description over judgment
+        required: true
+        resources: [descriptive-feedback.yaml]
+        passing_score: 90
+
+      - id: descriptive-evidence-1
+        item: Uses evidence rather than labels ("good", "poor")
+        required: true
+        resources: [evidence-feedback.yaml]
+        passing_score: 90
+
+      - id: descriptive-gap-1
+        item: Describes gap between current and desired performance
+        required: true
+        resources: [gap-feedback.yaml]
+        passing_score: 85
+
+  - category: Student Engagement with Feedback
+    criteria:
+      - id: engage-act-1
+        item: Students required to act on feedback (revision, reflection)
+        required: true
+        resources: [feedback-action.yaml]
+        passing_score: 85
+
+      - id: engage-dialogue-1
+        item: Opportunities for feedback dialogue/questions
+        required: false
+        resources: [feedback-dialogue.yaml]
+        passing_score: 75
+
+      - id: engage-self-1
+        item: Students prompted to self-assess against feedback
+        required: false
+        resources: [self-assessment.yaml]
+        passing_score: 75
+
+      - id: engage-peer-1
+        item: Peer feedback opportunities with guidance
+        required: false
+        resources: [peer-feedback.yaml]
+        passing_score: 70
+
+  - category: Differentiation & Personalization
+    criteria:
+      - id: diff-individual-1
+        item: Feedback tailored to individual student needs
+        required: true
+        resources: [personalized-feedback.yaml]
+        passing_score: 85
+
+      - id: diff-level-1
+        item: Feedback appropriate for student's current level
+        required: true
+        resources: [differentiation-quality.yaml]
+        passing_score: 85
+
+      - id: diff-mode-1
+        item: Feedback mode suited to student (written, verbal, visual)
+        required: false
+        resources: [feedback-modes.yaml]
+        passing_score: 75
+
+  - category: Formative Focus
+    criteria:
+      - id: formative-learning-1
+        item: Feedback designed to advance learning (not just justify grade)
+        required: true
+        resources: [formative-assessment.yaml]
+        passing_score: 95
+
+      - id: formative-no-grade-1
+        item: Formative feedback often given without grade
+        required: true
+        resources: [grade-free-feedback.yaml]
+        passing_score: 85
+
+      - id: formative-frequent-1
+        item: Frequent low-stakes feedback throughout learning
+        required: true
+        resources: [feedback-frequency.yaml]
+        passing_score: 85
+
+  - category: Question-Based Feedback
+    criteria:
+      - id: question-thinking-1
+        item: Questions prompt student thinking and reflection
+        required: true
+        resources: [questioning-strategies.yaml]
+        passing_score: 85
+
+      - id: question-guide-1
+        item: Questions guide students to discover improvements
+        required: false
+        resources: [socratic-feedback.yaml]
+        passing_score: 75
+
+      - id: question-metacog-1
+        item: Questions promote metacognition
+        required: false
+        resources: [metacognitive-questions.yaml]
+        passing_score: 70
+
+  - category: Technology-Enhanced Feedback
+    criteria:
+      - id: tech-efficiency-1
+        item: Technology increases feedback efficiency
+        required: false
+        resources: [tech-feedback-tools.yaml]
+        passing_score: 75
+
+      - id: tech-quality-1
+        item: Technology enhances feedback quality (audio, video, annotations)
+        required: false
+        resources: [multimedia-feedback.yaml]
+        passing_score: 75
+
+      - id: tech-access-1
+        item: Digital feedback accessible to all students
+        required: true
+        resources: [digital-accessibility.yaml]
+        passing_score: 90
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Check timeliness and actionability
+  - step: Assess specificity and clarity
+  - step: Evaluate focus on learning (task, process, regulation)
+  - step: Verify growth mindset orientation
+  - step: Check feed-forward guidance
+  - step: Assess balance of strengths and growth areas
+  - step: Verify alignment with objectives and rubrics
+  - step: Review student engagement mechanisms
+  - step: Generate feedback quality report
+
+canvas_integration:
+  - location: speedgrader_comments
+  - location: assignment_feedback
+  - location: discussion_replies
+  - location: rubric_comments
+  - location: quiz_feedback
+  - tools: comment_library
+  - tools: audio_feedback
+  - tools: video_feedback
+  - tools: annotation_tools
+  - analytics: feedback_turnaround
+  - analytics: student_engagement_with_feedback

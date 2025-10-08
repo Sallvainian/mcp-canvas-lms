@@ -1,0 +1,267 @@
+name: Individual Lesson Enhancement Workflow
+description: Quick turnaround improvement of a single lesson to enhance engagement, alignment, accessibility, and instructional effectiveness
+duration: 3-5 days
+difficulty: beginner
+prerequisites:
+  - Existing lesson materials (lesson plan, slides, activities, resources)
+  - Student performance or feedback data (optional but helpful)
+  - Basic understanding of lesson design principles
+  - Access to Canvas module for implementation
+
+phases:
+  - phase: 1
+    name: Lesson Analysis and Goal Setting
+    duration: 1 day
+    tasks:
+      - task: analyze-current-lesson
+        agent: instructional-designer
+        templates:
+          - lesson-analysis-template.md
+          - lesson-review-worksheet.md
+        checklists:
+          - lesson-quality-checklist.md
+        outputs:
+          - Lesson analysis summary
+          - Strengths and weaknesses identified
+          - Student engagement assessment
+          - Alignment verification (outcomes, assessments, activities)
+
+      - task: set-improvement-priorities
+        agent: instructional-designer
+        templates:
+          - improvement-priorities-worksheet.md
+        checklists:
+          - priority-setting-checklist.md
+        outputs:
+          - 2-3 specific improvement goals
+          - Success criteria for improvements
+          - Constraints and resources identified
+          - Timeline and implementation plan
+
+    quality_gates:
+      - Current lesson thoroughly analyzed with evidence
+      - Clear improvement priorities established
+      - Success criteria measurable and realistic
+      - Timeline feasible for quick turnaround
+
+  - phase: 2
+    name: Lesson Redesign and Enhancement
+    duration: 1-2 days
+    tasks:
+      - task: improve-lesson-structure
+        agent: instructional-designer
+        templates:
+          - lesson-plan-template.md
+          - lesson-flow-template.md
+        checklists:
+          - lesson-structure-checklist.md
+        outputs:
+          - Improved lesson plan
+          - Clear learning objectives
+          - Aligned opening, instruction, practice, closure
+          - Time allocation optimization
+
+      - task: enhance-instructional-strategies
+        agent: instructional-designer
+        templates:
+          - learning-activity-template.md
+          - engagement-strategies-template.md
+        checklists:
+          - engagement-checklist.md
+        outputs:
+          - Enhanced or new learning activities
+          - Active learning strategies integrated
+          - Formative assessment checkpoints added
+          - Student interaction opportunities increased
+
+      - task: improve-accessibility-inclusion
+        agent: accessibility-specialist
+        templates:
+          - udl-lesson-template.md
+          - accessibility-checklist-template.md
+        checklists:
+          - udl-principles-checklist.md
+          - accessibility-checklist.md
+        outputs:
+          - UDL enhancements (representation, engagement, expression)
+          - Scaffolding and support structures
+          - Differentiation strategies
+          - Accessibility compliance verification
+
+    quality_gates:
+      - Lesson plan complete with clear objectives and alignment
+      - Active learning strategies replace passive instruction
+      - UDL principles integrated with student choice options
+      - All materials meet basic accessibility standards
+
+  - phase: 3
+    name: Materials Development and Refinement
+    duration: 1-2 days
+    tasks:
+      - task: update-lesson-materials
+        agent: instructional-designer
+        templates:
+          - content-creation-template.md
+          - media-selection-guide.md
+        checklists:
+          - content-quality-checklist.md
+        outputs:
+          - Updated presentation slides
+          - Revised student handouts and worksheets
+          - New or improved multimedia resources
+          - Supporting materials and resources
+
+      - task: create-formative-assessments
+        agent: assessment-specialist
+        templates:
+          - formative-assessment-template.md
+          - exit-ticket-template.md
+        checklists:
+          - formative-assessment-checklist.md
+        outputs:
+          - Quick formative assessment checks
+          - Exit ticket or reflection prompt
+          - Feedback mechanism
+          - Adjustment protocol based on results
+
+      - task: ensure-content-accessibility
+        agent: accessibility-specialist
+        templates:
+          - accessibility-audit-template.md
+        checklists:
+          - wcag-compliance-checklist.md
+          - alt-text-checklist.md
+        outputs:
+          - Accessible versions of all materials
+          - Alt text for images
+          - Document structure and readability
+          - Multiple format options
+
+    quality_gates:
+      - All lesson materials complete and professional quality
+      - Formative assessments integrated throughout lesson
+      - All materials accessible (WCAG 2.1 AA basics)
+      - Materials ready for Canvas upload
+
+  - phase: 4
+    name: Canvas Implementation and Testing
+    duration: 1 day
+    tasks:
+      - task: update-canvas-lesson-content
+        agent: canvas-integration-specialist
+        templates:
+          - canvas-lesson-template.md
+        checklists:
+          - canvas-content-checklist.md
+        outputs:
+          - Canvas page or module updated
+          - Materials uploaded and organized
+          - Links and resources verified
+          - Student instructions clear
+
+      - task: test-lesson-flow
+        agent: instructional-designer
+        templates:
+          - student-experience-test-protocol.md
+        checklists:
+          - student-perspective-checklist.md
+        outputs:
+          - Student view testing completed
+          - Navigation and flow verified
+          - Resources accessible and functional
+          - Timing and pacing realistic
+
+      - task: prepare-implementation-notes
+        agent: instructional-designer
+        templates:
+          - teacher-notes-template.md
+        checklists:
+          - implementation-readiness-checklist.md
+        outputs:
+          - Teacher implementation notes
+          - Facilitation tips and reminders
+          - Common student questions anticipated
+          - Adjustment strategies prepared
+
+    quality_gates:
+      - Canvas content updated and functional
+      - Student experience tested from learner perspective
+      - All links and resources working
+      - Implementation support materials ready
+
+agents_involved:
+  - agent: instructional-designer
+    role: Lead lesson analysis, redesign, and materials development
+
+  - agent: accessibility-specialist
+    role: UDL integration and accessibility compliance
+
+  - agent: assessment-specialist
+    role: Formative assessment design and feedback strategies
+
+  - agent: canvas-integration-specialist
+    role: Canvas implementation and technical setup
+
+canvas_integration:
+  mcp_tools_used:
+    - canvas_get_module_item: Retrieve current lesson content
+    - canvas_update_module_item: Update lesson in module
+    - canvas_create_page: Build new lesson content page
+    - canvas_update_page: Revise existing lesson page
+    - canvas_upload_asset_from_url: Upload updated materials and media
+    - canvas_create_assignment: Add formative assessment if graded
+    - canvas_update_assignment: Update existing assignment
+    - canvas_create_discussion_topic: Add discussion-based activities
+
+  implementation_sequence:
+    - step: 1
+      action: Review current lesson in Canvas
+      tools: [canvas_get_module_item, canvas_get_page]
+
+    - step: 2
+      action: Upload updated materials
+      tools: [canvas_upload_asset_from_url]
+
+    - step: 3
+      action: Update lesson content page
+      tools: [canvas_update_page, canvas_create_page]
+
+    - step: 4
+      action: Add or update formative assessments
+      tools: [canvas_create_assignment, canvas_update_assignment]
+
+    - step: 5
+      action: Update module item with new content
+      tools: [canvas_update_module_item]
+
+    - step: 6
+      action: Verify from student view
+      tools: [canvas_get_module_item]
+
+success_criteria:
+  - Lesson objectives clear and aligned to outcomes
+  - Active learning strategies integrated throughout
+  - Formative assessment checks student understanding
+  - UDL principles evident with student choice
+  - All materials accessible (WCAG basics met)
+  - Canvas implementation functional and tested
+  - Student experience improved based on testing
+
+common_pitfalls:
+  - Trying to improve too many aspects at once (focus on 2-3 priorities)
+  - Adding content without removing outdated material (lesson bloat)
+  - Implementing complex changes without testing first
+  - Overlooking accessibility in rush to improve engagement
+  - Not aligning improvements to original lesson objectives
+  - Creating activities that don't fit time constraints
+  - Forgetting to prepare teacher implementation notes
+  - Not testing from student perspective before launch
+
+resources:
+  - Active Learning Strategies Database
+  - UDL Guidelines Quick Reference
+  - Formative Assessment Techniques
+  - Canvas Content Best Practices
+  - Lesson Planning Templates
+  - Engagement Strategy Toolkit
+  - Accessibility Quick Checklist

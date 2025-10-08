@@ -1,0 +1,338 @@
+name: Universal Design for Learning (UDL) Implementation Validation
+description: Validates UDL implementation using CAST framework principles and guidelines
+version: 1.0.0
+theory_base: [udl_framework, cast_guidelines, neuroscience, learner_variability]
+
+categories:
+  - category: "Principle 1: Multiple Means of Engagement (WHY of Learning)"
+    criteria:
+      - id: engage-interest-1
+        item: "1.1 Options for recruiting interest (choice, relevance, threats minimized)"
+        required: true
+        resources: [udl-engagement.yaml]
+        passing_score: 85
+
+      - id: engage-effort-1
+        item: "1.2 Options for sustaining effort & persistence (goals, collaboration, feedback)"
+        required: true
+        resources: [persistence-strategies.yaml]
+        passing_score: 85
+
+      - id: engage-regulation-1
+        item: "1.3 Options for self-regulation (motivation, coping skills, self-assessment)"
+        required: true
+        resources: [self-regulation.yaml]
+        passing_score: 80
+
+  - category: "Principle 2: Multiple Means of Representation (WHAT of Learning)"
+    criteria:
+      - id: rep-perception-1
+        item: "2.1 Options for perception (alternatives for visual, auditory info)"
+        required: true
+        resources: [perception-options.yaml]
+        passing_score: 90
+
+      - id: rep-language-1
+        item: "2.2 Options for language & symbols (vocab, syntax, text support)"
+        required: true
+        resources: [language-support.yaml]
+        passing_score: 85
+
+      - id: rep-comprehension-1
+        item: "2.3 Options for comprehension (background, patterns, transfer)"
+        required: true
+        resources: [comprehension-support.yaml]
+        passing_score: 85
+
+  - category: "Principle 3: Multiple Means of Action & Expression (HOW of Learning)"
+    criteria:
+      - id: action-physical-1
+        item: "3.1 Options for physical action (tools, assistive tech, navigation)"
+        required: true
+        resources: [physical-action-options.yaml]
+        passing_score: 85
+
+      - id: action-expression-1
+        item: "3.2 Options for expression & communication (varied media, tools, scaffolds)"
+        required: true
+        resources: [expression-options.yaml]
+        passing_score: 90
+
+      - id: action-executive-1
+        item: "3.3 Options for executive functions (goal-setting, planning, monitoring)"
+        required: true
+        resources: [executive-function-support.yaml]
+        passing_score: 80
+
+  - category: Checkpoint 1 - Recruiting Interest
+    criteria:
+      - id: interest-choice-1
+        item: "1.1.1: Choices in content, tools, learning context"
+        required: true
+        resources: [student-agency.yaml]
+        passing_score: 85
+
+      - id: interest-relevance-1
+        item: "1.1.2: Relevance, value, and authenticity optimized"
+        required: true
+        resources: [authentic-learning.yaml]
+        passing_score: 85
+
+      - id: interest-threat-1
+        item: "1.1.3: Threats and distractions minimized"
+        required: true
+        resources: [safe-learning-environment.yaml]
+        passing_score: 90
+
+  - category: Checkpoint 2 - Sustaining Effort & Persistence
+    criteria:
+      - id: effort-goals-1
+        item: "1.2.1: Goals and objectives varied in difficulty and scope"
+        required: true
+        resources: [goal-differentiation.yaml]
+        passing_score: 85
+
+      - id: effort-demands-1
+        item: "1.2.2: Demands of resources and supports varied"
+        required: true
+        resources: [scaffolding-strategies.yaml]
+        passing_score: 85
+
+      - id: effort-collab-1
+        item: "1.2.3: Collaboration and community fostered"
+        required: true
+        resources: [collaborative-learning.yaml]
+        passing_score: 80
+
+      - id: effort-feedback-1
+        item: "1.2.4: Mastery-oriented feedback emphasized"
+        required: true
+        resources: [feedback-quality.yaml]
+        passing_score: 90
+
+  - category: Checkpoint 3 - Self-Regulation
+    criteria:
+      - id: reg-expectations-1
+        item: "1.3.1: Expectations and beliefs that optimize motivation promoted"
+        required: true
+        resources: [growth-mindset.yaml]
+        passing_score: 85
+
+      - id: reg-coping-1
+        item: "1.3.2: Coping skills and strategies facilitated"
+        required: true
+        resources: [coping-strategies.yaml]
+        passing_score: 80
+
+      - id: reg-self-1
+        item: "1.3.3: Self-assessment and reflection developed"
+        required: true
+        resources: [self-assessment.yaml]
+        passing_score: 85
+
+  - category: Checkpoint 4 - Perception Options
+    criteria:
+      - id: perc-display-1
+        item: "2.1.1: Customization of information display (text size, contrast, color)"
+        required: true
+        resources: [display-options.yaml]
+        passing_score: 90
+
+      - id: perc-alt-1
+        item: "2.1.2: Alternatives for auditory information (captions, transcripts)"
+        required: true
+        resources: [auditory-alternatives.yaml]
+        passing_score: 95
+
+      - id: perc-visual-1
+        item: "2.1.3: Alternatives for visual information (text descriptions, audio)"
+        required: true
+        resources: [visual-alternatives.yaml]
+        passing_score: 95
+
+  - category: Checkpoint 5 - Language & Symbols
+    criteria:
+      - id: lang-vocab-1
+        item: "2.2.1: Vocabulary and symbols clarified"
+        required: true
+        resources: [vocabulary-support.yaml]
+        passing_score: 90
+
+      - id: lang-syntax-1
+        item: "2.2.2: Syntax and structure clarified"
+        required: true
+        resources: [syntax-support.yaml]
+        passing_score: 85
+
+      - id: lang-decode-1
+        item: "2.2.3: Support for decoding text, notation, symbols"
+        required: true
+        resources: [decoding-support.yaml]
+        passing_score: 85
+
+      - id: lang-language-1
+        item: "2.2.4: Promote understanding across languages"
+        required: false
+        resources: [multilingual-support.yaml]
+        passing_score: 75
+
+      - id: lang-multimodal-1
+        item: "2.2.5: Illustrate through multiple media"
+        required: true
+        resources: [multimedia-learning.yaml]
+        passing_score: 85
+
+  - category: Checkpoint 6 - Comprehension
+    criteria:
+      - id: comp-background-1
+        item: "2.3.1: Background knowledge activated or supplied"
+        required: true
+        resources: [prior-knowledge.yaml]
+        passing_score: 90
+
+      - id: comp-patterns-1
+        item: "2.3.2: Patterns, features, big ideas, relationships highlighted"
+        required: true
+        resources: [pattern-recognition.yaml]
+        passing_score: 85
+
+      - id: comp-processing-1
+        item: "2.3.3: Information processing and visualization guided"
+        required: true
+        resources: [cognitive-load-check.yaml]
+        passing_score: 85
+
+      - id: comp-transfer-1
+        item: "2.3.4: Transfer and generalization maximized"
+        required: true
+        resources: [transfer-learning.yaml]
+        passing_score: 80
+
+  - category: Checkpoint 7 - Physical Action
+    criteria:
+      - id: phys-methods-1
+        item: "3.1.1: Response and navigation methods varied"
+        required: true
+        resources: [navigation-options.yaml]
+        passing_score: 85
+
+      - id: phys-tools-1
+        item: "3.1.2: Access to tools and assistive technologies optimized"
+        required: true
+        resources: [assistive-tech.yaml]
+        passing_score: 90
+
+  - category: Checkpoint 8 - Expression & Communication
+    criteria:
+      - id: expr-media-1
+        item: "3.2.1: Multiple media for communication used"
+        required: true
+        resources: [communication-media.yaml]
+        passing_score: 90
+
+      - id: expr-tools-1
+        item: "3.2.2: Multiple tools for construction and composition used"
+        required: true
+        resources: [creation-tools.yaml]
+        passing_score: 85
+
+      - id: expr-scaffolds-1
+        item: "3.2.3: Graduated levels of support for practice and performance"
+        required: true
+        resources: [scaffolding-strategies.yaml]
+        passing_score: 85
+
+  - category: Checkpoint 9 - Executive Functions
+    criteria:
+      - id: exec-guide-1
+        item: "3.3.1: Appropriate goal-setting guided"
+        required: true
+        resources: [goal-setting.yaml]
+        passing_score: 85
+
+      - id: exec-planning-1
+        item: "3.3.2: Planning and strategy development supported"
+        required: true
+        resources: [planning-strategies.yaml]
+        passing_score: 85
+
+      - id: exec-capacity-1
+        item: "3.3.3: Information and resources managed to facilitate capacity"
+        required: true
+        resources: [resource-management.yaml]
+        passing_score: 80
+
+      - id: exec-progress-1
+        item: "3.3.4: Progress monitoring enhanced to support capacity"
+        required: true
+        resources: [progress-monitoring.yaml]
+        passing_score: 85
+
+  - category: Expert Learner Goals (UDL Outcomes)
+    criteria:
+      - id: expert-purposeful-1
+        item: Students develop as purposeful, motivated learners (Engagement)
+        required: true
+        resources: [expert-learner.yaml]
+        passing_score: 80
+
+      - id: expert-resourceful-1
+        item: Students develop as resourceful, knowledgeable learners (Representation)
+        required: true
+        resources: [expert-learner.yaml]
+        passing_score: 80
+
+      - id: expert-strategic-1
+        item: Students develop as strategic, goal-directed learners (Action/Expression)
+        required: true
+        resources: [expert-learner.yaml]
+        passing_score: 80
+
+  - category: Barrier Identification & Removal
+    criteria:
+      - id: barrier-identify-1
+        item: Potential barriers to learning systematically identified
+        required: true
+        resources: [barrier-analysis.yaml]
+        passing_score: 90
+
+      - id: barrier-remove-1
+        item: Barriers removed through design, not just accommodation
+        required: true
+        resources: [proactive-design.yaml]
+        passing_score: 85
+
+      - id: barrier-variability-1
+        item: Learner variability anticipated and addressed
+        required: true
+        resources: [learner-variability.yaml]
+        passing_score: 85
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Assess Principle 1 - Engagement options
+  - step: Assess Principle 2 - Representation options
+  - step: Assess Principle 3 - Action & Expression options
+  - step: Validate each checkpoint implementation
+  - step: Check expert learner development
+  - step: Review barrier identification and removal
+  - step: Generate UDL implementation report
+
+canvas_integration:
+  - location: course_design
+  - location: content_pages
+  - location: assignments
+  - location: discussions
+  - location: multimedia_content
+  - validation: accessibility_checker
+  - validation: alternative_formats
+  - tools: ally_accessibility
+  - tools: immersive_reader
+  - tools: caption_generation
+  - reporting: udl_compliance_score

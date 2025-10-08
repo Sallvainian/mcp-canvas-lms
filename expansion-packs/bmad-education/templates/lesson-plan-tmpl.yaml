@@ -1,0 +1,584 @@
+# Comprehensive Lesson Plan Template
+# Based on Gagne's Nine Events of Instruction and Best Practices
+# Canvas Integration: Use with canvas_create_page, canvas_create_assignment
+
+metadata:
+  title: "Lesson Plan"
+  teacher: ""
+  subject: ""
+  grade_level: ""
+  date: ""  # YYYY-MM-DD
+  class_period: ""  # e.g., "Period 3" or "10:00-10:50 AM"
+  lesson_number: 0
+  unit_title: ""
+  lesson_duration: 0  # minutes
+  class_size: 0
+  room_number: ""
+
+# Lesson Context
+context:
+  unit_overview: ""  # Brief description of the unit
+
+  prior_lesson_connection: ""  # What was taught previously
+
+  next_lesson_preview: ""  # What will follow
+
+  prerequisite_knowledge: []  # What students should already know
+
+# Standards and Objectives
+standards_and_objectives:
+
+  # Standards Addressed
+  standards:
+    - standard_code: ""
+      standard_text: ""
+      how_addressed: ""
+
+  # Learning Objectives (Observable and Measurable)
+  objectives:
+    - objective: ""  # ABCD format: Audience, Behavior, Condition, Degree
+      # Example: "Students will (audience) analyze (behavior) a poem (condition)
+      # identifying at least 3 literary devices (degree)"
+
+      bloom_level: ""  # remember, understand, apply, analyze, evaluate, create
+      dok_level: 0  # 1, 2, 3, or 4
+
+      assessment_method: ""  # How you'll know they achieved it
+
+    - objective: ""
+      bloom_level: ""
+      dok_level: 0
+      assessment_method: ""
+
+  # Student-Friendly Learning Targets ("I can..." statements)
+  learning_targets:
+    - "I can..."  # Student-friendly version of objective
+    - "I can..."
+
+# Essential Question
+essential_question: ""  # The big question driving this lesson
+
+# Academic Language
+language:
+  key_vocabulary:
+    - word: ""
+      definition: ""
+      visual_support: ""  # image, diagram, realia
+
+  language_function: ""  # e.g., "explain", "describe", "argue"
+
+  language_demands:
+    vocabulary: []  # Academic/content words
+    syntax: ""  # Sentence structures needed
+    discourse: ""  # How language is organized (narrative, expository, etc.)
+
+# Materials and Resources
+materials:
+  teacher_materials:
+    - item: ""
+      quantity: 0
+      purpose: ""
+
+  student_materials:
+    - item: ""
+      quantity: 0
+      per_student: false  # or true
+
+  technology:
+    - tool: ""
+      purpose: ""
+      access_method: ""  # 1:1, shared, teacher-led
+
+  texts_and_media:
+    - title: ""
+      type: ""  # article, video, textbook, etc.
+      length: ""  # pages, duration
+      lexile_level: ""
+
+  handouts:
+    - name: ""
+      description: ""
+      differentiated_versions: []
+
+  digital_resources:
+    - resource: ""
+      url: ""
+      purpose: ""
+
+# Room Setup
+room_setup:
+  seating_arrangement: ""  # rows, groups, U-shape, etc.
+  stations_or_centers: []
+  technology_setup: ""
+  materials_placement: ""
+
+# ====================================================================
+# INSTRUCTIONAL SEQUENCE (Gagne's Nine Events)
+# ====================================================================
+
+instructional_sequence:
+
+  # Event 1: Gain Attention (Capture Interest)
+  gain_attention:
+    duration: ""  # e.g., "3 minutes"
+
+    activity: ""
+    # Example: "Show a surprising optical illusion that challenges perception"
+
+    hook_type: ""  # question, demonstration, story, media, activity
+
+    materials_used: []
+
+    teacher_actions: []
+    student_actions: []
+
+    differentiation: ""
+
+  # Event 2: Inform Learners of Objectives (Set Expectations)
+  inform_objectives:
+    duration: ""  # e.g., "2 minutes"
+
+    how_communicated: ""
+    # Example: "Display learning targets on board and have students read chorally"
+
+    student_friendly_language: true  # or false
+
+    connection_to_relevance: ""
+    # Example: "Explain how this skill helps in real-world problem solving"
+
+    teacher_actions: []
+    student_actions: []
+
+  # Event 3: Stimulate Recall of Prior Learning (Connect to What They Know)
+  stimulate_recall:
+    duration: ""  # e.g., "5 minutes"
+
+    activity: ""
+    # Example: "Think-Pair-Share: What do you remember about fractions from last week?"
+
+    prior_knowledge_activated: []
+
+    assessment_of_readiness: ""
+    # How you'll check if they have the prerequisite knowledge
+
+    teacher_actions: []
+    student_actions: []
+
+    differentiation: ""
+
+  # Event 4: Present the Content (Deliver New Information)
+  present_content:
+    duration: ""  # e.g., "15 minutes"
+
+    instructional_strategy: ""  # direct instruction, inquiry, discovery, etc.
+
+    content_chunks:
+      - chunk_topic: ""
+        duration: ""
+        teaching_method: ""  # lecture, demo, video, reading, etc.
+
+        key_points: []
+
+        examples_and_non_examples: []
+
+        visual_supports: []
+
+        checking_for_understanding:
+          - method: ""  # thumbs up/down, whiteboard response, etc.
+            frequency: ""
+
+    teacher_actions: []
+    student_actions: []
+
+    differentiation:
+      content: []
+      process: []
+      product: []
+
+  # Event 5: Provide Learning Guidance (Scaffold and Support)
+  provide_guidance:
+    duration: ""  # e.g., "10 minutes"
+
+    scaffolding_strategies:
+      - strategy: ""
+        purpose: ""
+        when_used: ""
+
+    modeling_examples:
+      - example: ""
+        think_aloud: ""  # Your thought process demonstrated
+
+    guided_practice_activities:
+      - activity: ""
+        grouping: ""  # whole class, pairs, small groups
+        teacher_role: ""
+        student_role: ""
+
+    gradual_release:
+      - step: "I Do"  # Teacher models
+        description: ""
+
+      - step: "We Do"  # Guided practice
+        description: ""
+
+      - step: "You Do Together"  # Collaborative practice
+        description: ""
+
+      - step: "You Do Alone"  # Independent practice (Event 6)
+        description: ""
+
+    teacher_actions: []
+    student_actions: []
+
+    differentiation: ""
+
+  # Event 6: Elicit Performance (Practice)
+  elicit_performance:
+    duration: ""  # e.g., "12 minutes"
+
+    practice_activity:
+      - activity: ""
+        type: ""  # independent, partner, small group
+
+        task_description: ""
+
+        success_criteria: []
+
+        time_allocated: ""
+
+    formative_assessment:
+      - method: ""
+        what_to_look_for: []
+        intervention_plan: ""  # What if they don't get it
+
+    teacher_actions: []
+    # Example: "Circulate, observe, provide individual feedback"
+
+    student_actions: []
+    # Example: "Complete practice problems independently in math journal"
+
+    differentiation:
+      support_for_struggling: []
+      extension_for_advanced: []
+
+  # Event 7: Provide Feedback (Give Specific Information)
+  provide_feedback:
+    duration: ""  # e.g., "5 minutes" (embedded in Event 6)
+
+    feedback_types:
+      - type: ""  # immediate, delayed, peer, self
+        method: ""
+        focus: ""  # What aspects of performance
+
+    feedback_characteristics:
+      specific: true  # Specific vs. general
+      timely: true  # Given soon after performance
+      actionable: true  # Tells students how to improve
+
+    feedback_examples:
+      - situation: ""
+        feedback_given: ""
+
+    peer_feedback_structure: ""
+    # If using peer feedback, how is it organized
+
+    self_assessment_component: ""
+    # How students self-assess
+
+  # Event 8: Assess Performance (Evaluate Mastery)
+  assess_performance:
+    duration: ""  # e.g., "8 minutes"
+
+    assessment_type: ""  # formative, summative
+
+    assessment_method:
+      - method: ""  # exit ticket, quiz, observation, product
+        format: ""
+        questions_or_prompts: []
+
+    success_criteria:
+      - criterion: ""
+        proficiency_indicator: ""
+
+    data_collection:
+      how_recorded: ""
+      how_analyzed: ""
+      how_used: ""  # to inform next lesson, grouping, reteaching
+
+    teacher_actions: []
+    student_actions: []
+
+  # Event 9: Enhance Retention and Transfer (Connect and Apply)
+  enhance_retention:
+    duration: ""  # e.g., "5 minutes"
+
+    reflection_activity: ""
+    # Example: "Quick write: How would you use this skill outside of school?"
+
+    connection_to_real_world: ""
+
+    preview_of_next_lesson: ""
+
+    homework_or_extension:
+      assignment: ""
+      purpose: ""  # practice, preparation, extension
+      estimated_time: 0  # minutes
+      differentiation: []
+
+    teacher_actions: []
+    student_actions: []
+
+# ====================================================================
+# DIFFERENTIATION AND SUPPORT
+# ====================================================================
+
+differentiation:
+
+  # Universal Design for Learning (UDL)
+  udl:
+    multiple_means_of_representation:
+      - strategy: ""
+        implementation: ""
+
+    multiple_means_of_action_and_expression:
+      - strategy: ""
+        implementation: ""
+
+    multiple_means_of_engagement:
+      - strategy: ""
+        implementation: ""
+
+  # By Student Need
+  by_student_need:
+
+    english_language_learners:
+      - level: ""  # beginning, intermediate, advanced
+        supports: []
+
+    students_with_ieps:
+      - accommodation: ""
+        implementation: ""
+
+    students_with_504_plans:
+      - accommodation: ""
+        implementation: ""
+
+    gifted_and_talented:
+      - enrichment: ""
+        challenge: ""
+
+    struggling_learners:
+      - intervention: ""
+        scaffold: ""
+
+  # By Learning Preference
+  learning_preferences:
+    visual_learners: []
+    auditory_learners: []
+    kinesthetic_learners: []
+    reading_writing_learners: []
+
+# ====================================================================
+# ASSESSMENT
+# ====================================================================
+
+assessment:
+
+  # Pre-Assessment (Before Lesson)
+  pre_assessment:
+    method: ""
+    purpose: ""
+    results_action: ""  # How results inform instruction
+
+  # Formative Assessment (During Lesson)
+  formative_assessment:
+    - checkpoint: ""  # When in the lesson
+      method: ""  # technique used
+      adjustment_plan: ""  # What you'll do based on results
+
+  # Summative Assessment (End of Lesson)
+  summative_assessment:
+    method: ""
+    criteria: []
+    data_use: ""
+
+  # Self and Peer Assessment
+  metacognitive_assessment:
+    self_assessment: ""
+    peer_assessment: ""
+
+# ====================================================================
+# CLASSROOM MANAGEMENT
+# ====================================================================
+
+classroom_management:
+
+  # Transitions
+  transitions:
+    - from_activity: ""
+      to_activity: ""
+      transition_strategy: ""
+      time_allocated: ""
+
+  # Behavior Expectations
+  behavior_expectations:
+    - expectation: ""
+      reinforcement_strategy: ""
+
+  # Attention Signals
+  attention_signals:
+    signal: ""
+    expected_response: ""
+
+  # Grouping Strategies
+  grouping:
+    - type: ""  # whole class, pairs, small groups
+      formation_method: ""  # random, strategic, student choice
+      purpose: ""
+
+  # Time Management
+  time_management:
+    pacing_alerts: []  # Warnings to keep on track
+    flexibility_points: []  # Where you can adjust if needed
+
+# ====================================================================
+# TECHNOLOGY INTEGRATION
+# ====================================================================
+
+technology_integration:
+
+  # Tools Used
+  tools:
+    - tool_name: ""
+      purpose: ""  # creation, collaboration, assessment, presentation
+      samr_level: ""  # substitution, augmentation, modification, redefinition
+      iste_standard: ""
+
+  # Digital Citizenship
+  digital_citizenship_connection: ""
+
+  # Troubleshooting Plan
+  tech_backup_plan: ""  # What if technology fails
+
+# ====================================================================
+# CANVAS INTEGRATION
+# ====================================================================
+
+canvas_integration:
+
+  # Module Connection
+  canvas_module: ""  # Which module this lesson belongs to
+
+  # Canvas Items for This Lesson
+  canvas_items:
+    - item_type: ""  # page, assignment, discussion, quiz
+      title: ""
+      content_description: ""
+      points: 0
+      due_date: ""
+
+  # Instructional Materials in Canvas
+  materials_location:
+    - material: ""
+      canvas_location: ""  # module, files, pages
+
+# ====================================================================
+# POST-LESSON REFLECTION
+# ====================================================================
+
+reflection:
+
+  # Immediate Post-Lesson
+  immediate_reflection:
+    what_went_well: []
+    what_to_improve: []
+    student_engagement_level: ""  # low, medium, high
+    objective_achievement: ""  # Did most students meet objectives?
+
+  # Student Learning Evidence
+  learning_evidence:
+    - evidence: ""
+      interpretation: ""
+
+  # Adjustments for Next Time
+  future_adjustments:
+    - adjustment: ""
+      rationale: ""
+
+  # Next Steps
+  next_steps:
+    follow_up_needed: []
+    reteaching_required: ""
+    students_needing_intervention: []
+    students_ready_for_extension: []
+
+# ====================================================================
+# NOTES AND REMINDERS
+# ====================================================================
+
+notes:
+  before_lesson: []  # Things to do/remember before teaching
+  during_lesson: []  # Reminders while teaching
+  after_lesson: []  # Follow-up tasks
+
+# ====================================================================
+# COLLABORATION
+# ====================================================================
+
+collaboration:
+  co_teacher_role: ""  # If co-teaching
+  paraprofessional_role: ""  # If para present
+  specialist_support: ""  # SPED, ELL, etc.
+  parent_communication: ""  # Any parent outreach
+
+# ====================================================================
+# REFERENCES
+# ====================================================================
+
+references:
+  gagnes_nine_events:
+    url: "https://www.instructionaldesign.org/theories/gagnes-nine-events/"
+    description: "Systematic framework for effective instruction"
+
+  udl_guidelines:
+    url: "https://udlguidelines.cast.org/"
+    description: "Universal Design for Learning framework"
+
+  blooms_taxonomy:
+    url: "https://cft.vanderbilt.edu/guides-sub-pages/blooms-taxonomy/"
+    description: "Cognitive levels of learning"
+
+# ====================================================================
+# QUALITY CHECKLIST
+# ====================================================================
+
+quality_checklist:
+  - criterion: "Clear, measurable objectives aligned to standards"
+    met: false
+
+  - criterion: "All nine events of instruction included"
+    met: false
+
+  - criterion: "Multiple forms of assessment (pre, formative, summative)"
+    met: false
+
+  - criterion: "Differentiation strategies for diverse learners"
+    met: false
+
+  - criterion: "UDL principles applied (multiple means)"
+    met: false
+
+  - criterion: "Realistic timing for all activities"
+    met: false
+
+  - criterion: "Materials and resources prepared"
+    met: false
+
+  - criterion: "Technology purposefully integrated"
+    met: false
+
+  - criterion: "Formative assessment informs instruction"
+    met: false
+
+  - criterion: "Reflection and adjustment plan included"
+    met: false

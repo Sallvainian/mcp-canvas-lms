@@ -1,0 +1,452 @@
+name: Canvas Course Migration with Best Practices
+description: Complete migration of existing course materials to Canvas LMS with implementation of instructional design best practices, accessibility standards, and effective online learning strategies
+duration: 3-4 weeks
+difficulty: intermediate
+prerequisites:
+  - Existing course materials (digital or physical format)
+  - Canvas account with teacher/designer role
+  - Basic Canvas navigation and tool knowledge
+  - Course outcomes and syllabus documentation
+  - Access to media conversion tools (if needed)
+
+phases:
+  - phase: 1
+    name: Pre-Migration Planning and Analysis
+    duration: 3-4 days
+    tasks:
+      - task: inventory-existing-materials
+        agent: curriculum-architect
+        templates:
+          - content-inventory-template.md
+          - migration-planning-worksheet.md
+        checklists:
+          - content-audit-checklist.md
+        outputs:
+          - Complete materials inventory
+          - Content organization structure
+          - Migration priority list
+          - Content format conversion needs
+
+      - task: design-canvas-course-structure
+        agent: canvas-integration-specialist
+        templates:
+          - canvas-course-blueprint-template.md
+          - module-structure-template.md
+        checklists:
+          - canvas-design-checklist.md
+        outputs:
+          - Canvas course architecture plan
+          - Module organization strategy
+          - Navigation design
+          - Homepage and landing page concepts
+
+      - task: assess-accessibility-requirements
+        agent: accessibility-specialist
+        templates:
+          - accessibility-audit-template.md
+          - remediation-plan-template.md
+        checklists:
+          - accessibility-planning-checklist.md
+        outputs:
+          - Accessibility requirements assessment
+          - Content remediation plan
+          - WCAG compliance strategy
+          - Alternative format needs
+
+    quality_gates:
+      - All existing materials inventoried and categorized
+      - Canvas structure designed with clear organization
+      - Accessibility requirements identified
+      - Migration timeline and priorities established
+
+  - phase: 2
+    name: Content Preparation and Remediation
+    duration: 5-7 days
+    tasks:
+      - task: prepare-digital-content
+        agent: instructional-designer
+        templates:
+          - content-preparation-guide.md
+          - format-conversion-checklist.md
+        checklists:
+          - content-quality-checklist.md
+        outputs:
+          - Documents converted to accessible formats
+          - Presentations optimized for online delivery
+          - Video/audio files processed and compressed
+          - Images optimized and organized
+
+      - task: ensure-content-accessibility
+        agent: accessibility-specialist
+        templates:
+          - accessibility-audit-template.md
+          - remediation-guide.md
+        checklists:
+          - wcag-compliance-checklist.md
+          - alt-text-checklist.md
+        outputs:
+          - Accessible PDF documents (tagged, structured)
+          - Alternative text for all images
+          - Video captions and transcripts
+          - Document structure and headings
+          - Color contrast compliance
+
+      - task: organize-course-resources
+        agent: instructional-designer
+        templates:
+          - resource-organization-template.md
+        checklists:
+          - organization-checklist.md
+        outputs:
+          - Organized file structure
+          - Naming conventions applied
+          - Resource metadata and descriptions
+          - Version control documentation
+
+    quality_gates:
+      - All content converted to appropriate digital formats
+      - Accessibility standards met for all materials
+      - Content organized and ready for upload
+      - Quality verification completed
+
+  - phase: 3
+    name: Canvas Course Build - Foundation
+    duration: 4-5 days
+    tasks:
+      - task: setup-canvas-course-shell
+        agent: canvas-integration-specialist
+        templates:
+          - canvas-course-setup-template.md
+        checklists:
+          - canvas-setup-checklist.md
+        outputs:
+          - Course created with correct settings
+          - Course information and syllabus added
+          - Time zone and calendar configured
+          - Navigation customized
+          - Homepage designed and published
+
+      - task: create-module-structure
+        agent: canvas-integration-specialist
+        templates:
+          - module-structure-template.md
+        checklists:
+          - module-creation-checklist.md
+        outputs:
+          - All modules created and ordered
+          - Module descriptions written
+          - Prerequisites and requirements set
+          - Module release schedule configured
+
+      - task: configure-gradebook-framework
+        agent: canvas-integration-specialist
+        templates:
+          - gradebook-setup-template.md
+          - assignment-group-template.md
+        checklists:
+          - gradebook-verification-checklist.md
+        outputs:
+          - Assignment groups created
+          - Grade weighting configured
+          - Grading schemes applied
+          - Late policies set
+
+    quality_gates:
+      - Course shell completely configured
+      - Module structure logical and student-friendly
+      - Gradebook framework matches grading policy
+      - Navigation intuitive and accessible
+
+  - phase: 4
+    name: Content Migration and Organization
+    duration: 5-7 days
+    tasks:
+      - task: upload-course-materials
+        agent: canvas-integration-specialist
+        templates:
+          - content-upload-checklist.md
+        checklists:
+          - upload-verification-checklist.md
+        outputs:
+          - All files uploaded to Canvas
+          - Files organized in appropriate folders
+          - File permissions set correctly
+          - Duplicate/outdated files removed
+
+      - task: create-content-pages
+        agent: instructional-designer
+        templates:
+          - canvas-page-template.md
+        checklists:
+          - page-quality-checklist.md
+        outputs:
+          - Lesson content pages created
+          - Resource pages built
+          - Instructional materials formatted
+          - Multimedia embedded properly
+
+      - task: build-module-content
+        agent: canvas-integration-specialist
+        templates:
+          - module-item-template.md
+        checklists:
+          - module-content-checklist.md
+        outputs:
+          - Module items added and ordered
+          - Item types configured appropriately
+          - Item descriptions and instructions clear
+          - External links and tools integrated
+
+    quality_gates:
+      - All materials successfully uploaded
+      - Content pages professionally formatted
+      - Module items properly sequenced
+      - All links and resources functional
+
+  - phase: 5
+    name: Assessment and Assignment Configuration
+    duration: 4-5 days
+    tasks:
+      - task: create-assignments
+        agent: canvas-integration-specialist
+        templates:
+          - assignment-configuration-guide.md
+        checklists:
+          - assignment-checklist.md
+        outputs:
+          - All assignments created
+          - Assignment instructions clear and complete
+          - Submission types configured
+          - Due dates and availability set
+          - Point values assigned
+
+      - task: build-rubrics-criteria
+        agent: assessment-specialist
+        templates:
+          - rubric-template.md
+        checklists:
+          - rubric-quality-checklist.md
+        outputs:
+          - Rubrics created for all major assessments
+          - Rubrics attached to assignments
+          - Criteria clear and measurable
+          - Point distributions logical
+
+      - task: configure-quizzes-tests
+        agent: canvas-integration-specialist
+        templates:
+          - quiz-setup-template.md
+        checklists:
+          - quiz-configuration-checklist.md
+        outputs:
+          - Quizzes created (if applicable)
+          - Question banks built
+          - Quiz settings configured
+          - Question types varied and appropriate
+
+    quality_gates:
+      - All assignments created and configured
+      - Rubrics aligned to assignment expectations
+      - Quiz settings appropriate and tested
+      - All assessments linked to gradebook correctly
+
+  - phase: 6
+    name: Enhancement and Student Experience
+    duration: 3-4 days
+    tasks:
+      - task: add-interactive-elements
+        agent: instructional-designer
+        templates:
+          - engagement-strategies-template.md
+        checklists:
+          - engagement-checklist.md
+        outputs:
+          - Discussion forums created
+          - Collaborative activities added
+          - Interactive multimedia integrated
+          - Student choice opportunities provided
+
+      - task: create-student-support-resources
+        agent: instructional-designer
+        templates:
+          - student-resource-template.md
+          - orientation-guide-template.md
+        checklists:
+          - student-support-checklist.md
+        outputs:
+          - Course orientation materials
+          - Navigation guide for students
+          - Technical help resources
+          - Study guides and supplemental resources
+
+      - task: implement-udl-principles
+        agent: accessibility-specialist
+        templates:
+          - udl-lesson-template.md
+        checklists:
+          - udl-principles-checklist.md
+        outputs:
+          - Multiple means of representation
+          - Engagement options integrated
+          - Expression alternatives provided
+          - UDL enhancements documented
+
+    quality_gates:
+      - Interactive elements enhance engagement
+      - Student support resources comprehensive
+      - UDL principles evident throughout
+      - Student experience considerations addressed
+
+  - phase: 7
+    name: Quality Assurance and Launch Preparation
+    duration: 3-4 days
+    tasks:
+      - task: conduct-comprehensive-course-review
+        agent: curriculum-architect
+        templates:
+          - course-review-protocol.md
+          - quality-assurance-checklist.md
+        checklists:
+          - course-quality-checklist.md
+        outputs:
+          - Course quality review report
+          - Identified issues and improvements
+          - Peer review feedback
+          - Final adjustments list
+
+      - task: test-student-experience
+        agent: accessibility-specialist
+        templates:
+          - student-experience-test-protocol.md
+        checklists:
+          - student-perspective-checklist.md
+          - accessibility-testing-checklist.md
+        outputs:
+          - Student view testing results
+          - Navigation usability assessment
+          - Accessibility verification
+          - Mobile device testing
+
+      - task: prepare-launch-materials
+        agent: instructional-designer
+        templates:
+          - course-welcome-template.md
+          - launch-communication-template.md
+        checklists:
+          - launch-readiness-checklist.md
+        outputs:
+          - Welcome announcement
+          - Getting started guide
+          - First week orientation plan
+          - Technical requirements communication
+
+    quality_gates:
+      - All quality checks passed
+      - Student experience thoroughly tested
+      - All accessibility requirements met
+      - Launch communications prepared
+
+agents_involved:
+  - agent: curriculum-architect
+    role: Overall migration coordination, planning, and quality assurance
+
+  - agent: canvas-integration-specialist
+    role: Canvas technical implementation, course build, and configuration
+
+  - agent: instructional-designer
+    role: Content preparation, page design, and student experience optimization
+
+  - agent: accessibility-specialist
+    role: Accessibility remediation, UDL integration, and compliance verification
+
+  - agent: assessment-specialist
+    role: Assessment configuration and rubric development
+
+canvas_integration:
+  mcp_tools_used:
+    - canvas_create_course: Initial course creation
+    - canvas_update_course: Configure course settings, syllabus, policies
+    - canvas_set_core_properties: Set course metadata and descriptions
+    - canvas_create_module: Build module structure
+    - canvas_update_module: Configure module settings and requirements
+    - canvas_create_module_item: Add content to modules
+    - canvas_upload_asset_from_url: Import files and media
+    - canvas_list_files: Manage uploaded files
+    - canvas_create_page: Build content pages
+    - canvas_update_page: Revise page content
+    - canvas_create_assignment: Create all assignments
+    - canvas_create_assignment_group: Setup gradebook categories
+    - canvas_update_assignment_group: Configure grade weighting
+    - canvas_create_rubric: Build assessment rubrics
+    - canvas_create_discussion_topic: Add discussion forums
+    - canvas_create_quiz: Build quizzes and tests (if applicable)
+    - canvas_create_quiz_question: Add quiz questions
+
+  implementation_sequence:
+    - step: 1
+      action: Create and configure course shell
+      tools: [canvas_create_course, canvas_update_course, canvas_set_core_properties]
+
+    - step: 2
+      action: Build module structure
+      tools: [canvas_create_module, canvas_update_module]
+
+    - step: 3
+      action: Configure gradebook
+      tools: [canvas_create_assignment_group, canvas_update_assignment_group]
+
+    - step: 4
+      action: Upload files and resources
+      tools: [canvas_upload_asset_from_url, canvas_list_files]
+
+    - step: 5
+      action: Create content pages
+      tools: [canvas_create_page]
+
+    - step: 6
+      action: Build module content
+      tools: [canvas_create_module_item]
+
+    - step: 7
+      action: Create assignments and assessments
+      tools: [canvas_create_assignment, canvas_create_rubric]
+
+    - step: 8
+      action: Add interactive elements
+      tools: [canvas_create_discussion_topic, canvas_create_quiz]
+
+    - step: 9
+      action: Final verification
+      tools: [canvas_get_course, canvas_list_modules]
+
+success_criteria:
+  - All course materials successfully migrated to Canvas
+  - Course organization logical and intuitive
+  - All materials meet WCAG 2.1 AA accessibility standards
+  - Student experience tested and optimized
+  - All assignments and assessments functional
+  - Gradebook configured correctly
+  - UDL principles integrated throughout
+  - Launch materials complete and ready
+  - Positive peer review feedback
+
+common_pitfalls:
+  - Directly uploading old materials without adaptation for online learning
+  - Creating overly complex navigation structure
+  - Not testing student view before launch
+  - Overlooking accessibility in rush to migrate
+  - Forgetting to set appropriate release dates and prerequisites
+  - Breaking links during file upload process
+  - Not organizing files into folders (chaos in file repository)
+  - Inadequate student orientation and navigation support
+  - Migrating outdated or low-quality content without improvement
+
+resources:
+  - Canvas Community Best Practices
+  - Online Course Design Rubrics (Quality Matters, OSCQR)
+  - WCAG 2.1 Quick Reference
+  - UDL Guidelines 3.0
+  - Canvas Accessibility Resources
+  - File Format Conversion Tools
+  - Video Captioning Services
+  - Canvas Import Tools Documentation

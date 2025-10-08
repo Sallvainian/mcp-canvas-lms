@@ -1,0 +1,506 @@
+# Understanding by Design (UbD) - Backward Design Unit Template
+# Based on Wiggins & McTighe's Three-Stage Framework
+# Canvas Integration: Use with canvas_create_module, canvas_create_assignment
+
+metadata:
+  title: "UbD Unit Plan"
+  author: ""  # Unit designer
+  subject: ""
+  grade_level: ""
+  unit_title: ""
+  unit_duration: ""  # e.g., "3 weeks" or "12 lessons"
+  timeframe: ""  # e.g., "October 1-21, 2024"
+  date_created: ""  # YYYY-MM-DD
+  last_revised: ""  # YYYY-MM-DD
+
+# Unit Context
+context:
+  course_overview: ""  # Where this unit fits in the course
+
+  prior_knowledge:
+    prerequisite_skills: []
+    prerequisite_knowledge: []
+    connection_to_previous_units: ""
+
+  future_connections: ""  # How this prepares for future learning
+
+# ====================================================================
+# STAGE 1: DESIRED RESULTS (Start with the End in Mind)
+# ====================================================================
+
+stage_1_desired_results:
+
+  # Established Goals (Standards)
+  established_goals:
+    - standard_code: ""  # e.g., "CCSS.ELA-LITERACY.RL.9-10.2"
+      standard_text: ""  # Full text of standard
+      priority: ""  # high, medium, low
+
+    - standard_code: ""
+      standard_text: ""
+      priority: ""
+
+  # Transfer Goals (Long-term, autonomous application)
+  transfer_goals:
+    - goal: ""  # What students will be able to do independently and flexibly
+      # Example: "Students will be able to independently use their learning to analyze
+      # how authors use literary devices to develop themes in any text they encounter."
+
+  # Meaning (What students will understand)
+  understandings:
+    # Enduring Understandings (Big Ideas worth understanding)
+    enduring_understandings:
+      - understanding: ""  # Stated as full sentences starting with "Students will understand that..."
+        # Example: "Students will understand that authors make deliberate choices about
+        # literary devices to convey deeper meanings and themes."
+
+      - understanding: ""
+
+    # Essential Questions (Provocative, open-ended questions)
+    essential_questions:
+      overarching:  # Span multiple units/course
+        - question: ""
+        # Example: "How do authors communicate what cannot be directly stated?"
+
+      topical:  # Specific to this unit
+        - question: ""
+        # Example: "How does symbolism reveal character motivations?"
+
+        - question: ""
+
+  # Acquisition (What students will know and be able to do)
+  acquisition:
+
+    # Knowledge (What students will know)
+    knowledge:
+      - students_will_know: ""  # Specific facts, concepts, vocabulary
+      # Example: "Students will know the definitions of key literary devices
+      # (metaphor, symbolism, imagery, tone)"
+
+      - students_will_know: ""
+
+    # Skills (What students will be able to do)
+    skills:
+      - students_will_be_skilled_at: ""  # Discrete skills and processes
+      # Example: "Students will be skilled at identifying and analyzing how
+      # literary devices contribute to theme development"
+
+      - students_will_be_skilled_at: ""
+
+# ====================================================================
+# STAGE 2: ASSESSMENT EVIDENCE (Determine Acceptable Evidence)
+# ====================================================================
+
+stage_2_assessment_evidence:
+
+  # Performance Tasks (GRASPS Framework)
+  performance_tasks:
+    - task_id: "PT1"
+      task_title: ""
+
+      # GRASPS Elements
+      goal: ""  # What the student will accomplish
+      # Example: "Create a literary analysis presentation for incoming students"
+
+      role: ""  # Student's perspective/role
+      # Example: "You are a literary critic and educator"
+
+      audience: ""  # Who the work is for
+      # Example: "Incoming 10th grade students"
+
+      situation: ""  # Context/scenario
+      # Example: "The English department wants to prepare students for analyzing complex texts"
+
+      product_performance: ""  # What they create/do
+      # Example: "Develop a 10-minute multimedia presentation analyzing how an author
+      # uses literary devices to develop a central theme"
+
+      standards_for_success: []  # Success criteria/rubric highlights
+      # Example:
+      # - "Identifies at least 3 literary devices with textual evidence"
+      # - "Explains the connection between devices and theme"
+      # - "Presents clearly with engaging visuals"
+
+      # Task Details
+      transfer_goal_addressed: ""  # Which transfer goal(s)
+      understandings_assessed: []  # Which enduring understandings
+      essential_questions_explored: []  # Which essential questions
+
+      duration: ""  # Time allocated
+      scaffolding_provided: []  # Support structures
+      differentiation: []  # How task is differentiated
+
+      # Assessment Tools
+      rubric_criteria:
+        - criterion: ""
+          weight: 0  # percentage or points
+
+      self_assessment_component: ""  # How students self-assess
+      peer_assessment_component: ""  # How peers provide feedback
+
+      # Canvas Integration
+      canvas_assignment_type: "project"  # assignment type in Canvas
+      points_possible: 0
+      submission_format: ""  # online upload, presentation, etc.
+
+  # Other Evidence (Formative and summative checks)
+  other_evidence:
+
+    # Formative Assessments
+    formative:
+      - assessment: ""
+        type: ""  # quiz, exit ticket, observation, discussion, etc.
+        timing: ""  # When administered
+        purpose: ""  # What it reveals about student learning
+        standards_addressed: []
+
+      - assessment: ""
+        type: ""
+        timing: ""
+        purpose: ""
+        standards_addressed: []
+
+    # Summative Assessments (Beyond performance task)
+    summative:
+      - assessment: ""
+        format: ""  # test, essay, project, etc.
+        timing: ""
+        standards_assessed: []
+        weight: 0  # percentage of unit grade
+
+    # Student Self-Assessment
+    self_assessment:
+      - method: ""  # reflection journal, checklist, portfolio
+        frequency: ""
+        focus: ""  # What students reflect on
+
+# ====================================================================
+# STAGE 3: LEARNING PLAN (Design Learning Experiences)
+# ====================================================================
+
+stage_3_learning_plan:
+
+  # WHERE (W-H-E-R-E-T-O Framework)
+  whereto_framework:
+
+    w_where_why:  # Help students understand WHERE the unit is going and WHY
+      - activity: ""
+        purpose: ""
+      # Example: "Present essential questions and discuss real-world relevance
+      # to help students see purpose"
+
+    h_hook:  # HOOK students with engaging experiences
+      - activity: ""
+        engagement_strategy: ""
+      # Example: "Analyze a popular song's lyrics to identify literary devices
+      # students already recognize"
+
+    e_equip_experience:  # EQUIP students with necessary experiences and tools
+      - experience: ""
+        skills_knowledge_developed: []
+      # Example: "Mini-lessons on each literary device with mentor texts
+      # to build analytical vocabulary"
+
+    r_rethink_revise:  # Provide opportunities to RETHINK and REVISE
+      - opportunity: ""
+        feedback_mechanism: ""
+      # Example: "Peer review of draft analyses using feedback protocol"
+
+    e_evaluate:  # Allow students to EVALUATE their work and progress
+      - evaluation_activity: ""
+        reflection_focus: ""
+      # Example: "Self-assessment using rubric before final submission"
+
+    t_tailored:  # TAILOR learning to student needs, interests, abilities
+      - differentiation_strategy: ""
+        student_group: ""
+      # Example: "Provide choice of texts at varied reading levels"
+
+    o_organized:  # ORGANIZE the learning for maximum engagement and effectiveness
+      - organizational_strategy: ""
+      # Example: "Gradual release model: model → guided practice → independent work"
+
+  # Lesson Sequence (Day-by-Day or Lesson-by-Lesson)
+  lesson_sequence:
+
+    - lesson_number: 1
+      lesson_title: ""
+      duration: ""  # minutes or class periods
+
+      lesson_objectives: []  # Specific to this lesson
+
+      whereto_focus: []  # Which W-H-E-R-E-T-O elements
+
+      # Instructional Flow
+      instructional_flow:
+        - phase: "Introduction/Hook"
+          duration: ""  # minutes
+          activities: []
+          teaching_strategies: []
+
+        - phase: "Direct Instruction/Modeling"
+          duration: ""
+          activities: []
+          teaching_strategies: []
+
+        - phase: "Guided Practice"
+          duration: ""
+          activities: []
+          teaching_strategies: []
+
+        - phase: "Independent Practice"
+          duration: ""
+          activities: []
+          teaching_strategies: []
+
+        - phase: "Closure/Assessment"
+          duration: ""
+          activities: []
+          teaching_strategies: []
+
+      # Resources
+      materials_needed: []
+      technology_tools: []
+      texts_used: []
+
+      # Assessment
+      formative_checks: []  # How you'll monitor understanding
+      success_indicators: []  # What you'll look for
+
+      # Differentiation
+      differentiation:
+        content: []
+        process: []
+        product: []
+        environment: []
+
+      # Homework/Extension
+      homework: ""
+      extension_activities: []
+
+      # Canvas Integration
+      canvas_module_items:
+        - type: ""  # page, assignment, discussion
+          title: ""
+          description: ""
+
+    - lesson_number: 2
+      lesson_title: ""
+      duration: ""
+      lesson_objectives: []
+      whereto_focus: []
+      instructional_flow:
+        - phase: "Introduction/Hook"
+          duration: ""
+          activities: []
+          teaching_strategies: []
+        - phase: "Direct Instruction/Modeling"
+          duration: ""
+          activities: []
+          teaching_strategies: []
+        - phase: "Guided Practice"
+          duration: ""
+          activities: []
+          teaching_strategies: []
+        - phase: "Independent Practice"
+          duration: ""
+          activities: []
+          teaching_strategies: []
+        - phase: "Closure/Assessment"
+          duration: ""
+          activities: []
+          teaching_strategies: []
+      materials_needed: []
+      technology_tools: []
+      texts_used: []
+      formative_checks: []
+      success_indicators: []
+      differentiation:
+        content: []
+        process: []
+        product: []
+        environment: []
+      homework: ""
+      extension_activities: []
+      canvas_module_items:
+        - type: ""
+          title: ""
+          description: ""
+
+# ====================================================================
+# UNIT RESOURCES
+# ====================================================================
+
+resources:
+
+  # Core Texts and Materials
+  core_materials:
+    - title: ""
+      author: ""
+      type: ""  # novel, article, video, primary source
+      rationale: ""  # Why this text/resource
+      accessibility: ""  # How all students can access
+
+  # Supplementary Resources
+  supplementary:
+    - resource: ""
+      purpose: ""
+      when_used: ""
+
+  # Technology Tools
+  technology:
+    - tool: ""
+      purpose: ""
+      lessons_used: []
+
+  # Accommodations and Modifications
+  accommodations:
+    - student_need: ""  # IEP, 504, ELL, etc.
+      accommodations: []
+
+# ====================================================================
+# DIFFERENTIATION PLAN
+# ====================================================================
+
+differentiation:
+
+  # By Readiness
+  readiness:
+    below_level:
+      - strategy: ""
+        implementation: ""
+
+    on_level:
+      - strategy: ""
+        implementation: ""
+
+    above_level:
+      - strategy: ""
+        implementation: ""
+
+  # By Interest
+  interest:
+    - choice_opportunity: ""
+      options: []
+
+  # By Learning Profile
+  learning_profile:
+    - modality: ""  # visual, auditory, kinesthetic
+      strategies: []
+
+# ====================================================================
+# REFLECTION AND REVISION
+# ====================================================================
+
+reflection:
+
+  # Pre-Implementation
+  pre_implementation:
+    anticipated_challenges: []
+    mitigation_strategies: []
+
+  # During Implementation
+  ongoing_adjustments:
+    - date: ""
+      observation: ""
+      adjustment_made: ""
+
+  # Post-Implementation
+  post_implementation:
+    what_worked_well: []
+    areas_for_improvement: []
+    student_learning_evidence: ""
+    revisions_for_next_time: []
+
+# ====================================================================
+# CANVAS INTEGRATION
+# ====================================================================
+
+canvas_integration:
+
+  # Module Structure
+  module_setup:
+    module_title: ""
+    module_description: ""
+    prerequisites: []
+    estimated_completion_time: ""
+
+  # Assignment Alignment
+  assignments:
+    - assignment_name: ""
+      assignment_type: ""
+      stage_2_connection: ""  # Which assessment evidence
+      points: 0
+      due_date: ""
+      submission_type: []
+
+  # Publishing Schedule
+  publishing:
+    - item: ""
+      publish_date: ""
+      rationale: ""
+
+# ====================================================================
+# QUALITY CHECKLIST
+# ====================================================================
+
+quality_checklist:
+  - criterion: "Transfer goals focus on long-term, autonomous application"
+    met: false
+
+  - criterion: "Enduring understandings are worth understanding (go beyond facts)"
+    met: false
+
+  - criterion: "Essential questions are provocative and arguable"
+    met: false
+
+  - criterion: "Performance task is authentic and requires transfer"
+    met: false
+
+  - criterion: "Performance task aligns with transfer goals and understandings"
+    met: false
+
+  - criterion: "Multiple forms of evidence (formative and summative)"
+    met: false
+
+  - criterion: "Learning activities clearly build toward desired results"
+    met: false
+
+  - criterion: "W-H-E-R-E-T-O elements are evident in learning plan"
+    met: false
+
+  - criterion: "Differentiation strategies address diverse learners"
+    met: false
+
+  - criterion: "Unit flows logically from Stage 1 → Stage 2 → Stage 3"
+    met: false
+
+# ====================================================================
+# REFERENCES
+# ====================================================================
+
+references:
+  ubd_framework:
+    - "Wiggins, G., & McTighe, J. (2005). Understanding by Design (2nd ed.)"
+    - "McTighe, J., & Wiggins, G. (2013). Essential Questions: Opening Doors to Student Understanding"
+
+  helpful_resources:
+    - resource: "ASCD UbD Resources"
+      url: "https://www.ascd.org/books/understanding-by-design-expanded-2nd-edition"
+
+    - resource: "UbD Template Examples"
+      url: "https://jaymctighe.com/resources/"
+
+# ====================================================================
+# NOTES
+# ====================================================================
+
+notes: |
+  Additional implementation notes, contextual information, or reminders.
+
+  Key UbD Principles:
+  - Begin with the end in mind (Stage 1)
+  - Determine acceptable evidence before planning instruction (Stage 2)
+  - Design learning experiences that lead to desired results (Stage 3)
+  - Focus on transfer, meaning, and acquisition
+  - Make thinking visible throughout

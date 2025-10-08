@@ -1,0 +1,398 @@
+name: Comprehensive Assessment System Overhaul
+description: Complete revision of course assessment system to improve alignment, authenticity, fairness, and feedback quality while implementing standards-based or competency-based grading practices
+duration: 2-3 weeks
+difficulty: advanced
+prerequisites:
+  - Current course assessments and grading data
+  - Understanding of assessment design principles
+  - Familiarity with standards-based or competency-based grading
+  - Access to Canvas course gradebook
+  - Student performance and feedback data
+
+phases:
+  - phase: 1
+    name: Assessment System Audit and Analysis
+    duration: 3-4 days
+    tasks:
+      - task: audit-current-assessments
+        agent: assessment-specialist
+        templates:
+          - assessment-audit-template.md
+          - alignment-analysis-worksheet.md
+        checklists:
+          - assessment-quality-checklist.md
+          - alignment-verification-checklist.md
+        outputs:
+          - Current assessment inventory
+          - Alignment analysis (outcomes vs. assessments)
+          - Assessment quality evaluation
+          - Gap and redundancy identification
+
+      - task: analyze-grading-system
+        agent: assessment-specialist
+        templates:
+          - grading-analysis-template.md
+          - grade-distribution-analysis.md
+        checklists:
+          - grading-equity-checklist.md
+        outputs:
+          - Grading system analysis
+          - Grade distribution patterns
+          - Equity and bias assessment
+          - Grading policy effectiveness review
+
+      - task: gather-stakeholder-feedback
+        agent: curriculum-architect
+        templates:
+          - stakeholder-survey-template.md
+          - feedback-analysis-worksheet.md
+        checklists:
+          - stakeholder-engagement-checklist.md
+        outputs:
+          - Student feedback on assessments
+          - Teacher/colleague insights
+          - Parent/guardian perspectives (if applicable)
+          - Stakeholder priorities for improvement
+
+    quality_gates:
+      - Complete inventory of all assessments with alignment data
+      - Grading system thoroughly analyzed with equity lens
+      - Stakeholder feedback collected and synthesized
+      - Clear priorities for assessment overhaul established
+
+  - phase: 2
+    name: Design Assessment Architecture
+    duration: 4-5 days
+    tasks:
+      - task: define-assessment-philosophy
+        agent: assessment-specialist
+        templates:
+          - assessment-philosophy-template.md
+          - assessment-principles-worksheet.md
+        checklists:
+          - assessment-philosophy-checklist.md
+        outputs:
+          - Assessment philosophy statement
+          - Core assessment principles
+          - Assessment types framework (formative, summative, diagnostic)
+          - Assessment distribution plan
+
+      - task: design-summative-assessment-suite
+        agent: assessment-specialist
+        templates:
+          - assessment-blueprint-template.md
+          - performance-task-template.md
+          - rubric-template.md
+        checklists:
+          - assessment-quality-checklist.md
+        outputs:
+          - 3-5 major summative assessments designed
+          - Performance tasks with authentic contexts
+          - Transfer tasks demonstrating application
+          - Comprehensive assessment rubrics
+
+      - task: create-formative-assessment-system
+        agent: assessment-specialist
+        templates:
+          - formative-assessment-tracker.md
+          - feedback-protocol-template.md
+        checklists:
+          - formative-assessment-checklist.md
+        outputs:
+          - Formative assessment calendar
+          - Quick checks and exit tickets
+          - Progress monitoring tools
+          - Feedback and adjustment protocols
+
+    quality_gates:
+      - Assessment philosophy clear and communicated
+      - Summative assessments authentically measure outcomes
+      - Formative assessments distributed throughout course
+      - All assessments have clear success criteria and rubrics
+
+  - phase: 3
+    name: Develop Grading and Reporting System
+    duration: 3-4 days
+    tasks:
+      - task: design-grading-framework
+        agent: assessment-specialist
+        templates:
+          - standards-based-grading-template.md
+          - grading-policy-template.md
+        checklists:
+          - grading-system-checklist.md
+        outputs:
+          - Grading framework (standards-based, competency-based, or hybrid)
+          - Grade calculation methodology
+          - Retake and revision policies
+          - Late work and missing assignment policies
+
+      - task: create-assessment-weightings
+        agent: assessment-specialist
+        templates:
+          - grade-weighting-template.md
+          - assessment-category-template.md
+        checklists:
+          - weighting-logic-checklist.md
+        outputs:
+          - Assessment category definitions
+          - Grade weighting structure
+          - Point values or proficiency scales
+          - Gradebook organization plan
+
+      - task: develop-reporting-tools
+        agent: assessment-specialist
+        templates:
+          - progress-report-template.md
+          - feedback-report-template.md
+        checklists:
+          - reporting-clarity-checklist.md
+        outputs:
+          - Student progress report formats
+          - Parent/guardian communication templates
+          - Self-assessment and reflection tools
+          - Grade explanation resources
+
+    quality_gates:
+      - Grading system aligns with assessment philosophy
+      - Grade calculation method transparent and equitable
+      - Retake and revision policies support learning
+      - Reporting tools provide actionable feedback
+
+  - phase: 4
+    name: Build Assessment Materials and Resources
+    duration: 4-5 days
+    tasks:
+      - task: develop-assessment-content
+        agent: instructional-designer
+        templates:
+          - assessment-item-template.md
+          - performance-task-scaffold.md
+        checklists:
+          - item-quality-checklist.md
+        outputs:
+          - Complete assessment items and questions
+          - Performance task materials and resources
+          - Student instructions and exemplars
+          - Assessment administration guides
+
+      - task: create-rubrics-scoring-guides
+        agent: assessment-specialist
+        templates:
+          - rubric-template.md
+          - scoring-guide-template.md
+        checklists:
+          - rubric-quality-checklist.md
+        outputs:
+          - Detailed rubrics for all assessments
+          - Scoring guides and anchor papers
+          - Student-friendly rubric versions
+          - Calibration materials for consistent scoring
+
+      - task: ensure-assessment-accessibility
+        agent: accessibility-specialist
+        templates:
+          - accessibility-audit-template.md
+          - accommodation-guide-template.md
+        checklists:
+          - wcag-compliance-checklist.md
+          - assessment-accessibility-checklist.md
+        outputs:
+          - Accessibility audit of all assessments
+          - Accommodated versions as needed
+          - Alternative assessment formats
+          - Accessibility verification report
+
+    quality_gates:
+      - All assessment materials complete and professional quality
+      - Rubrics provide clear criteria with exemplars
+      - All assessments meet accessibility standards
+      - Student instructions clear and complete
+
+  - phase: 5
+    name: Canvas Gradebook Implementation
+    duration: 3-4 days
+    tasks:
+      - task: configure-canvas-gradebook
+        agent: canvas-integration-specialist
+        templates:
+          - gradebook-setup-template.md
+          - assignment-group-template.md
+        checklists:
+          - gradebook-verification-checklist.md
+        outputs:
+          - Assignment groups created
+          - Grade weighting configured
+          - Grading schemes applied
+          - Gradebook policies set
+
+      - task: create-canvas-assignments
+        agent: canvas-integration-specialist
+        templates:
+          - assignment-configuration-guide.md
+        checklists:
+          - assignment-checklist.md
+        outputs:
+          - All assignments created in Canvas
+          - Assignment instructions and resources added
+          - Rubrics attached to assignments
+          - Submission types configured
+
+      - task: setup-assessment-delivery
+        agent: canvas-integration-specialist
+        templates:
+          - quiz-setup-template.md
+          - external-tool-integration-guide.md
+        checklists:
+          - assessment-delivery-checklist.md
+        outputs:
+          - Canvas quizzes configured (if applicable)
+          - External assessment tools integrated
+          - Assignment overrides for accommodations
+          - Assessment release and due date schedule
+
+    quality_gates:
+      - Gradebook structure matches grading framework
+      - All assignments properly configured with rubrics
+      - Assignment groups and weighting correct
+      - Assessment delivery tested and functional
+
+  - phase: 6
+    name: Communication and Support Materials
+    duration: 2-3 days
+    tasks:
+      - task: create-student-communications
+        agent: instructional-designer
+        templates:
+          - assessment-guide-template.md
+          - student-FAQ-template.md
+        checklists:
+          - communication-clarity-checklist.md
+        outputs:
+          - Student assessment guide
+          - Grading system explanation
+          - FAQ document
+          - Assessment calendar
+
+      - task: develop-teacher-resources
+        agent: assessment-specialist
+        templates:
+          - teacher-guide-template.md
+          - implementation-checklist-template.md
+        checklists:
+          - implementation-readiness-checklist.md
+        outputs:
+          - Teacher implementation guide
+          - Scoring and grading procedures
+          - Feedback protocol guidelines
+          - Assessment administration timeline
+
+      - task: prepare-stakeholder-rollout
+        agent: curriculum-architect
+        templates:
+          - stakeholder-communication-template.md
+          - parent-guide-template.md
+        checklists:
+          - rollout-checklist.md
+        outputs:
+          - Parent/guardian communication
+          - Administrator briefing materials
+          - Change management plan
+          - Support and training resources
+
+    quality_gates:
+      - All stakeholders informed about assessment changes
+      - Student-facing materials clear and accessible
+      - Teacher resources complete and helpful
+      - Support systems in place for implementation
+
+agents_involved:
+  - agent: assessment-specialist
+    role: Lead assessment design, grading system development, and quality assurance
+
+  - agent: curriculum-architect
+    role: Overall coordination, stakeholder engagement, and alignment verification
+
+  - agent: instructional-designer
+    role: Assessment materials creation and communication development
+
+  - agent: accessibility-specialist
+    role: Assessment accessibility, accommodations, and UDL integration
+
+  - agent: canvas-integration-specialist
+    role: Canvas gradebook configuration and technical implementation
+
+canvas_integration:
+  mcp_tools_used:
+    - canvas_list_assignment_groups: Review current gradebook structure
+    - canvas_create_assignment_group: Create assessment categories
+    - canvas_update_assignment_group: Configure weighting and drop rules
+    - canvas_create_assignment: Build all new assignments
+    - canvas_update_assignment: Revise existing assignments
+    - canvas_delete_assignment: Remove outdated assessments
+    - canvas_create_rubric: Build assessment rubrics
+    - canvas_update_rubric: Revise existing rubrics
+    - canvas_create_assignment_override: Set up accommodations and extensions
+    - canvas_create_quiz: Build Canvas quiz assessments
+    - canvas_create_quiz_question: Add quiz items
+    - canvas_get_gradebook: Verify gradebook configuration
+    - canvas_set_late_policy: Configure late submission penalties
+    - canvas_get_late_policy: Review late work policies
+
+  implementation_sequence:
+    - step: 1
+      action: Audit current gradebook
+      tools: [canvas_list_assignment_groups, canvas_list_assignments, canvas_get_gradebook]
+
+    - step: 2
+      action: Remove outdated assessments
+      tools: [canvas_delete_assignment]
+
+    - step: 3
+      action: Create new gradebook structure
+      tools: [canvas_create_assignment_group, canvas_update_assignment_group]
+
+    - step: 4
+      action: Build rubrics
+      tools: [canvas_create_rubric]
+
+    - step: 5
+      action: Create assignments
+      tools: [canvas_create_assignment, canvas_create_quiz]
+
+    - step: 6
+      action: Configure policies
+      tools: [canvas_set_late_policy, canvas_create_assignment_override]
+
+    - step: 7
+      action: Verify and test
+      tools: [canvas_get_gradebook, canvas_list_assignments]
+
+success_criteria:
+  - All assessments directly aligned to learning outcomes
+  - Grading system transparent, equitable, and defensible
+  - Multiple forms of evidence for each outcome
+  - Formative assessments integrated throughout course
+  - All assessments meet accessibility standards
+  - Canvas gradebook configured correctly
+  - Stakeholders informed and supportive
+  - Student feedback shows improved clarity and fairness
+
+common_pitfalls:
+  - Changing too much too quickly without stakeholder buy-in
+  - Creating complex grading systems that are hard to explain
+  - Not providing enough examples and models for students
+  - Overlooking accessibility in assessment design
+  - Insufficient formative assessment to support learning
+  - Gradebook configuration errors causing calculation issues
+  - Poor communication of changes to students and parents
+  - Not aligning retake/revision policies with grading philosophy
+
+resources:
+  - Classroom Assessment for Student Learning (Stiggins et al.)
+  - Standards-Based Grading Resources (Marzano, O'Connor)
+  - Canvas Gradebook Best Practices
+  - Assessment Accessibility Guidelines
+  - Formative Assessment Strategies Handbook
+  - Rubric Design and Quality Criteria
+  - Grading for Equity (Joe Feldman)

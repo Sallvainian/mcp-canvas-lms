@@ -1,0 +1,383 @@
+name: Differentiation Quality & Respectful Task Check
+description: Validates differentiation quality using Tomlinson's principles and respectful task design
+version: 1.0.0
+theory_base: [tomlinson_differentiation, respectful_tasks, responsive_teaching, readiness_levels]
+
+categories:
+  - category: Differentiation by Readiness
+    criteria:
+      - id: ready-assess-1
+        item: Student readiness accurately assessed before differentiation
+        required: true
+        resources: [readiness-assessment.yaml]
+        passing_score: 90
+
+      - id: ready-tiers-1
+        item: Tiered assignments address different readiness levels
+        required: true
+        resources: [tiered-assignments.yaml]
+        passing_score: 85
+
+      - id: ready-scaffold-1
+        item: Scaffolding appropriate for readiness (more/less support)
+        required: true
+        resources: [scaffolding-strategies.yaml]
+        passing_score: 90
+
+      - id: ready-complexity-1
+        item: Task complexity varied while maintaining rigor
+        required: true
+        resources: [complexity-differentiation.yaml]
+        passing_score: 85
+
+      - id: ready-pacing-1
+        item: Pacing flexibility for different readiness levels
+        required: true
+        resources: [pacing-strategies.yaml]
+        passing_score: 80
+
+  - category: Differentiation by Interest
+    criteria:
+      - id: interest-choice-1
+        item: Student interests incorporated into learning options
+        required: true
+        resources: [interest-inventories.yaml]
+        passing_score: 85
+
+      - id: interest-topics-1
+        item: Topic choices align with student interests
+        required: false
+        resources: [interest-based-learning.yaml]
+        passing_score: 75
+
+      - id: interest-products-1
+        item: Product options reflect diverse interests
+        required: true
+        resources: [product-differentiation.yaml]
+        passing_score: 80
+
+      - id: interest-resources-1
+        item: Resources and materials connect to student interests
+        required: false
+        resources: [resource-selection.yaml]
+        passing_score: 75
+
+  - category: Differentiation by Learning Profile
+    criteria:
+      - id: profile-style-1
+        item: Multiple learning styles/preferences addressed
+        required: true
+        resources: [learning-profiles.yaml]
+        passing_score: 85
+
+      - id: profile-modality-1
+        item: Multi-modal instruction (visual, auditory, kinesthetic)
+        required: true
+        resources: [modality-options.yaml]
+        passing_score: 90
+
+      - id: profile-grouping-1
+        item: Flexible grouping strategies used
+        required: true
+        resources: [grouping-strategies.yaml]
+        passing_score: 85
+
+      - id: profile-environment-1
+        item: Learning environment options provided
+        required: false
+        resources: [environment-flexibility.yaml]
+        passing_score: 70
+
+  - category: Respectful Tasks (Tomlinson)
+    criteria:
+      - id: respect-equally-1
+        item: All differentiated tasks equally interesting and engaging
+        required: true
+        resources: [respectful-tasks.yaml]
+        passing_score: 90
+
+      - id: respect-essential-1
+        item: All tasks focus on essential knowledge and skills
+        required: true
+        resources: [essential-learning.yaml]
+        passing_score: 95
+
+      - id: respect-thinking-1
+        item: All tasks require high-level thinking (no busywork for anyone)
+        required: true
+        resources: [higher-order-thinking.yaml]
+        passing_score: 95
+
+      - id: respect-equally-challenging-1
+        item: Tasks equally challenging for each student's level
+        required: true
+        resources: [appropriate-challenge.yaml]
+        passing_score: 90
+
+      - id: respect-dignity-1
+        item: All tasks preserve student dignity (no watered-down versions)
+        required: true
+        resources: [dignity-preservation.yaml]
+        passing_score: 100
+
+  - category: Differentiation of Content
+    criteria:
+      - id: content-complexity-1
+        item: Conceptual complexity varied appropriately
+        required: true
+        resources: [content-complexity.yaml]
+        passing_score: 85
+
+      - id: content-resources-1
+        item: Resources at varied reading levels/formats
+        required: true
+        resources: [text-complexity.yaml]
+        passing_score: 90
+
+      - id: content-depth-1
+        item: Depth of content exploration differentiated
+        required: true
+        resources: [depth-differentiation.yaml]
+        passing_score: 85
+
+      - id: content-essentials-1
+        item: Core concepts consistent, complexity varies
+        required: true
+        resources: [essential-vs-supporting.yaml]
+        passing_score: 95
+
+  - category: Differentiation of Process
+    criteria:
+      - id: process-activities-1
+        item: Learning activities varied to match readiness/style
+        required: true
+        resources: [activity-differentiation.yaml]
+        passing_score: 85
+
+      - id: process-support-1
+        item: Instructional support levels varied (high to low)
+        required: true
+        resources: [support-levels.yaml]
+        passing_score: 90
+
+      - id: process-time-1
+        item: Time allocations flexible for different learners
+        required: true
+        resources: [time-differentiation.yaml]
+        passing_score: 80
+
+      - id: process-strategies-1
+        item: Learning strategies explicitly taught and varied
+        required: true
+        resources: [strategy-instruction.yaml]
+        passing_score: 85
+
+  - category: Differentiation of Product
+    criteria:
+      - id: product-options-1
+        item: Multiple product options demonstrating mastery
+        required: true
+        resources: [product-options.yaml]
+        passing_score: 90
+
+      - id: product-standards-1
+        item: All products held to same learning standards
+        required: true
+        resources: [standards-consistency.yaml]
+        passing_score: 100
+
+      - id: product-rubric-1
+        item: Rubrics differentiated while maintaining rigor
+        required: true
+        resources: [rubric-differentiation.yaml]
+        passing_score: 85
+
+      - id: product-authentic-1
+        item: Product options equally authentic and valuable
+        required: true
+        resources: [authentic-products.yaml]
+        passing_score: 85
+
+  - category: Assessment for Differentiation
+    criteria:
+      - id: assess-pre-1
+        item: Pre-assessment informs differentiation decisions
+        required: true
+        resources: [pre-assessment.yaml]
+        passing_score: 95
+
+      - id: assess-ongoing-1
+        item: Ongoing assessment guides instructional adjustments
+        required: true
+        resources: [formative-assessment.yaml]
+        passing_score: 90
+
+      - id: assess-flexible-1
+        item: Assessment methods varied to show diverse learning
+        required: true
+        resources: [assessment-differentiation.yaml]
+        passing_score: 85
+
+      - id: assess-standards-1
+        item: Assessment of standards consistent across groups
+        required: true
+        resources: [standards-based-grading.yaml]
+        passing_score: 95
+
+  - category: Flexible Grouping
+    criteria:
+      - id: group-varied-1
+        item: Groups formed for varied purposes (not always ability)
+        required: true
+        resources: [grouping-purposes.yaml]
+        passing_score: 85
+
+      - id: group-fluid-1
+        item: Group membership fluid, not fixed
+        required: true
+        resources: [flexible-grouping.yaml]
+        passing_score: 90
+
+      - id: group-heterogeneous-1
+        item: Mix of homogeneous and heterogeneous grouping
+        required: true
+        resources: [grouping-configurations.yaml]
+        passing_score: 80
+
+      - id: group-independent-1
+        item: Independent work options available
+        required: true
+        resources: [independent-learning.yaml]
+        passing_score: 80
+
+  - category: Scaffolding Strategies
+    criteria:
+      - id: scaffold-graduated-1
+        item: Graduated levels of support available
+        required: true
+        resources: [scaffolding-levels.yaml]
+        passing_score: 90
+
+      - id: scaffold-removal-1
+        item: Scaffolds removed as students gain competence
+        required: true
+        resources: [scaffold-fading.yaml]
+        passing_score: 85
+
+      - id: scaffold-types-1
+        item: Various scaffold types used (organizers, prompts, models)
+        required: true
+        resources: [scaffold-types.yaml]
+        passing_score: 85
+
+      - id: scaffold-independence-1
+        item: Scaffolds promote independence, not dependence
+        required: true
+        resources: [independence-building.yaml]
+        passing_score: 90
+
+  - category: Challenge & Extension
+    criteria:
+      - id: challenge-advanced-1
+        item: Meaningful extension for advanced learners (not just more)
+        required: true
+        resources: [extension-strategies.yaml]
+        passing_score: 90
+
+      - id: challenge-depth-1
+        item: Depth and complexity increased appropriately
+        required: true
+        resources: [depth-complexity.yaml]
+        passing_score: 85
+
+      - id: challenge-compacting-1
+        item: Curriculum compacting used when appropriate
+        required: false
+        resources: [curriculum-compacting.yaml]
+        passing_score: 75
+
+      - id: challenge-acceleration-1
+        item: Acceleration options available when needed
+        required: false
+        resources: [acceleration-options.yaml]
+        passing_score: 70
+
+  - category: Equity & Access
+    criteria:
+      - id: equity-access-1
+        item: All students access grade-level content
+        required: true
+        resources: [grade-level-access.yaml]
+        passing_score: 95
+
+      - id: equity-rigor-1
+        item: Rigor maintained for all learners
+        required: true
+        resources: [rigor-consistency.yaml]
+        passing_score: 95
+
+      - id: equity-opportunity-1
+        item: Equal opportunity to demonstrate learning
+        required: true
+        resources: [opportunity-equality.yaml]
+        passing_score: 95
+
+      - id: equity-expectations-1
+        item: High expectations for all students
+        required: true
+        resources: [high-expectations.yaml]
+        passing_score: 100
+
+  - category: Classroom Management for Differentiation
+    criteria:
+      - id: manage-routines-1
+        item: Clear routines enable smooth differentiation
+        required: true
+        resources: [differentiation-routines.yaml]
+        passing_score: 85
+
+      - id: manage-transitions-1
+        item: Efficient transitions between activities/groups
+        required: true
+        resources: [transition-management.yaml]
+        passing_score: 80
+
+      - id: manage-materials-1
+        item: Materials organized for easy access
+        required: true
+        resources: [material-organization.yaml]
+        passing_score: 80
+
+      - id: manage-anchor-1
+        item: Anchor activities for students who finish early
+        required: true
+        resources: [anchor-activities.yaml]
+        passing_score: 85
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Assess differentiation approach (readiness, interest, profile)
+  - step: Validate respectful task design
+  - step: Check differentiation across content, process, product
+  - step: Review assessment alignment with differentiation
+  - step: Evaluate flexible grouping strategies
+  - step: Assess scaffolding quality
+  - step: Check equity and access
+  - step: Generate differentiation quality report
+
+canvas_integration:
+  - location: assignments_with_options
+  - location: mastery_paths
+  - location: conditional_release
+  - location: differentiated_modules
+  - tools: choice_boards
+  - tools: tiered_activities
+  - tools: adaptive_quizzes
+  - analytics: student_readiness_data
+  - analytics: engagement_by_option

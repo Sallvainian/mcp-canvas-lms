@@ -1,0 +1,198 @@
+name: Curriculum Alignment Validation
+description: Validates vertical and horizontal curriculum alignment across courses, units, and lessons
+version: 1.0.0
+theory_base: [backward_design, curriculum_mapping, scope_sequence]
+
+categories:
+  - category: Vertical Alignment (Prerequisites → Advanced)
+    criteria:
+      - id: vert-prereq-1
+        item: Clear prerequisite knowledge identified for each learning objective
+        required: true
+        resources: [learning-objectives-quality.yaml]
+        passing_score: 95
+
+      - id: vert-prereq-2
+        item: Skills build logically from prior learning (scaffolding)
+        required: true
+        resources: [cognitive-load-check.yaml]
+        passing_score: 90
+
+      - id: vert-progression-1
+        item: Cognitive complexity increases appropriately across units
+        required: true
+        resources: [bloom-taxonomy.yaml]
+        passing_score: 90
+
+      - id: vert-progression-2
+        item: No gaps in skill progression identified
+        required: true
+        resources: [backward-design-validation.yaml]
+        passing_score: 95
+
+      - id: vert-progression-3
+        item: Advanced concepts build on foundational understanding
+        required: true
+        resources: [knowledge-structure.yaml]
+        passing_score: 85
+
+  - category: Horizontal Alignment (Parallel Content)
+    criteria:
+      - id: horiz-consistency-1
+        item: Similar topics across sections/courses use consistent terminology
+        required: true
+        resources: [vocabulary-standards.yaml]
+        passing_score: 90
+
+      - id: horiz-consistency-2
+        item: Learning objectives at same level have similar rigor
+        required: true
+        resources: [learning-objectives-quality.yaml]
+        passing_score: 85
+
+      - id: horiz-consistency-3
+        item: Assessment methods aligned across parallel courses/sections
+        required: true
+        resources: [assessment-validity.yaml]
+        passing_score: 85
+
+      - id: horiz-transfer-1
+        item: Cross-curricular connections explicitly identified
+        required: false
+        resources: [interdisciplinary-design.yaml]
+        passing_score: 75
+
+  - category: Standards Alignment
+    criteria:
+      - id: standards-coverage-1
+        item: All required standards addressed in curriculum
+        required: true
+        resources: [standards-alignment.yaml]
+        passing_score: 100
+
+      - id: standards-coverage-2
+        item: No standards addressed superficially without mastery opportunity
+        required: true
+        resources: [backward-design-validation.yaml]
+        passing_score: 90
+
+      - id: standards-depth-1
+        item: Appropriate time allocated for standards mastery
+        required: true
+        resources: [pacing-guide.yaml]
+        passing_score: 85
+
+      - id: standards-depth-2
+        item: Standards spiraled for retention and deepening
+        required: false
+        resources: [spiral-curriculum.yaml]
+        passing_score: 80
+
+  - category: Assessment Alignment (Objectives ↔ Assessment ↔ Instruction)
+    criteria:
+      - id: assess-obj-1
+        item: Every objective has corresponding assessment
+        required: true
+        resources: [assessment-validity.yaml]
+        passing_score: 100
+
+      - id: assess-obj-2
+        item: Assessment cognitive level matches objective cognitive level
+        required: true
+        resources: [bloom-taxonomy.yaml]
+        passing_score: 95
+
+      - id: assess-inst-1
+        item: Instruction explicitly teaches skills required for assessment
+        required: true
+        resources: [lesson-plan-quality.yaml]
+        passing_score: 90
+
+      - id: assess-inst-2
+        item: Practice opportunities match assessment format and rigor
+        required: true
+        resources: [formative-assessment.yaml]
+        passing_score: 85
+
+  - category: Scope & Sequence Validation
+    criteria:
+      - id: scope-breadth-1
+        item: Content coverage appropriate for grade level and time available
+        required: true
+        resources: [pacing-guide.yaml]
+        passing_score: 90
+
+      - id: scope-depth-1
+        item: Depth of coverage matches learning objectives
+        required: true
+        resources: [backward-design-validation.yaml]
+        passing_score: 85
+
+      - id: sequence-logic-1
+        item: Topic sequence follows logical learning progression
+        required: true
+        resources: [learning-progression.yaml]
+        passing_score: 90
+
+      - id: sequence-timing-1
+        item: Pacing allows for mastery before progression
+        required: true
+        resources: [mastery-learning.yaml]
+        passing_score: 85
+
+      - id: sequence-flex-1
+        item: Flexibility built in for differentiation and remediation
+        required: true
+        resources: [differentiation-quality.yaml]
+        passing_score: 80
+
+  - category: Coherence & Integration
+    criteria:
+      - id: coherence-1
+        item: Clear thematic or conceptual threads across curriculum
+        required: false
+        resources: [thematic-design.yaml]
+        passing_score: 75
+
+      - id: coherence-2
+        item: Skills and concepts revisited in multiple contexts
+        required: true
+        resources: [transfer-design.yaml]
+        passing_score: 80
+
+      - id: integration-1
+        item: Explicit connections to prior and future learning
+        required: true
+        resources: [backward-design-validation.yaml]
+        passing_score: 85
+
+      - id: integration-2
+        item: Real-world application opportunities integrated
+        required: false
+        resources: [authentic-learning.yaml]
+        passing_score: 70
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Map all objectives to standards
+  - step: Verify vertical progression prerequisites
+  - step: Check horizontal consistency across sections
+  - step: Validate assessment alignment triangle
+  - step: Analyze scope and sequence logic
+  - step: Identify gaps and redundancies
+  - step: Generate alignment report
+
+canvas_integration:
+  - location: course_modules
+  - location: learning_mastery_gradebook
+  - location: outcomes_alignment
+  - validation: prerequisite_checking
+  - validation: standards_coverage_analysis
+  - reporting: alignment_matrix
+  - reporting: gap_analysis

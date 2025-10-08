@@ -1,0 +1,370 @@
+name: New Course Design from Conception to Launch
+description: Complete course development from initial design through Canvas implementation and launch, using Understanding by Design (UbD) framework and Universal Design for Learning (UDL) principles
+duration: 6-8 weeks
+difficulty: advanced
+prerequisites:
+  - Understanding of UbD backward design principles
+  - Familiarity with learning standards and frameworks
+  - Basic Canvas LMS knowledge
+  - Access to Canvas course with teacher/designer role
+  - Curriculum mapping tools (optional)
+
+phases:
+  - phase: 1
+    name: Needs Analysis and Course Foundations
+    duration: 1 week
+    tasks:
+      - task: analyze-learning-context
+        agent: curriculum-architect
+        templates:
+          - course-blueprint-template.md
+          - stakeholder-analysis-worksheet.md
+        checklists:
+          - needs-analysis-checklist.md
+        outputs:
+          - Needs analysis report
+          - Learner profile documentation
+          - Course feasibility assessment
+
+      - task: identify-standards-outcomes
+        agent: curriculum-architect
+        templates:
+          - standards-mapping-template.md
+          - learning-outcomes-template.md
+        checklists:
+          - standards-alignment-checklist.md
+        outputs:
+          - Standards alignment map
+          - Priority outcomes list (5-8 core outcomes)
+          - Vertical alignment documentation
+
+    quality_gates:
+      - Clear, measurable learning outcomes identified
+      - Standards alignment verified by administrator or department lead
+      - Learner needs analysis completed and documented
+      - Stakeholder approval of course scope and outcomes
+
+  - phase: 2
+    name: Assessment Design and Success Criteria
+    duration: 1-2 weeks
+    tasks:
+      - task: design-authentic-assessments
+        agent: assessment-specialist
+        templates:
+          - assessment-blueprint-template.md
+          - rubric-template.md
+          - performance-task-template.md
+        checklists:
+          - assessment-quality-checklist.md
+          - alignment-verification-checklist.md
+        outputs:
+          - Summative assessment designs (2-4 per course)
+          - Authentic performance tasks
+          - Assessment criteria and rubrics
+
+      - task: create-formative-assessment-system
+        agent: assessment-specialist
+        templates:
+          - formative-assessment-tracker.md
+          - feedback-protocol-template.md
+        checklists:
+          - formative-assessment-checklist.md
+        outputs:
+          - Formative assessment plan
+          - Progress monitoring tools
+          - Feedback protocols
+
+      - task: develop-grading-system
+        agent: assessment-specialist
+        templates:
+          - grading-rubric-template.md
+          - standards-based-grading-template.md
+        checklists:
+          - rubric-quality-checklist.md
+        outputs:
+          - Course grading policy
+          - Assessment weighting structure
+          - Standards-based grading framework (if applicable)
+
+    quality_gates:
+      - All assessments directly measure stated learning outcomes
+      - Rubrics provide clear success criteria with exemplars
+      - Multiple forms of evidence planned for each outcome
+      - Formative assessments distributed throughout course timeline
+
+  - phase: 3
+    name: Curriculum Mapping and Unit Design
+    duration: 2-3 weeks
+    tasks:
+      - task: create-curriculum-map
+        agent: curriculum-architect
+        templates:
+          - curriculum-map-template.md
+          - unit-overview-template.md
+        checklists:
+          - curriculum-coherence-checklist.md
+        outputs:
+          - Complete curriculum map with 4-8 units
+          - Scope and sequence document
+          - Pacing guide with flexibility markers
+
+      - task: design-unit-plans
+        agent: instructional-designer
+        templates:
+          - ubd-unit-template.md
+          - essential-questions-template.md
+        checklists:
+          - ubd-alignment-checklist.md
+        outputs:
+          - UbD unit plans for each unit
+          - Essential questions and enduring understandings
+          - Transfer goals and meaning-making frameworks
+
+      - task: design-accessible-learning
+        agent: accessibility-specialist
+        templates:
+          - udl-lesson-template.md
+          - accessibility-checklist-template.md
+        checklists:
+          - udl-principles-checklist.md
+          - wcag-compliance-checklist.md
+        outputs:
+          - UDL implementation plan for each unit
+          - Multiple means of representation strategies
+          - Engagement and expression options documented
+
+    quality_gates:
+      - Units build logically toward course outcomes
+      - Each unit addresses 1-3 priority standards
+      - UDL principles integrated throughout all units
+      - Vertical and horizontal alignment verified
+
+  - phase: 4
+    name: Lesson Development and Learning Activities
+    duration: 2-3 weeks
+    tasks:
+      - task: design-daily-lessons
+        agent: instructional-designer
+        templates:
+          - lesson-plan-template.md
+          - learning-activity-template.md
+        checklists:
+          - lesson-quality-checklist.md
+          - engagement-checklist.md
+        outputs:
+          - Detailed lesson plans (20-40 lessons)
+          - Learning activity sequences
+          - Instructional materials list
+
+      - task: create-learning-materials
+        agent: instructional-designer
+        templates:
+          - content-creation-template.md
+          - media-selection-guide.md
+        checklists:
+          - content-quality-checklist.md
+        outputs:
+          - Instructional presentations and resources
+          - Student handouts and worksheets
+          - Multimedia learning materials
+
+      - task: ensure-accessibility-compliance
+        agent: accessibility-specialist
+        templates:
+          - accessibility-audit-template.md
+          - remediation-guide.md
+        checklists:
+          - wcag-compliance-checklist.md
+          - alt-text-checklist.md
+        outputs:
+          - Accessibility audit report
+          - Remediated materials (all WCAG 2.1 AA compliant)
+          - Alternative format versions
+
+    quality_gates:
+      - All lessons align to unit objectives and assessments
+      - Multiple engagement strategies in every lesson
+      - All materials meet WCAG 2.1 AA standards
+      - Instructional materials complete and ready for Canvas upload
+
+  - phase: 5
+    name: Canvas Course Build and Configuration
+    duration: 1-2 weeks
+    tasks:
+      - task: setup-canvas-course-structure
+        agent: canvas-integration-specialist
+        templates:
+          - canvas-course-setup-template.md
+          - module-structure-template.md
+        checklists:
+          - canvas-setup-checklist.md
+        outputs:
+          - Canvas course shell configured
+          - Module structure created
+          - Navigation and homepage designed
+
+      - task: import-content-to-canvas
+        agent: canvas-integration-specialist
+        templates:
+          - content-migration-checklist.md
+        checklists:
+          - canvas-content-checklist.md
+        outputs:
+          - All learning materials uploaded
+          - Assignments and assessments created
+          - Multimedia content embedded
+
+      - task: configure-assessments-gradebook
+        agent: canvas-integration-specialist
+        templates:
+          - gradebook-setup-template.md
+          - assignment-configuration-guide.md
+        checklists:
+          - gradebook-verification-checklist.md
+        outputs:
+          - Assignment groups configured
+          - Grading policies applied
+          - Rubrics created and aligned
+          - Grade weighting configured
+
+    quality_gates:
+      - All modules organized and sequenced correctly
+      - All assignments have clear instructions and rubrics
+      - Gradebook configured according to grading policy
+      - Navigation is intuitive and accessible
+
+  - phase: 6
+    name: Quality Assurance and Launch Preparation
+    duration: 1 week
+    tasks:
+      - task: conduct-course-review
+        agent: curriculum-architect
+        templates:
+          - course-review-protocol.md
+          - peer-review-rubric.md
+        checklists:
+          - course-quality-checklist.md
+        outputs:
+          - Course review report
+          - Identified improvements and fixes
+          - Peer review feedback
+
+      - task: test-student-experience
+        agent: accessibility-specialist
+        templates:
+          - student-experience-test-protocol.md
+        checklists:
+          - student-perspective-checklist.md
+          - accessibility-testing-checklist.md
+        outputs:
+          - Student experience report
+          - Navigation and flow improvements
+          - Accessibility testing results
+
+      - task: prepare-launch-communications
+        agent: instructional-designer
+        templates:
+          - course-welcome-template.md
+          - student-orientation-guide.md
+        checklists:
+          - launch-readiness-checklist.md
+        outputs:
+          - Welcome announcement
+          - Course orientation materials
+          - First-week communications plan
+
+    quality_gates:
+      - All quality checks completed and issues resolved
+      - Course accessible from student perspective
+      - All links and resources tested and functional
+      - Launch communications prepared and reviewed
+
+agents_involved:
+  - agent: curriculum-architect
+    role: Lead designer for course structure, outcomes, and curriculum mapping
+
+  - agent: assessment-specialist
+    role: Assessment design, rubric creation, and grading system development
+
+  - agent: instructional-designer
+    role: Lesson planning, learning activities, and instructional materials
+
+  - agent: accessibility-specialist
+    role: UDL integration, WCAG compliance, and accessibility testing
+
+  - agent: canvas-integration-specialist
+    role: Canvas course build, configuration, and technical implementation
+
+canvas_integration:
+  mcp_tools_used:
+    - canvas_create_course: Initial course creation with account and term configuration
+    - canvas_update_course: Configure course settings, syllabus, time zone
+    - canvas_set_core_properties: Set course metadata (title, author, description)
+    - canvas_create_module: Create module structure for units
+    - canvas_add_slide: Build course homepage and orientation materials
+    - canvas_create_assignment: Create all assignments with instructions
+    - canvas_create_assignment_group: Setup gradebook categories (formative, summative, etc.)
+    - canvas_update_assignment_group: Configure grade weighting and drop rules
+    - canvas_create_rubric: Build assessment rubrics
+    - canvas_upload_asset_from_url: Import images, videos, and media
+    - canvas_create_page: Build content pages for lessons and resources
+    - canvas_list_modules: Verify module structure
+    - canvas_get_course: Review course configuration
+
+  implementation_sequence:
+    - step: 1
+      action: Create course shell
+      tools: [canvas_create_course, canvas_update_course, canvas_set_core_properties]
+
+    - step: 2
+      action: Build module structure
+      tools: [canvas_create_module, canvas_update_module]
+
+    - step: 3
+      action: Configure gradebook
+      tools: [canvas_create_assignment_group, canvas_update_assignment_group]
+
+    - step: 4
+      action: Create assignments and assessments
+      tools: [canvas_create_assignment, canvas_create_rubric]
+
+    - step: 5
+      action: Upload content and resources
+      tools: [canvas_create_page, canvas_upload_asset_from_url]
+
+    - step: 6
+      action: Build navigation and homepage
+      tools: [canvas_create_page, canvas_update_course]
+
+    - step: 7
+      action: Final verification
+      tools: [canvas_get_course, canvas_list_modules, canvas_list_assignments]
+
+success_criteria:
+  - All learning outcomes clearly articulated and standards-aligned
+  - Assessments authentically measure stated outcomes
+  - UbD backward design evident in all units
+  - UDL principles integrated throughout course
+  - All materials meet WCAG 2.1 AA accessibility standards
+  - Canvas course fully functional and student-ready
+  - Positive peer review feedback on course quality
+  - Student experience testing reveals intuitive navigation
+
+common_pitfalls:
+  - Starting with content before identifying outcomes (avoid forward design)
+  - Creating assessments that don't align with learning outcomes
+  - Overlooking accessibility until final phase (integrate from start)
+  - Building Canvas course before content is finalized
+  - Insufficient formative assessment throughout units
+  - Vague or unmeasurable learning outcomes
+  - Skipping quality review phase due to time pressure
+  - Not testing student experience before launch
+
+resources:
+  - Understanding by Design (Wiggins & McTighe)
+  - UDL Guidelines 3.0 (CAST)
+  - WCAG 2.1 Quick Reference
+  - Canvas Community Best Practices
+  - State/National Standards Documents
+  - Bloom's Taxonomy Revised
+  - Webb's Depth of Knowledge Framework

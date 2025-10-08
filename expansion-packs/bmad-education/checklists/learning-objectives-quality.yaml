@@ -1,0 +1,164 @@
+name: Learning Objectives Quality Validation
+description: Validates learning objectives using SMART criteria and Bloom's taxonomy alignment
+version: 1.0.0
+theory_base: [bloom_taxonomy, smart_criteria, backward_design]
+
+categories:
+  - category: SMART Criteria Validation
+    criteria:
+      - id: specific-1
+        item: Objective clearly identifies what students will know or be able to do
+        required: true
+        resources: [bloom-taxonomy.yaml, objective-writing-guide.md]
+        passing_score: 100
+
+      - id: specific-2
+        item: Objective uses precise, unambiguous language (no "understand", "know", "learn")
+        required: true
+        resources: [action-verbs-guide.yaml]
+        passing_score: 100
+
+      - id: measurable-1
+        item: Objective includes observable action verb from Bloom's taxonomy
+        required: true
+        resources: [bloom-taxonomy.yaml]
+        passing_score: 100
+
+      - id: measurable-2
+        item: Success criteria for objective can be clearly assessed
+        required: true
+        resources: [assessment-alignment.yaml]
+        passing_score: 100
+
+      - id: achievable-1
+        item: Objective is appropriate for student developmental level
+        required: true
+        resources: [differentiation-quality.yaml]
+        passing_score: 90
+
+      - id: relevant-1
+        item: Objective aligns with course/unit standards and goals
+        required: true
+        resources: [standards-alignment.yaml]
+        passing_score: 100
+
+      - id: time-bound-1
+        item: Objective specifies or implies timeframe for achievement
+        required: false
+        resources: [lesson-plan-quality.yaml]
+        passing_score: 80
+
+  - category: Bloom's Taxonomy Alignment
+    criteria:
+      - id: bloom-level-1
+        item: Cognitive level is explicitly identified (Remember, Understand, Apply, Analyze, Evaluate, Create)
+        required: true
+        resources: [bloom-taxonomy.yaml]
+        passing_score: 100
+
+      - id: bloom-level-2
+        item: Cognitive level matches course/unit learning progression
+        required: true
+        resources: [curriculum-alignment.yaml]
+        passing_score: 90
+
+      - id: bloom-progression-1
+        item: Objectives show appropriate cognitive progression within unit
+        required: true
+        resources: [backward-design-validation.yaml]
+        passing_score: 85
+
+      - id: bloom-balance-1
+        item: Mix of cognitive levels appropriate for content and learners
+        required: false
+        resources: [cognitive-load-check.yaml]
+        passing_score: 75
+
+  - category: Language & Clarity
+    criteria:
+      - id: language-1
+        item: Uses student-friendly language appropriate to grade level
+        required: true
+        resources: [readability-standards.yaml]
+        passing_score: 90
+
+      - id: language-2
+        item: Avoids jargon or defines necessary technical terms
+        required: true
+        resources: [accessibility-language.yaml]
+        passing_score: 90
+
+      - id: language-3
+        item: Written from student perspective (student-centered)
+        required: true
+        resources: [student-centered-design.md]
+        passing_score: 85
+
+      - id: language-4
+        item: Free from ambiguous or vague terms
+        required: true
+        resources: [precision-language.yaml]
+        passing_score: 95
+
+  - category: Assessment Alignment
+    criteria:
+      - id: assessment-1
+        item: Objective directly links to specific assessment method
+        required: true
+        resources: [assessment-validity.yaml, backward-design-validation.yaml]
+        passing_score: 100
+
+      - id: assessment-2
+        item: Assessment method matches cognitive level of objective
+        required: true
+        resources: [bloom-taxonomy.yaml, assessment-types.yaml]
+        passing_score: 95
+
+      - id: assessment-3
+        item: Success criteria are clearly defined and measurable
+        required: true
+        resources: [rubric-quality.yaml]
+        passing_score: 90
+
+  - category: Differentiation Readiness
+    criteria:
+      - id: diff-1
+        item: Objective allows for multiple means of demonstration (UDL)
+        required: true
+        resources: [udl-checklist.yaml]
+        passing_score: 85
+
+      - id: diff-2
+        item: Objective can be scaffolded for diverse learners
+        required: true
+        resources: [differentiation-quality.yaml]
+        passing_score: 80
+
+      - id: diff-3
+        item: Objective identifies essential knowledge vs. nice-to-know
+        required: false
+        resources: [backward-design-validation.yaml]
+        passing_score: 75
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Review all objectives against SMART criteria
+  - step: Map objectives to Bloom's taxonomy levels
+  - step: Verify assessment alignment
+  - step: Check differentiation readiness
+  - step: Calculate overall quality score
+  - step: Generate improvement recommendations
+
+canvas_integration:
+  - location: course_objectives
+  - location: module_objectives
+  - location: assignment_objectives
+  - location: quiz_objectives
+  - validation: automated_bloom_detection
+  - validation: smart_criteria_check

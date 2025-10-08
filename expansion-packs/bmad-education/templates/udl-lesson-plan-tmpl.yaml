@@ -1,0 +1,761 @@
+# Universal Design for Learning (UDL) Lesson Plan Template
+# Comprehensive lesson plan with multiple means of representation, action/expression, and engagement
+# Canvas Integration: Use with canvas_create_page, canvas_create_assignment
+
+metadata:
+  title: "UDL Lesson Plan"
+  teacher: ""
+  subject: ""
+  grade_level: ""
+  date: ""  # YYYY-MM-DD
+  lesson_duration: 0  # minutes
+  unit_title: ""
+  lesson_number: 0
+
+# Lesson Overview
+overview:
+  lesson_title: ""
+
+  lesson_summary: ""
+  # Brief description of what students will learn and do
+
+  essential_question: ""
+  # The big question driving this lesson
+
+  connection_to_unit: ""
+  # How this lesson fits into the larger unit
+
+# Standards and Learning Goals
+standards_and_goals:
+
+  # Standards Addressed
+  standards:
+    - standard_code: ""
+      standard_text: ""
+
+  # Learning Objectives
+  objectives:
+    - objective: ""
+      bloom_level: ""
+      dok_level: 0
+
+  # Student-Friendly Learning Targets
+  learning_targets:
+    - "I will be able to..."
+    - "I will understand..."
+
+# ====================================================================
+# UDL PRINCIPLE 1: MULTIPLE MEANS OF REPRESENTATION
+# How information is presented to students
+# ====================================================================
+
+representation:
+
+  # Guideline 1: Provide Options for Perception
+  perception:
+
+    # 1.1 Customize Display of Information
+    display_customization:
+      - option: "Visual adjustments"
+        strategies:
+          - strategy: ""
+          # Example: "Provide text in multiple formats (print, digital, audio)"
+          # Example: "Use high contrast colors for visual clarity"
+          # Example: "Allow students to adjust font size and spacing"
+
+      - option: "Multi-sensory presentation"
+        strategies:
+          - strategy: ""
+          # Example: "Present information through text, images, and audio simultaneously"
+
+    # 1.2 Provide Alternatives for Auditory Information
+    auditory_alternatives:
+      - alternative: ""
+      # Example: "Provide captions for all videos"
+      # Example: "Offer visual diagrams alongside verbal explanations"
+      # Example: "Use text-to-speech tools for written content"
+
+      canvas_tools:
+        - tool: "Canvas Studio for automatic captions"
+        - tool: "Immersive Reader for text-to-speech"
+
+    # 1.3 Provide Alternatives for Visual Information
+    visual_alternatives:
+      - alternative: ""
+      # Example: "Provide audio descriptions for images and diagrams"
+      # Example: "Use tactile graphics or 3D models when possible"
+      # Example: "Offer detailed verbal descriptions of visual content"
+
+  # Guideline 2: Provide Options for Language and Symbols
+  language_and_symbols:
+
+    # 2.1 Clarify Vocabulary and Symbols
+    vocabulary_support:
+      - support: ""
+      # Example: "Pre-teach key vocabulary with visual supports"
+      # Example: "Provide glossary of terms with examples"
+      # Example: "Use consistent symbols and icons throughout lesson"
+
+      tools:
+        - tool: ""
+        # Example: "Digital flashcards with images and audio"
+        # Example: "Word wall with visual representations"
+
+    # 2.2 Clarify Syntax and Structure
+    syntax_support:
+      - support: ""
+      # Example: "Provide sentence frames for complex language structures"
+      # Example: "Use graphic organizers to show text structure"
+      # Example: "Highlight signal words for transitions and relationships"
+
+    # 2.3 Support Decoding Text and Symbols
+    decoding_support:
+      - support: ""
+      # Example: "Provide text-to-speech option for all reading materials"
+      # Example: "Use phonetic pronunciation guides for difficult words"
+      # Example: "Offer materials at multiple reading levels"
+
+    # 2.4 Promote Understanding Across Languages
+    language_support:
+      - support: ""
+      # Example: "Provide key concepts in students' native languages"
+      # Example: "Use visual supports that transcend language barriers"
+      # Example: "Allow use of translation tools"
+
+    # 2.5 Illustrate Through Multiple Media
+    multimedia_support:
+      - medium: ""
+      # Example: "Combine text, images, video, and interactive simulations"
+      # Example: "Use animations to show processes over time"
+      # Example: "Provide real-world examples through various media"
+
+  # Guideline 3: Provide Options for Comprehension
+  comprehension:
+
+    # 3.1 Activate Background Knowledge
+    background_activation:
+      - strategy: ""
+      # Example: "KWL chart: What do you know? Want to know? Learned?"
+      # Example: "Quick write about prior experiences with topic"
+      # Example: "Visual brainstorm of related concepts"
+
+    # 3.2 Highlight Patterns, Critical Features, Big Ideas
+    pattern_highlighting:
+      - strategy: ""
+      # Example: "Use color coding to highlight key concepts"
+      # Example: "Provide advance organizers showing lesson structure"
+      # Example: "Use mnemonics for remembering important information"
+
+    # 3.3 Guide Information Processing and Visualization
+    processing_guidance:
+      - strategy: ""
+      # Example: "Think-aloud modeling of problem-solving process"
+      # Example: "Graphic organizers for note-taking and organizing ideas"
+      # Example: "Chunking information into manageable pieces"
+
+      graphic_organizers:
+        - type: ""  # Venn diagram, concept map, flowchart, etc.
+          purpose: ""
+
+    # 3.4 Maximize Transfer and Generalization
+    transfer_support:
+      - strategy: ""
+      # Example: "Explicit connections to real-world applications"
+      # Example: "Practice applying concepts in multiple contexts"
+      # Example: "Reflection on how learning connects to prior knowledge and future use"
+
+# ====================================================================
+# UDL PRINCIPLE 2: MULTIPLE MEANS OF ACTION & EXPRESSION
+# How students demonstrate their learning
+# ====================================================================
+
+action_and_expression:
+
+  # Guideline 4: Provide Options for Physical Action
+  physical_action:
+
+    # 4.1 Vary Methods for Response and Navigation
+    response_options:
+      - option: ""
+      # Example: "Allow students to respond via writing, typing, speaking, or drawing"
+      # Example: "Provide alternative input devices (touchscreen, voice-to-text)"
+      # Example: "Offer choice in how to navigate learning materials"
+
+      canvas_tools:
+        - tool: "Multiple submission types (text, file upload, media)"
+        - tool: "Studio for video responses"
+
+    # 4.2 Optimize Access to Tools and Assistive Technologies
+    tool_access:
+      - tool: ""
+      # Example: "Ensure all students can access word processing tools"
+      # Example: "Provide speech-to-text and text-to-speech options"
+      # Example: "Offer manipulatives (physical or virtual) for math concepts"
+
+  # Guideline 5: Provide Options for Expression and Communication
+  expression:
+
+    # 5.1 Use Multiple Media for Communication
+    communication_media:
+      - medium: ""
+      # Example: "Allow students to demonstrate learning through written essay, video presentation, podcast, infographic, or model"
+
+      choice_board:
+        - option: "Written report"
+          description: ""
+          standards_assessed: []
+
+        - option: "Multimedia presentation"
+          description: ""
+          standards_assessed: []
+
+        - option: "Artistic representation"
+          description: ""
+          standards_assessed: []
+
+        - option: "Oral presentation"
+          description: ""
+          standards_assessed: []
+
+    # 5.2 Use Multiple Tools for Construction and Composition
+    composition_tools:
+      - tool: ""
+      # Example: "Provide access to word processors, presentation software, video editors"
+      # Example: "Offer spell-check, grammar support, and writing templates"
+      # Example: "Allow use of graphic design tools, coding platforms, etc."
+
+    # 5.3 Build Fluencies with Graduated Levels of Support
+    graduated_support:
+      - level: "High support"
+        scaffolds: []
+        # Example: "Sentence starters, templates, models"
+
+      - level: "Medium support"
+        scaffolds: []
+        # Example: "Checklists, rubrics, peer support"
+
+      - level: "Low support"
+        scaffolds: []
+        # Example: "Self-assessment tools, optional resources"
+
+  # Guideline 6: Provide Options for Executive Functions
+  executive_functions:
+
+    # 6.1 Guide Appropriate Goal-Setting
+    goal_setting:
+      - strategy: ""
+      # Example: "Help students set SMART goals for the lesson/project"
+      # Example: "Provide goal-setting templates and examples"
+      # Example: "Regular check-ins on progress toward goals"
+
+    # 6.2 Support Planning and Strategy Development
+    planning_support:
+      - support: ""
+      # Example: "Provide project planning templates with milestones"
+      # Example: "Teach and model specific strategies (brainstorming, outlining)"
+      # Example: "Offer process checklists for complex tasks"
+
+      tools:
+        - tool: ""
+        # Example: "Digital planning boards (Trello, Padlet)"
+        # Example: "Project timeline templates"
+
+    # 6.3 Facilitate Managing Information and Resources
+    information_management:
+      - strategy: ""
+      # Example: "Teach note-taking strategies with organizers"
+      # Example: "Provide resource lists with annotations"
+      # Example: "Model how to organize digital and physical materials"
+
+    # 6.4 Enhance Capacity for Monitoring Progress
+    progress_monitoring:
+      - method: ""
+      # Example: "Self-assessment checklists aligned to rubric"
+      # Example: "Regular reflection prompts on learning progress"
+      # Example: "Visual progress trackers (charts, graphs)"
+
+      tools:
+        - tool: "Canvas rubrics for self-assessment"
+        - tool: "Progress dashboards"
+
+# ====================================================================
+# UDL PRINCIPLE 3: MULTIPLE MEANS OF ENGAGEMENT
+# How students are motivated and engaged
+# ====================================================================
+
+engagement:
+
+  # Guideline 7: Provide Options for Recruiting Interest
+  recruiting_interest:
+
+    # 7.1 Optimize Individual Choice and Autonomy
+    choice_and_autonomy:
+      - choice_point: ""
+      # Example: "Students choose their own reading from a curated list"
+      # Example: "Choice of topic within assignment parameters"
+      # Example: "Select working environment (quiet corner, collaborative table)"
+
+      choice_menu:
+        - area: ""  # e.g., "Topic choice"
+          options: []
+
+        - area: ""  # e.g., "Product choice"
+          options: []
+
+    # 7.2 Optimize Relevance, Value, and Authenticity
+    relevance:
+      - strategy: ""
+      # Example: "Connect lesson content to students' lives and interests"
+      # Example: "Use real-world problems and authentic audiences"
+      # Example: "Invite students to share how content relates to their experiences"
+
+      real_world_connections:
+        - connection: ""
+          activity: ""
+
+    # 7.3 Minimize Threats and Distractions
+    threat_reduction:
+      - strategy: ""
+      # Example: "Create predictable classroom routines and schedules"
+      # Example: "Provide quiet spaces and noise-canceling options"
+      # Example: "Use timers and agendas to reduce anxiety about time"
+      # Example: "Emphasize growth mindset and learning from mistakes"
+
+  # Guideline 8: Provide Options for Sustaining Effort and Persistence
+  sustaining_effort:
+
+    # 8.1 Heighten Salience of Goals and Objectives
+    goal_salience:
+      - strategy: ""
+      # Example: "Display learning targets prominently throughout lesson"
+      # Example: "Regular reminders of 'why' this learning matters"
+      # Example: "Connect daily tasks to larger unit/course goals"
+
+    # 8.2 Vary Demands and Resources to Optimize Challenge
+    optimize_challenge:
+      - strategy: ""
+      # Example: "Provide tasks at varying difficulty levels"
+      # Example: "Offer optional scaffolds students can use as needed"
+      # Example: "Allow students to set their own challenge level within parameters"
+
+      tiered_activities:
+        - tier: "Approaching"
+          description: ""
+          supports: []
+
+        - tier: "On-Level"
+          description: ""
+          supports: []
+
+        - tier: "Advanced"
+          description: ""
+          extensions: []
+
+    # 8.3 Foster Collaboration and Community
+    collaboration:
+      - structure: ""
+      # Example: "Think-Pair-Share for processing new information"
+      # Example: "Jigsaw groups where each student contributes expertise"
+      # Example: "Peer tutoring or mentoring partnerships"
+
+      grouping_strategies:
+        - strategy: ""
+          purpose: ""
+          grouping_method: ""
+
+    # 8.4 Increase Mastery-Oriented Feedback
+    feedback:
+      - type: ""
+      # Example: "Specific, actionable feedback focused on process not person"
+      # Example: "Timely feedback during the learning process, not just at end"
+      # Example: "Opportunities to use feedback for revision and improvement"
+
+      feedback_mechanisms:
+        - mechanism: "Teacher feedback"
+          timing: ""
+          focus: ""
+
+        - mechanism: "Peer feedback"
+          structure: ""
+
+        - mechanism: "Self-assessment"
+          tool: ""
+
+  # Guideline 9: Provide Options for Self-Regulation
+  self_regulation:
+
+    # 9.1 Promote Expectations and Beliefs that Optimize Motivation
+    motivation_optimization:
+      - strategy: ""
+      # Example: "Teach growth mindset explicitly"
+      # Example: "Celebrate effort, strategies, and progress, not just results"
+      # Example: "Help students set realistic, achievable goals"
+
+    # 9.2 Facilitate Personal Coping Skills and Strategies
+    coping_skills:
+      - strategy: ""
+      # Example: "Teach self-calming techniques for frustration"
+      # Example: "Provide break options when students feel overwhelmed"
+      # Example: "Model positive self-talk and reframing challenges"
+
+      tools:
+        - tool: ""
+        # Example: "Mindfulness exercises"
+        # Example: "Stress balls or fidgets for focus"
+
+    # 9.3 Develop Self-Assessment and Reflection
+    self_assessment:
+      - strategy: ""
+      # Example: "Regular use of rubrics for self-evaluation"
+      # Example: "Reflection journals on learning process"
+      # Example: "Goal-setting and progress monitoring sheets"
+
+      reflection_prompts:
+        - prompt: "What did I learn today?"
+        - prompt: "What strategies helped me learn?"
+        - prompt: "What will I do differently next time?"
+        - prompt: "What am I proud of in my learning?"
+
+# ====================================================================
+# LESSON FLOW (UDL-Enhanced)
+# ====================================================================
+
+lesson_sequence:
+
+  # Opening (5-10 minutes)
+  opening:
+    duration: 0  # minutes
+
+    hook:
+      activity: ""
+      # Example: "Show intriguing video clip related to topic"
+
+      udl_principles_applied: []
+      # Example: "Engagement (7.2 - relevance)"
+      # Example: "Representation (1.3 - visual and auditory)"
+
+    learning_target_communication:
+      how_shared: ""
+      # Example: "Displayed on board, read aloud, and discussed for understanding"
+
+      udl_principles_applied: []
+      # Example: "Representation (2.5 - multiple media)"
+
+  # Input/Instruction (15-20 minutes)
+  instruction:
+    duration: 0  # minutes
+
+    content_delivery:
+      - method: ""
+        # Example: "Direct instruction with visual slides"
+
+        udl_principles_applied: []
+        # Example: "Representation (1.1, 2.5 - visual and auditory)"
+
+      - method: ""
+        # Example: "Guided note-taking with graphic organizer"
+
+        udl_principles_applied: []
+        # Example: "Representation (3.3 - processing support)"
+        # Example: "Action/Expression (5.2 - composition tools)"
+
+    checking_for_understanding:
+      - method: ""
+        # Example: "Turn and talk to partner"
+
+        udl_principles_applied: []
+        # Example: "Engagement (8.3 - collaboration)"
+
+      - method: ""
+        # Example: "Digital poll via Canvas"
+
+        udl_principles_applied: []
+        # Example: "Action/Expression (4.1 - response options)"
+
+  # Practice (15-20 minutes)
+  practice:
+    duration: 0  # minutes
+
+    guided_practice:
+      activity: ""
+      # Example: "Collaborative problem-solving in pairs"
+
+      support_provided: []
+
+      udl_principles_applied: []
+      # Example: "Engagement (8.3 - collaboration)"
+      # Example: "Action/Expression (5.3 - graduated support)"
+
+    independent_practice:
+      activity: ""
+      # Example: "Choice board activity - students select how to demonstrate understanding"
+
+      differentiation: []
+
+      udl_principles_applied: []
+      # Example: "Engagement (7.1 - choice and autonomy)"
+      # Example: "Action/Expression (5.1 - multiple media)"
+
+  # Assessment (5-10 minutes)
+  assessment:
+    duration: 0  # minutes
+
+    assessment_method: ""
+    # Example: "Exit ticket with multiple response options"
+
+    udl_principles_applied: []
+    # Example: "Action/Expression (4.1 - response methods)"
+    # Example: "Engagement (9.3 - self-assessment)"
+
+  # Closure (5 minutes)
+  closure:
+    duration: 0  # minutes
+
+    reflection_activity: ""
+    # Example: "Quick write or drawing: What's the most important thing you learned?"
+
+    preview_of_next_lesson: ""
+
+    udl_principles_applied: []
+    # Example: "Action/Expression (5.1 - multiple media)"
+    # Example: "Engagement (9.3 - reflection)"
+
+# ====================================================================
+# MATERIALS AND RESOURCES
+# ====================================================================
+
+materials:
+
+  # For All Students
+  universal_materials:
+    - material: ""
+      purpose: ""
+
+  # UDL-Specific Materials
+  udl_materials:
+    - material: ""
+      udl_principle: ""  # Which principle it supports
+      how_used: ""
+
+  # Technology Tools
+  technology:
+    - tool: ""
+      udl_principle: ""
+      purpose: ""
+      access_method: ""
+
+  # Canvas Resources
+  canvas_resources:
+    - resource_type: ""  # page, module, file
+      content: ""
+      udl_features: []
+
+# ====================================================================
+# DIFFERENTIATION PLAN
+# ====================================================================
+
+differentiation:
+
+  # By Readiness (Built on UDL)
+  readiness:
+    below_level:
+      - strategy: ""
+        udl_connection: ""
+
+    on_level:
+      - strategy: ""
+        udl_connection: ""
+
+    above_level:
+      - strategy: ""
+        udl_connection: ""
+
+  # By Interest (UDL Engagement)
+  interest:
+    - choice_opportunity: ""
+      options: []
+      udl_connection: "Engagement (7.1, 7.2)"
+
+  # By Learning Profile (UDL Core)
+  learning_profile:
+    - need: ""  # ELL, IEP, 504, learning preference
+      accommodations: []
+      udl_principles_utilized: []
+
+# ====================================================================
+# ASSESSMENT (UDL-Aligned)
+# ====================================================================
+
+assessment:
+
+  # Formative Assessment
+  formative:
+    - method: ""
+      udl_features: []
+      # Example: "Multiple response options (written, drawn, verbal)"
+
+  # Summative Assessment
+  summative:
+    method: ""
+    choice_elements: []
+    udl_features: []
+
+  # Student Self-Assessment
+  student_self_assessment:
+    method: ""
+    tools: []
+    udl_connection: "Engagement (9.3)"
+
+# ====================================================================
+# CANVAS INTEGRATION
+# ====================================================================
+
+canvas_integration:
+
+  # UDL Features in Canvas
+  udl_in_canvas:
+
+    representation:
+      - feature: "Studio for captioned videos"
+      - feature: "Immersive Reader for accessible text"
+      - feature: "Multiple file formats for resources"
+
+    action_expression:
+      - feature: "Multiple assignment submission types"
+      - feature: "Canvas Studio for video responses"
+      - feature: "Discussion boards for varied expression"
+
+    engagement:
+      - feature: "Choice-based assignments"
+      - feature: "Student-paced modules"
+      - feature: "Peer review tools"
+
+  # Module Setup
+  module_design:
+    module_name: ""
+
+    udl_features:
+      - feature: ""
+        implementation: ""
+
+    accessibility_features:
+      - feature: ""
+
+# ====================================================================
+# REFLECTION AND ADJUSTMENT
+# ====================================================================
+
+reflection:
+
+  # UDL Implementation Reflection
+  udl_implementation:
+    - udl_principle: "Multiple Means of Representation"
+      effectiveness: ""
+      evidence: []
+      improvements: []
+
+    - udl_principle: "Multiple Means of Action and Expression"
+      effectiveness: ""
+      evidence: []
+      improvements: []
+
+    - udl_principle: "Multiple Means of Engagement"
+      effectiveness: ""
+      evidence: []
+      improvements: []
+
+  # Student Feedback
+  student_voice:
+    - question: "What helped you learn best today?"
+      responses_summary: ""
+      instructional_adjustments: []
+
+  # Next Steps
+  next_steps:
+    - based_on_assessment_data: ""
+    - based_on_student_feedback: ""
+    - udl_enhancements_to_add: []
+
+# ====================================================================
+# QUALITY CHECKLIST (UDL-Specific)
+# ====================================================================
+
+udl_quality_checklist:
+
+  representation:
+    - criterion: "Information presented in multiple formats (visual, auditory, text)"
+      met: false
+
+    - criterion: "Vocabulary and language supported with multiple strategies"
+      met: false
+
+    - criterion: "Background knowledge activated and connections made explicit"
+      met: false
+
+  action_expression:
+    - criterion: "Students have choice in how to respond and demonstrate learning"
+      met: false
+
+    - criterion: "Multiple tools and media available for student expression"
+      met: false
+
+    - criterion: "Scaffolds and supports available for executive function skills"
+      met: false
+
+  engagement:
+    - criterion: "Student choice and autonomy incorporated meaningfully"
+      met: false
+
+    - criterion: "Content connected to students' lives and interests"
+      met: false
+
+    - criterion: "Collaboration opportunities structured into lesson"
+      met: false
+
+    - criterion: "Self-assessment and reflection built into learning process"
+      met: false
+
+  overall:
+    - criterion: "All three UDL principles addressed throughout lesson"
+      met: false
+
+    - criterion: "Lesson accessible to diverse learners without separate accommodations"
+      met: false
+
+    - criterion: "Canvas tools used to enhance UDL implementation"
+      met: false
+
+# ====================================================================
+# REFERENCES
+# ====================================================================
+
+references:
+  udl_resources:
+    - resource: "CAST UDL Guidelines 3.0"
+      url: "https://udlguidelines.cast.org/"
+
+    - resource: "UDL on Campus"
+      url: "https://udloncampus.cast.org/"
+
+    - resource: "National Center on UDL"
+      url: "http://www.udlcenter.org/"
+
+  canvas_udl:
+    - resource: "Canvas Accessibility Features"
+      url: "https://community.canvaslms.com/t5/Canvas-Accessibility/ct-p/accessibility"
+
+    - resource: "UDL and Canvas Integration Guide"
+      url: "https://www.instructure.com/resources/udl"
+
+# ====================================================================
+# NOTES
+# ====================================================================
+
+notes: |
+  UDL Implementation Tips:
+  - Start with one principle and build from there
+  - UDL benefits ALL students, not just those with disabilities
+  - Choice doesn't mean chaos - provide structured options aligned to standards
+  - Use Canvas features purposefully to enhance UDL implementation
+  - Gather student feedback on what helps them learn best
+  - Remember: The goal is to remove barriers to learning, not lower expectations

@@ -1,0 +1,481 @@
+name: Canvas Course Design Quality Standards
+description: Validates Canvas course design quality using best practices and user experience principles
+version: 1.0.0
+theory_base: [online_course_quality, canvas_best_practices, user_experience, cognitive_load]
+
+categories:
+  - category: Course Structure & Organization
+    criteria:
+      - id: struct-modules-1
+        item: Content organized into logical modules with clear progression
+        required: true
+        resources: [module-design.yaml]
+        passing_score: 95
+
+      - id: struct-naming-1
+        item: Module and item naming clear and consistent
+        required: true
+        resources: [naming-conventions.yaml]
+        passing_score: 90
+
+      - id: struct-hierarchy-1
+        item: Clear information hierarchy (modules → items → content)
+        required: true
+        resources: [information-architecture.yaml]
+        passing_score: 90
+
+      - id: struct-home-1
+        item: Homepage provides clear course overview and navigation
+        required: true
+        resources: [homepage-design.yaml]
+        passing_score: 95
+
+      - id: struct-syllabus-1
+        item: Comprehensive syllabus with all essential information
+        required: true
+        resources: [syllabus-requirements.yaml]
+        passing_score: 95
+
+  - category: Navigation & Usability
+    criteria:
+      - id: nav-consistent-1
+        item: Navigation consistent throughout course
+        required: true
+        resources: [navigation-consistency.yaml]
+        passing_score: 95
+
+      - id: nav-intuitive-1
+        item: Course structure intuitive and easy to navigate
+        required: true
+        resources: [usability-principles.yaml]
+        passing_score: 90
+
+      - id: nav-orientation-1
+        item: Orientation/start-here module guides students
+        required: true
+        resources: [orientation-module.yaml]
+        passing_score: 90
+
+      - id: nav-breadcrumbs-1
+        item: Students always know where they are in course
+        required: true
+        resources: [wayfinding.yaml]
+        passing_score: 85
+
+      - id: nav-links-1
+        item: All links functional and lead to correct destinations
+        required: true
+        resources: [link-validation.yaml]
+        passing_score: 100
+
+  - category: Visual Design & Aesthetics
+    criteria:
+      - id: visual-clean-1
+        item: Visual design clean and uncluttered
+        required: true
+        resources: [visual-design-principles.yaml]
+        passing_score: 85
+
+      - id: visual-consistent-1
+        item: Consistent visual design throughout course
+        required: true
+        resources: [design-consistency.yaml]
+        passing_score: 90
+
+      - id: visual-brand-1
+        item: Branding appropriate and professional
+        required: true
+        resources: [course-branding.yaml]
+        passing_score: 80
+
+      - id: visual-readability-1
+        item: Text readable (font size, contrast, spacing)
+        required: true
+        resources: [readability-standards.yaml]
+        passing_score: 95
+
+      - id: visual-icons-1
+        item: Icons and visual cues used consistently and meaningfully
+        required: false
+        resources: [icon-usage.yaml]
+        passing_score: 75
+
+  - category: Content Pages & Rich Content Editor
+    criteria:
+      - id: content-structure-1
+        item: Pages well-structured with headings and sections
+        required: true
+        resources: [page-structure.yaml]
+        passing_score: 90
+
+      - id: content-length-1
+        item: Page length appropriate (not overwhelming)
+        required: true
+        resources: [cognitive-load-check.yaml]
+        passing_score: 85
+
+      - id: content-multimedia-1
+        item: Multimedia integrated effectively
+        required: true
+        resources: [multimedia-integration.yaml]
+        passing_score: 85
+
+      - id: content-white-space-1
+        item: Adequate white space for readability
+        required: true
+        resources: [white-space-design.yaml]
+        passing_score: 80
+
+      - id: content-editor-1
+        item: Rich Content Editor used correctly (semantic HTML)
+        required: true
+        resources: [rce-best-practices.yaml]
+        passing_score: 90
+
+  - category: Modules & Prerequisites
+    criteria:
+      - id: module-sequence-1
+        item: Modules sequenced logically and pedagogically
+        required: true
+        resources: [learning-progression.yaml]
+        passing_score: 95
+
+      - id: module-prereq-1
+        item: Prerequisites used appropriately to guide learning
+        required: true
+        resources: [prerequisite-design.yaml]
+        passing_score: 85
+
+      - id: module-requirements-1
+        item: Module requirements clear and appropriate
+        required: true
+        resources: [module-completion.yaml]
+        passing_score: 90
+
+      - id: module-mastery-1
+        item: Mastery Paths used effectively if applicable
+        required: false
+        resources: [mastery-paths.yaml]
+        passing_score: 80
+
+  - category: Assignments & Activities
+    criteria:
+      - id: assign-instructions-1
+        item: Assignment instructions clear and comprehensive
+        required: true
+        resources: [assignment-design.yaml]
+        passing_score: 95
+
+      - id: assign-rubrics-1
+        item: Rubrics provided for all graded work
+        required: true
+        resources: [rubric-quality.yaml]
+        passing_score: 95
+
+      - id: assign-due-dates-1
+        item: Due dates clear and consistently communicated
+        required: true
+        resources: [due-date-management.yaml]
+        passing_score: 95
+
+      - id: assign-variety-1
+        item: Variety of assignment types used appropriately
+        required: true
+        resources: [assignment-variety.yaml]
+        passing_score: 80
+
+      - id: assign-submission-1
+        item: Submission types appropriate for assignments
+        required: true
+        resources: [submission-options.yaml]
+        passing_score: 85
+
+  - category: Discussions
+    criteria:
+      - id: discuss-purpose-1
+        item: Discussions have clear learning purpose
+        required: true
+        resources: [discussion-design.yaml]
+        passing_score: 90
+
+      - id: discuss-prompts-1
+        item: Discussion prompts promote critical thinking
+        required: true
+        resources: [discussion-prompts.yaml]
+        passing_score: 85
+
+      - id: discuss-expectations-1
+        item: Participation expectations clearly stated
+        required: true
+        resources: [discussion-guidelines.yaml]
+        passing_score: 90
+
+      - id: discuss-rubrics-1
+        item: Discussion rubrics provided when graded
+        required: true
+        resources: [discussion-rubrics.yaml]
+        passing_score: 90
+
+  - category: Quizzes & Assessments
+    criteria:
+      - id: quiz-aligned-1
+        item: Quizzes aligned with learning objectives
+        required: true
+        resources: [assessment-validity.yaml]
+        passing_score: 95
+
+      - id: quiz-settings-1
+        item: Quiz settings appropriate (time, attempts, feedback)
+        required: true
+        resources: [quiz-configuration.yaml]
+        passing_score: 90
+
+      - id: quiz-questions-1
+        item: Question quality high (clear, unambiguous)
+        required: true
+        resources: [question-writing.yaml]
+        passing_score: 90
+
+      - id: quiz-feedback-1
+        item: Quiz feedback helpful for learning
+        required: true
+        resources: [quiz-feedback.yaml]
+        passing_score: 85
+
+  - category: Gradebook & Grading
+    criteria:
+      - id: grade-setup-1
+        item: Gradebook properly configured and organized
+        required: true
+        resources: [gradebook-setup.yaml]
+        passing_score: 95
+
+      - id: grade-weights-1
+        item: Assignment weights clearly communicated
+        required: true
+        resources: [grading-weights.yaml]
+        passing_score: 95
+
+      - id: grade-policies-1
+        item: Grading policies clearly stated
+        required: true
+        resources: [grading-policies.yaml]
+        passing_score: 95
+
+      - id: grade-outcomes-1
+        item: Learning outcomes used appropriately
+        required: false
+        resources: [outcomes-setup.yaml]
+        passing_score: 80
+
+      - id: grade-mastery-1
+        item: Learning Mastery Gradebook configured if used
+        required: false
+        resources: [mastery-gradebook.yaml]
+        passing_score: 80
+
+  - category: Communication Tools
+    criteria:
+      - id: comm-announcements-1
+        item: Announcements used effectively for course updates
+        required: true
+        resources: [announcement-strategy.yaml]
+        passing_score: 85
+
+      - id: comm-inbox-1
+        item: Inbox/messaging expectations clear
+        required: true
+        resources: [communication-expectations.yaml]
+        passing_score: 85
+
+      - id: comm-frequency-1
+        item: Communication frequency appropriate
+        required: true
+        resources: [communication-frequency.yaml]
+        passing_score: 80
+
+      - id: comm-response-1
+        item: Response time expectations stated
+        required: true
+        resources: [response-expectations.yaml]
+        passing_score: 90
+
+  - category: Calendar & Due Dates
+    criteria:
+      - id: calendar-complete-1
+        item: All assignments/events in calendar
+        required: true
+        resources: [calendar-management.yaml]
+        passing_score: 95
+
+      - id: calendar-consistent-1
+        item: Due dates consistent across calendar and assignments
+        required: true
+        resources: [date-consistency.yaml]
+        passing_score: 100
+
+      - id: calendar-balanced-1
+        item: Workload balanced throughout term
+        required: true
+        resources: [workload-balancing.yaml]
+        passing_score: 85
+
+  - category: External Tools & Integrations
+    criteria:
+      - id: tools-appropriate-1
+        item: External tools enhance learning appropriately
+        required: true
+        resources: [tool-integration.yaml]
+        passing_score: 85
+
+      - id: tools-accessible-1
+        item: All tools accessible to students
+        required: true
+        resources: [tool-accessibility.yaml]
+        passing_score: 95
+
+      - id: tools-instructions-1
+        item: Clear instructions for tool use
+        required: true
+        resources: [tool-guidance.yaml]
+        passing_score: 90
+
+      - id: tools-support-1
+        item: Support resources for tools provided
+        required: true
+        resources: [tool-support.yaml]
+        passing_score: 85
+
+  - category: Mobile Experience
+    criteria:
+      - id: mobile-responsive-1
+        item: Content displays properly on mobile devices
+        required: true
+        resources: [mobile-design.yaml]
+        passing_score: 90
+
+      - id: mobile-navigation-1
+        item: Navigation works well on mobile
+        required: true
+        resources: [mobile-navigation.yaml]
+        passing_score: 85
+
+      - id: mobile-media-1
+        item: Media optimized for mobile viewing
+        required: true
+        resources: [mobile-media.yaml]
+        passing_score: 85
+
+  - category: Accessibility (Canvas-Specific)
+    criteria:
+      - id: access-ally-1
+        item: Ally accessibility issues addressed
+        required: true
+        resources: [wcag-accessibility.yaml]
+        passing_score: 90
+
+      - id: access-alt-text-1
+        item: All images have appropriate alt text
+        required: true
+        resources: [alt-text-guide.yaml]
+        passing_score: 100
+
+      - id: access-headings-1
+        item: Proper heading structure used
+        required: true
+        resources: [heading-structure.yaml]
+        passing_score: 95
+
+      - id: access-color-1
+        item: Color not sole means of conveying information
+        required: true
+        resources: [color-accessibility.yaml]
+        passing_score: 95
+
+      - id: access-media-1
+        item: Captions/transcripts for all media
+        required: true
+        resources: [media-accessibility.yaml]
+        passing_score: 100
+
+  - category: Student Support & Resources
+    criteria:
+      - id: support-expectations-1
+        item: Clear expectations and course policies
+        required: true
+        resources: [expectations-communication.yaml]
+        passing_score: 95
+
+      - id: support-resources-1
+        item: Support resources easily accessible
+        required: true
+        resources: [support-resources.yaml]
+        passing_score: 90
+
+      - id: support-help-1
+        item: Help resources for Canvas use provided
+        required: true
+        resources: [canvas-help.yaml]
+        passing_score: 85
+
+      - id: support-faq-1
+        item: FAQ or common questions addressed
+        required: false
+        resources: [faq-design.yaml]
+        passing_score: 75
+
+  - category: Course Quality Review
+    criteria:
+      - id: quality-pilot-1
+        item: Course piloted/tested before full launch
+        required: false
+        resources: [course-piloting.yaml]
+        passing_score: 80
+
+      - id: quality-feedback-1
+        item: Student feedback collected and used
+        required: true
+        resources: [feedback-collection.yaml]
+        passing_score: 85
+
+      - id: quality-review-1
+        item: Peer review or quality check completed
+        required: false
+        resources: [peer-review-process.yaml]
+        passing_score: 80
+
+      - id: quality-standards-1
+        item: Meets institutional quality standards (QM, OLC, etc.)
+        required: false
+        resources: [quality-standards.yaml]
+        passing_score: 85
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Review course structure and organization
+  - step: Test navigation and usability
+  - step: Evaluate visual design and consistency
+  - step: Check all content pages
+  - step: Validate assignments and activities
+  - step: Review gradebook setup
+  - step: Test accessibility features
+  - step: Check mobile experience
+  - step: Review communication tools
+  - step: Generate Canvas course quality report
+
+canvas_integration:
+  - location: entire_course
+  - validation: link_validator
+  - validation: accessibility_checker
+  - validation: mobile_preview
+  - tools: course_checklist
+  - tools: import_checker
+  - tools: blueprint_sync
+  - analytics: course_engagement
+  - analytics: student_access_patterns

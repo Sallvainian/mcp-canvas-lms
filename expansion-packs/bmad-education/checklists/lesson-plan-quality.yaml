@@ -1,0 +1,304 @@
+name: Lesson Plan Quality & Excellence Check
+description: Validates lesson design quality using evidence-based instructional practices
+version: 1.0.0
+theory_base: [madeline_hunter, gradual_release, direct_instruction, constructivism]
+
+categories:
+  - category: Learning Objectives & Goals
+    criteria:
+      - id: obj-clear-1
+        item: Learning objective clearly stated in measurable terms
+        required: true
+        resources: [learning-objectives-quality.yaml]
+        passing_score: 100
+
+      - id: obj-comm-1
+        item: Objective communicated to students at lesson start
+        required: true
+        resources: [student-communication.yaml]
+        passing_score: 95
+
+      - id: obj-success-1
+        item: Success criteria explicitly defined and shared
+        required: true
+        resources: [success-criteria.yaml]
+        passing_score: 90
+
+      - id: obj-align-1
+        item: Objective aligns with unit goals and standards
+        required: true
+        resources: [curriculum-alignment.yaml]
+        passing_score: 100
+
+  - category: Lesson Structure & Flow (Madeline Hunter Model)
+    criteria:
+      - id: structure-anticipatory-1
+        item: Anticipatory set/hook engages and connects to prior knowledge
+        required: true
+        resources: [engagement-strategies.yaml]
+        passing_score: 85
+
+      - id: structure-objective-1
+        item: Objective and purpose clearly stated
+        required: true
+        resources: [learning-objectives-quality.yaml]
+        passing_score: 95
+
+      - id: structure-input-1
+        item: Input/instruction provides clear information and modeling
+        required: true
+        resources: [direct-instruction.yaml]
+        passing_score: 90
+
+      - id: structure-model-1
+        item: Modeling demonstrates expected thinking and performance
+        required: true
+        resources: [cognitive-apprenticeship.yaml]
+        passing_score: 90
+
+      - id: structure-check-1
+        item: Guided practice with frequent checks for understanding
+        required: true
+        resources: [formative-assessment.yaml]
+        passing_score: 90
+
+      - id: structure-closure-1
+        item: Closure summarizes learning and previews next steps
+        required: true
+        resources: [lesson-closure.yaml]
+        passing_score: 85
+
+      - id: structure-independent-1
+        item: Independent practice allows application of learning
+        required: true
+        resources: [practice-design.yaml]
+        passing_score: 85
+
+  - category: Gradual Release of Responsibility (I Do, We Do, You Do)
+    criteria:
+      - id: gradual-ido-1
+        item: "I Do: Teacher explicitly models thinking and process"
+        required: true
+        resources: [explicit-instruction.yaml]
+        passing_score: 90
+
+      - id: gradual-wedo-1
+        item: "We Do: Collaborative practice with teacher guidance"
+        required: true
+        resources: [guided-practice.yaml]
+        passing_score: 90
+
+      - id: gradual-youdo-1
+        item: "You Do: Independent practice with decreasing support"
+        required: true
+        resources: [independent-practice.yaml]
+        passing_score: 85
+
+      - id: gradual-transition-1
+        item: Clear transitions between responsibility levels
+        required: true
+        resources: [scaffolding-strategies.yaml]
+        passing_score: 85
+
+  - category: Instructional Strategies & Methods
+    criteria:
+      - id: strategy-variety-1
+        item: Multiple instructional strategies used appropriately
+        required: true
+        resources: [teaching-methods.yaml]
+        passing_score: 85
+
+      - id: strategy-match-1
+        item: Strategies match content type and learning objectives
+        required: true
+        resources: [pedagogy-alignment.yaml]
+        passing_score: 90
+
+      - id: strategy-active-1
+        item: Active learning opportunities included (not passive listening)
+        required: true
+        resources: [active-learning.yaml]
+        passing_score: 85
+
+      - id: strategy-thinking-1
+        item: Higher-order thinking strategies integrated
+        required: true
+        resources: [higher-order-thinking.yaml]
+        passing_score: 80
+
+  - category: Formative Assessment & Feedback
+    criteria:
+      - id: formative-cfu-1
+        item: Multiple checks for understanding throughout lesson
+        required: true
+        resources: [formative-assessment.yaml]
+        passing_score: 90
+
+      - id: formative-evidence-1
+        item: Evidence collection methods specified
+        required: true
+        resources: [assessment-methods.yaml]
+        passing_score: 85
+
+      - id: formative-adjust-1
+        item: Plan includes adjustments based on student responses
+        required: true
+        resources: [responsive-teaching.yaml]
+        passing_score: 85
+
+      - id: formative-feedback-1
+        item: Timely, specific feedback opportunities built in
+        required: true
+        resources: [feedback-quality.yaml]
+        passing_score: 85
+
+  - category: Differentiation & Accessibility
+    criteria:
+      - id: diff-scaffolding-1
+        item: Scaffolding strategies for struggling learners
+        required: true
+        resources: [differentiation-quality.yaml]
+        passing_score: 85
+
+      - id: diff-extension-1
+        item: Extension activities for advanced learners
+        required: true
+        resources: [enrichment-strategies.yaml]
+        passing_score: 80
+
+      - id: diff-modalities-1
+        item: Multiple modalities for content delivery (visual, auditory, kinesthetic)
+        required: true
+        resources: [udl-checklist.yaml]
+        passing_score: 85
+
+      - id: diff-access-1
+        item: Accommodations for diverse learners specified
+        required: true
+        resources: [accessibility-planning.yaml]
+        passing_score: 85
+
+  - category: Engagement & Motivation
+    criteria:
+      - id: engage-relevance-1
+        item: Real-world connections or relevance made explicit
+        required: true
+        resources: [engagement-optimization.yaml]
+        passing_score: 85
+
+      - id: engage-interaction-1
+        item: Student interaction and collaboration opportunities
+        required: true
+        resources: [collaborative-learning.yaml]
+        passing_score: 80
+
+      - id: engage-choice-1
+        item: Student choice or agency incorporated where appropriate
+        required: false
+        resources: [student-agency.yaml]
+        passing_score: 75
+
+      - id: engage-pacing-1
+        item: Pacing maintains engagement (not too fast/slow)
+        required: true
+        resources: [pacing-strategies.yaml]
+        passing_score: 80
+
+  - category: Materials & Resources
+    criteria:
+      - id: materials-quality-1
+        item: High-quality, standards-aligned materials selected
+        required: true
+        resources: [resource-evaluation.yaml]
+        passing_score: 85
+
+      - id: materials-prepared-1
+        item: All materials prepared and ready for use
+        required: true
+        resources: [lesson-preparation.yaml]
+        passing_score: 90
+
+      - id: materials-access-1
+        item: Materials accessible to all students (UDL)
+        required: true
+        resources: [udl-checklist.yaml]
+        passing_score: 85
+
+      - id: materials-tech-1
+        item: Technology enhances learning (not just for engagement)
+        required: false
+        resources: [technology-integration.yaml]
+        passing_score: 75
+
+  - category: Time Management & Pacing
+    criteria:
+      - id: time-allocation-1
+        item: Time allocated to each lesson segment
+        required: true
+        resources: [time-management.yaml]
+        passing_score: 90
+
+      - id: time-realistic-1
+        item: Time allocations realistic for activities
+        required: true
+        resources: [pacing-guide.yaml]
+        passing_score: 85
+
+      - id: time-flexibility-1
+        item: Flexibility for adjustments based on student needs
+        required: true
+        resources: [adaptive-teaching.yaml]
+        passing_score: 80
+
+      - id: time-transitions-1
+        item: Smooth transitions minimize lost instructional time
+        required: true
+        resources: [classroom-management.yaml]
+        passing_score: 80
+
+  - category: Metacognition & Reflection
+    criteria:
+      - id: meta-thinking-1
+        item: Opportunities for students to reflect on their thinking
+        required: false
+        resources: [metacognition.yaml]
+        passing_score: 75
+
+      - id: meta-strategy-1
+        item: Learning strategies explicitly taught
+        required: false
+        resources: [learning-strategies.yaml]
+        passing_score: 75
+
+      - id: meta-self-1
+        item: Self-assessment or self-monitoring included
+        required: false
+        resources: [self-assessment.yaml]
+        passing_score: 70
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Review learning objectives clarity and alignment
+  - step: Validate lesson structure completeness
+  - step: Check gradual release implementation
+  - step: Verify formative assessment integration
+  - step: Assess differentiation planning
+  - step: Evaluate engagement strategies
+  - step: Review materials and time management
+  - step: Generate lesson quality report
+
+canvas_integration:
+  - location: assignment_instructions
+  - location: page_content
+  - location: discussion_prompts
+  - location: module_items
+  - validation: objective_clarity
+  - validation: formative_assessment_points
+  - tools: lesson_template
+  - tools: cfu_strategies_bank

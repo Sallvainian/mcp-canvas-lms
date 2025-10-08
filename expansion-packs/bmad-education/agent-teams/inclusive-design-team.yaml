@@ -1,0 +1,387 @@
+# <!-- Powered by BMAD™ Education Pack -->
+name: Inclusive Design Team
+icon: 🌈
+description: >
+  Expert team for Universal Design for Learning (UDL), accessibility, and differentiation.
+  Specializes in creating learning experiences that are accessible to all students,
+  with multiple pathways to success and proactive accommodations built into design.
+
+lead_agent: differentiation-expert
+supporting_agents:
+  - agent: edtech-integrator
+    role: Assistive technology and digital accessibility
+    expertise: >
+      Ensures digital content meets WCAG 2.1 AA standards, integrates assistive
+      technologies, validates Canvas accessibility features, and implements
+      technical accommodations (screen readers, text-to-speech, captions).
+
+  - agent: instructional-designer
+    role: Pedagogical flexibility and engagement diversity
+    expertise: >
+      Designs varied instructional approaches to reach different learning styles,
+      creates multiple pathways through content, and ensures engagement options
+      accommodate neurodiversity and varied student needs.
+
+coordination_protocol:
+  workflow: Proactive design with universal access mindset
+  decision_making: >
+    Differentiation Expert leads on UDL framework and accommodation strategies.
+    EdTech Integrator ensures technical accessibility and assistive tech integration.
+    Instructional Designer provides pedagogical variety and engagement options.
+  handoffs: >
+    Expert → UDL framework applied → EdTech validates digital access →
+    Designer adds pedagogical variety → Expert synthesizes → Team validates
+
+use_cases:
+  - scenario: UDL implementation for existing course
+    example: >
+      "Redesign Chemistry 101 Canvas course to fully implement UDL guidelines
+      with multiple means of representation, engagement, and expression."
+    expected_outcome: >
+      UDL-compliant course with varied content formats (text, video, audio,
+      interactive), choice in assignments, flexible assessment options, and
+      proactive scaffolds for all learners.
+
+  - scenario: WCAG accessibility compliance audit
+    example: >
+      "Audit AP US History Canvas course for WCAG 2.1 AA compliance and
+      remediate all accessibility barriers."
+    expected_outcome: >
+      Accessibility audit report, remediation plan, corrected course materials
+      (alt text, captions, heading structure, color contrast), and validation
+      testing with assistive technology.
+
+  - scenario: Accommodations planning and implementation
+    example: >
+      "Design accommodation strategies for students with IEPs/504 plans in
+      Algebra II, including extended time, reduced distractions, and text-to-speech."
+    expected_outcome: >
+      Accommodation implementation guide, Canvas settings configuration (assignment
+      overrides), assistive tech integration plan, teacher training materials,
+      student support resources.
+
+  - scenario: Neurodiversity-affirming course design
+    example: >
+      "Create ADHD-friendly course structure with clear organization, chunked
+      content, visual supports, and executive function scaffolds."
+    expected_outcome: >
+      Course with predictable structure, visual schedule, task breakdowns,
+      time management supports, sensory considerations, and flexible pacing options.
+
+team_workflows:
+  - workflow: udl-implementation.yaml
+    team_role: >
+      Systematic application of UDL framework to courses, units, or lessons,
+      ensuring multiple means of representation, engagement, and expression.
+
+  - workflow: accessibility-audit.yaml
+    team_role: >
+      Comprehensive accessibility review of Canvas content with WCAG compliance
+      validation and remediation planning.
+
+  - workflow: accommodation-design.yaml
+    team_role: >
+      Proactive design of accommodations and supports that are built into
+      course structure rather than retrofitted.
+
+typical_sequence:
+  - step: 1
+    agent: differentiation-expert
+    action: Analyze learner variability and apply UDL framework
+    output: >
+      Learner variability analysis (anticipated needs/strengths), UDL checkpoints
+      identified for content, barriers to learning anticipated, accommodation
+      needs documented, UDL goals established
+    handoff_to: edtech-integrator
+
+  - step: 2
+    agent: edtech-integrator
+    action: Audit digital accessibility and plan assistive tech integration
+    output: >
+      WCAG audit results (violations documented), assistive technology compatibility
+      check, Canvas accessibility features inventory, technical remediation plan,
+      required tools/plugins identified
+    handoff_to: instructional-designer
+
+  - step: 3
+    agent: instructional-designer
+    action: Design multiple pathways and varied engagement options
+    output: >
+      Multiple content formats planned (text, video, audio, interactive),
+      varied activity types designed (visual, auditory, kinesthetic, reading/writing),
+      choice options integrated, flexible grouping strategies, pacing options
+    handoff_to: differentiation-expert
+
+  - step: 4
+    agent: differentiation-expert
+    action: Add scaffolds, supports, and tiered complexity options
+    output: >
+      Scaffolding hierarchy (entry points for varied readiness levels),
+      graphic organizers and visual supports, sentence frames and language supports,
+      step-by-step guides, worked examples, self-regulation tools
+    handoff_to: edtech-integrator
+
+  - step: 5
+    agent: edtech-integrator
+    action: Implement technical accessibility features and validate
+    output: >
+      Alt text added to all images, video captions created, heading structure
+      corrected, color contrast validated, keyboard navigation tested, screen
+      reader compatibility verified, Canvas accessibility checker passed
+    handoff_to: instructional-designer
+
+  - step: 6
+    agent: instructional-designer
+    action: Integrate supports into instructional flow seamlessly
+    output: >
+      Supports embedded naturally (not separate), student choice opportunities
+      highlighted, clear instructions with multiple formats, success criteria
+      made visible, metacognitive prompts added
+    handoff_to: differentiation-expert
+
+  - step: 7
+    agent: differentiation-expert
+    action: Validate UDL implementation and create support documentation
+    output: >
+      UDL compliance verified against checkpoints, student-facing support guide,
+      teacher implementation notes, accommodation quick-reference, continuous
+      improvement plan for ongoing UDL refinement
+    handoff_to: team-review
+
+  - step: 8
+    agent: all-agents
+    action: Comprehensive inclusive design validation
+    output: >
+      Course/lesson validated for UDL compliance, WCAG accessibility, pedagogical
+      variety, and seamless support integration. All agents approve for inclusive
+      excellence.
+
+canvas_implementation:
+  division_of_labor:
+    - agent: differentiation-expert
+      canvas_responsibilities:
+        - Assignment differentiation (choice boards, tiered options)
+        - Assignment overrides for accommodations (extended time, attempts)
+        - Module alternative pathways (prerequisite logic for choices)
+        - Student support resources (guides, scaffolds, exemplars)
+      mcp_tools:
+        - canvas_create_assignment (multiple versions/options)
+        - canvas_create_assignment_override
+        - canvas_update_module_item (prerequisites for pathways)
+        - canvas_create_page (support resources)
+        - canvas_add_textbox (scaffolding content)
+
+    - agent: edtech-integrator
+      canvas_responsibilities:
+        - Accessibility remediation (alt text, captions, structure)
+        - Assistive tech integration (tools/plugins)
+        - Canvas accessibility features configuration
+        - WCAG validation and testing
+      mcp_tools:
+        - canvas_update_page (accessibility fixes)
+        - canvas_add_image (with alt text)
+        - canvas_create_page (accessible formatting)
+        - canvas_update_assignment (accessibility settings)
+        - External tools for captions/accessibility checkers
+
+    - agent: instructional-designer
+      canvas_responsibilities:
+        - Multiple content format creation (varied media)
+        - Choice integration into assignments
+        - Clear navigation and organization
+        - Metacognitive supports and reflection prompts
+      mcp_tools:
+        - canvas_create_page (multiple formats)
+        - canvas_create_module (clear organization)
+        - canvas_create_discussion_topic (engagement options)
+        - canvas_create_assignment (choice options)
+
+quality_assurance:
+  validation_points:
+    - UDL compliance (all three principles represented)
+    - WCAG 2.1 AA compliance (digital accessibility validated)
+    - Assistive tech compatibility (tested with screen readers, TTS)
+    - Cognitive accessibility (clear language, visual supports)
+    - Multiple pathways available (representation, engagement, expression)
+    - Proactive accommodations (built-in, not retrofitted)
+    - Cultural responsiveness (diverse perspectives represented)
+    - Student agency (meaningful choices provided)
+
+  success_metrics:
+    - UDL checkpoints: 100% of three principles addressed
+    - WCAG violations: Zero critical/serious violations
+    - Assistive tech: 100% compatibility with common tools (JAWS, NVDA, VoiceOver)
+    - Content variety: Minimum 3 formats per major concept (text, visual, audio)
+    - Choice options: Students have choice in 50%+ of assignments
+    - Scaffolds available: Support materials for 100% of complex tasks
+    - Student feedback: >85% report feeling supported and able to access content
+    - Accommodation efficiency: 90% of common accommodations built-in proactively
+
+communication_patterns:
+  synchronous:
+    - UDL framework training and alignment session
+    - Accessibility audit walkthrough (identify barriers together)
+    - Assistive tech demonstration and testing
+    - Student persona development workshop (understand variability)
+
+  asynchronous:
+    - WCAG compliance checklists (individual review)
+    - Scaffold and support material drafts (feedback cycles)
+    - Content format variations (independent creation)
+    - UDL checkpoint validation (verification by second agent)
+
+  decision_authority:
+    - UDL framework application: Differentiation Expert (final authority)
+    - Technical accessibility: EdTech Integrator (must approve WCAG compliance)
+    - Pedagogical variety: Instructional Designer (validates engagement options)
+    - Overall inclusive design: Differentiation Expert (synthesis responsibility)
+
+collaboration_tools:
+  documentation:
+    - UDL checkpoint matrices (framework application tracking)
+    - WCAG audit reports (accessibility compliance documentation)
+    - Learner persona profiles (variability understanding)
+    - Accommodation implementation guides (practical how-to resources)
+
+  review_processes:
+    - UDL checkpoint audit (verify all principles addressed)
+    - Accessibility testing protocol (assistive tech validation)
+    - Barrier analysis (proactive identification of access obstacles)
+    - Student voice integration (feedback from diverse learners)
+
+edge_case_handling:
+  competing_accessibility_needs:
+    process: >
+      Differentiation Expert facilitates analysis, EdTech Integrator explores
+      technical solutions, team designs multiple parallel pathways when single
+      solution cannot serve all needs
+
+  resource_intensive_accommodations:
+    process: >
+      EdTech Integrator evaluates efficiency of technical solutions, Differentiation
+      Expert prioritizes highest-impact supports, Instructional Designer ensures
+      quality not compromised by resource constraints
+
+  unclear_legal_requirements:
+    process: >
+      Team consults legal/compliance resources, Differentiation Expert provides
+      best practice guidance, EdTech Integrator ensures technical compliance,
+      conservative approach taken when ambiguous
+
+  retrofit_vs_redesign_decisions:
+    process: >
+      Differentiation Expert assesses current state, team evaluates cost/benefit
+      of quick fixes vs. comprehensive redesign, decision based on barrier severity
+      and available resources
+
+udl_framework_implementation:
+  multiple_means_representation:
+    - Varied content formats (text, audio, video, interactive)
+    - Visual supports (diagrams, infographics, concept maps)
+    - Language supports (glossaries, translations, simplified text)
+    - Customizable display (font size, color contrast, text spacing)
+    - Alternative modalities (tactile, kinesthetic options)
+
+  multiple_means_engagement:
+    - Student choice and autonomy (assignment options, pathways)
+    - Relevant real-world connections (authentic contexts)
+    - Varied difficulty levels (challenge and support options)
+    - Collaborative and independent work options
+    - Interest-based learning opportunities
+    - Self-regulation supports (goal setting, progress monitoring)
+
+  multiple_means_expression:
+    - Varied product formats (written, oral, visual, multimedia)
+    - Flexible assessment modes (tests, projects, demonstrations)
+    - Scaffolded construction tools (templates, organizers, rubrics)
+    - Technology-enabled expression (assistive writing, recording, creation tools)
+    - Tiered complexity options (entry points for varied skill levels)
+
+accessibility_technical_standards:
+  wcag_perceivable:
+    - Text alternatives for non-text content (alt text, captions)
+    - Time-based media alternatives (transcripts, audio descriptions)
+    - Adaptable content (semantic structure, logical reading order)
+    - Distinguishable content (color contrast, text resizing, no text in images)
+
+  wcag_operable:
+    - Keyboard accessibility (all functions keyboard-accessible)
+    - Enough time (adjustable time limits, pause controls)
+    - Seizure prevention (no flashing content >3 times/second)
+    - Navigable (clear headings, skip links, focus indicators)
+
+  wcag_understandable:
+    - Readable text (clear language, defined jargon)
+    - Predictable operation (consistent navigation, no surprise changes)
+    - Input assistance (error identification, labels, help text)
+
+  wcag_robust:
+    - Compatible with assistive technologies (valid HTML, ARIA when needed)
+    - Future-proof design (standards-compliant markup)
+
+assistive_technology_integration:
+  screen_readers:
+    - JAWS, NVDA, VoiceOver compatibility validation
+    - Proper heading structure for navigation
+    - Alt text for meaningful images, decorative images marked
+    - Form labels and input descriptions
+    - Link text that makes sense out of context
+
+  text_to_speech:
+    - Canvas Immersive Reader integration
+    - Read&Write, Natural Reader support
+    - Clean text formatting for TTS parsing
+    - Pronunciation guides for technical terms
+
+  speech_to_text:
+    - Speech recognition software compatibility
+    - Alternative input methods for assignments
+    - Audio recording submission options
+
+  visual_supports:
+    - Screen magnification compatibility
+    - High contrast modes and color inversion
+    - Adjustable font sizes and spacing
+    - Text-to-visual conversion tools
+
+neurodiversity_supports:
+  adhd_supports:
+    - Clear, predictable course structure
+    - Visual schedules and checklists
+    - Chunked content (short segments)
+    - Timers and time management tools
+    - Minimal visual clutter
+    - Frequent breaks and movement opportunities
+
+  autism_supports:
+    - Explicit instructions and expectations
+    - Visual supports and social scripts
+    - Predictable routines and advance notice of changes
+    - Sensory considerations (reduced stimulation options)
+    - Clear success criteria and rubrics
+
+  dyslexia_supports:
+    - Dyslexia-friendly fonts (OpenDyslexic, Comic Sans)
+    - Text-to-speech for all reading materials
+    - Graphic organizers and visual note-taking tools
+    - Extended time for reading-heavy tasks
+    - Audio alternatives for text-based content
+
+  executive_function_supports:
+    - Step-by-step task breakdowns
+    - Project management templates
+    - Goal-setting and self-monitoring tools
+    - Organizational scaffolds (folders, calendars, checklists)
+    - Reminder systems and deadline tracking
+
+integration_notes:
+  - Team operates best when learner variability data is available upfront
+  - Benefits from access to IEP/504 accommodation lists (with privacy protections)
+  - Requires understanding of available assistive technologies in school/district
+  - Canvas accessibility features should be maximized before external tools
+  - Proactive UDL design is more efficient than reactive accommodation
+  - Student feedback is essential for validating inclusive design effectiveness
+  - Cultural and linguistic diversity should be considered alongside disability
+  - Universal design benefits all learners, not just those with identified needs
+  - Accessibility is legal requirement; UDL is pedagogical excellence
+  - Continuous improvement mindset: always refining based on student experience

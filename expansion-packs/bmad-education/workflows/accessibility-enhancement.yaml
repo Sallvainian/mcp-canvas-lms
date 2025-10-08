@@ -1,0 +1,339 @@
+name: Accessibility Enhancement with UDL and WCAG
+description: Systematic improvement of course accessibility through Universal Design for Learning (UDL) integration and Web Content Accessibility Guidelines (WCAG) 2.1 AA compliance
+duration: 1-2 weeks
+difficulty: intermediate
+prerequisites:
+  - Existing course materials in Canvas
+  - Basic understanding of WCAG 2.1 guidelines
+  - Familiarity with UDL principles
+  - Access to accessibility testing tools
+  - Canvas course with designer/teacher role
+
+phases:
+  - phase: 1
+    name: Accessibility Audit and Barrier Identification
+    duration: 2-3 days
+    tasks:
+      - task: conduct-accessibility-audit
+        agent: accessibility-specialist
+        templates:
+          - accessibility-audit-template.md
+          - wcag-compliance-worksheet.md
+        checklists:
+          - wcag-compliance-checklist.md
+          - canvas-accessibility-checklist.md
+        outputs:
+          - Comprehensive accessibility audit report
+          - WCAG 2.1 AA compliance assessment
+          - Barrier identification by severity (critical, major, minor)
+          - Prioritized remediation list
+
+      - task: evaluate-udl-implementation
+        agent: accessibility-specialist
+        templates:
+          - udl-evaluation-template.md
+          - barrier-analysis-worksheet.md
+        checklists:
+          - udl-principles-checklist.md
+        outputs:
+          - UDL principles assessment
+          - Multiple means analysis (representation, engagement, expression)
+          - Student pathway mapping
+          - UDL enhancement opportunities
+
+      - task: test-assistive-technology-compatibility
+        agent: accessibility-specialist
+        templates:
+          - assistive-tech-test-protocol.md
+        checklists:
+          - screen-reader-checklist.md
+          - keyboard-navigation-checklist.md
+        outputs:
+          - Screen reader testing report (NVDA, JAWS, VoiceOver)
+          - Keyboard navigation assessment
+          - Alternative input device testing
+          - Compatibility issue documentation
+
+    quality_gates:
+      - Complete WCAG 2.1 AA audit with documented violations
+      - All barriers categorized by severity and type
+      - Assistive technology testing completed
+      - Clear remediation priorities established
+
+  - phase: 2
+    name: Content Remediation and WCAG Compliance
+    duration: 3-5 days
+    tasks:
+      - task: remediate-document-accessibility
+        agent: accessibility-specialist
+        templates:
+          - document-remediation-guide.md
+          - pdf-accessibility-checklist.md
+        checklists:
+          - document-accessibility-checklist.md
+        outputs:
+          - Accessible PDF documents (tagged, structured)
+          - Word documents with proper heading structure
+          - PowerPoint presentations with alt text and reading order
+          - Alternative formats (HTML, plain text) as needed
+
+      - task: add-multimedia-accessibility
+        agent: accessibility-specialist
+        templates:
+          - multimedia-accessibility-guide.md
+          - caption-quality-checklist.md
+        checklists:
+          - alt-text-checklist.md
+          - caption-checklist.md
+        outputs:
+          - Image alt text for all meaningful images
+          - Video captions (synchronized and accurate)
+          - Audio transcripts
+          - Audio descriptions for complex visuals
+
+      - task: fix-canvas-accessibility-issues
+        agent: canvas-integration-specialist
+        templates:
+          - canvas-remediation-guide.md
+        checklists:
+          - canvas-accessibility-checklist.md
+        outputs:
+          - Proper heading hierarchy in all pages
+          - Descriptive link text (no "click here")
+          - Table headers and data relationships
+          - Form labels and instructions
+          - Color contrast compliance (4.5:1 minimum)
+
+    quality_gates:
+      - All documents meet WCAG 2.1 AA standards
+      - All multimedia content has required alternatives
+      - Canvas pages pass accessibility checker
+      - No critical or major WCAG violations remain
+
+  - phase: 3
+    name: UDL Integration and Multiple Pathways
+    duration: 3-4 days
+    tasks:
+      - task: design-multiple-representations
+        agent: accessibility-specialist
+        templates:
+          - udl-lesson-template.md
+          - representation-options-worksheet.md
+        checklists:
+          - udl-representation-checklist.md
+        outputs:
+          - Content in multiple formats (text, audio, video, visual)
+          - Vocabulary support and glossaries
+          - Background knowledge resources
+          - Content chunking and organization improvements
+
+      - task: create-engagement-options
+        agent: instructional-designer
+        templates:
+          - engagement-strategies-template.md
+          - choice-board-template.md
+        checklists:
+          - engagement-checklist.md
+        outputs:
+          - Student choice opportunities in learning activities
+          - Varied collaboration options (individual, pair, group)
+          - Interest-based connections and examples
+          - Relevance and authenticity enhancements
+
+      - task: provide-expression-alternatives
+        agent: instructional-designer
+        templates:
+          - assessment-options-template.md
+          - expression-pathways-worksheet.md
+        checklists:
+          - expression-options-checklist.md
+        outputs:
+          - Multiple ways to demonstrate learning
+          - Varied assessment formats (written, oral, visual, performance)
+          - Scaffolding and support tools
+          - Executive function supports (planning templates, checklists)
+
+    quality_gates:
+      - Multiple means of representation present in all lessons
+      - Student choice and engagement options integrated
+      - Multiple ways to express learning available
+      - UDL principles evident throughout course
+
+  - phase: 4
+    name: Canvas Accessibility Configuration
+    duration: 2-3 days
+    tasks:
+      - task: optimize-canvas-navigation
+        agent: canvas-integration-specialist
+        templates:
+          - canvas-navigation-template.md
+        checklists:
+          - navigation-accessibility-checklist.md
+        outputs:
+          - Logical module organization
+          - Clear navigation labels and structure
+          - Breadcrumb and skip navigation support
+          - Consistent navigation patterns
+
+      - task: configure-canvas-accessibility-features
+        agent: canvas-integration-specialist
+        templates:
+          - canvas-accessibility-features-guide.md
+        checklists:
+          - canvas-feature-checklist.md
+        outputs:
+          - Canvas accessibility checker enabled
+          - Alt text required for images
+          - Accessibility statement published
+          - Student accessibility resources provided
+
+      - task: setup-accommodation-systems
+        agent: canvas-integration-specialist
+        templates:
+          - accommodation-setup-guide.md
+        checklists:
+          - accommodation-checklist.md
+        outputs:
+          - Assignment overrides for extended time
+          - Alternative assessment formats ready
+          - Accommodation documentation system
+          - Privacy-compliant accommodation tracking
+
+    quality_gates:
+      - Canvas navigation intuitive and accessible
+      - All Canvas accessibility features enabled
+      - Accommodation systems functional
+      - Student accessibility resources available
+
+  - phase: 5
+    name: Testing, Validation, and Documentation
+    duration: 2-3 days
+    tasks:
+      - task: conduct-accessibility-validation
+        agent: accessibility-specialist
+        templates:
+          - validation-test-protocol.md
+        checklists:
+          - validation-checklist.md
+        outputs:
+          - Automated testing results (WAVE, axe, Canvas checker)
+          - Manual testing verification
+          - Assistive technology re-testing
+          - Compliance certification documentation
+
+      - task: test-student-experience
+        agent: accessibility-specialist
+        templates:
+          - student-experience-test-protocol.md
+        checklists:
+          - student-perspective-checklist.md
+        outputs:
+          - Student user testing results
+          - Pathway navigation testing
+          - Accessibility feature usability
+          - Student feedback on improvements
+
+      - task: create-accessibility-documentation
+        agent: accessibility-specialist
+        templates:
+          - accessibility-statement-template.md
+          - accommodation-guide-template.md
+        checklists:
+          - documentation-checklist.md
+        outputs:
+          - Course accessibility statement
+          - Student accommodation request process
+          - Accessibility features guide
+          - Ongoing maintenance plan
+
+    quality_gates:
+      - All automated and manual tests pass
+      - Student experience testing positive
+      - WCAG 2.1 AA compliance verified
+      - Documentation complete and published
+
+agents_involved:
+  - agent: accessibility-specialist
+    role: Lead accessibility audit, remediation, UDL integration, and validation
+
+  - agent: instructional-designer
+    role: UDL learning activity design and engagement strategy development
+
+  - agent: canvas-integration-specialist
+    role: Canvas accessibility configuration and accommodation setup
+
+  - agent: curriculum-architect
+    role: Quality assurance and alignment verification (consulting role)
+
+canvas_integration:
+  mcp_tools_used:
+    - canvas_update_course: Set accessibility statement and policies
+    - canvas_update_page: Remediate page content for accessibility
+    - canvas_create_page: Build accessibility resource pages
+    - canvas_update_assignment: Add alternative format options
+    - canvas_create_assignment_override: Configure accommodation extensions
+    - canvas_upload_asset_from_url: Replace inaccessible media with remediated versions
+    - canvas_list_files: Audit uploaded documents
+    - canvas_get_file: Review individual file accessibility
+    - canvas_update_module: Improve module navigation structure
+    - canvas_update_module_item: Add accessibility metadata and descriptions
+
+  implementation_sequence:
+    - step: 1
+      action: Audit current Canvas content
+      tools: [canvas_list_files, canvas_list_pages, canvas_list_modules]
+
+    - step: 2
+      action: Update course accessibility policies
+      tools: [canvas_update_course]
+
+    - step: 3
+      action: Remediate page content
+      tools: [canvas_update_page, canvas_create_page]
+
+    - step: 4
+      action: Replace inaccessible media
+      tools: [canvas_upload_asset_from_url]
+
+    - step: 5
+      action: Update assignments for alternatives
+      tools: [canvas_update_assignment, canvas_create_assignment_override]
+
+    - step: 6
+      action: Improve navigation structure
+      tools: [canvas_update_module, canvas_update_module_item]
+
+    - step: 7
+      action: Publish accessibility resources
+      tools: [canvas_create_page]
+
+success_criteria:
+  - WCAG 2.1 AA compliance achieved for all course content
+  - No critical or major accessibility barriers remain
+  - All multimedia has appropriate alternatives (captions, transcripts, alt text)
+  - UDL principles integrated with multiple pathways evident
+  - Canvas accessibility checker shows no errors
+  - Assistive technology testing successful
+  - Student experience testing shows improved usability
+  - Accessibility documentation complete and published
+
+common_pitfalls:
+  - Focusing only on WCAG compliance without UDL integration
+  - Automating accessibility (bad alt text, auto-captions without review)
+  - Not testing with actual assistive technologies
+  - Overwhelming students with too many choices (choice paralysis)
+  - Forgetting to maintain accessibility with new content
+  - Not involving students with disabilities in testing
+  - Treating accessibility as one-time fix rather than ongoing practice
+  - Overlooking cognitive accessibility (plain language, organization)
+
+resources:
+  - WCAG 2.1 Quick Reference
+  - UDL Guidelines 3.0 (CAST)
+  - Canvas Accessibility Resources
+  - WebAIM Screen Reader Testing Guide
+  - Alt Text Decision Tree
+  - Video Captioning Best Practices
+  - Color Contrast Checker Tools
+  - Accessible PDF Authoring Guide
+  - Document Accessibility Checkers (CommonLook, PAC 3)

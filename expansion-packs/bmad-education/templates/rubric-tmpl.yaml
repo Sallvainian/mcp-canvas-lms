@@ -1,0 +1,621 @@
+# Analytic Rubric Template
+# Comprehensive assessment rubric with criteria and performance levels
+# Canvas Integration: Use with canvas_create_rubric, canvas_grade_with_rubric
+
+metadata:
+  title: "Assessment Rubric"
+  author: ""  # Creator of rubric
+  subject: ""
+  grade_level: ""
+  assessment_name: ""
+  rubric_type: "analytic"  # analytic (multiple criteria) or holistic (overall impression)
+  date_created: ""  # YYYY-MM-DD
+  last_revised: ""  # YYYY-MM-DD
+
+# Rubric Context
+context:
+  assessment_description: ""  # What students are doing
+
+  standards_assessed:
+    - standard_code: ""
+      standard_text: ""
+
+  learning_targets:
+    - target: ""  # "I can..." statement
+
+  task_type: ""  # essay, project, presentation, performance, etc.
+
+# Performance Levels
+performance_levels:
+  # Define your performance levels (usually 3-5 levels)
+  levels:
+    - level_number: 4
+      level_name: "Advanced"  # or "Exemplary", "Exceeds"
+      descriptor: "Demonstrates exceptional understanding and goes beyond requirements"
+      point_range: ""  # e.g., "90-100"
+
+    - level_number: 3
+      level_name: "Proficient"  # or "Meets Expectations", "Skilled"
+      descriptor: "Demonstrates solid understanding and meets all requirements"
+      point_range: ""  # e.g., "80-89"
+
+    - level_number: 2
+      level_name: "Developing"  # or "Approaching", "Basic"
+      descriptor: "Demonstrates partial understanding with some gaps"
+      point_range: ""  # e.g., "70-79"
+
+    - level_number: 1
+      level_name: "Beginning"  # or "Emerging", "Needs Improvement"
+      descriptor: "Demonstrates minimal understanding with significant gaps"
+      point_range: ""  # e.g., "Below 70"
+
+    # Optional: Level 0 for missing/no attempt
+    - level_number: 0
+      level_name: "No Evidence"
+      descriptor: "No evidence of understanding or incomplete submission"
+      point_range: "0"
+
+# ====================================================================
+# RUBRIC CRITERIA
+# ====================================================================
+
+criteria:
+
+  # Criterion 1
+  - criterion_id: "C1"
+    criterion_name: ""  # e.g., "Thesis and Argumentation"
+
+    weight: 0  # Points or percentage (e.g., 25 points or 25%)
+
+    learning_target_connection: ""  # Which learning target this assesses
+
+    # Performance Descriptors for Each Level
+    performance_descriptors:
+
+      advanced:  # Level 4
+        description: ""
+        # Example: "Thesis is compelling, insightful, and original. Arguments are
+        # sophisticated, well-supported with multiple credible sources, and demonstrate
+        # deep critical thinking."
+
+        evidence_of_mastery: []
+        # Observable indicators:
+        # - "Thesis goes beyond obvious interpretations"
+        # - "Uses 5+ credible, varied sources"
+        # - "Addresses counterarguments effectively"
+
+      proficient:  # Level 3
+        description: ""
+        # Example: "Thesis is clear and arguable. Arguments are logical and supported
+        # with credible sources. Shows solid critical thinking."
+
+        evidence_of_mastery: []
+        # - "Thesis is debatable and specific"
+        # - "Uses 3-4 credible sources appropriately"
+        # - "Maintains logical flow of ideas"
+
+      developing:  # Level 2
+        description: ""
+        # Example: "Thesis is present but may be unclear or too broad. Arguments are
+        # present but may lack depth or sufficient support."
+
+        evidence_of_mastery: []
+        # - "Thesis exists but lacks specificity"
+        # - "Uses 1-2 sources with limited integration"
+        # - "Some gaps in logical reasoning"
+
+      beginning:  # Level 1
+        description: ""
+        # Example: "Thesis is missing, unclear, or not arguable. Arguments are weak,
+        # unsupported, or missing."
+
+        evidence_of_mastery: []
+        # - "No clear thesis or non-arguable statement"
+        # - "Few or no sources cited"
+        # - "Logical fallacies present"
+
+      no_evidence:  # Level 0 (optional)
+        description: "Criterion not addressed or incomplete"
+        evidence_of_mastery: []
+
+    # Feedback Prompts (Teacher Use)
+    feedback_prompts:
+      - level: "Advanced"
+        feedback_suggestions: []
+        # Example: "Excellent synthesis of ideas! Consider..."
+
+      - level: "Proficient"
+        feedback_suggestions: []
+        # Example: "Strong argument. To strengthen further..."
+
+      - level: "Developing"
+        feedback_suggestions: []
+        # Example: "Your thesis needs to be more specific. Try..."
+
+      - level: "Beginning"
+        feedback_suggestions: []
+        # Example: "Let's work on developing a clear thesis. Start by..."
+
+  # Criterion 2
+  - criterion_id: "C2"
+    criterion_name: ""  # e.g., "Evidence and Support"
+
+    weight: 0
+
+    learning_target_connection: ""
+
+    performance_descriptors:
+      advanced:
+        description: ""
+        evidence_of_mastery: []
+
+      proficient:
+        description: ""
+        evidence_of_mastery: []
+
+      developing:
+        description: ""
+        evidence_of_mastery: []
+
+      beginning:
+        description: ""
+        evidence_of_mastery: []
+
+      no_evidence:
+        description: "Criterion not addressed or incomplete"
+        evidence_of_mastery: []
+
+    feedback_prompts:
+      - level: "Advanced"
+        feedback_suggestions: []
+
+      - level: "Proficient"
+        feedback_suggestions: []
+
+      - level: "Developing"
+        feedback_suggestions: []
+
+      - level: "Beginning"
+        feedback_suggestions: []
+
+  # Criterion 3
+  - criterion_id: "C3"
+    criterion_name: ""  # e.g., "Organization and Structure"
+
+    weight: 0
+
+    learning_target_connection: ""
+
+    performance_descriptors:
+      advanced:
+        description: ""
+        evidence_of_mastery: []
+
+      proficient:
+        description: ""
+        evidence_of_mastery: []
+
+      developing:
+        description: ""
+        evidence_of_mastery: []
+
+      beginning:
+        description: ""
+        evidence_of_mastery: []
+
+      no_evidence:
+        description: "Criterion not addressed or incomplete"
+        evidence_of_mastery: []
+
+    feedback_prompts:
+      - level: "Advanced"
+        feedback_suggestions: []
+
+      - level: "Proficient"
+        feedback_suggestions: []
+
+      - level: "Developing"
+        feedback_suggestions: []
+
+      - level: "Beginning"
+        feedback_suggestions: []
+
+  # Criterion 4
+  - criterion_id: "C4"
+    criterion_name: ""  # e.g., "Language and Conventions"
+
+    weight: 0
+
+    learning_target_connection: ""
+
+    performance_descriptors:
+      advanced:
+        description: ""
+        evidence_of_mastery: []
+
+      proficient:
+        description: ""
+        evidence_of_mastery: []
+
+      developing:
+        description: ""
+        evidence_of_mastery: []
+
+      beginning:
+        description: ""
+        evidence_of_mastery: []
+
+      no_evidence:
+        description: "Criterion not addressed or incomplete"
+        evidence_of_mastery: []
+
+    feedback_prompts:
+      - level: "Advanced"
+        feedback_suggestions: []
+
+      - level: "Proficient"
+        feedback_suggestions: []
+
+      - level: "Developing"
+        feedback_suggestions: []
+
+      - level: "Beginning"
+        feedback_suggestions: []
+
+# ====================================================================
+# SCORING
+# ====================================================================
+
+scoring:
+
+  # Total Points
+  total_points: 0  # Sum of all criterion weights
+
+  # Scoring Method
+  method: ""  # points-based, percentage-based, or levels-based
+
+  # Conversion to Grade (if applicable)
+  grade_conversion:
+    - point_range: ""  # e.g., "90-100"
+      letter_grade: "A"
+      standard_met: "Advanced"
+
+    - point_range: ""  # e.g., "80-89"
+      letter_grade: "B"
+      standard_met: "Proficient"
+
+    - point_range: ""  # e.g., "70-79"
+      letter_grade: "C"
+      standard_met: "Developing"
+
+    - point_range: ""  # e.g., "60-69"
+      letter_grade: "D"
+      standard_met: "Beginning"
+
+  # Mastery Threshold
+  mastery_threshold:
+    minimum_score: 0  # What score indicates mastery
+    level_required: ""  # e.g., "Proficient" or higher
+
+# ====================================================================
+# STUDENT-FACING VERSION
+# ====================================================================
+
+student_version:
+
+  # Student-Friendly Language
+  student_friendly: true
+
+  # Success Criteria (Simplified)
+  success_criteria:
+    - criterion: ""  # Simplified criterion name
+      what_success_looks_like: ""
+      # Example: "Your essay has a clear, arguable thesis that guides your paper"
+
+  # Self-Assessment Component
+  self_assessment:
+    enabled: true
+
+    reflection_prompts:
+      - prompt: ""
+      # Example: "Before submitting, I checked that my thesis is specific and arguable"
+
+    checklist_items:
+      - item: ""
+      # Example: "☐ I have a clear thesis statement"
+
+  # Peer Assessment Component
+  peer_assessment:
+    enabled: false
+
+    peer_feedback_protocol:
+      - step: ""
+      # Example: "1. Read the thesis. Is it clear and specific? Give specific feedback."
+
+    sentence_starters:
+      - starter: ""
+      # Example: "Your thesis is strong because..."
+      # Example: "To improve your thesis, consider..."
+
+# ====================================================================
+# DIFFERENTIATION
+# ====================================================================
+
+differentiation:
+
+  # Modified Rubrics
+  modifications:
+    - student_group: ""  # e.g., "ELL students", "Students with IEPs"
+
+      modifications:
+        - modification: ""
+        # Example: "Reduce criteria from 5 to 3"
+        # Example: "Focus on content over mechanics"
+
+      adjusted_criteria:
+        - criterion_id: ""  # Reference to criterion above
+          modification_notes: ""
+
+  # Scaffolded Rubrics
+  scaffolds:
+    - scaffold_type: ""  # e.g., "Visual supports", "Sentence frames"
+      implementation: ""
+
+  # Extension Rubrics (for advanced learners)
+  extensions:
+    - extension_criterion: ""
+      advanced_descriptor: ""
+
+# ====================================================================
+# FEEDBACK INTEGRATION
+# ====================================================================
+
+feedback:
+
+  # Types of Feedback
+  feedback_types:
+    - type: "Criterion-specific comments"
+      example: ""
+
+    - type: "Overall comments"
+      example: ""
+
+    - type: "Next steps for improvement"
+      example: ""
+
+  # Feedback Timing
+  timing:
+    formative_feedback: ""  # During drafting process
+    summative_feedback: ""  # Final assessment
+
+  # Feedback Methods
+  methods:
+    - method: "Written comments in rubric"
+    - method: "Annotations on student work"
+    - method: "Verbal conference"
+    - method: "Video/audio feedback"
+
+# ====================================================================
+# CANVAS INTEGRATION
+# ====================================================================
+
+canvas_integration:
+
+  # Canvas Rubric Setup
+  canvas_rubric:
+    rubric_title: ""
+
+    criteria:
+      - criterion_name: ""
+        description: ""
+        points: 0
+
+        ratings:
+          - rating_name: "Advanced"
+            description: ""
+            points: 0
+
+          - rating_name: "Proficient"
+            description: ""
+            points: 0
+
+          - rating_name: "Developing"
+            description: ""
+            points: 0
+
+          - rating_name: "Beginning"
+            description: ""
+            points: 0
+
+    # Rubric Settings
+    settings:
+      use_for_grading: true
+      hide_score_total: false
+      free_form_criterion_comments: true
+
+  # Assignment Connection
+  assignment_connection:
+    assignment_name: ""
+    assignment_id: ""  # If known
+
+  # SpeedGrader Integration
+  speedgrader:
+    rubric_grading_enabled: true
+    comment_strategy: ""  # How you'll use comments
+    efficiency_tips: []
+
+# ====================================================================
+# INTER-RATER RELIABILITY
+# ====================================================================
+
+reliability:
+
+  # Ensuring Consistent Scoring
+  consistency_strategies:
+    - strategy: ""
+    # Example: "Calibration sessions with colleagues"
+    # Example: "Anchor papers for each level"
+
+  # Anchor Papers/Examples
+  anchor_examples:
+    - level: "Advanced"
+      example_description: ""
+      location: ""  # Where the example is stored
+
+    - level: "Proficient"
+      example_description: ""
+      location: ""
+
+    - level: "Developing"
+      example_description: ""
+      location: ""
+
+    - level: "Beginning"
+      example_description: ""
+      location: ""
+
+  # Norming Process
+  norming:
+    process: ""  # How you ensure all scorers are aligned
+    frequency: ""  # When norming happens
+
+# ====================================================================
+# VALIDITY AND QUALITY
+# ====================================================================
+
+validity:
+
+  # Content Validity
+  content_validity:
+    standards_alignment: ""  # How rubric matches standards
+    criterion_coverage: ""  # All important aspects included
+
+  # Construct Validity
+  construct_validity:
+    what_it_measures: ""  # What the rubric actually assesses
+    appropriateness: ""  # Match to assignment purpose
+
+  # Face Validity
+  face_validity:
+    student_understanding: ""  # Can students understand the rubric?
+    clarity: ""  # Is language clear and jargon-free?
+
+# ====================================================================
+# CONTINUOUS IMPROVEMENT
+# ====================================================================
+
+improvement:
+
+  # Rubric Testing
+  pilot_testing:
+    - date: ""
+      findings: []
+      revisions_made: []
+
+  # Student Feedback on Rubric
+  student_feedback:
+    - feedback: ""
+      revision_consideration: ""
+
+  # Colleague Review
+  peer_review:
+    - reviewer: ""
+      suggestions: []
+      changes_implemented: []
+
+  # Data-Driven Refinement
+  data_analysis:
+    - pattern: ""  # e.g., "Most students score low on Criterion 3"
+      interpretation: ""
+      rubric_adjustment: ""
+
+# ====================================================================
+# USAGE NOTES
+# ====================================================================
+
+usage_notes:
+
+  # For Teachers
+  teacher_notes:
+    - note: ""
+    # Example: "Focus first on thesis and evidence, then conventions"
+    # Example: "Use this rubric for both formative feedback and final grading"
+
+  # For Students
+  student_instructions:
+    - instruction: ""
+    # Example: "Use this rubric to self-assess before submitting"
+    # Example: "Focus on the 'proficient' column as your target"
+
+  # Time Considerations
+  time_estimates:
+    grading_time_per_student: 0  # minutes
+    feedback_time_per_student: 0  # minutes
+
+# ====================================================================
+# QUALITY CHECKLIST
+# ====================================================================
+
+quality_checklist:
+  - criterion: "Criteria are clearly defined and measurable"
+    met: false
+
+  - criterion: "Performance levels are distinct and not overlapping"
+    met: false
+
+  - criterion: "Descriptors are specific with observable indicators"
+    met: false
+
+  - criterion: "Rubric aligns with standards and learning targets"
+    met: false
+
+  - criterion: "Language is clear and jargon-free (especially for students)"
+    met: false
+
+  - criterion: "Rubric covers all important aspects of the task"
+    met: false
+
+  - criterion: "Point distribution reflects priority of criteria"
+    met: false
+
+  - criterion: "Differentiation options included"
+    met: false
+
+  - criterion: "Feedback guidance integrated"
+    met: false
+
+  - criterion: "Tested with anchor examples for reliability"
+    met: false
+
+# ====================================================================
+# REFERENCES
+# ====================================================================
+
+references:
+  rubric_design_resources:
+    - resource: "Brookhart, S. M. (2013). How to Create and Use Rubrics"
+      url: "https://www.ascd.org/books/how-to-create-and-use-rubrics"
+
+    - resource: "Arter, J., & McTighe, J. (2001). Scoring Rubrics in the Classroom"
+      url: "https://us.corwin.com/books/scoring-rubrics-classroom-232290"
+
+  online_tools:
+    - tool: "RubiStar"
+      url: "http://rubistar.4teachers.org/"
+
+    - tool: "Canvas Rubric Builder"
+      url: "https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-add-a-rubric-to-an-assignment/ta-p/1058"
+
+# ====================================================================
+# NOTES
+# ====================================================================
+
+notes: |
+  Additional implementation guidance, special considerations, or contextual information.
+
+  Tips for Effective Rubric Use:
+  - Share rubric with students before they begin work
+  - Use rubric for formative feedback during the process
+  - Provide anchor examples for each performance level
+  - Involve students in understanding and even creating criteria
+  - Review and refine rubric based on actual student work

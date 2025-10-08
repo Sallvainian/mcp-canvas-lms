@@ -1,0 +1,455 @@
+name: Canvas-Specific Accessibility Standards
+description: Validates Canvas course accessibility using platform-specific features and requirements
+version: 1.0.0
+theory_base: [wcag_2_1, canvas_accessibility, ally_integration, universal_design]
+
+categories:
+  - category: Ally Accessibility Integration
+    criteria:
+      - id: ally-enabled-1
+        item: Ally accessibility checker enabled for course
+        required: true
+        resources: [ally-setup.yaml]
+        passing_score: 100
+
+      - id: ally-files-1
+        item: All course files scored and issues addressed (target 80%+)
+        required: true
+        resources: [ally-file-scoring.yaml]
+        passing_score: 90
+
+      - id: ally-alternatives-1
+        item: Alternative formats available for all content
+        required: true
+        resources: [alternative-formats.yaml]
+        passing_score: 95
+
+      - id: ally-instructor-1
+        item: Instructor feedback from Ally reviewed and acted upon
+        required: true
+        resources: [ally-instructor-feedback.yaml]
+        passing_score: 85
+
+  - category: Rich Content Editor Accessibility
+    criteria:
+      - id: rce-headings-1
+        item: Proper heading structure used (H2, H3, not formatting)
+        required: true
+        resources: [heading-hierarchy.yaml]
+        passing_score: 100
+
+      - id: rce-lists-1
+        item: Lists created with list buttons (not manual bullets)
+        required: true
+        resources: [semantic-lists.yaml]
+        passing_score: 95
+
+      - id: rce-tables-1
+        item: Tables have headers and proper structure
+        required: true
+        resources: [accessible-tables.yaml]
+        passing_score: 95
+
+      - id: rce-links-1
+        item: Links descriptive (not "click here" or bare URLs)
+        required: true
+        resources: [descriptive-links.yaml]
+        passing_score: 95
+
+      - id: rce-color-1
+        item: Color contrast meets WCAG AA (4.5:1 normal, 3:1 large)
+        required: true
+        resources: [contrast-requirements.yaml]
+        passing_score: 100
+
+  - category: Images & Alt Text
+    criteria:
+      - id: img-alt-all-1
+        item: All images have alt text (descriptive or decorative)
+        required: true
+        resources: [alt-text-guide.yaml]
+        passing_score: 100
+
+      - id: img-alt-quality-1
+        item: Alt text descriptive and contextually appropriate
+        required: true
+        resources: [alt-text-best-practices.yaml]
+        passing_score: 95
+
+      - id: img-decorative-1
+        item: Decorative images marked as decorative (empty alt)
+        required: true
+        resources: [decorative-images.yaml]
+        passing_score: 95
+
+      - id: img-complex-1
+        item: Complex images have long descriptions when needed
+        required: true
+        resources: [long-descriptions.yaml]
+        passing_score: 90
+
+      - id: img-text-1
+        item: No images of text (use actual text)
+        required: true
+        resources: [text-vs-images.yaml]
+        passing_score: 90
+
+  - category: Video & Audio Accessibility
+    criteria:
+      - id: media-captions-1
+        item: All videos have accurate captions
+        required: true
+        resources: [caption-standards.yaml]
+        passing_score: 100
+
+      - id: media-transcripts-1
+        item: Audio-only content has transcripts
+        required: true
+        resources: [transcript-requirements.yaml]
+        passing_score: 100
+
+      - id: media-audio-desc-1
+        item: Videos with important visual info have audio descriptions
+        required: true
+        resources: [audio-description.yaml]
+        passing_score: 90
+
+      - id: media-player-1
+        item: Media players accessible (Canvas Studio, YouTube)
+        required: true
+        resources: [accessible-players.yaml]
+        passing_score: 95
+
+      - id: media-auto-play-1
+        item: No auto-playing media (or user can control)
+        required: true
+        resources: [autoplay-prevention.yaml]
+        passing_score: 100
+
+  - category: Document Accessibility
+    criteria:
+      - id: doc-pdf-1
+        item: PDFs tagged and accessible (or HTML alternative provided)
+        required: true
+        resources: [pdf-accessibility.yaml]
+        passing_score: 90
+
+      - id: doc-office-1
+        item: Office documents (Word, PPT) accessible
+        required: true
+        resources: [office-accessibility.yaml]
+        passing_score: 90
+
+      - id: doc-ocr-1
+        item: Scanned documents OCR'd for text access
+        required: true
+        resources: [ocr-requirements.yaml]
+        passing_score: 95
+
+      - id: doc-alternatives-1
+        item: Document alternatives available via Ally
+        required: true
+        resources: [ally-alternatives.yaml]
+        passing_score: 95
+
+  - category: Page & Module Accessibility
+    criteria:
+      - id: page-structure-1
+        item: Pages have logical structure with headings
+        required: true
+        resources: [page-structure.yaml]
+        passing_score: 95
+
+      - id: page-lang-1
+        item: Language of page specified correctly
+        required: true
+        resources: [language-declaration.yaml]
+        passing_score: 95
+
+      - id: page-reading-1
+        item: Reading order logical and sequential
+        required: true
+        resources: [reading-order.yaml]
+        passing_score: 90
+
+      - id: module-titles-1
+        item: Module and item titles descriptive
+        required: true
+        resources: [descriptive-titles.yaml]
+        passing_score: 90
+
+  - category: Assignment Accessibility
+    criteria:
+      - id: assign-instructions-1
+        item: Assignment instructions accessible (headings, lists, clarity)
+        required: true
+        resources: [accessible-instructions.yaml]
+        passing_score: 95
+
+      - id: assign-rubrics-1
+        item: Rubrics screen reader accessible
+        required: true
+        resources: [accessible-rubrics.yaml]
+        passing_score: 90
+
+      - id: assign-submission-1
+        item: Submission types accessible (file upload, text entry, etc.)
+        required: true
+        resources: [submission-accessibility.yaml]
+        passing_score: 95
+
+      - id: assign-alternatives-1
+        item: Alternative assignment formats available if needed
+        required: true
+        resources: [assignment-alternatives.yaml]
+        passing_score: 85
+
+  - category: Quiz Accessibility
+    criteria:
+      - id: quiz-questions-1
+        item: Quiz questions accessible (no images of text for questions)
+        required: true
+        resources: [accessible-quiz-questions.yaml]
+        passing_score: 95
+
+      - id: quiz-images-1
+        item: Quiz images have appropriate alt text
+        required: true
+        resources: [quiz-image-alt.yaml]
+        passing_score: 100
+
+      - id: quiz-timing-1
+        item: Extended time accommodations possible
+        required: true
+        resources: [quiz-accommodations.yaml]
+        passing_score: 100
+
+      - id: quiz-navigation-1
+        item: Quiz navigation keyboard accessible
+        required: true
+        resources: [keyboard-navigation.yaml]
+        passing_score: 95
+
+  - category: Discussion Accessibility
+    criteria:
+      - id: discuss-prompts-1
+        item: Discussion prompts accessible (clear, structured)
+        required: true
+        resources: [accessible-prompts.yaml]
+        passing_score: 90
+
+      - id: discuss-media-1
+        item: Media in discussions accessible (captions, alt text)
+        required: true
+        resources: [discussion-media.yaml]
+        passing_score: 95
+
+      - id: discuss-threading-1
+        item: Discussion threading screen reader navigable
+        required: true
+        resources: [threading-accessibility.yaml]
+        passing_score: 85
+
+  - category: Navigation & Keyboard Access
+    criteria:
+      - id: nav-keyboard-1
+        item: All course features keyboard accessible
+        required: true
+        resources: [keyboard-access.yaml]
+        passing_score: 100
+
+      - id: nav-skip-1
+        item: Skip navigation links available
+        required: true
+        resources: [skip-links.yaml]
+        passing_score: 95
+
+      - id: nav-focus-1
+        item: Focus indicators visible and clear
+        required: true
+        resources: [focus-indicators.yaml]
+        passing_score: 95
+
+      - id: nav-order-1
+        item: Tab order logical and intuitive
+        required: true
+        resources: [tab-order.yaml]
+        passing_score: 90
+
+  - category: External Tools & LTI Accessibility
+    criteria:
+      - id: tools-accessible-1
+        item: External tools meet accessibility standards
+        required: true
+        resources: [lti-accessibility.yaml]
+        passing_score: 90
+
+      - id: tools-vpat-1
+        item: VPAT (Voluntary Product Accessibility Template) reviewed
+        required: false
+        resources: [vpat-review.yaml]
+        passing_score: 80
+
+      - id: tools-alternatives-1
+        item: Accessible alternatives provided if tool inaccessible
+        required: true
+        resources: [tool-alternatives.yaml]
+        passing_score: 95
+
+  - category: Immersive Reader Integration
+    criteria:
+      - id: immersive-enabled-1
+        item: Immersive Reader available for text content
+        required: true
+        resources: [immersive-reader-setup.yaml]
+        passing_score: 90
+
+      - id: immersive-compatible-1
+        item: Content structured for Immersive Reader compatibility
+        required: true
+        resources: [immersive-compatibility.yaml]
+        passing_score: 85
+
+  - category: Mobile Accessibility
+    criteria:
+      - id: mobile-responsive-1
+        item: Content responsive and accessible on mobile
+        required: true
+        resources: [mobile-accessibility.yaml]
+        passing_score: 90
+
+      - id: mobile-touch-1
+        item: Touch targets adequate size (44x44 pixels minimum)
+        required: true
+        resources: [touch-targets.yaml]
+        passing_score: 90
+
+      - id: mobile-gestures-1
+        item: No complex gestures required
+        required: true
+        resources: [gesture-accessibility.yaml]
+        passing_score: 95
+
+  - category: Color & Contrast (Canvas-Specific)
+    criteria:
+      - id: color-text-1
+        item: Text contrast meets WCAG AA (4.5:1 normal, 3:1 large)
+        required: true
+        resources: [text-contrast.yaml]
+        passing_score: 100
+
+      - id: color-ui-1
+        item: UI element contrast meets WCAG AA (3:1)
+        required: true
+        resources: [ui-contrast.yaml]
+        passing_score: 100
+
+      - id: color-meaning-1
+        item: Color not sole indicator of meaning
+        required: true
+        resources: [color-independence.yaml]
+        passing_score: 100
+
+      - id: color-theme-1
+        item: High contrast theme compatible
+        required: true
+        resources: [theme-compatibility.yaml]
+        passing_score: 90
+
+  - category: Forms & Input Accessibility
+    criteria:
+      - id: form-labels-1
+        item: All form fields have associated labels
+        required: true
+        resources: [form-labels.yaml]
+        passing_score: 100
+
+      - id: form-errors-1
+        item: Error messages clear and associated with fields
+        required: true
+        resources: [error-accessibility.yaml]
+        passing_score: 95
+
+      - id: form-instructions-1
+        item: Instructions clear and accessible
+        required: true
+        resources: [form-instructions.yaml]
+        passing_score: 95
+
+  - category: Testing & Validation
+    criteria:
+      - id: test-screen-reader-1
+        item: Course tested with screen readers (JAWS, NVDA, VoiceOver)
+        required: true
+        resources: [screen-reader-testing.yaml]
+        passing_score: 90
+
+      - id: test-keyboard-1
+        item: Course tested with keyboard-only navigation
+        required: true
+        resources: [keyboard-testing.yaml]
+        passing_score: 95
+
+      - id: test-automated-1
+        item: Automated accessibility testing completed (Ally, WAVE, axe)
+        required: true
+        resources: [automated-testing.yaml]
+        passing_score: 90
+
+      - id: test-manual-1
+        item: Manual accessibility review completed
+        required: true
+        resources: [manual-review.yaml]
+        passing_score: 85
+
+  - category: Accommodation Support
+    criteria:
+      - id: accom-process-1
+        item: Clear process for requesting accommodations
+        required: true
+        resources: [accommodation-process.yaml]
+        passing_score: 95
+
+      - id: accom-alternatives-1
+        item: Alternative formats easily available
+        required: true
+        resources: [alternative-access.yaml]
+        passing_score: 90
+
+      - id: accom-time-1
+        item: Time extensions implementable in Canvas
+        required: true
+        resources: [time-accommodations.yaml]
+        passing_score: 95
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Enable and configure Ally
+  - step: Review Ally accessibility scores
+  - step: Check Rich Content Editor usage
+  - step: Validate images and alt text
+  - step: Review media accessibility (captions, transcripts)
+  - step: Check document accessibility
+  - step: Test keyboard navigation
+  - step: Run automated testing tools
+  - step: Conduct screen reader testing
+  - step: Generate accessibility compliance report
+
+canvas_integration:
+  - location: entire_course
+  - tools: ally_accessibility_checker
+  - tools: accessibility_checker
+  - tools: immersive_reader
+  - validation: alt_text_validation
+  - validation: caption_check
+  - validation: contrast_analyzer
+  - validation: keyboard_access_test
+  - reporting: ally_institutional_report
+  - reporting: accessibility_dashboard
+  - remediation: alternative_format_generation

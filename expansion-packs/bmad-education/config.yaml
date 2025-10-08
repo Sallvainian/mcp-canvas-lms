@@ -1,0 +1,12 @@
+# <!-- Powered by BMAD™ Core -->
+name: bmad-education
+version: 1.0.0
+short-title: Learning Design Studio
+description: >-
+  Comprehensive AI-powered educational design framework providing specialized
+  agents for curriculum design, instructional strategies, assessment development,
+  differentiation planning, and educational technology integration. Includes
+  5 specialized education agents, 7 complete workflows from course conception
+  to Canvas deployment, 15 quality checklists, and seamless Canvas LMS integration.
+author: Sallvainian
+slashPrefix: bmad-ed

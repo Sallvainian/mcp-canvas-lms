@@ -1,0 +1,344 @@
+name: Assessment Validity & Reliability Check
+description: Validates assessment quality using measurement theory and alignment principles
+version: 1.0.0
+theory_base: [validity_theory, reliability_theory, fairness_standards, backward_design]
+
+categories:
+  - category: Content Validity
+    criteria:
+      - id: content-align-1
+        item: Assessment items directly measure stated learning objectives
+        required: true
+        resources: [learning-objectives-quality.yaml]
+        passing_score: 100
+
+      - id: content-standards-1
+        item: Assessment aligns with standards and curriculum
+        required: true
+        resources: [standards-alignment.yaml]
+        passing_score: 100
+
+      - id: content-coverage-1
+        item: All important content adequately sampled
+        required: true
+        resources: [content-sampling.yaml]
+        passing_score: 90
+
+      - id: content-balance-1
+        item: Assessment balance matches instructional emphasis
+        required: true
+        resources: [instructional-alignment.yaml]
+        passing_score: 90
+
+      - id: content-depth-1
+        item: Depth of assessment matches depth of instruction
+        required: true
+        resources: [depth-of-knowledge.yaml]
+        passing_score: 90
+
+  - category: Construct Validity
+    criteria:
+      - id: construct-measure-1
+        item: Assessment measures intended construct (not something else)
+        required: true
+        resources: [construct-definition.yaml]
+        passing_score: 95
+
+      - id: construct-cognitive-1
+        item: Cognitive level matches learning objective level
+        required: true
+        resources: [bloom-taxonomy.yaml]
+        passing_score: 95
+
+      - id: construct-confound-1
+        item: No construct-irrelevant variance (language, format issues)
+        required: true
+        resources: [bias-analysis.yaml]
+        passing_score: 90
+
+      - id: construct-authentic-1
+        item: Assessment context authentic to construct
+        required: false
+        resources: [authentic-assessment.yaml]
+        passing_score: 80
+
+  - category: Face Validity
+    criteria:
+      - id: face-appear-1
+        item: Assessment appears appropriate to students and stakeholders
+        required: true
+        resources: [stakeholder-review.yaml]
+        passing_score: 85
+
+      - id: face-clear-1
+        item: Assessment purpose and expectations clear to students
+        required: true
+        resources: [assessment-communication.yaml]
+        passing_score: 90
+
+      - id: face-relevant-1
+        item: Assessment relevance obvious to learners
+        required: true
+        resources: [relevance-strategies.yaml]
+        passing_score: 80
+
+  - category: Reliability & Consistency
+    criteria:
+      - id: reliable-items-1
+        item: Sufficient number of items for reliable measurement
+        required: true
+        resources: [item-sampling.yaml]
+        passing_score: 90
+
+      - id: reliable-scoring-1
+        item: Scoring criteria clear and consistently applicable
+        required: true
+        resources: [rubric-quality.yaml]
+        passing_score: 95
+
+      - id: reliable-inter-1
+        item: Inter-rater reliability ensured (rubrics, training, exemplars)
+        required: true
+        resources: [scorer-reliability.yaml]
+        passing_score: 85
+
+      - id: reliable-conditions-1
+        item: Assessment conditions standardized
+        required: true
+        resources: [standardization.yaml]
+        passing_score: 85
+
+      - id: reliable-parallel-1
+        item: Parallel forms available if needed (test security)
+        required: false
+        resources: [parallel-forms.yaml]
+        passing_score: 75
+
+  - category: Fairness & Bias
+    criteria:
+      - id: fair-access-1
+        item: All students have access to demonstrate knowledge
+        required: true
+        resources: [udl-checklist.yaml]
+        passing_score: 95
+
+      - id: fair-language-1
+        item: Language appropriate and free from bias
+        required: true
+        resources: [bias-review.yaml]
+        passing_score: 95
+
+      - id: fair-cultural-1
+        item: Culturally responsive and free from stereotypes
+        required: true
+        resources: [culturally-responsive.yaml]
+        passing_score: 90
+
+      - id: fair-accom-1
+        item: Appropriate accommodations available without score compromise
+        required: true
+        resources: [accommodations-guide.yaml]
+        passing_score: 90
+
+      - id: fair-opportunity-1
+        item: All students had equal opportunity to learn content
+        required: true
+        resources: [opportunity-to-learn.yaml]
+        passing_score: 95
+
+  - category: Item Quality & Construction
+    criteria:
+      - id: item-clarity-1
+        item: Items clearly worded without ambiguity
+        required: true
+        resources: [item-writing-guidelines.yaml]
+        passing_score: 95
+
+      - id: item-level-1
+        item: Item difficulty appropriate for learners
+        required: true
+        resources: [item-difficulty.yaml]
+        passing_score: 85
+
+      - id: item-disc-1
+        item: Items discriminate between levels of understanding
+        required: true
+        resources: [item-discrimination.yaml]
+        passing_score: 80
+
+      - id: item-dist-1
+        item: Distractors plausible and based on misconceptions
+        required: true
+        resources: [distractor-analysis.yaml]
+        passing_score: 85
+
+      - id: item-format-1
+        item: Item format matches content and cognitive level
+        required: true
+        resources: [item-types.yaml]
+        passing_score: 90
+
+  - category: Formative vs. Summative Appropriateness
+    criteria:
+      - id: purpose-formative-1
+        item: Formative assessments provide actionable feedback
+        required: true
+        resources: [formative-assessment.yaml]
+        passing_score: 90
+
+      - id: purpose-summative-1
+        item: Summative assessments comprehensively measure mastery
+        required: true
+        resources: [summative-design.yaml]
+        passing_score: 95
+
+      - id: purpose-timing-1
+        item: Assessment timing appropriate for purpose
+        required: true
+        resources: [assessment-timing.yaml]
+        passing_score: 85
+
+      - id: purpose-stakes-1
+        item: Stakes level appropriate for assessment purpose
+        required: true
+        resources: [stakes-alignment.yaml]
+        passing_score: 85
+
+  - category: Scoring & Grading Validity
+    criteria:
+      - id: score-criteria-1
+        item: Scoring criteria aligned with learning objectives
+        required: true
+        resources: [rubric-quality.yaml]
+        passing_score: 100
+
+      - id: score-levels-1
+        item: Performance levels clearly defined and distinguishable
+        required: true
+        resources: [performance-levels.yaml]
+        passing_score: 95
+
+      - id: score-holistic-1
+        item: Holistic vs. analytic scoring appropriate for task
+        required: true
+        resources: [scoring-methods.yaml]
+        passing_score: 85
+
+      - id: score-partial-1
+        item: Partial credit awarded appropriately
+        required: true
+        resources: [partial-credit.yaml]
+        passing_score: 80
+
+      - id: score-standards-1
+        item: Grading aligned with standards-based approach
+        required: false
+        resources: [standards-based-grading.yaml]
+        passing_score: 75
+
+  - category: Feedback Quality
+    criteria:
+      - id: feedback-specific-1
+        item: Feedback specific to performance criteria
+        required: true
+        resources: [feedback-quality.yaml]
+        passing_score: 90
+
+      - id: feedback-timely-1
+        item: Feedback provided in timely manner
+        required: true
+        resources: [feedback-timing.yaml]
+        passing_score: 85
+
+      - id: feedback-growth-1
+        item: Feedback growth-oriented and actionable
+        required: true
+        resources: [growth-feedback.yaml]
+        passing_score: 90
+
+      - id: feedback-forward-1
+        item: Feed-forward guidance for improvement included
+        required: true
+        resources: [feedforward.yaml]
+        passing_score: 85
+
+  - category: Assessment Efficiency
+    criteria:
+      - id: efficient-length-1
+        item: Assessment length appropriate for content and time
+        required: true
+        resources: [assessment-length.yaml]
+        passing_score: 85
+
+      - id: efficient-admin-1
+        item: Administration time reasonable
+        required: true
+        resources: [time-management.yaml]
+        passing_score: 80
+
+      - id: efficient-score-1
+        item: Scoring process efficient and manageable
+        required: true
+        resources: [scoring-efficiency.yaml]
+        passing_score: 80
+
+      - id: efficient-value-1
+        item: Assessment provides value worth the time invested
+        required: true
+        resources: [assessment-roi.yaml]
+        passing_score: 85
+
+  - category: Technology-Enhanced Assessment
+    criteria:
+      - id: tech-enhance-1
+        item: Technology enhances measurement (not just delivery)
+        required: false
+        resources: [tech-enhanced-assessment.yaml]
+        passing_score: 80
+
+      - id: tech-access-1
+        item: Technology accessible to all students
+        required: true
+        resources: [digital-accessibility.yaml]
+        passing_score: 95
+
+      - id: tech-valid-1
+        item: Digital format doesn't compromise validity
+        required: true
+        resources: [digital-validity.yaml]
+        passing_score: 90
+
+      - id: tech-security-1
+        item: Assessment security maintained in digital format
+        required: false
+        resources: [digital-security.yaml]
+        passing_score: 80
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Verify content validity and alignment
+  - step: Check construct validity and cognitive level
+  - step: Assess reliability and consistency
+  - step: Review fairness and bias
+  - step: Evaluate item quality
+  - step: Validate scoring criteria
+  - step: Check feedback quality
+  - step: Generate assessment validity report
+
+canvas_integration:
+  - location: quiz_questions
+  - location: assignment_rubrics
+  - location: discussion_grading
+  - location: speedgrader
+  - validation: item_analysis
+  - validation: bias_detection
+  - reporting: validity_evidence
+  - reporting: reliability_metrics
+  - tools: rubric_builder
+  - tools: item_bank

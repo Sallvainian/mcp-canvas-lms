@@ -1,0 +1,256 @@
+# <!-- Powered by BMAD™ Education Pack -->
+name: Curriculum Design Team
+icon: 📚
+description: >
+  Expert team for curriculum development, standards alignment, and learning progression design.
+  Specializes in scope & sequence planning, backwards design, and ensuring educational coherence
+  across learning experiences.
+
+lead_agent: curriculum-architect
+supporting_agents:
+  - agent: assessment-specialist
+    role: Assessment framework design and standards validation
+    expertise: >
+      Ensures learning objectives are measurable, assessments align with standards,
+      and evaluation strategies support curriculum goals. Validates Bloom's taxonomy
+      alignment and cognitive rigor.
+
+  - agent: edtech-integrator
+    role: Technology integration and Canvas implementation
+    expertise: >
+      Maps curriculum to Canvas structure (modules, pages, assignments), ensures
+      technical feasibility, and designs digital learning pathways. Provides LMS
+      implementation guidance.
+
+coordination_protocol:
+  workflow: Sequential with iterative refinement
+  decision_making: >
+    Curriculum Architect leads on scope/sequence and learning progressions.
+    Assessment Specialist validates measurability and standards alignment.
+    EdTech Integrator confirms Canvas feasibility and technical implementation.
+  handoffs: >
+    Architect → Standards/objectives defined → Assessment validates →
+    EdTech plans Canvas structure → Architect synthesizes → Team reviews
+
+use_cases:
+  - scenario: New course design from scratch
+    example: >
+      "Design a semester-long AP Computer Science Principles course aligned to
+      College Board standards with project-based assessments."
+    expected_outcome: >
+      Complete curriculum framework with unit breakdown, learning objectives,
+      standards mapping, assessment plan, and Canvas implementation blueprint.
+
+  - scenario: Curriculum mapping and standards alignment
+    example: >
+      "Map existing Biology curriculum to NGSS standards and identify gaps in
+      three-dimensional learning."
+    expected_outcome: >
+      Standards alignment matrix, gap analysis report, recommendations for
+      curriculum modifications to achieve full standards coverage.
+
+  - scenario: Scope and sequence development
+    example: >
+      "Create K-5 mathematics scope and sequence ensuring vertical alignment
+      and spiral curriculum design."
+    expected_outcome: >
+      Multi-year learning progression map, prerequisite chains, pacing guides,
+      and learning objective sequences with developmental appropriateness.
+
+  - scenario: Backwards design implementation
+    example: >
+      "Redesign US History course using Understanding by Design framework with
+      essential questions and authentic assessments."
+    expected_outcome: >
+      UbD curriculum map with Stage 1 (desired results), Stage 2 (assessment
+      evidence), and Stage 3 (learning plan) fully articulated for each unit.
+
+team_workflows:
+  - workflow: curriculum-design.yaml
+    team_role: >
+      Lead workflow for new course creation, using backwards design methodology
+      to develop coherent learning experiences.
+
+  - workflow: standards-alignment.yaml
+    team_role: >
+      Systematic mapping of existing or planned curriculum to learning standards
+      with gap analysis and remediation recommendations.
+
+  - workflow: scope-sequence.yaml
+    team_role: >
+      Multi-unit or multi-year learning progression design ensuring vertical
+      alignment and appropriate cognitive development.
+
+typical_sequence:
+  - step: 1
+    agent: curriculum-architect
+    action: Analyze standards, define big ideas, and establish essential questions
+    output: >
+      Standards analysis, big idea statements, essential questions framework,
+      desired learning outcomes
+    handoff_to: assessment-specialist
+
+  - step: 2
+    agent: assessment-specialist
+    action: Validate learning objectives and design assessment framework
+    output: >
+      Learning objectives (validated against Bloom's), assessment types aligned
+      to objectives, success criteria definitions
+    handoff_to: curriculum-architect
+
+  - step: 3
+    agent: curriculum-architect
+    action: Design unit sequence and learning progressions
+    output: >
+      Unit breakdown, topic sequence, prerequisite chains, pacing recommendations,
+      instructional approach for each unit
+    handoff_to: edtech-integrator
+
+  - step: 4
+    agent: edtech-integrator
+    action: Map curriculum to Canvas structure and plan digital implementation
+    output: >
+      Canvas course blueprint (modules/pages/assignments), technology integration
+      points, digital resource recommendations, LMS configuration plan
+    handoff_to: assessment-specialist
+
+  - step: 5
+    agent: assessment-specialist
+    action: Design summative and formative assessment strategy
+    output: >
+      Assessment calendar, formative assessment strategies per unit, summative
+      assessment specifications, rubric frameworks
+    handoff_to: curriculum-architect
+
+  - step: 6
+    agent: curriculum-architect
+    action: Synthesize all components into coherent curriculum document
+    output: >
+      Complete curriculum guide with scope/sequence, unit plans, assessment
+      framework, Canvas blueprint, and implementation timeline
+    handoff_to: team-review
+
+  - step: 7
+    agent: all-agents
+    action: Collaborative review and refinement
+    output: >
+      Final curriculum framework with all agents' validation, implementation
+      checklist, and success metrics for curriculum effectiveness
+
+canvas_implementation:
+  division_of_labor:
+    - agent: curriculum-architect
+      canvas_responsibilities:
+        - Course structure design (module organization)
+        - Learning pathway definition
+        - Prerequisite/progression logic
+        - Course-level outcomes and competencies
+      mcp_tools:
+        - canvas_create_course
+        - canvas_update_course
+        - canvas_list_modules
+        - canvas_create_outcome
+
+    - agent: assessment-specialist
+      canvas_responsibilities:
+        - Assignment creation with aligned objectives
+        - Rubric design and implementation
+        - Outcome alignment and mastery tracking
+        - Gradebook category configuration
+      mcp_tools:
+        - canvas_create_assignment
+        - canvas_create_rubric
+        - canvas_create_outcome
+        - canvas_create_assignment_group
+        - canvas_get_outcome_alignments
+
+    - agent: edtech-integrator
+      canvas_responsibilities:
+        - Module/page creation and content organization
+        - External tool integration
+        - Technology resource embedding
+        - Canvas feature configuration
+      mcp_tools:
+        - canvas_create_module
+        - canvas_create_module_item
+        - canvas_create_page
+        - canvas_update_page
+        - canvas_add_textbox (for presentations)
+
+quality_assurance:
+  validation_points:
+    - Standards alignment verification (all objectives map to standards)
+    - Vertical alignment check (prerequisite logic is sound)
+    - Assessment validity (assessments measure stated objectives)
+    - Canvas feasibility (technical implementation is viable)
+    - Cognitive progression (Bloom's levels increase appropriately)
+    - Cultural responsiveness (curriculum reflects diverse perspectives)
+
+  success_metrics:
+    - 100% learning objectives aligned to standards
+    - Clear prerequisite chains with no circular dependencies
+    - Assessment plan covers all learning objectives
+    - Canvas blueprint approved by EdTech Integrator
+    - Curriculum document completeness (all required sections)
+    - Stakeholder review approval (teachers/administrators)
+
+communication_patterns:
+  synchronous:
+    - Initial curriculum vision alignment session
+    - Standards analysis working session
+    - Canvas blueprint review meeting
+    - Final curriculum synthesis workshop
+
+  asynchronous:
+    - Standards mapping documentation (shared for review)
+    - Assessment framework drafts (feedback cycles)
+    - Canvas structure diagrams (iteration via comments)
+    - Unit outline refinements (tracked changes)
+
+  decision_authority:
+    - Curriculum scope/sequence: Curriculum Architect (final authority)
+    - Assessment validity: Assessment Specialist (veto power)
+    - Canvas feasibility: EdTech Integrator (technical approval required)
+    - Overall coherence: Curriculum Architect (synthesis responsibility)
+
+collaboration_tools:
+  documentation:
+    - Curriculum maps (visual learning progressions)
+    - Standards alignment matrices (spreadsheet format)
+    - Unit planning templates (structured documents)
+    - Canvas course blueprints (module/page hierarchies)
+
+  review_processes:
+    - Peer review of learning objectives (cross-validation)
+    - Standards mapping audit (verification by second agent)
+    - Canvas blueprint technical review (feasibility check)
+    - Complete curriculum walkthrough (team validation)
+
+edge_case_handling:
+  conflicting_standards:
+    process: >
+      Curriculum Architect facilitates resolution, Assessment Specialist
+      provides standards interpretation, team consensus required
+
+  infeasible_canvas_implementation:
+    process: >
+      EdTech Integrator proposes alternatives, Curriculum Architect evaluates
+      pedagogical impact, team agrees on acceptable compromise
+
+  assessment_misalignment:
+    process: >
+      Assessment Specialist documents concerns, Curriculum Architect revises
+      objectives or Assessment Specialist redesigns assessments
+
+  scope_creep:
+    process: >
+      Curriculum Architect enforces boundaries, team votes on essential vs.
+      optional additions, pacing guide determines final inclusion
+
+integration_notes:
+  - Team operates best with clear standards documents (CCSS, NGSS, state standards)
+  - Requires course-level parameters (grade level, duration, student population)
+  - Benefits from existing curriculum artifacts when doing redesign work
+  - Canvas implementation blueprint should be validated before content creation
+  - Assessment framework should be established before detailed lesson planning
+  - Consider cognitive load and developmental appropriateness throughout process

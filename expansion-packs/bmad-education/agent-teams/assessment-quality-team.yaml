@@ -1,0 +1,357 @@
+# <!-- Powered by BMAD™ Education Pack -->
+name: Assessment Quality Team
+icon: 📊
+description: >
+  Expert team for assessment design, feedback systems, and evaluation quality assurance.
+  Specializes in creating valid, reliable, and fair assessments that drive learning
+  while providing actionable feedback to students and educators.
+
+lead_agent: assessment-specialist
+supporting_agents:
+  - agent: curriculum-architect
+    role: Standards alignment and learning progression validation
+    expertise: >
+      Ensures assessments align with learning standards and curriculum goals,
+      validates cognitive progression through Bloom's taxonomy, confirms assessments
+      measure intended learning outcomes at appropriate complexity levels.
+
+  - agent: instructional-designer
+    role: Assessment integration and authentic application
+    expertise: >
+      Connects assessments to real-world contexts, ensures assessment tasks
+      mirror authentic application of knowledge, validates that assessment
+      format matches instructional approach and learning activities.
+
+coordination_protocol:
+  workflow: Backwards design with iterative validation
+  decision_making: >
+    Assessment Specialist leads on psychometric quality and assessment design.
+    Curriculum Architect validates standards alignment and cognitive rigor.
+    Instructional Designer ensures authenticity and instructional integration.
+  handoffs: >
+    Specialist → Draft assessment → Curriculum validates alignment →
+    Designer checks authenticity → Specialist refines → Team validates quality
+
+use_cases:
+  - scenario: Summative assessment design
+    example: >
+      "Create end-of-unit test for genetics unit measuring understanding of
+      Mendelian inheritance, Punnett squares, and genetic variation."
+    expected_outcome: >
+      Comprehensive assessment with multiple item types, rubric, standards
+      alignment matrix, answer key with explanations, and reliability statistics.
+
+  - scenario: Performance-based assessment
+    example: >
+      "Design authentic performance task where students analyze Supreme Court
+      cases and write judicial opinions applying constitutional principles."
+    expected_outcome: >
+      Performance task description, scaffolding materials, analytic rubric with
+      clear criteria, exemplars at proficiency levels, self-assessment tools.
+
+  - scenario: Formative assessment system
+    example: >
+      "Create formative assessment toolkit for algebra teachers including exit
+      tickets, quick checks, and student self-monitoring tools."
+    expected_outcome: >
+      Collection of formative assessment instruments, data recording systems,
+      student feedback templates, intervention planning guides.
+
+  - scenario: Rubric development for complex projects
+    example: >
+      "Design rubric for science fair projects evaluating scientific method
+      application, data analysis, presentation quality, and creativity."
+    expected_outcome: >
+      Analytic rubric with 4-6 criteria, 4-5 performance levels per criterion,
+      clear descriptors, student-friendly language version, Canvas integration.
+
+team_workflows:
+  - workflow: assessment-design.yaml
+    team_role: >
+      Primary workflow for creating high-quality assessments using backwards
+      design principles and psychometric best practices.
+
+  - workflow: rubric-creation.yaml
+    team_role: >
+      Specialized workflow for developing clear, valid rubrics that support
+      learning and provide actionable feedback to students.
+
+  - workflow: assessment-validation.yaml
+    team_role: >
+      Quality assurance workflow for reviewing existing assessments, checking
+      alignment, bias, validity, and reliability.
+
+typical_sequence:
+  - step: 1
+    agent: curriculum-architect
+    action: Clarify standards and define learning outcomes to be assessed
+    output: >
+      Learning outcomes specified at appropriate Bloom's level, standards
+      alignment documented, cognitive complexity defined (DOK level),
+      prerequisite knowledge identified
+    handoff_to: assessment-specialist
+
+  - step: 2
+    agent: assessment-specialist
+    action: Design assessment blueprint and item specifications
+    output: >
+      Assessment blueprint (what outcomes, how many items, item types, weights),
+      test specifications, cognitive level distribution, time allocation,
+      accessibility considerations documented
+    handoff_to: instructional-designer
+
+  - step: 3
+    agent: instructional-designer
+    action: Validate authenticity and instructional alignment
+    output: >
+      Assessment context validated (authentic application vs. isolated skills),
+      format matches instructional approach (if inquiry-based teaching, performance
+      assessment not just multiple choice), scaffolding needs identified
+    handoff_to: assessment-specialist
+
+  - step: 4
+    agent: assessment-specialist
+    action: Develop assessment items and scoring criteria
+    output: >
+      Draft assessment items (clear stems, plausible distractors, bias-free
+      language), rubric with clear criteria and performance level descriptors,
+      answer key with explanations, points allocated to outcomes
+    handoff_to: curriculum-architect
+
+  - step: 5
+    agent: curriculum-architect
+    action: Validate standards coverage and cognitive rigor
+    output: >
+      Alignment matrix (items mapped to standards/outcomes), Bloom's/DOK analysis,
+      gap analysis (uncovered outcomes), cognitive demand verification,
+      recommendations for revisions to improve coverage
+    handoff_to: instructional-designer
+
+  - step: 6
+    agent: instructional-designer
+    action: Review task clarity and student readiness
+    output: >
+      Directions clarity check (can students understand without help?),
+      prerequisite knowledge verification (have students been prepared?),
+      scaffolding recommendations, estimated time for completion validation
+    handoff_to: assessment-specialist
+
+  - step: 7
+    agent: assessment-specialist
+    action: Refine assessment and create implementation materials
+    output: >
+      Final assessment incorporating all feedback, administration instructions,
+      accommodations guide, Canvas setup checklist, data analysis template,
+      student self-assessment version
+    handoff_to: team-review
+
+  - step: 8
+    agent: all-agents
+    action: Final quality review and validation
+    output: >
+      Assessment approved for alignment, authenticity, clarity, fairness, and
+      technical quality. Implementation guide complete with all supporting materials.
+
+canvas_implementation:
+  division_of_labor:
+    - agent: assessment-specialist
+      canvas_responsibilities:
+        - Quiz creation with varied question types
+        - Assignment configuration with rubrics
+        - Gradebook setup and mastery tracking
+        - Outcome alignment for data reporting
+        - Grade posting policies and feedback timing
+      mcp_tools:
+        - canvas_create_quiz
+        - canvas_create_quiz_question
+        - canvas_create_assignment
+        - canvas_create_rubric
+        - canvas_update_rubric
+        - canvas_grade_with_rubric
+        - canvas_add_submission_comment
+        - canvas_post_grades
+        - canvas_create_outcome
+
+    - agent: curriculum-architect
+      canvas_responsibilities:
+        - Learning outcome definition in Canvas
+        - Outcome alignment to assignments/quizzes
+        - Mastery scale configuration
+        - Standards-based gradebook organization
+      mcp_tools:
+        - canvas_create_outcome
+        - canvas_get_outcome_alignments
+        - canvas_get_outcome_results
+        - canvas_create_assignment_group
+
+    - agent: instructional-designer
+      canvas_responsibilities:
+        - Assessment instructions and context
+        - Scaffolding materials (pages/resources)
+        - Student self-assessment tools
+        - Peer assessment setup
+      mcp_tools:
+        - canvas_create_page
+        - canvas_update_assignment
+        - canvas_create_discussion_topic (peer review)
+        - canvas_add_textbox
+
+quality_assurance:
+  validation_points:
+    - Content validity (assesses intended learning outcomes)
+    - Construct validity (measures what it claims to measure)
+    - Standards alignment (100% coverage of priority outcomes)
+    - Cognitive rigor (Bloom's/DOK levels match objectives)
+    - Bias review (free from cultural, linguistic, gender bias)
+    - Clarity audit (students can understand without clarification)
+    - Reliability estimate (scoring consistency achievable)
+    - Accessibility compliance (accommodations documented)
+
+  success_metrics:
+    - 100% of learning objectives assessed at stated cognitive level
+    - Standards alignment verified by Curriculum Architect
+    - Authenticity validated by Instructional Designer
+    - Rubric clarity >4.0/5.0 in teacher usability testing
+    - Assessment bias score <0.1 (minimal detected bias)
+    - Student clarity rating >80% "understood directions"
+    - Inter-rater reliability >0.85 for constructed response items
+    - Accessibility accommodations documented for all students
+
+communication_patterns:
+  synchronous:
+    - Assessment blueprint workshop (collaborative planning)
+    - Item writing session (team develops questions together)
+    - Rubric calibration meeting (shared understanding of criteria)
+    - Quality review and validation walkthrough
+
+  asynchronous:
+    - Item drafts shared for individual review
+    - Alignment matrices completed independently
+    - Bias review conducted by each agent
+    - Rubric refinements via tracked changes
+
+  decision_authority:
+    - Psychometric quality: Assessment Specialist (final authority)
+    - Standards alignment: Curriculum Architect (must approve)
+    - Authenticity: Instructional Designer (validates context)
+    - Overall assessment quality: Assessment Specialist (synthesis owner)
+
+collaboration_tools:
+  documentation:
+    - Assessment blueprints (specifications matrices)
+    - Alignment matrices (outcomes to items mapping)
+    - Rubric development templates (structured formats)
+    - Item writing guides (quality criteria checklists)
+
+  review_processes:
+    - Alignment audit (verify all outcomes assessed)
+    - Bias review protocol (systematic bias detection)
+    - Clarity testing (readability and comprehension check)
+    - Scoring consistency check (rubric reliability validation)
+
+edge_case_handling:
+  low_validity_items:
+    process: >
+      Assessment Specialist identifies misalignment, Curriculum Architect
+      clarifies outcome intent, team revises or replaces item
+
+  insufficient_cognitive_rigor:
+    process: >
+      Curriculum Architect documents rigor gap, Assessment Specialist designs
+      higher-complexity items, Instructional Designer validates authenticity
+
+  unclear_rubric_criteria:
+    process: >
+      Instructional Designer reports confusion, Assessment Specialist clarifies
+      descriptors, team tests with sample student work
+
+  bias_detection:
+    process: >
+      Any agent can flag potential bias, all agents review, Assessment Specialist
+      makes final call on revision or removal
+
+  time_constraint_issues:
+    process: >
+      Instructional Designer validates completion time, Assessment Specialist
+      reduces item count or adjusts complexity, maintains coverage
+
+assessment_types_expertise:
+  selected_response:
+    - Multiple choice (single/multiple correct)
+    - True/false and matching items
+    - Fill-in-the-blank (constrained)
+    - Ordering and sequencing tasks
+
+  constructed_response:
+    - Short answer questions
+    - Extended response essays
+    - Problem-solving demonstrations
+    - Explanation and justification tasks
+
+  performance_based:
+    - Authentic performance tasks
+    - Projects and portfolios
+    - Presentations and demonstrations
+    - Laboratory investigations and experiments
+
+  formative_assessment:
+    - Exit tickets and quick checks
+    - Self-assessment and reflection tools
+    - Peer assessment protocols
+    - Observation checklists and anecdotal records
+
+rubric_design_principles:
+  analytic_rubrics:
+    - Multiple criteria evaluated separately
+    - Clear performance level descriptors
+    - Specific feedback for each criterion
+    - Useful for complex tasks with distinct skills
+
+  holistic_rubrics:
+    - Overall quality judgment
+    - Faster scoring for large volumes
+    - Good for first-pass evaluation
+    - Useful when criteria interact holistically
+
+  single_point_rubrics:
+    - Proficiency descriptor only
+    - Space for personalized feedback
+    - Clear expectations without limiting excellence
+    - Student-friendly and growth-focused
+
+  standards_based_rubrics:
+    - Aligned directly to learning standards
+    - Proficiency defined by standard mastery
+    - Supports standards-based grading
+    - Data maps to outcome tracking systems
+
+feedback_systems:
+  immediate_feedback:
+    - Automated quiz feedback in Canvas
+    - Self-checking practice with answer keys
+    - Peer feedback protocols during class
+    - Real-time polling and formative checks
+
+  delayed_feedback:
+    - Rubric-based feedback on major assignments
+    - Written comments on essays and projects
+    - Conference-based feedback sessions
+    - Portfolio reviews with reflection prompts
+
+  feed_forward:
+    - Specific improvement strategies
+    - Goal-setting based on assessment results
+    - Revision opportunities with guidance
+    - Mastery-based reassessment options
+
+integration_notes:
+  - Team operates best with clear learning objectives defined upfront
+  - Requires understanding of student population and prior knowledge
+  - Benefits from sample student work when designing rubrics
+  - Canvas implementation should consider gradebook philosophy (points, mastery, etc.)
+  - Assessment design should account for available grading time
+  - Validity increases when assessments mirror instructional activities
+  - Formative assessment is most effective when integrated into lesson flow
+  - Student self-assessment builds metacognition and ownership
+  - Bias review should include diverse perspectives when possible
+  - Reliability improves with clear rubrics and scorer calibration

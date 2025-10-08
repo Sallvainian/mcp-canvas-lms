@@ -1,0 +1,329 @@
+name: Student Engagement Optimization Validation
+description: Validates student engagement strategies using motivation theory and active learning principles
+version: 1.0.0
+theory_base: [self_determination_theory, flow_theory, active_learning, engagement_research]
+
+categories:
+  - category: Intrinsic Motivation (Self-Determination Theory)
+    criteria:
+      - id: autonomy-choice-1
+        item: Students have meaningful choices in learning activities
+        required: true
+        resources: [student-agency.yaml]
+        passing_score: 85
+
+      - id: autonomy-voice-1
+        item: Student voice and input valued in learning process
+        required: true
+        resources: [student-centered-design.md]
+        passing_score: 80
+
+      - id: competence-challenge-1
+        item: Tasks provide optimal challenge (not too easy/hard)
+        required: true
+        resources: [flow-theory.yaml]
+        passing_score: 90
+
+      - id: competence-success-1
+        item: Opportunities for success and mastery experiences
+        required: true
+        resources: [mastery-learning.yaml]
+        passing_score: 85
+
+      - id: competence-feedback-1
+        item: Timely, growth-oriented feedback provided
+        required: true
+        resources: [feedback-quality.yaml]
+        passing_score: 90
+
+      - id: relatedness-connection-1
+        item: Collaborative learning opportunities foster connection
+        required: true
+        resources: [collaborative-learning.yaml]
+        passing_score: 80
+
+      - id: relatedness-belonging-1
+        item: Inclusive environment where all students belong
+        required: true
+        resources: [inclusive-practices.yaml]
+        passing_score: 85
+
+  - category: Active Learning Strategies
+    criteria:
+      - id: active-hands-1
+        item: Hands-on activities engage students actively
+        required: true
+        resources: [active-learning.yaml]
+        passing_score: 85
+
+      - id: active-discussion-1
+        item: Structured discussions promote thinking and dialogue
+        required: true
+        resources: [discussion-protocols.yaml]
+        passing_score: 80
+
+      - id: active-problem-1
+        item: Problem-solving activities require application
+        required: true
+        resources: [problem-based-learning.yaml]
+        passing_score: 85
+
+      - id: active-create-1
+        item: Creative production tasks engage higher-order thinking
+        required: false
+        resources: [creative-learning.yaml]
+        passing_score: 75
+
+      - id: active-ratio-1
+        item: Student talk-time exceeds teacher talk-time
+        required: true
+        resources: [talk-ratio.yaml]
+        passing_score: 80
+
+  - category: Relevance & Authenticity
+    criteria:
+      - id: relevance-realworld-1
+        item: Real-world connections made explicit
+        required: true
+        resources: [authentic-learning.yaml]
+        passing_score: 85
+
+      - id: relevance-context-1
+        item: Learning connected to students' lives and interests
+        required: true
+        resources: [culturally-responsive.yaml]
+        passing_score: 80
+
+      - id: relevance-purpose-1
+        item: Purpose and value of learning clearly communicated
+        required: true
+        resources: [purpose-driven-learning.yaml]
+        passing_score: 85
+
+      - id: authenticity-task-1
+        item: Authentic tasks mirror real-world applications
+        required: false
+        resources: [authentic-assessment.yaml]
+        passing_score: 75
+
+      - id: authenticity-audience-1
+        item: Work shared with authentic audience when possible
+        required: false
+        resources: [audience-based-learning.yaml]
+        passing_score: 70
+
+  - category: Cognitive Engagement (Flow State)
+    criteria:
+      - id: flow-challenge-1
+        item: Challenge level matched to student skill (flow zone)
+        required: true
+        resources: [flow-theory.yaml]
+        passing_score: 85
+
+      - id: flow-focus-1
+        item: Clear goals and immediate feedback maintain focus
+        required: true
+        resources: [focused-learning.yaml]
+        passing_score: 85
+
+      - id: flow-immersion-1
+        item: Activities designed for deep immersion
+        required: false
+        resources: [deep-learning.yaml]
+        passing_score: 75
+
+      - id: cognitive-thinking-1
+        item: Higher-order thinking tasks engage cognition
+        required: true
+        resources: [higher-order-thinking.yaml]
+        passing_score: 85
+
+      - id: cognitive-curiosity-1
+        item: Activities spark curiosity and inquiry
+        required: true
+        resources: [inquiry-based-learning.yaml]
+        passing_score: 80
+
+  - category: Social Engagement
+    criteria:
+      - id: social-collab-1
+        item: Structured collaboration opportunities included
+        required: true
+        resources: [collaborative-learning.yaml]
+        passing_score: 85
+
+      - id: social-interaction-1
+        item: Peer interaction promotes learning (not just socializing)
+        required: true
+        resources: [cooperative-learning.yaml]
+        passing_score: 80
+
+      - id: social-roles-1
+        item: Clear roles and responsibilities in group work
+        required: true
+        resources: [group-work-structures.yaml]
+        passing_score: 80
+
+      - id: social-skills-1
+        item: Social-emotional skills explicitly taught
+        required: false
+        resources: [sel-integration.yaml]
+        passing_score: 70
+
+  - category: Emotional Engagement
+    criteria:
+      - id: emotional-safe-1
+        item: Psychologically safe environment for risk-taking
+        required: true
+        resources: [psychological-safety.yaml]
+        passing_score: 90
+
+      - id: emotional-interest-1
+        item: Content connects to student interests and passions
+        required: true
+        resources: [interest-based-learning.yaml]
+        passing_score: 80
+
+      - id: emotional-fun-1
+        item: Learning experiences are enjoyable and positive
+        required: true
+        resources: [positive-learning-environment.yaml]
+        passing_score: 80
+
+      - id: emotional-care-1
+        item: Teacher demonstrates care and high expectations
+        required: true
+        resources: [caring-pedagogy.yaml]
+        passing_score: 85
+
+  - category: Hook & Anticipatory Set
+    criteria:
+      - id: hook-attention-1
+        item: Opening immediately captures attention
+        required: true
+        resources: [attention-grabbers.yaml]
+        passing_score: 85
+
+      - id: hook-relevant-1
+        item: Hook connects to lesson content and objectives
+        required: true
+        resources: [lesson-plan-quality.yaml]
+        passing_score: 90
+
+      - id: hook-prior-1
+        item: Hook activates prior knowledge
+        required: true
+        resources: [schema-activation.yaml]
+        passing_score: 80
+
+      - id: hook-curiosity-1
+        item: Hook sparks curiosity and questions
+        required: true
+        resources: [curiosity-driven-learning.yaml]
+        passing_score: 80
+
+  - category: Variety & Novelty
+    criteria:
+      - id: variety-activities-1
+        item: Varied activity types maintain engagement
+        required: true
+        resources: [activity-variety.yaml]
+        passing_score: 85
+
+      - id: variety-modalities-1
+        item: Multiple modalities used (visual, auditory, kinesthetic)
+        required: true
+        resources: [udl-checklist.yaml]
+        passing_score: 85
+
+      - id: variety-pacing-1
+        item: Pacing varied to maintain energy and focus
+        required: true
+        resources: [pacing-strategies.yaml]
+        passing_score: 80
+
+      - id: novelty-surprise-1
+        item: Novel elements or surprises maintain interest
+        required: false
+        resources: [novelty-strategies.yaml]
+        passing_score: 70
+
+  - category: Technology Integration
+    criteria:
+      - id: tech-enhance-1
+        item: Technology enhances learning (not just engagement)
+        required: true
+        resources: [technology-integration.yaml]
+        passing_score: 85
+
+      - id: tech-interactive-1
+        item: Interactive digital tools promote active learning
+        required: false
+        resources: [edtech-tools.yaml]
+        passing_score: 75
+
+      - id: tech-accessible-1
+        item: Technology accessible to all students
+        required: true
+        resources: [digital-accessibility.yaml]
+        passing_score: 90
+
+      - id: tech-purposeful-1
+        item: Technology use is purposeful and aligned to objectives
+        required: true
+        resources: [purposeful-tech.yaml]
+        passing_score: 85
+
+  - category: Student Voice & Choice
+    criteria:
+      - id: voice-input-1
+        item: Students contribute ideas and direction to learning
+        required: true
+        resources: [student-agency.yaml]
+        passing_score: 80
+
+      - id: choice-process-1
+        item: Choice in learning process (how to learn)
+        required: true
+        resources: [choice-boards.yaml]
+        passing_score: 80
+
+      - id: choice-product-1
+        item: Choice in learning products (how to demonstrate)
+        required: true
+        resources: [differentiation-quality.yaml]
+        passing_score: 80
+
+      - id: choice-pace-1
+        item: Some flexibility in pacing for individual needs
+        required: false
+        resources: [personalized-learning.yaml]
+        passing_score: 70
+
+scoring:
+  excellent: 95-100
+  good: 85-94
+  acceptable: 75-84
+  needs_improvement: 60-74
+  unacceptable: <60
+
+validation_workflow:
+  - step: Assess intrinsic motivation elements (SDT)
+  - step: Evaluate active learning strategies
+  - step: Check relevance and authenticity
+  - step: Validate cognitive engagement (flow)
+  - step: Review social and emotional engagement
+  - step: Assess variety and novelty
+  - step: Evaluate technology integration
+  - step: Generate engagement optimization report
+
+canvas_integration:
+  - location: discussion_forums
+  - location: collaborative_assignments
+  - location: multimedia_content
+  - location: choice_boards
+  - location: student_polls
+  - validation: engagement_metrics
+  - validation: participation_rates
+  - tools: engagement_analytics
+  - tools: interactive_activities

@@ -1,0 +1,335 @@
+name: Standards Alignment Verification and Correction
+description: Systematic review and correction of course standards alignment to ensure all learning outcomes, assessments, and instruction align to required educational standards
+duration: 1-2 weeks
+difficulty: intermediate
+prerequisites:
+  - Complete course curriculum documentation
+  - Applicable standards documents (state, national, district)
+  - Understanding of standards-based planning
+  - Access to curriculum mapping tools (optional)
+  - Canvas course materials
+
+phases:
+  - phase: 1
+    name: Standards Analysis and Mapping Audit
+    duration: 2-3 days
+    tasks:
+      - task: identify-applicable-standards
+        agent: curriculum-architect
+        templates:
+          - standards-inventory-template.md
+          - standards-analysis-worksheet.md
+        checklists:
+          - standards-identification-checklist.md
+        outputs:
+          - Complete standards inventory
+          - Priority standards identification (20-30% most critical)
+          - Supporting standards list
+          - Vertical alignment documentation (grade level before/after)
+
+      - task: audit-current-alignment
+        agent: curriculum-architect
+        templates:
+          - alignment-audit-template.md
+          - standards-mapping-template.md
+        checklists:
+          - alignment-verification-checklist.md
+        outputs:
+          - Current alignment map (outcomes to standards)
+          - Gap analysis (unaddressed standards)
+          - Redundancy identification (over-addressed standards)
+          - Misalignment documentation (incorrect mappings)
+
+      - task: assess-depth-of-knowledge
+        agent: curriculum-architect
+        templates:
+          - dok-analysis-template.md
+          - cognitive-rigor-matrix.md
+        checklists:
+          - dok-alignment-checklist.md
+        outputs:
+          - DOK level analysis for each standard
+          - Cognitive demand assessment
+          - Rigor alignment verification
+          - DOK distribution across course
+
+    quality_gates:
+      - All applicable standards identified and categorized
+      - Current alignment thoroughly mapped with evidence
+      - Gaps, redundancies, and misalignments documented
+      - DOK levels verified against standard requirements
+
+  - phase: 2
+    name: Learning Outcomes Revision and Alignment
+    duration: 2-3 days
+    tasks:
+      - task: revise-course-outcomes
+        agent: curriculum-architect
+        templates:
+          - learning-outcomes-template.md
+          - outcome-alignment-worksheet.md
+        checklists:
+          - outcome-quality-checklist.md
+          - standards-alignment-checklist.md
+        outputs:
+          - Revised course-level outcomes (5-8 outcomes)
+          - Direct standards alignment for each outcome
+          - Measurable, standards-aligned outcome statements
+          - Outcome progression and scaffolding map
+
+      - task: align-unit-objectives
+        agent: curriculum-architect
+        templates:
+          - unit-objectives-template.md
+          - standards-mapping-template.md
+        checklists:
+          - unit-alignment-checklist.md
+        outputs:
+          - Unit-level objectives aligned to course outcomes
+          - Standards mapped to each unit
+          - Vertical progression across units
+          - Coverage verification (all priority standards addressed)
+
+      - task: create-standards-documentation
+        agent: curriculum-architect
+        templates:
+          - standards-map-template.md
+          - alignment-report-template.md
+        checklists:
+          - documentation-checklist.md
+        outputs:
+          - Complete standards alignment map
+          - Priority standards emphasis plan
+          - Spiral review schedule for key standards
+          - Stakeholder-ready alignment documentation
+
+    quality_gates:
+      - All course outcomes clearly aligned to standards
+      - Each unit addresses appropriate standards
+      - All priority standards covered with sufficient depth
+      - Alignment documentation complete and clear
+
+  - phase: 3
+    name: Assessment Alignment Verification
+    duration: 2-3 days
+    tasks:
+      - task: audit-assessment-alignment
+        agent: assessment-specialist
+        templates:
+          - assessment-alignment-template.md
+          - standards-assessment-matrix.md
+        checklists:
+          - assessment-alignment-checklist.md
+        outputs:
+          - Assessment-to-standards alignment map
+          - DOK level verification for each assessment
+          - Multiple measures verification (3+ per priority standard)
+          - Assessment gap identification
+
+      - task: revise-assessment-coverage
+        agent: assessment-specialist
+        templates:
+          - assessment-blueprint-template.md
+          - assessment-revision-template.md
+        checklists:
+          - assessment-quality-checklist.md
+        outputs:
+          - Revised assessments with clear standard alignment
+          - DOK-appropriate assessment items
+          - Balanced assessment coverage across standards
+          - Assessment modification documentation
+
+      - task: align-rubrics-to-standards
+        agent: assessment-specialist
+        templates:
+          - rubric-template.md
+          - standards-based-rubric-template.md
+        checklists:
+          - rubric-quality-checklist.md
+        outputs:
+          - Standards-aligned rubrics
+          - Performance level descriptions tied to standards
+          - Standard-by-standard scoring options (if appropriate)
+          - Rubric alignment documentation
+
+    quality_gates:
+      - All assessments measure appropriate standards
+      - DOK levels match standard requirements
+      - Multiple forms of evidence for priority standards
+      - Rubrics clearly aligned to standard expectations
+
+  - phase: 4
+    name: Instructional Alignment and Coverage
+    duration: 3-4 days
+    tasks:
+      - task: verify-instructional-alignment
+        agent: instructional-designer
+        templates:
+          - lesson-alignment-template.md
+          - instructional-coverage-matrix.md
+        checklists:
+          - lesson-alignment-checklist.md
+        outputs:
+          - Lesson-to-standard alignment map
+          - Instructional coverage verification
+          - Standard instruction sequencing
+          - Prerequisite skill identification
+
+      - task: adjust-instructional-emphasis
+        agent: instructional-designer
+        templates:
+          - pacing-guide-template.md
+          - emphasis-planning-template.md
+        checklists:
+          - pacing-alignment-checklist.md
+        outputs:
+          - Updated pacing guide with standards emphasis
+          - Time allocation adjustments for priority standards
+          - Spiral review integration points
+          - Standards-driven lesson modifications
+
+      - task: enhance-standards-transparency
+        agent: instructional-designer
+        templates:
+          - student-friendly-standards-template.md
+          - learning-target-template.md
+        checklists:
+          - transparency-checklist.md
+        outputs:
+          - Student-friendly standard statements
+          - Daily learning targets aligned to standards
+          - "I can" statements for each lesson
+          - Standard tracking tools for students
+
+    quality_gates:
+      - All instruction clearly aligned to appropriate standards
+      - Time allocation matches standard priority levels
+      - Standards communicated clearly to students
+      - Lesson sequence supports standard mastery
+
+  - phase: 5
+    name: Canvas Integration and Documentation
+    duration: 2-3 days
+    tasks:
+      - task: update-canvas-alignment-documentation
+        agent: canvas-integration-specialist
+        templates:
+          - canvas-standards-display-template.md
+        checklists:
+          - canvas-alignment-checklist.md
+        outputs:
+          - Standards displayed in course syllabus
+          - Module descriptions include aligned standards
+          - Assignment standards tags
+          - Student-facing standards resources
+
+      - task: configure-standards-based-gradebook
+        agent: canvas-integration-specialist
+        templates:
+          - standards-gradebook-template.md
+        checklists:
+          - gradebook-alignment-checklist.md
+        outputs:
+          - Learning outcomes configured in Canvas (if using)
+          - Assignment outcomes aligned
+          - Standards-based reporting options
+          - Outcome mastery tracking (if applicable)
+
+      - task: create-alignment-reports
+        agent: curriculum-architect
+        templates:
+          - alignment-report-template.md
+          - stakeholder-report-template.md
+        checklists:
+          - reporting-checklist.md
+        outputs:
+          - Comprehensive alignment report
+          - Administrator/department submission documentation
+          - Parent-friendly standards communication
+          - Alignment verification evidence
+
+    quality_gates:
+      - Standards visible and clear throughout Canvas course
+      - Alignment documentation complete and professional
+      - Canvas outcomes configured correctly (if used)
+      - Stakeholder reports ready for submission
+
+agents_involved:
+  - agent: curriculum-architect
+    role: Lead standards analysis, outcome alignment, and documentation
+
+  - agent: assessment-specialist
+    role: Assessment alignment verification and rubric development
+
+  - agent: instructional-designer
+    role: Instructional alignment and student-facing standards communication
+
+  - agent: canvas-integration-specialist
+    role: Canvas outcome configuration and standards display
+
+canvas_integration:
+  mcp_tools_used:
+    - canvas_update_course: Add standards documentation to syllabus
+    - canvas_update_module: Add standard descriptions to modules
+    - canvas_update_assignment: Tag assignments with aligned standards
+    - canvas_create_outcome: Configure learning outcomes (standards)
+    - canvas_update_outcome: Revise outcome descriptions and mastery criteria
+    - canvas_get_outcome_alignments: Verify assignment-outcome alignment
+    - canvas_get_outcome_results: Review student mastery data
+    - canvas_create_page: Build standards reference pages
+    - canvas_update_page: Update course standards documentation
+
+  implementation_sequence:
+    - step: 1
+      action: Review current Canvas alignment
+      tools: [canvas_list_outcomes, canvas_get_outcome_alignments]
+
+    - step: 2
+      action: Update course-level standards documentation
+      tools: [canvas_update_course, canvas_create_page]
+
+    - step: 3
+      action: Configure Canvas outcomes (standards)
+      tools: [canvas_create_outcome, canvas_update_outcome]
+
+    - step: 4
+      action: Tag assignments with standards
+      tools: [canvas_update_assignment]
+
+    - step: 5
+      action: Add standards to module descriptions
+      tools: [canvas_update_module]
+
+    - step: 6
+      action: Verify alignment implementation
+      tools: [canvas_get_outcome_alignments]
+
+success_criteria:
+  - All applicable standards identified and prioritized
+  - 100% of priority standards addressed in outcomes
+  - All assessments aligned with appropriate DOK levels
+  - Instruction provides adequate coverage of all standards
+  - Standards visible and transparent to students
+  - Canvas alignment documentation complete
+  - Stakeholder reports demonstrate comprehensive alignment
+  - Vertical alignment with prior/next grade levels verified
+
+common_pitfalls:
+  - Trying to address too many standards (spread too thin)
+  - Superficial alignment (listing standards without deep instruction)
+  - Mismatching DOK levels (assessing lower than standard requires)
+  - Over-emphasizing supporting standards at expense of priority standards
+  - Using jargon-heavy standard language without student-friendly translation
+  - Not verifying vertical alignment (gaps or redundancy across grades)
+  - Treating alignment as paperwork exercise rather than instructional improvement
+  - Forgetting to communicate alignment clearly to students and parents
+
+resources:
+  - State/National Standards Documents
+  - Webb's Depth of Knowledge Framework
+  - Cognitive Rigor Matrix
+  - Standards Deconstruction Protocols
+  - Priority Standards Selection Criteria
+  - Canvas Outcomes Documentation
+  - Standards-Based Grading Resources
+  - Vertical Alignment Templates

@@ -1,0 +1,338 @@
+name: Unit Redesign with UbD and UDL
+description: Comprehensive redesign of an existing instructional unit using Understanding by Design framework and Universal Design for Learning principles to improve alignment, engagement, and accessibility
+duration: 2-3 weeks
+difficulty: intermediate
+prerequisites:
+  - Existing unit materials and student data
+  - Understanding of UbD backward design
+  - Familiarity with UDL principles
+  - Access to Canvas course for implementation
+  - Student performance data from previous unit delivery
+
+phases:
+  - phase: 1
+    name: Unit Analysis and Gap Identification
+    duration: 3-4 days
+    tasks:
+      - task: analyze-current-unit
+        agent: curriculum-architect
+        templates:
+          - unit-analysis-template.md
+          - gap-analysis-worksheet.md
+        checklists:
+          - unit-review-checklist.md
+        outputs:
+          - Current unit analysis report
+          - Identified strengths and weaknesses
+          - Student performance data analysis
+          - Stakeholder feedback summary
+
+      - task: review-standards-alignment
+        agent: curriculum-architect
+        templates:
+          - standards-mapping-template.md
+          - vertical-alignment-template.md
+        checklists:
+          - standards-alignment-checklist.md
+        outputs:
+          - Standards alignment audit
+          - Gap identification (missing or misaligned standards)
+          - Priority standards list for redesign
+
+      - task: analyze-accessibility-barriers
+        agent: accessibility-specialist
+        templates:
+          - accessibility-audit-template.md
+          - barrier-analysis-worksheet.md
+        checklists:
+          - wcag-compliance-checklist.md
+          - udl-principles-checklist.md
+        outputs:
+          - Accessibility barrier analysis
+          - UDL gap assessment
+          - Priority improvements list
+
+    quality_gates:
+      - Current unit thoroughly analyzed with data evidence
+      - Standards alignment gaps clearly identified
+      - Accessibility barriers documented with severity ratings
+      - Clear redesign priorities established with stakeholder input
+
+  - phase: 2
+    name: Redesign Unit Framework with UbD
+    duration: 4-5 days
+    tasks:
+      - task: clarify-learning-outcomes
+        agent: curriculum-architect
+        templates:
+          - learning-outcomes-template.md
+          - transfer-goals-template.md
+        checklists:
+          - outcome-quality-checklist.md
+        outputs:
+          - Revised transfer goals (1-3)
+          - Refined understandings (3-5 enduring understandings)
+          - Updated essential questions (2-4 questions)
+          - Specific knowledge and skills list
+
+      - task: redesign-unit-assessments
+        agent: assessment-specialist
+        templates:
+          - assessment-blueprint-template.md
+          - performance-task-template.md
+          - rubric-template.md
+        checklists:
+          - assessment-quality-checklist.md
+          - alignment-verification-checklist.md
+        outputs:
+          - Redesigned summative assessment
+          - Authentic performance task (if appropriate)
+          - Updated or new rubrics
+          - Assessment administration plan
+
+      - task: plan-formative-assessments
+        agent: assessment-specialist
+        templates:
+          - formative-assessment-tracker.md
+          - feedback-protocol-template.md
+        checklists:
+          - formative-assessment-checklist.md
+        outputs:
+          - Formative assessment sequence
+          - Progress monitoring checkpoints
+          - Feedback and adjustment protocols
+
+    quality_gates:
+      - Learning outcomes are clear, measurable, and standards-aligned
+      - Assessments directly measure stated outcomes
+      - Multiple forms of evidence planned
+      - UbD backward design framework evident
+
+  - phase: 3
+    name: Develop UDL-Enhanced Learning Plan
+    duration: 5-6 days
+    tasks:
+      - task: design-accessible-learning
+        agent: accessibility-specialist
+        templates:
+          - udl-lesson-template.md
+          - accessibility-checklist-template.md
+        checklists:
+          - udl-principles-checklist.md
+        outputs:
+          - UDL-enhanced learning plan
+          - Multiple means of representation strategies
+          - Multiple means of engagement options
+          - Multiple means of action/expression choices
+
+      - task: redesign-learning-activities
+        agent: instructional-designer
+        templates:
+          - lesson-plan-template.md
+          - learning-activity-template.md
+        checklists:
+          - lesson-quality-checklist.md
+          - engagement-checklist.md
+        outputs:
+          - Redesigned daily lesson plans (5-15 lessons)
+          - Learning activity sequences
+          - Differentiation strategies
+          - Scaffolding and support structures
+
+      - task: create-updated-materials
+        agent: instructional-designer
+        templates:
+          - content-creation-template.md
+          - media-selection-guide.md
+        checklists:
+          - content-quality-checklist.md
+          - accessibility-checklist.md
+        outputs:
+          - Updated instructional materials
+          - New or revised student resources
+          - Multimedia learning materials
+          - Accessible alternative formats
+
+    quality_gates:
+      - UDL principles integrated in all lessons
+      - Learning activities aligned to assessments and outcomes
+      - Multiple pathways to learning provided
+      - All materials meet accessibility standards
+
+  - phase: 4
+    name: Canvas Implementation and Configuration
+    duration: 3-4 days
+    tasks:
+      - task: update-canvas-module
+        agent: canvas-integration-specialist
+        templates:
+          - module-structure-template.md
+          - canvas-migration-checklist.md
+        checklists:
+          - canvas-content-checklist.md
+        outputs:
+          - Updated Canvas module structure
+          - Reorganized lesson sequence
+          - Updated navigation and instructions
+
+      - task: update-assignments-assessments
+        agent: canvas-integration-specialist
+        templates:
+          - assignment-configuration-guide.md
+        checklists:
+          - assignment-checklist.md
+        outputs:
+          - Updated assignment configurations
+          - New or revised rubrics in Canvas
+          - Assessment instructions and resources
+
+      - task: upload-redesigned-content
+        agent: canvas-integration-specialist
+        templates:
+          - content-upload-checklist.md
+        checklists:
+          - canvas-accessibility-checklist.md
+        outputs:
+          - All updated materials uploaded
+          - Multimedia content embedded
+          - Links and resources verified
+
+    quality_gates:
+      - Canvas module reflects redesigned unit structure
+      - All assignments properly configured with rubrics
+      - All content accessible and functional
+      - Student instructions clear and complete
+
+  - phase: 5
+    name: Quality Assurance and Launch
+    duration: 2-3 days
+    tasks:
+      - task: conduct-unit-review
+        agent: curriculum-architect
+        templates:
+          - unit-review-protocol.md
+          - peer-review-rubric.md
+        checklists:
+          - unit-quality-checklist.md
+        outputs:
+          - Unit review report
+          - Quality improvement recommendations
+          - Peer review feedback
+
+      - task: test-student-experience
+        agent: accessibility-specialist
+        templates:
+          - student-experience-test-protocol.md
+        checklists:
+          - student-perspective-checklist.md
+          - accessibility-testing-checklist.md
+        outputs:
+          - Student experience test results
+          - Navigation and usability improvements
+          - Accessibility verification report
+
+      - task: prepare-implementation-support
+        agent: instructional-designer
+        templates:
+          - implementation-guide-template.md
+          - teacher-notes-template.md
+        checklists:
+          - implementation-readiness-checklist.md
+        outputs:
+          - Teacher implementation guide
+          - Unit introduction materials
+          - Implementation monitoring plan
+
+    quality_gates:
+      - All quality checks completed successfully
+      - Unit accessible and functional from student view
+      - Implementation support materials complete
+      - Stakeholder approval obtained
+
+agents_involved:
+  - agent: curriculum-architect
+    role: Lead unit analysis, standards alignment, and overall redesign coordination
+
+  - agent: assessment-specialist
+    role: Assessment redesign, rubric development, and formative assessment planning
+
+  - agent: instructional-designer
+    role: Learning activity design, lesson planning, and instructional materials creation
+
+  - agent: accessibility-specialist
+    role: UDL integration, accessibility compliance, and barrier removal
+
+  - agent: canvas-integration-specialist
+    role: Canvas module update, content migration, and technical implementation
+
+canvas_integration:
+  mcp_tools_used:
+    - canvas_get_module: Retrieve current module configuration
+    - canvas_update_module: Update module settings and requirements
+    - canvas_list_module_items: Review current module content
+    - canvas_create_module_item: Add new learning resources
+    - canvas_update_module_item: Revise existing module items
+    - canvas_delete_module_item: Remove outdated content
+    - canvas_update_assignment: Revise assignment configurations
+    - canvas_create_rubric: Add new assessment rubrics
+    - canvas_update_rubric: Revise existing rubrics
+    - canvas_create_page: Build new content pages
+    - canvas_update_page: Revise existing content pages
+    - canvas_upload_asset_from_url: Import updated media and resources
+
+  implementation_sequence:
+    - step: 1
+      action: Audit current Canvas module
+      tools: [canvas_get_module, canvas_list_module_items]
+
+    - step: 2
+      action: Update module structure and settings
+      tools: [canvas_update_module]
+
+    - step: 3
+      action: Update assignments and rubrics
+      tools: [canvas_update_assignment, canvas_update_rubric, canvas_create_rubric]
+
+    - step: 4
+      action: Remove outdated content
+      tools: [canvas_delete_module_item]
+
+    - step: 5
+      action: Add new learning resources
+      tools: [canvas_create_module_item, canvas_create_page, canvas_upload_asset_from_url]
+
+    - step: 6
+      action: Update existing content
+      tools: [canvas_update_module_item, canvas_update_page]
+
+    - step: 7
+      action: Verify and test
+      tools: [canvas_get_module, canvas_list_module_items]
+
+success_criteria:
+  - Clear improvement in standards alignment from initial audit
+  - All UbD backward design elements present and coherent
+  - UDL principles integrated with multiple pathways evident
+  - All materials meet WCAG 2.1 AA accessibility standards
+  - Student experience testing reveals improved clarity and engagement
+  - Positive peer review feedback on redesign quality
+  - Implementation support materials complete and helpful
+
+common_pitfalls:
+  - Making superficial changes without addressing core design issues
+  - Focusing only on content updates without assessment redesign
+  - Adding activities without removing outdated ones (bloat)
+  - Overlooking accessibility in rush to update content
+  - Not preserving successful elements from original unit
+  - Insufficient testing of student experience before launch
+  - Breaking existing Canvas links and references
+  - Not communicating changes clearly to students
+
+resources:
+  - Understanding by Design (Wiggins & McTighe)
+  - UDL Guidelines 3.0 (CAST)
+  - WCAG 2.1 Quick Reference
+  - Canvas Module Best Practices
+  - Backward Design Unit Planning Guide
+  - Assessment Design Toolkit
+  - Accessibility Remediation Resources
