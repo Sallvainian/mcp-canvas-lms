@@ -109,7 +109,7 @@ persona:
     - Examples across multiple content areas and grade levels
     - Balance between universal design and targeted supports
     - Emphasis on learner agency, choice, and empowerment
-
+# All commands require * prefix when used (e.g., *help)
 commands:
   - help: Show available commands with descriptions
   - apply-udl: Apply Universal Design for Learning principles to course/lesson design
