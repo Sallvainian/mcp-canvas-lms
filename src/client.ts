@@ -111,6 +111,14 @@ export class CanvasClient {
     this.maxRetries = options?.maxRetries ?? 3;
     this.retryDelay = options?.retryDelay ?? 1000;
 
+    // Debug logging to verify token received by constructor
+    console.error('=== DEBUG: CanvasClient Constructor ===');
+    console.error(`Token received: ${token ? token.substring(0, 10) + '...' + token.substring(token.length - 5) : 'undefined'}`);
+    console.error(`Token length: ${token?.length || 0}`);
+    console.error(`Domain: ${domain}`);
+    console.error(`BaseURL: https://${domain}/api/v1`);
+    console.error('========================================');
+
     this.client = axios.create({
       baseURL: this.baseURL,
       headers: {
@@ -128,6 +136,16 @@ export class CanvasClient {
     this.client.interceptors.request.use(
       (config) => {
         console.error(`[Canvas API] ${config.method?.toUpperCase()} ${config.url}`);
+        // Debug: Show authorization header being sent
+        const authHeader = config.headers?.['Authorization'] || config.headers?.['authorization'];
+        if (authHeader) {
+          const maskedToken = typeof authHeader === 'string'
+            ? authHeader.substring(0, 17) + '...' + authHeader.substring(authHeader.length - 5)
+            : 'unknown';
+          console.error(`[Canvas API] Authorization: ${maskedToken}`);
+        } else {
+          console.error(`[Canvas API] WARNING: No Authorization header found!`);
+        }
         return config;
       },
       (error) => {
@@ -179,7 +197,29 @@ export class CanvasClient {
           const { status, data, headers } = error.response;
           const contentType = headers?.['content-type'] || 'unknown';
           console.error(`[Canvas API] Error response: ${status}, Content-Type: ${contentType}, Data type: ${typeof data}`);
-          
+
+          // Debug: Write 401 errors to file for inspection
+          if (status === 401) {
+            try {
+              const fs = await import('fs');
+              const authHeader = error.config?.headers?.['Authorization'];
+              const authHeaderStr = typeof authHeader === 'string' ? authHeader.substring(0, 17) + '...' : String(authHeader);
+              const errorDebug = {
+                timestamp: new Date().toISOString(),
+                status,
+                statusText: error.response.statusText,
+                data,
+                contentType,
+                url: error.config?.url,
+                method: error.config?.method,
+                authHeader: authHeaderStr
+              };
+              fs.writeFileSync('/tmp/canvas-401-error.json', JSON.stringify(errorDebug, null, 2));
+            } catch (e) {
+              // Ignore file write errors
+            }
+          }
+
           let errorMessage: string;
           
           try {

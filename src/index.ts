@@ -13,6 +13,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { CanvasClient } from "./client.js";
 import * as dotenv from "dotenv";
+import * as fs from "fs";
 import {
   CreateCourseArgs,
   UpdateCourseArgs,
@@ -3582,6 +3583,25 @@ async function main() {
 
   const token = process.env.CANVAS_API_TOKEN;
   const domain = process.env.CANVAS_DOMAIN;
+
+  // Debug logging to verify environment variables
+  console.error('=== DEBUG: Environment Variables ===');
+  console.error(`CANVAS_DOMAIN: ${domain}`);
+  console.error(`CANVAS_API_TOKEN: ${token ? token.substring(0, 10) + '...' + token.substring(token.length - 5) : 'undefined'}`);
+  console.error(`All CANVAS_ env vars:`, Object.keys(process.env).filter(k => k.startsWith('CANVAS_')));
+  console.error('====================================');
+
+  // Write debug info to file for inspection
+  const debugInfo = {
+    timestamp: new Date().toISOString(),
+    domain,
+    tokenLength: token?.length || 0,
+    tokenPrefix: token?.substring(0, 10),
+    tokenSuffix: token?.substring(token.length - 5),
+    allCanvasVars: Object.keys(process.env).filter(k => k.startsWith('CANVAS_'))
+  };
+  fs.writeFileSync('/tmp/canvas-mcp-debug.json', JSON.stringify(debugInfo, null, 2));
+  console.error('Debug info written to /tmp/canvas-mcp-debug.json');
 
   if (!token || !domain) {
     console.error("Missing required environment variables:");
