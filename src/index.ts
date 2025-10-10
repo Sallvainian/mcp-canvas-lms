@@ -3263,6 +3263,65 @@ class CanvasMCPServer {
             };
           }
 
+          // Quiz handlers
+          case "canvas_list_quizzes": {
+            const { course_id } = args as { course_id: number };
+            if (!course_id) {
+              throw new Error("Missing required field: course_id");
+            }
+            const quizzes = await this.client.listQuizzes(course_id.toString());
+            return {
+              content: [{ type: "text", text: JSON.stringify(quizzes, null, 2) }]
+            };
+          }
+
+          case "canvas_get_quiz": {
+            const { course_id, quiz_id } = args as { course_id: number; quiz_id: number };
+            if (!course_id || !quiz_id) {
+              throw new Error("Missing required fields: course_id and quiz_id");
+            }
+            const quiz = await this.client.getQuiz(course_id.toString(), quiz_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(quiz, null, 2) }]
+            };
+          }
+
+          case "canvas_create_quiz": {
+            const { course_id, title, quiz_type, time_limit, published, description, due_at } = args as {
+              course_id: number;
+              title: string;
+              quiz_type?: string;
+              time_limit?: number;
+              published?: boolean;
+              description?: string;
+              due_at?: string;
+            };
+            if (!course_id || !title) {
+              throw new Error("Missing required fields: course_id and title");
+            }
+            const quizData: any = { title };
+            if (quiz_type) quizData.quiz_type = quiz_type;
+            if (time_limit) quizData.time_limit = time_limit;
+            if (published !== undefined) quizData.published = published;
+            if (description) quizData.description = description;
+            if (due_at) quizData.due_at = due_at;
+            const quiz = await this.client.createQuiz(course_id, quizData);
+            return {
+              content: [{ type: "text", text: JSON.stringify(quiz, null, 2) }]
+            };
+          }
+
+          case "canvas_start_quiz_attempt": {
+            const { course_id, quiz_id } = args as { course_id: number; quiz_id: number };
+            if (!course_id || !quiz_id) {
+              throw new Error("Missing required fields: course_id and quiz_id");
+            }
+            const submission = await this.client.startQuizAttempt(course_id, quiz_id);
+            return {
+              content: [{ type: "text", text: JSON.stringify(submission, null, 2) }]
+            };
+          }
+
           // Quiz Questions handlers
           case "canvas_list_quiz_questions": {
             const { course_id, quiz_id } = args as { course_id: number; quiz_id: number };
